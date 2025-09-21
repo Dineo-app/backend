@@ -1,5 +1,6 @@
 package com.dineo_backend.dineo.authentication.controller;
 
+import com.dineo_backend.dineo.authentication.dto.AuthResponse;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.service.AuthService;
 import com.dineo_backend.dineo.config.AppConstants;
@@ -40,14 +41,14 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
         try {
-            String result = authService.registerUser(user);
+            AuthResponse result = authService.registerUser(user);
             return ResponseEntity.ok(result);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(new AuthResponse(e.getMessage()));
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(new AuthResponse(e.getMessage()));
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body(AppConstants.INTERNAL_ERROR);
+            return ResponseEntity.internalServerError().body(new AuthResponse(AppConstants.INTERNAL_ERROR));
         }
     }
 
@@ -60,14 +61,14 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User loginRequest) {
         try {
-            String result = authService.loginUser(loginRequest.getEmail(), loginRequest.getPassword());
+            AuthResponse result = authService.loginUser(loginRequest.getEmail(), loginRequest.getPassword());
             return ResponseEntity.ok(result);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(new AuthResponse(e.getMessage()));
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(new AuthResponse(e.getMessage()));
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body(AppConstants.INTERNAL_ERROR);
+            return ResponseEntity.internalServerError().body(new AuthResponse(AppConstants.INTERNAL_ERROR));
         }
     }
 }
