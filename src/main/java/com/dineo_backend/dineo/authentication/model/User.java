@@ -42,6 +42,10 @@ public class User {
     @Size(max = 255)
     private String address;
     
+    @Size(max = 500)
+    @Column(name = "user_image")
+    private String userImage;
+    
     @Column(name = "is_verified")
     private Boolean isVerified = false;
     
@@ -53,10 +57,6 @@ public class User {
     
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-    
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "role_id")
-    private UserRole role;
     
     // Default constructor
     public User() {
@@ -132,6 +132,14 @@ public class User {
         this.address = address;
     }
     
+    public String getUserImage() {
+        return userImage;
+    }
+    
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
+    }
+    
     public Boolean getIsVerified() {
         return isVerified;
     }
@@ -162,19 +170,6 @@ public class User {
     
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
-    }
-    
-    public UserRole getRole() {
-        return role;
-    }
-    
-    public void setRole(UserRole role) {
-        this.role = role;
-    }
-    
-    // Helper method to check role
-    public boolean hasRole(String roleName) {
-        return this.role != null && this.role.getName().equals(roleName);
     }
     
     @PreUpdate

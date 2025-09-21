@@ -1,9 +1,8 @@
 package com.dineo_backend.dineo.authentication.repository;
 
+import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,24 +13,27 @@ import java.util.UUID;
 public interface RoleRepository extends JpaRepository<UserRole, UUID> {
     
     /**
-     * Find role by name
+     * Find UserRole by userId and role
      */
-    Optional<UserRole> findByName(String name);
+    Optional<UserRole> findByUserIdAndRole(UUID userId, Role role);
     
     /**
-     * Check if role exists by name
+     * Find all UserRoles by userId
      */
-    Boolean existsByName(String name);
+    List<UserRole> findByUserId(UUID userId);
     
     /**
-     * Find roles by name containing (case insensitive)
+     * Check if user has specific role
      */
-    @Query("SELECT r FROM UserRole r WHERE LOWER(r.name) LIKE LOWER(CONCAT('%', :searchTerm, '%'))")
-    List<UserRole> findByNameContaining(@Param("searchTerm") String searchTerm);
+    Boolean existsByUserIdAndRole(UUID userId, Role role);
     
     /**
-     * Find all roles ordered by name
+     * Delete UserRole by userId and role
      */
-    @Query("SELECT r FROM UserRole r ORDER BY r.name ASC")
-    List<UserRole> findAllOrderByName();
+    void deleteByUserIdAndRole(UUID userId, Role role);
+    
+    /**
+     * Delete all UserRoles for a user
+     */
+    void deleteByUserId(UUID userId);
 }

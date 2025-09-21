@@ -1,8 +1,8 @@
 package com.dineo_backend.dineo.authentication.service.impl;
 
+import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.model.UserRole;
-import com.dineo_backend.dineo.authentication.model.RoleConstants;
 import com.dineo_backend.dineo.authentication.repository.UserRepository;
 import com.dineo_backend.dineo.authentication.repository.RoleRepository;
 import com.dineo_backend.dineo.authentication.service.AuthService;
@@ -64,15 +64,12 @@ public class AuthServiceImpl implements AuthService {
             // Encode password
             user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-            // Set default CUSTOMER role
-            Optional<UserRole> customerRole = roleRepository.findByName(RoleConstants.CUSTOMER);
-            if (customerRole.isEmpty()) {
-                throw new RuntimeException(AppConstants.ROLE_NOT_FOUND);
-            }
-            user.setRole(customerRole.get());
-
-            // Save user
-            userRepository.save(user);
+            // Save user first
+            User savedUser = userRepository.save(user);
+            
+            // Create UserRole with CUSTOMER role by default
+            UserRole userRole = new UserRole(savedUser.getId(), Role.CUSTOMER);
+            roleRepository.save(userRole);
             
             return AppConstants.USER_REGISTERED_SUCCESS;
             
@@ -147,5 +144,10 @@ public class AuthServiceImpl implements AuthService {
                StringUtils.hasText(user.getPassword()) &&
                StringUtils.hasText(user.getFirstName()) &&
                StringUtils.hasText(user.getLastName());
+    }
+
+    @Override
+    public boolean userHasRole(java.util.UUID userId, Role role) {
+        return roleRepository.existsByUserIdAndRole(userId, role);
     }
 }

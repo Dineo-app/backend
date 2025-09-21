@@ -1,6 +1,9 @@
 package com.dineo_backend.dineo.authentication.service;
 
+import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
+
+import java.util.UUID;
 
 /**
  * Authentication service interface providing user registration and login functionality.
@@ -48,4 +51,13 @@ public interface AuthService {
      * @return true if user data is valid, false otherwise
      */
     boolean isValidUserData(User user);
+
+    /**
+     * Checks if a user has a specific role.
+     * 
+     * @param userId The user's UUID
+     * @param role The role to check for
+     * @return true if user has the role, false otherwise
+     */
+    boolean userHasRole(UUID userId, Role role);
 }

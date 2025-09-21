@@ -1,31 +1,33 @@
 package com.dineo_backend.dineo.authentication.model;
 
+import com.dineo_backend.dineo.authentication.enums.Role;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 import java.util.UUID;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "user_roles")
 public class UserRole {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     
-    @NotBlank
-    @Size(max = 50)
-    @Column(unique = true)
-    private String name;
+    @Column(name = "user_id", nullable = false)
+    private UUID userId;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
     
     // Default constructor
     public UserRole() {
     }
     
-    // Constructor with name
-    public UserRole(String name) {
-        this.name = name;
+    // Constructor with userId and role
+    public UserRole(UUID userId, Role role) {
+        this.userId = userId;
+        this.role = role;
     }
     
     // Getters and Setters
@@ -37,24 +39,41 @@ public class UserRole {
         this.id = id;
     }
     
-    public String getName() {
-        return name;
+    public UUID getUserId() {
+        return userId;
     }
     
-    public void setName(String name) {
-        this.name = name;
+    public void setUserId(UUID userId) {
+        this.userId = userId;
+    }
+    
+    public Role getRole() {
+        return role;
+    }
+    
+    public void setRole(Role role) {
+        this.role = role;
     }
     
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        UserRole role = (UserRole) obj;
-        return name != null ? name.equals(role.name) : role.name == null;
+        UserRole userRole = (UserRole) obj;
+        return id != null ? id.equals(userRole.id) : userRole.id == null;
     }
     
     @Override
     public int hashCode() {
-        return name != null ? name.hashCode() : 0;
+        return id != null ? id.hashCode() : 0;
+    }
+    
+    @Override
+    public String toString() {
+        return "UserRole{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", role=" + role +
+                '}';
     }
 }
