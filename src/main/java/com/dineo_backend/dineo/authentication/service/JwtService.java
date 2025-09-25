@@ -33,11 +33,10 @@ public class JwtService {
      */
     public String generateAccessToken(UUID userId, String email, Role role) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("userId", userId.toString());
-        claims.put("role", role.name());
         claims.put("tokenType", "ACCESS");
         
-        return createToken(claims, email, accessTokenExpiration);
+        // Use userId as subject instead of email
+        return createToken(claims, userId.toString(), accessTokenExpiration);
     }
     
     /**
@@ -45,10 +44,10 @@ public class JwtService {
      */
     public String generateRefreshToken(UUID userId, String email) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("userId", userId.toString());
         claims.put("tokenType", "REFRESH");
         
-        return createToken(claims, email, refreshTokenExpiration);
+        // Use userId as subject instead of email
+        return createToken(claims, userId.toString(), refreshTokenExpiration);
     }
     
     /**
@@ -75,9 +74,10 @@ public class JwtService {
     }
     
     /**
-     * Extract username from token
+     * Extract user ID from token (now stored in subject)
      */
     public String extractUsername(String token) {
+        // Return the user ID since that's what's stored in subject now
         return extractAllClaims(token).getSubject();
     }
     
@@ -85,16 +85,19 @@ public class JwtService {
      * Extract user ID from token
      */
     public UUID extractUserId(String token) {
-        String userIdString = (String) extractAllClaims(token).get("userId");
+        // User ID is now stored in the subject
+        String userIdString = extractAllClaims(token).getSubject();
         return UUID.fromString(userIdString);
     }
     
     /**
-     * Extract role from token
+     * Extract role from token - No longer available in token
+     * This method is kept for backward compatibility but will return null
      */
+    @Deprecated
     public Role extractRole(String token) {
-        String roleString = (String) extractAllClaims(token).get("role");
-        return Role.valueOf(roleString);
+        // Role is no longer stored in tokens
+        return null;
     }
     
     /**
@@ -136,13 +139,20 @@ public class JwtService {
     /**
      * Validate token
      */
-    public Boolean validateToken(String token, String username) {
+    public Boolean validateToken(String token, String userId) {
         try {
-            final String extractedUsername = extractUsername(token);
-            return (extractedUsername.equals(username) && !isTokenExpired(token));
+            final String extractedUserId = extractUsername(token); // This returns user ID now
+            return (extractedUserId.equals(userId) && !isTokenExpired(token));
         } catch (Exception e) {
             return false;
         }
+    }
+    
+    /**
+     * Validate token by user ID
+     */
+    public Boolean validateToken(String token, UUID userId) {
+        return validateToken(token, userId.toString());
     }
     
     /**

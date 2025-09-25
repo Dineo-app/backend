@@ -1,8 +1,9 @@
 package com.dineo_backend.dineo.authentication.service;
 
-import com.dineo_backend.dineo.authentication.dto.AuthResponse;
+import com.dineo_backend.dineo.authentication.dto.AuthData;
 import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
+import com.dineo_backend.dineo.shared.dto.ApiResponse;
 
 import java.util.UUID;
 
@@ -20,22 +21,22 @@ public interface AuthService {
      * Registers a new user in the system with default CUSTOMER role.
      * 
      * @param user The user object containing registration information
-     * @return AuthResponse with JWT tokens and user information
+     * @return ApiResponse with JWT tokens and user information
      * @throws IllegalArgumentException if user data is invalid
      * @throws RuntimeException if user already exists or internal error occurs
      */
-    AuthResponse registerUser(User user);
+    ApiResponse<AuthData> registerUser(User user);
 
     /**
      * Authenticates a user with email and password credentials.
      * 
      * @param email The user's email address
      * @param password The user's plain text password
-     * @return AuthResponse with JWT tokens and user information
+     * @return ApiResponse with JWT tokens and user information
      * @throws IllegalArgumentException if credentials are invalid
      * @throws RuntimeException if authentication fails or internal error occurs
      */
-    AuthResponse loginUser(String email, String password);
+    ApiResponse<AuthData> loginUser(String email, String password);
 
     /**
      * Checks if a user exists by email address.

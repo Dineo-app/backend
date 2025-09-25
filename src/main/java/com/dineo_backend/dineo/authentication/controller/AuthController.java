@@ -1,9 +1,10 @@
 package com.dineo_backend.dineo.authentication.controller;
 
-import com.dineo_backend.dineo.authentication.dto.AuthResponse;
+import com.dineo_backend.dineo.authentication.dto.AuthData;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.service.AuthService;
 import com.dineo_backend.dineo.config.AppConstants;
+import com.dineo_backend.dineo.shared.dto.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 1.0
  */
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1/auth")
 public class AuthController {
 
     private final AuthService authService;
@@ -39,16 +40,19 @@ public class AuthController {
      * @return ResponseEntity with success or error message
      */
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody User user) {
+    public ResponseEntity<ApiResponse<AuthData>> register(@RequestBody User user) {
         try {
-            AuthResponse result = authService.registerUser(user);
-            return ResponseEntity.ok(result);
+            ApiResponse<AuthData> result = authService.registerUser(user);
+            return ResponseEntity.status(result.getStatus()).body(result);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(new AuthResponse(e.getMessage()));
+            ApiResponse<AuthData> errorResponse = ApiResponse.error(e.getMessage());
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(new AuthResponse(e.getMessage()));
+            ApiResponse<AuthData> errorResponse = ApiResponse.error(e.getMessage());
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body(new AuthResponse(AppConstants.INTERNAL_ERROR));
+            ApiResponse<AuthData> errorResponse = ApiResponse.internalError(AppConstants.INTERNAL_ERROR);
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
         }
     }
 
@@ -59,16 +63,19 @@ public class AuthController {
      * @return ResponseEntity with JWT token or error message
      */
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User loginRequest) {
+    public ResponseEntity<ApiResponse<AuthData>> login(@RequestBody User loginRequest) {
         try {
-            AuthResponse result = authService.loginUser(loginRequest.getEmail(), loginRequest.getPassword());
-            return ResponseEntity.ok(result);
+            ApiResponse<AuthData> result = authService.loginUser(loginRequest.getEmail(), loginRequest.getPassword());
+            return ResponseEntity.status(result.getStatus()).body(result);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(new AuthResponse(e.getMessage()));
+            ApiResponse<AuthData> errorResponse = ApiResponse.error(e.getMessage());
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(new AuthResponse(e.getMessage()));
+            ApiResponse<AuthData> errorResponse = ApiResponse.error(e.getMessage());
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body(new AuthResponse(AppConstants.INTERNAL_ERROR));
+            ApiResponse<AuthData> errorResponse = ApiResponse.internalError(AppConstants.INTERNAL_ERROR);
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
         }
     }
 }

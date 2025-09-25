@@ -1,6 +1,6 @@
 package com.dineo_backend.dineo.authentication.service.impl;
 
-import com.dineo_backend.dineo.authentication.dto.AuthResponse;
+import com.dineo_backend.dineo.authentication.dto.AuthData;
 import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.model.UserRole;
@@ -9,6 +9,7 @@ import com.dineo_backend.dineo.authentication.repository.RoleRepository;
 import com.dineo_backend.dineo.authentication.service.AuthService;
 import com.dineo_backend.dineo.authentication.service.JwtService;
 import com.dineo_backend.dineo.config.AppConstants;
+import com.dineo_backend.dineo.shared.dto.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -60,7 +61,7 @@ public class AuthServiceImpl implements AuthService {
      * {@inheritDoc}
      */
     @Override
-    public AuthResponse registerUser(User user) {
+    public ApiResponse<AuthData> registerUser(User user) {
         try {
             // Validate user data
             if (!isValidUserData(user)) {
@@ -86,13 +87,16 @@ public class AuthServiceImpl implements AuthService {
             String accessToken = jwtService.generateAccessToken(savedUser.getId(), savedUser.getEmail(), Role.CUSTOMER);
             String refreshToken = jwtService.generateRefreshToken(savedUser.getId(), savedUser.getEmail());
             
-            // Return success response with tokens
-            return new AuthResponse(
-                AppConstants.USER_REGISTERED_SUCCESS,
+            // Create auth data
+            AuthData authData = new AuthData(
                 accessToken,
                 refreshToken,
-                accessTokenExpiration / 1000 // Convert to seconds
+                accessTokenExpiration / 1000, // Convert to seconds
+                savedUser.getId().toString()
             );
+            
+            // Return success response with tokens
+            return ApiResponse.created(AppConstants.USER_REGISTERED_SUCCESS, authData);
             
         } catch (IllegalArgumentException e) {
             throw e;
@@ -107,7 +111,7 @@ public class AuthServiceImpl implements AuthService {
      * {@inheritDoc}
      */
     @Override
-    public AuthResponse loginUser(String email, String password) {
+    public ApiResponse<AuthData> loginUser(String email, String password) {
         try {
             // Validate input
             if (!StringUtils.hasText(email) || !StringUtils.hasText(password)) {
@@ -135,13 +139,16 @@ public class AuthServiceImpl implements AuthService {
             String accessToken = jwtService.generateAccessToken(user.getId(), user.getEmail(), userRole);
             String refreshToken = jwtService.generateRefreshToken(user.getId(), user.getEmail());
 
-            // Return success response with tokens
-            return new AuthResponse(
-                AppConstants.USER_LOGIN_SUCCESS,
+            // Create auth data
+            AuthData authData = new AuthData(
                 accessToken,
                 refreshToken,
-                accessTokenExpiration / 1000 // Convert to seconds
+                accessTokenExpiration / 1000, // Convert to seconds
+                user.getId().toString()
             );
+
+            // Return success response with tokens
+            return ApiResponse.success(AppConstants.USER_LOGIN_SUCCESS, authData);
             
         } catch (RuntimeException e) {
             throw e;
