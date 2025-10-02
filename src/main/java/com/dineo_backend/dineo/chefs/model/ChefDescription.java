@@ -1,4 +1,4 @@
-package com.dineo_backend.dineo.plats.model;
+package com.dineo_backend.dineo.chefs.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

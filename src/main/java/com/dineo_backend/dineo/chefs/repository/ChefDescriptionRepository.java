@@ -1,6 +1,6 @@
-package com.dineo_backend.dineo.plats.repository;
+package com.dineo_backend.dineo.chefs.repository;
 
-import com.dineo_backend.dineo.plats.model.ChefDescription;
+import com.dineo_backend.dineo.chefs.model.ChefDescription;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -27,7 +27,6 @@ public interface ChefDescriptionRepository extends JpaRepository<ChefDescription
 
     /**
      * Check if a chef description exists for a user
-     * 
      * @param userId The user ID to check
      * @return true if a description exists, false otherwise
      */
