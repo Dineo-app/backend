@@ -1,6 +1,7 @@
 package com.dineo_backend.dineo.authentication.service;
 
 import com.dineo_backend.dineo.authentication.dto.AuthData;
+import com.dineo_backend.dineo.authentication.dto.UpdatePasswordRequest;
 import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.shared.dto.ApiResponse;
@@ -62,4 +63,15 @@ public interface AuthService {
      * @return true if user has the role, false otherwise
      */
     boolean userHasRole(UUID userId, Role role);
+
+    /**
+     * Updates a user's password after validating the current password.
+     * 
+     * @param userId The authenticated user's UUID (extracted from JWT)
+     * @param updatePasswordRequest The password update request containing old, new, and confirm passwords
+     * @return ApiResponse indicating success or failure
+     * @throws IllegalArgumentException if passwords don't match or are invalid
+     * @throws RuntimeException if user not found or update fails
+     */
+    ApiResponse<String> updatePassword(UUID userId, UpdatePasswordRequest updatePasswordRequest);
 }

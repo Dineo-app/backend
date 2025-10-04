@@ -1,7 +1,6 @@
 package com.dineo_backend.dineo.config;
 
-import com.dineo_backend.dineo.authentication.model.User;
-import com.dineo_backend.dineo.authentication.repository.UserRepository;
+
 import com.dineo_backend.dineo.authentication.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -17,7 +16,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * JWT Authentication Filter to validate JWT tokens in incoming requests

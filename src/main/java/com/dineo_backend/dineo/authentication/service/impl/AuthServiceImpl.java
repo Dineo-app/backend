@@ -1,6 +1,7 @@
 package com.dineo_backend.dineo.authentication.service.impl;
 
 import com.dineo_backend.dineo.authentication.dto.AuthData;
+import com.dineo_backend.dineo.authentication.dto.UpdatePasswordRequest;
 import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.model.UserRole;
@@ -8,8 +9,10 @@ import com.dineo_backend.dineo.authentication.repository.UserRepository;
 import com.dineo_backend.dineo.authentication.repository.RoleRepository;
 import com.dineo_backend.dineo.authentication.service.AuthService;
 import com.dineo_backend.dineo.authentication.service.JwtService;
-import com.dineo_backend.dineo.config.AppConstants;
+import com.dineo_backend.dineo.authentication.config.AppConstants;
 import com.dineo_backend.dineo.shared.dto.ApiResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +21,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * Implementation of {@link AuthService} providing authentication functionality.
@@ -29,6 +33,8 @@ import java.util.Optional;
  */
 @Service
 public class AuthServiceImpl implements AuthService {
+
+    private static final Logger logger = LoggerFactory.getLogger(AuthServiceImpl.class);
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
@@ -190,5 +196,76 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public boolean userHasRole(java.util.UUID userId, Role role) {
         return roleRepository.existsByUserIdAndRole(userId, role);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ApiResponse<String> updatePassword(UUID userId, UpdatePasswordRequest updatePasswordRequest) {
+        logger.info("Password update request received for user ID: {}", userId);
+        
+        try {
+            // Validate request data
+            if (updatePasswordRequest.getOldPassword() == null || updatePasswordRequest.getOldPassword().trim().isEmpty()) {
+                logger.warn("Old password is missing for user ID: {}", userId);
+                return ApiResponse.error(400, AppConstants.OLD_PASSWORD_REQUIRED);
+            }
+            
+            if (updatePasswordRequest.getNewPassword() == null || updatePasswordRequest.getNewPassword().trim().isEmpty()) {
+                logger.warn("New password is missing for user ID: {}", userId);
+                return ApiResponse.error(400, AppConstants.NEW_PASSWORD_REQUIRED);
+            }
+            
+            if (updatePasswordRequest.getConfirmPassword() == null || updatePasswordRequest.getConfirmPassword().trim().isEmpty()) {
+                logger.warn("Confirm password is missing for user ID: {}", userId);
+                return ApiResponse.error(400, AppConstants.CONFIRM_PASSWORD_REQUIRED);
+            }
+            
+            // Check if new password and confirm password match
+            if (!updatePasswordRequest.getNewPassword().equals(updatePasswordRequest.getConfirmPassword())) {
+                logger.warn("Password confirmation mismatch for user ID: {}", userId);
+                return ApiResponse.error(400, AppConstants.PASSWORD_MISMATCH);
+            }
+            
+            // Check if new password is different from old password
+            if (updatePasswordRequest.getOldPassword().equals(updatePasswordRequest.getNewPassword())) {
+                logger.warn("New password is same as current password for user ID: {}", userId);
+                return ApiResponse.error(400, AppConstants.NEW_PASSWORD_SAME_AS_CURRENT);
+            }
+            
+            // Find user by ID
+            Optional<User> optionalUser = userRepository.findById(userId);
+            if (optionalUser.isEmpty()) {
+                logger.error("User not found with ID: {}", userId);
+                return ApiResponse.error(404, AppConstants.USER_NOT_FOUND);
+            }
+            
+            User user = optionalUser.get();
+            
+            // Verify current password
+            if (!passwordEncoder.matches(updatePasswordRequest.getOldPassword(), user.getPassword())) {
+                logger.warn("Current password verification failed for user ID: {}", userId);
+                return ApiResponse.error(400, AppConstants.CURRENT_PASSWORD_INCORRECT);
+            }
+            
+            // Validate new password strength (minimum 8 characters)
+            if (updatePasswordRequest.getNewPassword().length() < 8) {
+                logger.warn("New password too weak for user ID: {}", userId);
+                return ApiResponse.error(400, AppConstants.PASSWORD_TOO_WEAK);
+            }
+            
+            // Update password
+            String encodedNewPassword = passwordEncoder.encode(updatePasswordRequest.getNewPassword());
+            user.setPassword(encodedNewPassword);
+            userRepository.save(user);
+            
+            logger.info("Password updated successfully for user ID: {}", userId);
+            return ApiResponse.success(AppConstants.PASSWORD_UPDATED_SUCCESS, AppConstants.SUCCESS);
+            
+        } catch (Exception e) {
+            logger.error("Error updating password for user ID: {}", userId, e);
+            return ApiResponse.error(500, AppConstants.PASSWORD_UPDATE_FAILED);
+        }
     }
 }
