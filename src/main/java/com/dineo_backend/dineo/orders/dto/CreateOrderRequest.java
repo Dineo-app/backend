@@ -14,6 +14,10 @@ public class CreateOrderRequest {
     @NotNull(message = "L'ID du plat est obligatoire")
     private UUID platId;
 
+    @NotNull(message = "La quantité est obligatoire")
+    @jakarta.validation.constraints.Min(value = 1, message = "La quantité doit être au moins 1")
+    private Integer quantity = 1;
+
     @Size(max = 1000, message = "La description ne peut pas dépasser 1000 caractères")
     private String description;
 
@@ -23,14 +27,16 @@ public class CreateOrderRequest {
     public CreateOrderRequest() {}
 
     // Constructor with required fields
-    public CreateOrderRequest(UUID platId, String description) {
+    public CreateOrderRequest(UUID platId, Integer quantity, String description) {
         this.platId = platId;
+        this.quantity = quantity;
         this.description = description;
     }
 
     // Constructor with all fields
-    public CreateOrderRequest(UUID platId, String description, String deliveryAddress) {
+    public CreateOrderRequest(UUID platId, Integer quantity, String description, String deliveryAddress) {
         this.platId = platId;
+        this.quantity = quantity;
         this.description = description;
         this.deliveryAddress = deliveryAddress;
     }
@@ -42,6 +48,14 @@ public class CreateOrderRequest {
 
     public void setPlatId(UUID platId) {
         this.platId = platId;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public String getDescription() {
@@ -64,6 +78,7 @@ public class CreateOrderRequest {
     public String toString() {
         return "CreateOrderRequest{" +
                 "platId=" + platId +
+                ", quantity=" + quantity +
                 ", description='" + description + '\'' +
                 ", deliveryAddress='" + deliveryAddress + '\'' +
                 '}';

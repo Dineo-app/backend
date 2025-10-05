@@ -14,7 +14,7 @@ public class UpdateOrderStatusRequest {
     @NotNull(message = "Le statut de la commande est obligatoire")
     private OrderStatus status;
 
-    private String chefNotes;
+    private String orderNotes;
 
     private LocalDateTime estimatedDeliveryTime;
 
@@ -29,10 +29,10 @@ public class UpdateOrderStatusRequest {
     }
 
     // Constructor with all fields
-    public UpdateOrderStatusRequest(OrderStatus status, String chefNotes, 
+    public UpdateOrderStatusRequest(OrderStatus status, String orderNotes, 
                                    LocalDateTime estimatedDeliveryTime, Double totalPrice) {
         this.status = status;
-        this.chefNotes = chefNotes;
+        this.orderNotes = orderNotes;
         this.estimatedDeliveryTime = estimatedDeliveryTime;
         this.totalPrice = totalPrice;
     }
@@ -46,12 +46,12 @@ public class UpdateOrderStatusRequest {
         this.status = status;
     }
 
-    public String getChefNotes() {
-        return chefNotes;
+    public String getOrderNotes() {
+        return orderNotes;
     }
 
-    public void setChefNotes(String chefNotes) {
-        this.chefNotes = chefNotes;
+    public void setOrderNotes(String orderNotes) {
+        this.orderNotes = orderNotes;
     }
 
     public LocalDateTime getEstimatedDeliveryTime() {
@@ -74,7 +74,7 @@ public class UpdateOrderStatusRequest {
     public String toString() {
         return "UpdateOrderStatusRequest{" +
                 "status=" + status +
-                ", chefNotes='" + chefNotes + '\'' +
+                ", orderNotes='" + orderNotes + '\'' +
                 ", estimatedDeliveryTime=" + estimatedDeliveryTime +
                 ", totalPrice=" + totalPrice +
                 '}';

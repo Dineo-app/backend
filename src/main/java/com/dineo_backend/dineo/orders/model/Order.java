@@ -37,17 +37,18 @@ public class Order {
     @Column(name = "status", nullable = false)
     private OrderStatus status;
 
-    @Column(name = "chef_notes")
-    private String chefNotes;
+    @NotNull
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity = 1;
+
+    @Column(name = "order_notes")
+    private String orderNotes;
 
     @Column(name = "delivery_address")
     private String deliveryAddress;
 
     @Column(name = "estimated_delivery_time")
     private LocalDateTime estimatedDeliveryTime;
-
-    @Column(name = "actual_delivery_time")
-    private LocalDateTime actualDeliveryTime;
 
     @Column(name = "total_price")
     private Double totalPrice;
@@ -71,15 +72,16 @@ public class Order {
         this.platId = platId;
         this.userId = userId;
         this.description = description;
+        this.quantity = 1;
     }
 
     // Constructor with all main fields
-    public Order(UUID platId, UUID userId, String description, OrderStatus status) {
+    public Order(UUID platId, UUID userId, String description, Integer quantity) {
         this();
         this.platId = platId;
         this.userId = userId;
         this.description = description;
-        this.status = status;
+        this.quantity = quantity != null ? quantity : 1;
     }
 
     // Getters and Setters
@@ -123,12 +125,20 @@ public class Order {
         this.status = status;
     }
 
-    public String getChefNotes() {
-        return chefNotes;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setChefNotes(String chefNotes) {
-        this.chefNotes = chefNotes;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getOrderNotes() {
+        return orderNotes;
+    }
+
+    public void setOrderNotes(String orderNotes) {
+        this.orderNotes = orderNotes;
     }
 
     public String getDeliveryAddress() {
@@ -145,14 +155,6 @@ public class Order {
 
     public void setEstimatedDeliveryTime(LocalDateTime estimatedDeliveryTime) {
         this.estimatedDeliveryTime = estimatedDeliveryTime;
-    }
-
-    public LocalDateTime getActualDeliveryTime() {
-        return actualDeliveryTime;
-    }
-
-    public void setActualDeliveryTime(LocalDateTime actualDeliveryTime) {
-        this.actualDeliveryTime = actualDeliveryTime;
     }
 
     public Double getTotalPrice() {
@@ -192,10 +194,10 @@ public class Order {
                 ", userId=" + userId +
                 ", description='" + description + '\'' +
                 ", status=" + status +
-                ", chefNotes='" + chefNotes + '\'' +
+                ", quantity=" + quantity +
+                ", orderNotes='" + orderNotes + '\'' +
                 ", deliveryAddress='" + deliveryAddress + '\'' +
                 ", estimatedDeliveryTime=" + estimatedDeliveryTime +
-                ", actualDeliveryTime=" + actualDeliveryTime +
                 ", totalPrice=" + totalPrice +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

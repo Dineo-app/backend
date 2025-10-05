@@ -33,12 +33,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderResponse createOrder(CreateOrderRequest request, UUID userId) {
-        logger.info("Creating new order for user: {} and plat: {}", userId, request.getPlatId());
+        logger.info("Creating new order for user: {} and plat: {} with quantity: {}", userId, request.getPlatId(), request.getQuantity());
 
         Order order = new Order();
         order.setPlatId(request.getPlatId());
         order.setUserId(userId);
         order.setDescription(request.getDescription());
+        order.setQuantity(request.getQuantity());
         order.setDeliveryAddress(request.getDeliveryAddress());
         order.setStatus(OrderStatus.PENDING);
 
@@ -129,8 +130,8 @@ public class OrderServiceImpl implements OrderService {
 
         order.setStatus(request.getStatus());
         
-        if (request.getChefNotes() != null) {
-            order.setChefNotes(request.getChefNotes());
+        if (request.getOrderNotes() != null) {
+            order.setOrderNotes(request.getOrderNotes());
         }
         
         if (request.getEstimatedDeliveryTime() != null) {
@@ -139,11 +140,6 @@ public class OrderServiceImpl implements OrderService {
         
         if (request.getTotalPrice() != null) {
             order.setTotalPrice(request.getTotalPrice());
-        }
-
-        // Set actual delivery time if order is completed
-        if (request.getStatus() == OrderStatus.COMPLETED) {
-            order.setActualDeliveryTime(LocalDateTime.now());
         }
 
         Order updatedOrder = orderRepository.save(order);
@@ -298,10 +294,10 @@ public class OrderServiceImpl implements OrderService {
                 order.getUserId(),
                 order.getDescription(),
                 order.getStatus(),
-                order.getChefNotes(),
+                order.getQuantity(),
+                order.getOrderNotes(),
                 order.getDeliveryAddress(),
                 order.getEstimatedDeliveryTime(),
-                order.getActualDeliveryTime(),
                 order.getTotalPrice(),
                 order.getCreatedAt(),
                 order.getUpdatedAt()

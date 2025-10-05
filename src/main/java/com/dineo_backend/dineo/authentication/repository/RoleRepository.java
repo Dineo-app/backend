@@ -28,6 +28,11 @@ public interface RoleRepository extends JpaRepository<UserRole, UUID> {
     Boolean existsByUserIdAndRole(UUID userId, Role role);
     
     /**
+     * Find all UserRoles by role
+     */
+    List<UserRole> findByRole(Role role);
+    
+    /**
      * Delete UserRole by userId and role
      */
     void deleteByUserIdAndRole(UUID userId, Role role);

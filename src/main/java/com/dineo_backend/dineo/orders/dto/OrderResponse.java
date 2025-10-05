@@ -17,10 +17,10 @@ public class OrderResponse {
     private String description;
     private OrderStatus status;
     private String statusLabel;
-    private String chefNotes;
+    private Integer quantity;
+    private String orderNotes;
     private String deliveryAddress;
     private LocalDateTime estimatedDeliveryTime;
-    private LocalDateTime actualDeliveryTime;
     private Double totalPrice;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -30,19 +30,19 @@ public class OrderResponse {
 
     // Constructor with all fields
     public OrderResponse(UUID id, UUID platId, UUID userId, String description, 
-                        OrderStatus status, String chefNotes, String deliveryAddress,
-                        LocalDateTime estimatedDeliveryTime, LocalDateTime actualDeliveryTime,
-                        Double totalPrice, LocalDateTime createdAt, LocalDateTime updatedAt) {
+                        OrderStatus status, Integer quantity, String orderNotes, String deliveryAddress,
+                        LocalDateTime estimatedDeliveryTime, Double totalPrice, 
+                        LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.platId = platId;
         this.userId = userId;
         this.description = description;
         this.status = status;
         this.statusLabel = status != null ? status.getLabel() : null;
-        this.chefNotes = chefNotes;
+        this.quantity = quantity;
+        this.orderNotes = orderNotes;
         this.deliveryAddress = deliveryAddress;
         this.estimatedDeliveryTime = estimatedDeliveryTime;
-        this.actualDeliveryTime = actualDeliveryTime;
         this.totalPrice = totalPrice;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -98,12 +98,20 @@ public class OrderResponse {
         this.statusLabel = statusLabel;
     }
 
-    public String getChefNotes() {
-        return chefNotes;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setChefNotes(String chefNotes) {
-        this.chefNotes = chefNotes;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getOrderNotes() {
+        return orderNotes;
+    }
+
+    public void setOrderNotes(String orderNotes) {
+        this.orderNotes = orderNotes;
     }
 
     public String getDeliveryAddress() {
@@ -120,14 +128,6 @@ public class OrderResponse {
 
     public void setEstimatedDeliveryTime(LocalDateTime estimatedDeliveryTime) {
         this.estimatedDeliveryTime = estimatedDeliveryTime;
-    }
-
-    public LocalDateTime getActualDeliveryTime() {
-        return actualDeliveryTime;
-    }
-
-    public void setActualDeliveryTime(LocalDateTime actualDeliveryTime) {
-        this.actualDeliveryTime = actualDeliveryTime;
     }
 
     public Double getTotalPrice() {
@@ -163,10 +163,10 @@ public class OrderResponse {
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 ", statusLabel='" + statusLabel + '\'' +
-                ", chefNotes='" + chefNotes + '\'' +
+                ", quantity=" + quantity +
+                ", orderNotes='" + orderNotes + '\'' +
                 ", deliveryAddress='" + deliveryAddress + '\'' +
                 ", estimatedDeliveryTime=" + estimatedDeliveryTime +
-                ", actualDeliveryTime=" + actualDeliveryTime +
                 ", totalPrice=" + totalPrice +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

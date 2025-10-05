@@ -1,4 +1,4 @@
-package com.dineo_backend.dineo.orders.repository;
+ package com.dineo_backend.dineo.orders.repository;
 
 import com.dineo_backend.dineo.orders.enums.OrderStatus;
 import com.dineo_backend.dineo.orders.model.Order;
