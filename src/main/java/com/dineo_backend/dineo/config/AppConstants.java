@@ -16,6 +16,11 @@ public final class AppConstants {
     public static final String STATISTICS_RETRIEVED_SUCCESS = "Statistiques récupérées avec succès.";
     public static final String CHECK_COMPLETED_SUCCESS = "Vérification terminée avec succès.";
 
+    // Messages de succès pour les plats
+    public static final String PLAT_CREATED_SUCCESS = "Plat créé avec succès.";
+    public static final String PLATS_RETRIEVED_SUCCESS = "Plats du chef récupérés avec succès.";
+    public static final String PLAT_DELETED_SUCCESS = "Plat supprimé avec succès.";
+
     // Messages d'erreur
     public static final String USER_ALREADY_EXISTS = "L'utilisateur existe déjà.";
     public static final String INVALID_CREDENTIALS = "Email ou mot de passe invalide.";
@@ -24,6 +29,8 @@ public final class AppConstants {
     public static final String INTERNAL_ERROR = "Une erreur interne s'est produite.";
     public static final String PASSWORD_UPDATE_FAILED = "Échec de la mise à jour du mot de passe.";
     public static final String INVALID_TOKEN = "Token invalide.";
+    public static final String JWT_TOKEN_MISSING = "Token JWT manquant.";
+    public static final String JWT_TOKEN_INVALID = "Token JWT invalide.";
     public static final String USER_NOT_FOUND = "Utilisateur non trouvé.";
     public static final String CURRENT_PASSWORD_INCORRECT = "Mot de passe actuel incorrect.";
     

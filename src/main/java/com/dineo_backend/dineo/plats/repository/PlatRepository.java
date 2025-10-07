@@ -26,6 +26,14 @@ public interface PlatRepository extends JpaRepository<Plat, UUID> {
     List<Plat> findByChefId(UUID chefId);
 
     /**
+     * Find all plats by chef ID ordered by creation date (newest first)
+     * 
+     * @param chefId The chef ID to search for
+     * @return List of plats created by the chef, ordered by creation date descending
+     */
+    List<Plat> findByChefIdOrderByCreatedAtDesc(UUID chefId);
+
+    /**
      * Find plat by ID and chef ID (for authorization purposes)
      * 
      * @param id The plat ID
