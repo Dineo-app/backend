@@ -1,14 +1,14 @@
-package com.dineo_backend.dineo.administration.dto;
+package com.dineo_backend.dineo.chefs.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
 /**
- * DTO for chef creation response
- * Contains created user info and chef description details
+ * DTO for chef profile update response
+ * Contains updated user and chef description information
  */
-public class CreateChefResponse {
+public class UpdateChefProfileResponse {
 
     private UUID userId;
     private String firstName;
@@ -16,37 +16,32 @@ public class CreateChefResponse {
     private String email;
     private String phone;
     private String address;
-    private LocalDateTime createdAt;
+    private LocalDateTime userUpdatedAt;
 
-    // Chef Description info
     private UUID chefDescriptionId;
     private String description;
     private List<String> categories;
-
-    // Password info (for email notification)
-    private String temporaryPassword;
-    private Boolean emailSent;
+    private LocalDateTime chefDescriptionUpdatedAt;
 
     // Default constructor
-    public CreateChefResponse() {}
+    public UpdateChefProfileResponse() {}
 
     // Constructor with all fields
-    public CreateChefResponse(UUID userId, String firstName, String lastName, String email,
-                            String phone, String address, LocalDateTime createdAt, UUID chefDescriptionId,
-                            String description, List<String> categories,
-                            String temporaryPassword, Boolean emailSent) {
+    public UpdateChefProfileResponse(UUID userId, String firstName, String lastName, String email,
+                                   String phone, String address, LocalDateTime userUpdatedAt,
+                                   UUID chefDescriptionId, String description, List<String> categories,
+                                   LocalDateTime chefDescriptionUpdatedAt) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.address = address;
-        this.createdAt = createdAt;
+        this.userUpdatedAt = userUpdatedAt;
         this.chefDescriptionId = chefDescriptionId;
         this.description = description;
         this.categories = categories;
-        this.temporaryPassword = temporaryPassword;
-        this.emailSent = emailSent;
+        this.chefDescriptionUpdatedAt = chefDescriptionUpdatedAt;
     }
 
     // Getters and Setters
@@ -98,12 +93,12 @@ public class CreateChefResponse {
         this.address = address;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getUserUpdatedAt() {
+        return userUpdatedAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setUserUpdatedAt(LocalDateTime userUpdatedAt) {
+        this.userUpdatedAt = userUpdatedAt;
     }
 
     public UUID getChefDescriptionId() {
@@ -130,37 +125,28 @@ public class CreateChefResponse {
         this.categories = categories;
     }
 
-    public String getTemporaryPassword() {
-        return temporaryPassword;
+    public LocalDateTime getChefDescriptionUpdatedAt() {
+        return chefDescriptionUpdatedAt;
     }
 
-    public void setTemporaryPassword(String temporaryPassword) {
-        this.temporaryPassword = temporaryPassword;
-    }
-
-    public Boolean getEmailSent() {
-        return emailSent;
-    }
-
-    public void setEmailSent(Boolean emailSent) {
-        this.emailSent = emailSent;
+    public void setChefDescriptionUpdatedAt(LocalDateTime chefDescriptionUpdatedAt) {
+        this.chefDescriptionUpdatedAt = chefDescriptionUpdatedAt;
     }
 
     @Override
     public String toString() {
-        return "CreateChefResponse{" +
+        return "UpdateChefProfileResponse{" +
                 "userId=" + userId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
-                ", createdAt=" + createdAt +
+                ", userUpdatedAt=" + userUpdatedAt +
                 ", chefDescriptionId=" + chefDescriptionId +
                 ", description='" + description + '\'' +
                 ", categories=" + categories +
-                ", temporaryPassword='[HIDDEN]'" +
-                ", emailSent=" + emailSent +
+                ", chefDescriptionUpdatedAt=" + chefDescriptionUpdatedAt +
                 '}';
     }
 }

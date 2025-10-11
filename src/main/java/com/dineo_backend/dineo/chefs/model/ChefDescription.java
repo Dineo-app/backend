@@ -46,6 +46,10 @@ public class ChefDescription {
     @Column(name = "certification")
     private List<String> chefCertifications;
 
+    @Size(max = 500)
+    @Column(name = "chef_cover_img")
+    private String chefCoverImg;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -65,6 +69,17 @@ public class ChefDescription {
         this.description = description;
         this.categories = categories;
         this.chefCertifications = chefCertifications;
+    }
+
+    // Constructor with all fields including chefCoverImg
+    public ChefDescription(UUID userId, String description, List<String> categories, 
+                          List<String> chefCertifications, String chefCoverImg) {
+        this();
+        this.userId = userId;
+        this.description = description;
+        this.categories = categories;
+        this.chefCertifications = chefCertifications;
+        this.chefCoverImg = chefCoverImg;
     }
 
     // Getters and Setters
@@ -108,6 +123,14 @@ public class ChefDescription {
         this.chefCertifications = chefCertifications;
     }
 
+    public String getChefCoverImg() {
+        return chefCoverImg;
+    }
+
+    public void setChefCoverImg(String chefCoverImg) {
+        this.chefCoverImg = chefCoverImg;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -137,6 +160,7 @@ public class ChefDescription {
                 ", description='" + description + '\'' +
                 ", categories=" + categories +
                 ", chefCertifications=" + chefCertifications +
+                ", chefCoverImg='" + chefCoverImg + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

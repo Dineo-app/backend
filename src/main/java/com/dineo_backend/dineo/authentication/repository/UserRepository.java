@@ -24,38 +24,8 @@ public interface UserRepository extends JpaRepository<User, UUID> {
     Boolean existsByEmail(String email);
     
     /**
-     * Find verified users
-     */
-    List<User> findByIsVerified(Boolean isVerified);
-    
-    /**
-     * Find active users
-     */
-    List<User> findByIsActive(Boolean isActive);
-    
-    /**
-     * Find user by email and verification status
-     */
-    Optional<User> findByEmailAndIsVerified(String email, Boolean isVerified);
-    
-    /**
-     * Find user by email and active status
-     */
-    Optional<User> findByEmailAndIsActive(String email, Boolean isActive);
-    
-    /**
      * Find users by first name or last name containing the search term (case insensitive)
      */
     @Query("SELECT u FROM User u WHERE LOWER(u.firstName) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR LOWER(u.lastName) LIKE LOWER(CONCAT('%', :searchTerm, '%'))")
     List<User> findByNameContaining(@Param("searchTerm") String searchTerm);
-    
-    /**
-     * Count users by verification status
-     */
-    long countByIsVerified(Boolean isVerified);
-    
-    /**
-     * Count users by active status
-     */
-    long countByIsActive(Boolean isActive);
 }

@@ -34,23 +34,13 @@ public class User {
     
     @NotBlank
     @Size(max = 120)
-    private String password;
+    private String password; 
     
     @Size(max = 15)
     private String phone;
     
     @Size(max = 255)
     private String address;
-    
-    @Size(max = 500)
-    @Column(name = "user_image")
-    private String userImage;
-    
-    @Column(name = "is_verified")
-    private Boolean isVerified = false;
-    
-    @Column(name = "is_active")
-    private Boolean isActive = true;
     
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -71,8 +61,6 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.isVerified = false;
-        this.isActive = true;
     }
     
     // Getters and Setters
@@ -130,30 +118,6 @@ public class User {
     
     public void setAddress(String address) {
         this.address = address;
-    }
-    
-    public String getUserImage() {
-        return userImage;
-    }
-    
-    public void setUserImage(String userImage) {
-        this.userImage = userImage;
-    }
-    
-    public Boolean getIsVerified() {
-        return isVerified;
-    }
-    
-    public void setIsVerified(Boolean isVerified) {
-        this.isVerified = isVerified;
-    }
-    
-    public Boolean getIsActive() {
-        return isActive;
-    }
-    
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
     }
     
     public LocalDateTime getCreatedAt() {

@@ -72,8 +72,6 @@ public class AdministrationServiceImpl implements AdministrationService {
         user.setPassword(passwordEncoder.encode(generatedPassword));
         user.setPhone(request.getPhone());
         user.setAddress(request.getAddress());
-        user.setIsVerified(false); // Chef will verify on first login
-        user.setIsActive(true);
 
         // Save user
         User savedUser = userRepository.save(user);
@@ -110,8 +108,6 @@ public class AdministrationServiceImpl implements AdministrationService {
             savedUser.getEmail(),
             savedUser.getPhone(),
             savedUser.getAddress(),
-            savedUser.getIsVerified(),
-            savedUser.getIsActive(),
             savedUser.getCreatedAt(),
             savedChefDescription.getId(),
             savedChefDescription.getDescription(),
