@@ -74,4 +74,14 @@ public interface AuthService {
      * @throws RuntimeException if user not found or update fails
      */
     ApiResponse<String> updatePassword(UUID userId, UpdatePasswordRequest updatePasswordRequest);
+
+    /**
+     * Refreshes the access token using a valid refresh token.
+     * 
+     * @param refreshToken The refresh token from the client
+     * @return ApiResponse with new access token and user information
+     * @throws IllegalArgumentException if refresh token is invalid or expired
+     * @throws RuntimeException if user not found or token generation fails
+     */
+    ApiResponse<AuthData> refreshAccessToken(String refreshToken);
 }

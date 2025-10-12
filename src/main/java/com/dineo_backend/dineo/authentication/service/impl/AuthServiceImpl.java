@@ -268,4 +268,83 @@ public class AuthServiceImpl implements AuthService {
             return ApiResponse.error(500, AppConstants.PASSWORD_UPDATE_FAILED);
         }
     }
+
+    /**
+     * Refreshes the access token using a valid refresh token.
+     * Validates the refresh token, extracts the user ID, and generates a new access token.
+     * 
+     * @param refreshToken The refresh token to validate
+     * @return ApiResponse with new access token and user information
+     */
+    @Override
+    public ApiResponse<AuthData> refreshAccessToken(String refreshToken) {
+        logger.info("Token refresh request received");
+        
+        try {
+            // Validate that token is provided
+            if (refreshToken == null || refreshToken.trim().isEmpty()) {
+                logger.warn("Refresh token is missing");
+                return ApiResponse.error(400, AppConstants.JWT_TOKEN_MISSING);
+            }
+            
+            // Check if token is a refresh token
+            if (!jwtService.isRefreshToken(refreshToken)) {
+                logger.warn("Invalid token type - not a refresh token");
+                return ApiResponse.error(400, AppConstants.JWT_TOKEN_INVALID);
+            }
+            
+            // Check if token is expired
+            if (jwtService.isTokenExpired(refreshToken)) {
+                logger.warn("Refresh token is expired");
+                return ApiResponse.error(401, AppConstants.JWT_TOKEN_EXPIRED);
+            }
+            
+            // Extract user ID from refresh token
+            UUID userId;
+            try {
+                userId = jwtService.extractUserId(refreshToken);
+                logger.info("Extracted user ID from refresh token: {}", userId);
+            } catch (Exception e) {
+                logger.error("Failed to extract user ID from refresh token", e);
+                return ApiResponse.error(400, AppConstants.JWT_TOKEN_INVALID);
+            }
+            
+            // Validate token with user ID
+            if (!jwtService.validateToken(refreshToken, userId)) {
+                logger.warn("Refresh token validation failed for user ID: {}", userId);
+                return ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID);
+            }
+            
+            // Find user by ID
+            Optional<User> optionalUser = userRepository.findById(userId);
+            if (optionalUser.isEmpty()) {
+                logger.error("User not found with ID: {}", userId);
+                return ApiResponse.error(404, AppConstants.USER_NOT_FOUND);
+            }
+            
+            User user = optionalUser.get();
+            
+            // Get user role
+            List<UserRole> userRoles = roleRepository.findByUserId(user.getId());
+            Role userRole = userRoles.isEmpty() ? Role.CUSTOMER : userRoles.get(0).getRole();
+            
+            // Generate new access token
+            String newAccessToken = jwtService.generateAccessToken(user.getId(), user.getEmail(), userRole);
+            
+            // Create response with new access token and same refresh token
+            AuthData authData = new AuthData(
+                    newAccessToken,
+                    refreshToken, // Keep the same refresh token
+                    accessTokenExpiration / 1000, // Convert to seconds
+                    user.getId().toString()
+            );
+            
+            logger.info("New access token generated successfully for user ID: {}", userId);
+            return ApiResponse.success("Token rafraîchi avec succès", authData);
+            
+        } catch (Exception e) {
+            logger.error("Error refreshing access token", e);
+            return ApiResponse.error(500, AppConstants.INTERNAL_ERROR);
+        }
+    }
 }

@@ -54,6 +54,8 @@ public class SecurityConfig {
                 .requestMatchers("/api/temp/**").permitAll() // TEMPORARY: Remove in production
                 .requestMatchers("/actuator/**").permitAll()
                 .requestMatchers("/error").permitAll()
+                .requestMatchers("/api/v1/plats/*/reviews").permitAll() // Public access to get plat reviews
+                .requestMatchers("/api/v1/chefs/*/reviews").permitAll() // Public access to get chef reviews
                 .anyRequest().authenticated())
             .authenticationProvider(authenticationProvider())
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

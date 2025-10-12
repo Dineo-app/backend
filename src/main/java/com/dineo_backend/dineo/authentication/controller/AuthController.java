@@ -2,6 +2,7 @@ package com.dineo_backend.dineo.authentication.controller;
 
 import com.dineo_backend.dineo.authentication.dto.AuthData;
 import com.dineo_backend.dineo.authentication.dto.LoginRequest;
+import com.dineo_backend.dineo.authentication.dto.RefreshTokenRequest;
 import com.dineo_backend.dineo.authentication.dto.UpdatePasswordRequest;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.service.AuthService;
@@ -152,6 +153,38 @@ public class AuthController {
         } catch (Exception e) {
             logger.error("Unexpected error during password update", e);
             ApiResponse<String> errorResponse = ApiResponse.internalError(AppConstants.INTERNAL_ERROR);
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+        }
+    }
+
+    /**
+     * Refreshes the access token using a valid refresh token.
+     * 
+     * @param refreshTokenRequest Request containing the refresh token
+     * @return ResponseEntity with new access token or error message
+     */
+    @PostMapping("/refresh")
+    public ResponseEntity<ApiResponse<AuthData>> refresh(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
+        
+        logger.info("Token refresh request received");
+        
+        try {
+            ApiResponse<AuthData> result = authService.refreshAccessToken(refreshTokenRequest.getRefreshToken());
+            return ResponseEntity.status(result.getStatus()).body(result);
+            
+        } catch (IllegalArgumentException e) {
+            logger.error("Invalid refresh token: {}", e.getMessage());
+            ApiResponse<AuthData> errorResponse = ApiResponse.error(e.getMessage());
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+            
+        } catch (RuntimeException e) {
+            logger.error("Runtime error during token refresh: {}", e.getMessage());
+            ApiResponse<AuthData> errorResponse = ApiResponse.error(e.getMessage());
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+            
+        } catch (Exception e) {
+            logger.error("Unexpected error during token refresh", e);
+            ApiResponse<AuthData> errorResponse = ApiResponse.internalError(AppConstants.INTERNAL_ERROR);
             return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
         }
     }

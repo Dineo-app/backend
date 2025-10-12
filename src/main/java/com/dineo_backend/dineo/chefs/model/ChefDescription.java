@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -46,6 +47,14 @@ public class ChefDescription {
     @Column(name = "certification")
     private List<String> chefCertifications;
 
+    @ElementCollection
+    @CollectionTable(
+        name = "chef_certification_images", 
+        joinColumns = @JoinColumn(name = "chef_description_id")
+    )
+    @Column(name = "certification_image_url")
+    private List<String> chefCertificationImages;
+
     @Size(max = 500)
     @Column(name = "chef_cover_img")
     private String chefCoverImg;
@@ -69,6 +78,7 @@ public class ChefDescription {
         this.description = description;
         this.categories = categories;
         this.chefCertifications = chefCertifications;
+        this.chefCertificationImages = new ArrayList<>();
     }
 
     // Constructor with all fields including chefCoverImg
@@ -80,6 +90,7 @@ public class ChefDescription {
         this.categories = categories;
         this.chefCertifications = chefCertifications;
         this.chefCoverImg = chefCoverImg;
+        this.chefCertificationImages = new ArrayList<>();
     }
 
     // Getters and Setters
@@ -123,6 +134,14 @@ public class ChefDescription {
         this.chefCertifications = chefCertifications;
     }
 
+    public List<String> getChefCertificationImages() {
+        return chefCertificationImages;
+    }
+
+    public void setChefCertificationImages(List<String> chefCertificationImages) {
+        this.chefCertificationImages = chefCertificationImages;
+    }
+
     public String getChefCoverImg() {
         return chefCoverImg;
     }
@@ -160,6 +179,7 @@ public class ChefDescription {
                 ", description='" + description + '\'' +
                 ", categories=" + categories +
                 ", chefCertifications=" + chefCertifications +
+                ", chefCertificationImages=" + chefCertificationImages +
                 ", chefCoverImg='" + chefCoverImg + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
