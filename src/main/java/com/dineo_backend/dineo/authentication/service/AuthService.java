@@ -29,15 +29,15 @@ public interface AuthService {
     ApiResponse<AuthData> registerUser(User user);
 
     /**
-     * Authenticates a user with email and password credentials.
+     * Authenticates a user with email/phone and password credentials.
      * 
-     * @param email The user's email address
+     * @param identifier The user's email address or phone number
      * @param password The user's plain text password
      * @return ApiResponse with JWT tokens and user information
      * @throws IllegalArgumentException if credentials are invalid
      * @throws RuntimeException if authentication fails or internal error occurs
      */
-    ApiResponse<AuthData> loginUser(String email, String password);
+    ApiResponse<AuthData> loginUser(String identifier, String password);
 
     /**
      * Checks if a user exists by email address.

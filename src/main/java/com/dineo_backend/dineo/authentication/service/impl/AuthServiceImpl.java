@@ -74,9 +74,14 @@ public class AuthServiceImpl implements AuthService {
                 throw new IllegalArgumentException(AppConstants.INVALID_USER_DATA);
             }
 
-            // Check if user already exists
+            // Check if user already exists by email
             if (userExists(user.getEmail())) {
                 throw new RuntimeException(AppConstants.USER_ALREADY_EXISTS);
+            }
+
+            // Check if phone number already exists (if phone is provided)
+            if (StringUtils.hasText(user.getPhone()) && userRepository.existsByPhone(user.getPhone())) {
+                throw new RuntimeException("Le numéro de téléphone est déjà enregistré.");
             }
 
             // Encode password
@@ -117,15 +122,15 @@ public class AuthServiceImpl implements AuthService {
      * {@inheritDoc}
      */
     @Override
-    public ApiResponse<AuthData> loginUser(String email, String password) {
+    public ApiResponse<AuthData> loginUser(String identifier, String password) {
         try {
             // Validate input
-            if (!StringUtils.hasText(email) || !StringUtils.hasText(password)) {
+            if (!StringUtils.hasText(identifier) || !StringUtils.hasText(password)) {
                 throw new IllegalArgumentException(AppConstants.INVALID_CREDENTIALS);
             }
 
-            // Find user by email
-            Optional<User> userOpt = userRepository.findByEmail(email);
+            // Find user by email or phone
+            Optional<User> userOpt = userRepository.findByEmailOrPhone(identifier);
             if (userOpt.isEmpty()) {
                 throw new RuntimeException(AppConstants.INVALID_CREDENTIALS);
             }

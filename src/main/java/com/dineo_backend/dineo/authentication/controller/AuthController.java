@@ -75,14 +75,16 @@ public class AuthController {
 
     /**
      * Authenticates a user and returns a JWT token.
+     * Supports login with either email or phone number.
      * 
-     * @param loginRequest User login credentials (email and password only)
+     * @param loginRequest User login credentials (email/phone and password)
      * @return ResponseEntity with JWT token or error message
      */
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<AuthData>> login(@Valid @RequestBody LoginRequest loginRequest) {
         try {
-            ApiResponse<AuthData> result = authService.loginUser(loginRequest.getEmail(), loginRequest.getPassword());
+            // Use the username field which can be either email or phone
+            ApiResponse<AuthData> result = authService.loginUser(loginRequest.getUsername(), loginRequest.getPassword());
             return ResponseEntity.status(result.getStatus()).body(result);
         } catch (IllegalArgumentException e) {
             ApiResponse<AuthData> errorResponse = ApiResponse.error(e.getMessage());

@@ -36,7 +36,9 @@ public class User {
     @Size(max = 120)
     private String password; 
     
+    @NotBlank(message = "Phone number is required")
     @Size(max = 15)
+    @Column(unique = true)
     private String phone;
     
     @Size(max = 255)

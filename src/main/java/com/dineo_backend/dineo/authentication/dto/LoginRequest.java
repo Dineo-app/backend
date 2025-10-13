@@ -1,16 +1,15 @@
 package com.dineo_backend.dineo.authentication.dto;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 /**
  * Data Transfer Object for user login request
+ * Supports login with either email or phone number
  */
 public class LoginRequest {
 
-    @NotBlank(message = "Email is required")
-    @Email(message = "Invalid email format")
-    private String email;
+    @NotBlank(message = "Username (email or phone) is required")
+    private String username; // Can be either email or phone
 
     @NotBlank(message = "Password is required")
     private String password;
@@ -19,18 +18,36 @@ public class LoginRequest {
     public LoginRequest() {}
 
     // Constructor with all fields
-    public LoginRequest(String email, String password) {
-        this.email = email;
+    public LoginRequest(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
     // Getters and Setters
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @deprecated Use getUsername() instead
+     * This method is kept for backward compatibility
+     */
+    @Deprecated
+    public String getEmail() {
+        return username;
+    }
+
+    /**
+     * @deprecated Use setUsername() instead  
+     * This method is kept for backward compatibility
+     */
+    @Deprecated
     public void setEmail(String email) {
-        this.email = email;
+        this.username = email;
     }
 
     public String getPassword() {
@@ -41,10 +58,24 @@ public class LoginRequest {
         this.password = password;
     }
 
+    /**
+     * Check if the username is an email format
+     */
+    public boolean isEmail() {
+        return username != null && username.contains("@");
+    }
+
+    /**
+     * Check if the username is a phone number format
+     */
+    public boolean isPhone() {
+        return username != null && !username.contains("@") && username.matches("^[+]?[0-9\\s-]{8,15}$");
+    }
+
     @Override
     public String toString() {
         return "LoginRequest{" +
-                "email='" + email + '\'' +
+                "username='" + username + '\'' +
                 ", password='[PROTECTED]'" +
                 '}';
     }
