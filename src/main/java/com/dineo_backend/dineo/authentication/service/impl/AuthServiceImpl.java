@@ -2,6 +2,7 @@ package com.dineo_backend.dineo.authentication.service.impl;
 
 import com.dineo_backend.dineo.authentication.dto.AuthData;
 import com.dineo_backend.dineo.authentication.dto.UpdatePasswordRequest;
+import com.dineo_backend.dineo.authentication.dto.UserInfo;
 import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.model.UserRole;
@@ -150,12 +151,23 @@ public class AuthServiceImpl implements AuthService {
             String accessToken = jwtService.generateAccessToken(user.getId(), user.getEmail(), userRole);
             String refreshToken = jwtService.generateRefreshToken(user.getId(), user.getEmail());
 
-            // Create auth data
+            // Create user info
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId(user.getId().toString());
+            userInfo.setFirstName(user.getFirstName());
+            userInfo.setLastName(user.getLastName());
+            userInfo.setEmail(user.getEmail());
+            userInfo.setPhone(user.getPhone());
+            userInfo.setAddress(user.getAddress());
+            userInfo.setRole(userRole.name());
+
+            // Create auth data with user information
             AuthData authData = new AuthData(
                 accessToken,
                 refreshToken,
                 accessTokenExpiration / 1000, // Convert to seconds
-                user.getId().toString()
+                user.getId().toString(),
+                userInfo
             );
 
             // Return success response with tokens

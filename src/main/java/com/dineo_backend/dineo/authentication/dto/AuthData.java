@@ -22,6 +22,9 @@ public class AuthData {
     @JsonProperty("user_id")
     private String userId;
     
+    @JsonProperty("user")
+    private UserInfo user;
+    
     // Default constructor
     public AuthData() {
     }
@@ -32,6 +35,15 @@ public class AuthData {
         this.refreshToken = refreshToken;
         this.expiresIn = expiresIn;
         this.userId = userId;
+    }
+    
+    // Constructor with user information
+    public AuthData(String accessToken, String refreshToken, long expiresIn, String userId, UserInfo user) {
+        this.accessToken = accessToken;
+        this.refreshToken = refreshToken;
+        this.expiresIn = expiresIn;
+        this.userId = userId;
+        this.user = user;
     }
     
     // Getters and Setters
@@ -73,5 +85,13 @@ public class AuthData {
     
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+    
+    public UserInfo getUser() {
+        return user;
+    }
+    
+    public void setUser(UserInfo user) {
+        this.user = user;
     }
 }
