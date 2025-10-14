@@ -47,6 +47,16 @@ public interface PlatService {
     void deletePlat(UUID platId, UUID chefUserId);
     
     /**
+     * Get a single plat by ID
+     * Returns plat details for any authenticated user
+     * 
+     * @param platId the plat ID to retrieve
+     * @return the plat details
+     * @throws RuntimeException if plat not found
+     */
+    CreatePlatResponse getPlatById(UUID platId);
+    
+    /**
      * Validate that user has PROVIDER role (is a chef)
      * 
      * @param userId the user ID to check

@@ -25,6 +25,10 @@ public class CreatePlatRequest {
     @Positive(message = "Le temps de cuisson doit être positif")
     private Integer estimatedCookTime; // in minutes
 
+    @NotNull(message = "Le prix est obligatoire")
+    @Positive(message = "Le prix doit être positif")
+    private Double price; // Price in euros
+
     @NotNull(message = "Les catégories sont obligatoires")
     @Size(min = 1, message = "Au moins une catégorie est requise")
     private List<String> categories;
@@ -33,10 +37,11 @@ public class CreatePlatRequest {
     public CreatePlatRequest() {}
 
     // Constructor with all fields
-    public CreatePlatRequest(String name, String description, Integer estimatedCookTime, List<String> categories) {
+    public CreatePlatRequest(String name, String description, Integer estimatedCookTime, Double price, List<String> categories) {
         this.name = name;
         this.description = description;
         this.estimatedCookTime = estimatedCookTime;
+        this.price = price;
         this.categories = categories;
     }
 
@@ -65,6 +70,14 @@ public class CreatePlatRequest {
         this.estimatedCookTime = estimatedCookTime;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     public List<String> getCategories() {
         return categories;
     }
@@ -79,6 +92,7 @@ public class CreatePlatRequest {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", estimatedCookTime=" + estimatedCookTime +
+                ", price=" + price +
                 ", categories=" + categories +
                 '}';
     }

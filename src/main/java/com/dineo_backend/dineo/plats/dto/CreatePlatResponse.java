@@ -15,6 +15,7 @@ public class CreatePlatResponse {
     private String name;
     private String description;
     private Integer estimatedCookTime;
+    private Double price;
     private List<String> categories;
     private String imageUrl;
     private LocalDateTime createdAt;
@@ -25,13 +26,14 @@ public class CreatePlatResponse {
 
     // Constructor with all fields
     public CreatePlatResponse(UUID id, UUID chefId, String name, String description, 
-                             Integer estimatedCookTime, List<String> categories, 
+                             Integer estimatedCookTime, Double price, List<String> categories, 
                              String imageUrl, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.chefId = chefId;
         this.name = name;
         this.description = description;
         this.estimatedCookTime = estimatedCookTime;
+        this.price = price;
         this.categories = categories;
         this.imageUrl = imageUrl;
         this.createdAt = createdAt;
@@ -79,6 +81,14 @@ public class CreatePlatResponse {
         this.estimatedCookTime = estimatedCookTime;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     public List<String> getCategories() {
         return categories;
     }
@@ -119,6 +129,7 @@ public class CreatePlatResponse {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", estimatedCookTime=" + estimatedCookTime +
+                ", price=" + price +
                 ", categories=" + categories +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", createdAt=" + createdAt +

@@ -89,6 +89,10 @@ public class PlatController {
                 return ResponseEntity.badRequest()
                     .body(ApiResponse.error(400, "Le temps de cuisson doit être positif"));
             }
+            if (request.getPrice() == null || request.getPrice() <= 0) {
+                return ResponseEntity.badRequest()
+                    .body(ApiResponse.error(400, "Le prix doit être positif"));
+            }
             if (request.getCategories() == null || request.getCategories().isEmpty()) {
                 return ResponseEntity.badRequest()
                     .body(ApiResponse.error(400, "Au moins une catégorie est requise"));
@@ -212,6 +216,56 @@ public class PlatController {
                 .body(ApiResponse.error(400, e.getMessage()));
         } catch (Exception e) {
             logger.error("Unexpected error deleting plat {}: {}", platId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error(500, "Erreur interne du serveur"));
+        }
+    }
+
+    /**
+     * Get a single plat by ID
+     * Accessible to authenticated users
+     * 
+     * @param platId the ID of the plat to retrieve
+     * @param authHeader the authorization header containing JWT token
+     * @return the plat details
+     */
+    @GetMapping("/{platId}")
+    public ResponseEntity<ApiResponse<CreatePlatResponse>> getPlatById(
+            @PathVariable UUID platId,
+            @RequestHeader("Authorization") String authHeader) {
+        
+        try {
+            logger.info("Received request to get plat: {}", platId);
+
+            // Extract and validate JWT token
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                logger.error("Missing or invalid Authorization header");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(ApiResponse.error(401, AppConstants.JWT_TOKEN_MISSING));
+            }
+
+            String token = authHeader.substring(7);
+            
+            if (!jwtService.isAccessToken(token) || jwtService.isTokenExpired(token)) {
+                logger.error("Invalid or expired JWT token");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID));
+            }
+
+            logger.info("Getting plat details for ID: {}", platId);
+
+            // Get plat by ID
+            CreatePlatResponse platResponse = platService.getPlatById(platId);
+
+            logger.info("Retrieved plat details for ID: {}", platId);
+            return ResponseEntity.ok(ApiResponse.success("Plat récupéré avec succès", platResponse));
+
+        } catch (RuntimeException e) {
+            logger.error("Business error getting plat {}: {}", platId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.error(400, e.getMessage()));
+        } catch (Exception e) {
+            logger.error("Unexpected error getting plat {}: {}", platId, e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(ApiResponse.error(500, "Erreur interne du serveur"));
         }

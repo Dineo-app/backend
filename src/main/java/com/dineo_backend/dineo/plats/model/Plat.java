@@ -39,6 +39,10 @@ public class Plat {
     @Column(name = "estimated_cook_time", nullable = false)
     private Integer estimatedCookTime; // in minutes
 
+    @NotNull
+    @Column(name = "price", nullable = false)
+    private Double price; // Price in euros
+
     @ElementCollection
     @CollectionTable(
         name = "plat_categories", 
@@ -64,12 +68,13 @@ public class Plat {
     }
 
     // Constructor with required fields
-    public Plat(UUID chefId, String name, String description, Integer estimatedCookTime, List<String> categories) {
+    public Plat(UUID chefId, String name, String description, Integer estimatedCookTime, Double price, List<String> categories) {
         this();
         this.chefId = chefId;
         this.name = name;
         this.description = description;
         this.estimatedCookTime = estimatedCookTime;
+        this.price = price;
         this.categories = categories;
     }
 
@@ -112,6 +117,14 @@ public class Plat {
 
     public void setEstimatedCookTime(Integer estimatedCookTime) {
         this.estimatedCookTime = estimatedCookTime;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public List<String> getCategories() {
@@ -159,6 +172,7 @@ public class Plat {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", estimatedCookTime=" + estimatedCookTime +
+                ", price=" + price +
                 ", categories=" + categories +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", createdAt=" + createdAt +

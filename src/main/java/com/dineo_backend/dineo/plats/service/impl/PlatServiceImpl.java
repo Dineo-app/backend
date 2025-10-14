@@ -66,6 +66,7 @@ public class PlatServiceImpl implements PlatService {
             plat.setName(request.getName());
             plat.setDescription(request.getDescription());
             plat.setEstimatedCookTime(request.getEstimatedCookTime());
+            plat.setPrice(request.getPrice());
             plat.setCategories(request.getCategories());
             plat.setImageUrl(imageUrl);
 
@@ -80,6 +81,7 @@ public class PlatServiceImpl implements PlatService {
                 savedPlat.getName(),
                 savedPlat.getDescription(),
                 savedPlat.getEstimatedCookTime(),
+                savedPlat.getPrice(),
                 savedPlat.getCategories(),
                 savedPlat.getImageUrl(),
                 savedPlat.getCreatedAt(),
@@ -118,6 +120,7 @@ public class PlatServiceImpl implements PlatService {
                     plat.getName(),
                     plat.getDescription(),
                     plat.getEstimatedCookTime(),
+                    plat.getPrice(),
                     plat.getCategories(),
                     plat.getImageUrl(),
                     plat.getCreatedAt(),
@@ -176,6 +179,47 @@ public class PlatServiceImpl implements PlatService {
         } catch (Exception e) {
             logger.error("Error deleting plat {} for chef {}: {}", platId, chefUserId, e.getMessage());
             throw new RuntimeException("Erreur lors de la suppression du plat: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public CreatePlatResponse getPlatById(UUID platId) {
+        logger.info("Getting plat details for ID: {}", platId);
+
+        try {
+            // Find plat by ID
+            Optional<Plat> platOptional = platRepository.findById(platId);
+            
+            if (platOptional.isEmpty()) {
+                logger.error("Plat {} not found", platId);
+                throw new RuntimeException("Plat non trouvé.");
+            }
+
+            Plat plat = platOptional.get();
+            logger.info("Found plat '{}' with ID: {}", plat.getName(), platId);
+
+            // Convert to response DTO
+            CreatePlatResponse response = new CreatePlatResponse();
+            response.setId(plat.getId());
+            response.setName(plat.getName());
+            response.setDescription(plat.getDescription());
+            response.setEstimatedCookTime(plat.getEstimatedCookTime());
+            response.setPrice(plat.getPrice());
+            response.setCategories(plat.getCategories());
+            response.setImageUrl(plat.getImageUrl());
+            response.setCreatedAt(plat.getCreatedAt());
+            response.setUpdatedAt(plat.getUpdatedAt());
+            response.setChefId(plat.getChefId());
+
+            logger.info("Plat {} ('{}') retrieved successfully", platId, plat.getName());
+            return response;
+
+        } catch (RuntimeException e) {
+            // Re-throw business logic exceptions
+            throw e;
+        } catch (Exception e) {
+            logger.error("Error getting plat {}: {}", platId, e.getMessage());
+            throw new RuntimeException("Erreur lors de la récupération du plat: " + e.getMessage());
         }
     }
 }
