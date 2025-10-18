@@ -1,6 +1,7 @@
 package com.dineo_backend.dineo.chefs.service;
 
 import com.dineo_backend.dineo.chefs.dto.DeleteCertificationResponse;
+import com.dineo_backend.dineo.chefs.dto.GetChefProfileResponse;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefCoverImageResponse;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefProfileRequest;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefProfileResponse;
@@ -13,6 +14,14 @@ import java.util.UUID;
  * Service interface for chef-related operations
  */
 public interface ChefService {
+
+    /**
+     * Get chef profile including all information
+     * 
+     * @param chefUserId The UUID of the chef user
+     * @return Chef profile response with all information
+     */
+    GetChefProfileResponse getChefProfile(UUID chefUserId);
 
     /**
      * Update chef profile including user information and chef description

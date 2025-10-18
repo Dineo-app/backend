@@ -261,10 +261,16 @@ public class AuthServiceImpl implements AuthService {
             User user = optionalUser.get();
             
             // Verify current password
-            if (!passwordEncoder.matches(updatePasswordRequest.getOldPassword(), user.getPassword())) {
-                logger.warn("Current password verification failed for user ID: {}", userId);
+            logger.info("Verifying old password for user: {} (email: {})", userId, user.getEmail());
+            boolean passwordMatches = passwordEncoder.matches(updatePasswordRequest.getOldPassword(), user.getPassword());
+            logger.info("Password match result: {}", passwordMatches);
+            
+            if (!passwordMatches) {
+                logger.warn("Current password verification failed for user ID: {} (email: {})", userId, user.getEmail());
                 return ApiResponse.error(400, AppConstants.CURRENT_PASSWORD_INCORRECT);
             }
+            
+            logger.info("Old password verified successfully for user ID: {}", userId);
             
             // Validate new password strength (minimum 8 characters)
             if (updatePasswordRequest.getNewPassword().length() < 8) {

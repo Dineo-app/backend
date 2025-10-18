@@ -1,6 +1,7 @@
 package com.dineo_backend.dineo.chefs.controller;
 
 import com.dineo_backend.dineo.chefs.dto.DeleteCertificationResponse;
+import com.dineo_backend.dineo.chefs.dto.GetChefProfileResponse;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefCoverImageResponse;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefProfileRequest;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefProfileResponse;
@@ -32,6 +33,47 @@ public class ChefController {
 
     @Autowired
     private ChefService chefService;
+
+    /**
+     * Get chef profile (user information + chef description + cover image + certifications)
+     * Only the authenticated chef can retrieve their own profile
+     */
+    @GetMapping("/profile")
+    @PreAuthorize("hasRole('PROVIDER')")
+    public ResponseEntity<ApiResponse<GetChefProfileResponse>> getChefProfile() {
+        
+        try {
+            // Get authenticated user ID
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            UUID chefUserId = UUID.fromString(authentication.getName());
+            
+            logger.info("Chef profile retrieval request received for user ID: {}", chefUserId);
+
+            GetChefProfileResponse response = chefService.getChefProfile(chefUserId);
+
+            ApiResponse<GetChefProfileResponse> apiResponse = ApiResponse.success(
+                    "Profil du chef récupéré avec succès", 
+                    response
+            );
+
+            logger.info("Chef profile retrieved successfully for user ID: {}", chefUserId);
+            return ResponseEntity.ok(apiResponse);
+
+        } catch (RuntimeException e) {
+            logger.error("Error retrieving chef profile: {}", e.getMessage());
+            ApiResponse<GetChefProfileResponse> errorResponse = ApiResponse.error(
+                    "Erreur lors de la récupération du profil: " + e.getMessage()
+            );
+            return ResponseEntity.badRequest().body(errorResponse);
+
+        } catch (Exception e) {
+            logger.error("Unexpected error retrieving chef profile: {}", e.getMessage(), e);
+            ApiResponse<GetChefProfileResponse> errorResponse = ApiResponse.error(
+                    "Une erreur inattendue s'est produite lors de la récupération du profil"
+            );
+            return ResponseEntity.internalServerError().body(errorResponse);
+        }
+    }
 
     /**
      * Update chef profile (user information + chef description)

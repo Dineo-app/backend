@@ -4,6 +4,7 @@ import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.repository.RoleRepository;
 import com.dineo_backend.dineo.plats.dto.CreatePlatRequest;
 import com.dineo_backend.dineo.plats.dto.CreatePlatResponse;
+import com.dineo_backend.dineo.plats.dto.UpdatePlatRequest;
 import com.dineo_backend.dineo.plats.model.Plat;
 import com.dineo_backend.dineo.plats.repository.PlatRepository;
 import com.dineo_backend.dineo.plats.service.BunnyCdnService;
@@ -69,6 +70,7 @@ public class PlatServiceImpl implements PlatService {
             plat.setPrice(request.getPrice());
             plat.setCategories(request.getCategories());
             plat.setImageUrl(imageUrl);
+            plat.setAvailable(request.getAvailable() != null ? request.getAvailable() : true);
 
             // Save plat
             Plat savedPlat = platRepository.save(plat);
@@ -87,6 +89,7 @@ public class PlatServiceImpl implements PlatService {
                 savedPlat.getCreatedAt(),
                 savedPlat.getUpdatedAt()
             );
+            response.setAvailable(savedPlat.getAvailable());
 
             logger.info("Plat creation completed successfully for chef: {}", chefUserId);
             return response;
@@ -114,18 +117,22 @@ public class PlatServiceImpl implements PlatService {
 
             // Convert to response DTOs
             List<CreatePlatResponse> responseList = chefPlats.stream()
-                .map(plat -> new CreatePlatResponse(
-                    plat.getId(),
-                    plat.getChefId(),
-                    plat.getName(),
-                    plat.getDescription(),
-                    plat.getEstimatedCookTime(),
-                    plat.getPrice(),
-                    plat.getCategories(),
-                    plat.getImageUrl(),
-                    plat.getCreatedAt(),
-                    plat.getUpdatedAt()
-                ))
+                .map(plat -> {
+                    CreatePlatResponse response = new CreatePlatResponse(
+                        plat.getId(),
+                        plat.getChefId(),
+                        plat.getName(),
+                        plat.getDescription(),
+                        plat.getEstimatedCookTime(),
+                        plat.getPrice(),
+                        plat.getCategories(),
+                        plat.getImageUrl(),
+                        plat.getCreatedAt(),
+                        plat.getUpdatedAt()
+                    );
+                    response.setAvailable(plat.getAvailable());
+                    return response;
+                })
                 .collect(Collectors.toList());
 
             logger.info("Successfully converted {} plats to response DTOs for chef: {}", responseList.size(), chefUserId);
@@ -207,6 +214,7 @@ public class PlatServiceImpl implements PlatService {
             response.setPrice(plat.getPrice());
             response.setCategories(plat.getCategories());
             response.setImageUrl(plat.getImageUrl());
+            response.setAvailable(plat.getAvailable());
             response.setCreatedAt(plat.getCreatedAt());
             response.setUpdatedAt(plat.getUpdatedAt());
             response.setChefId(plat.getChefId());
@@ -220,6 +228,87 @@ public class PlatServiceImpl implements PlatService {
         } catch (Exception e) {
             logger.error("Error getting plat {}: {}", platId, e.getMessage());
             throw new RuntimeException("Erreur lors de la récupération du plat: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public CreatePlatResponse updatePlat(UUID platId, UpdatePlatRequest request, MultipartFile imageFile, UUID chefUserId) {
+        logger.info("Updating plat {} for chef: {}", platId, chefUserId);
+
+        // Validate that user is a chef (has PROVIDER role)
+        if (!isUserAChef(chefUserId)) {
+            logger.error("User {} is not authorized to update plats. Must have PROVIDER role.", chefUserId);
+            throw new RuntimeException("Accès refusé. Seuls les chefs peuvent modifier des plats.");
+        }
+
+        try {
+            // Check if plat exists and belongs to the chef
+            Optional<Plat> platOptional = platRepository.findByIdAndChefId(platId, chefUserId);
+            
+            if (platOptional.isEmpty()) {
+                logger.error("Plat {} not found or doesn't belong to chef {}", platId, chefUserId);
+                throw new RuntimeException("Plat non trouvé ou vous n'avez pas l'autorisation de le modifier.");
+            }
+
+            Plat plat = platOptional.get();
+            logger.info("Found plat '{}' belonging to chef {}, proceeding with update", plat.getName(), chefUserId);
+
+            // Update fields if provided
+            if (request.getName() != null && !request.getName().trim().isEmpty()) {
+                plat.setName(request.getName());
+            }
+            if (request.getDescription() != null && !request.getDescription().trim().isEmpty()) {
+                plat.setDescription(request.getDescription());
+            }
+            if (request.getEstimatedCookTime() != null) {
+                plat.setEstimatedCookTime(request.getEstimatedCookTime());
+            }
+            if (request.getPrice() != null) {
+                plat.setPrice(request.getPrice());
+            }
+            if (request.getCategories() != null && !request.getCategories().isEmpty()) {
+                plat.setCategories(request.getCategories());
+            }
+            if (request.getAvailable() != null) {
+                plat.setAvailable(request.getAvailable());
+            }
+
+            // Upload new image if provided, otherwise keep existing image
+            if (imageFile != null && !imageFile.isEmpty()) {
+                logger.info("Uploading new image for plat: {}", plat.getName());
+                String imageUrl = bunnyCdnService.uploadImage(imageFile, "plats");
+                plat.setImageUrl(imageUrl);
+                logger.info("Image uploaded successfully: {}", imageUrl);
+            } else {
+                logger.info("No new image provided, keeping existing image for plat: {}", plat.getName());
+            }
+
+            // Save updated plat
+            Plat updatedPlat = platRepository.save(plat);
+            logger.info("Plat {} updated successfully by chef: {}", platId, chefUserId);
+
+            // Create response
+            CreatePlatResponse response = new CreatePlatResponse();
+            response.setId(updatedPlat.getId());
+            response.setChefId(updatedPlat.getChefId());
+            response.setName(updatedPlat.getName());
+            response.setDescription(updatedPlat.getDescription());
+            response.setEstimatedCookTime(updatedPlat.getEstimatedCookTime());
+            response.setPrice(updatedPlat.getPrice());
+            response.setCategories(updatedPlat.getCategories());
+            response.setImageUrl(updatedPlat.getImageUrl());
+            response.setAvailable(updatedPlat.getAvailable());
+            response.setCreatedAt(updatedPlat.getCreatedAt());
+            response.setUpdatedAt(updatedPlat.getUpdatedAt());
+
+            return response;
+
+        } catch (RuntimeException e) {
+            // Re-throw business logic exceptions
+            throw e;
+        } catch (Exception e) {
+            logger.error("Error updating plat {} for chef {}: {}", platId, chefUserId, e.getMessage());
+            throw new RuntimeException("Erreur lors de la mise à jour du plat: " + e.getMessage());
         }
     }
 }

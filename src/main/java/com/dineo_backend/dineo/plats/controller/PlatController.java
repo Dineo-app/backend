@@ -4,6 +4,7 @@ import com.dineo_backend.dineo.authentication.service.JwtService;
 import com.dineo_backend.dineo.config.AppConstants;
 import com.dineo_backend.dineo.plats.dto.CreatePlatRequest;
 import com.dineo_backend.dineo.plats.dto.CreatePlatResponse;
+import com.dineo_backend.dineo.plats.dto.UpdatePlatRequest;
 import com.dineo_backend.dineo.plats.service.PlatService;
 import com.dineo_backend.dineo.shared.dto.ApiResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -266,6 +267,70 @@ public class PlatController {
                 .body(ApiResponse.error(400, e.getMessage()));
         } catch (Exception e) {
             logger.error("Unexpected error getting plat {}: {}", platId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error(500, "Erreur interne du serveur"));
+        }
+    }
+
+    /**
+     * Update an existing plat
+     * Only the chef who created the plat can update it
+     * Requires PROVIDER role (chef)
+     * 
+     * @param platId the ID of the plat to update
+     * @param platData JSON data containing updated plat information
+     * @param image optional new image file
+     * @param authHeader the authorization header containing JWT token
+     * @return the updated plat response
+     */
+    @PutMapping("/{platId}")
+    public ResponseEntity<ApiResponse<CreatePlatResponse>> updatePlat(
+            @PathVariable UUID platId,
+            @RequestParam("platData") String platData,
+            @RequestParam(value = "image", required = false) MultipartFile image,
+            @RequestHeader("Authorization") String authHeader) {
+        
+        try {
+            logger.info("Received plat update request for platId: {}", platId);
+
+            // Extract and validate JWT token
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                logger.error("Missing or invalid Authorization header");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(ApiResponse.error(401, AppConstants.JWT_TOKEN_MISSING));
+            }
+
+            String token = authHeader.substring(7);
+            
+            if (!jwtService.isAccessToken(token) || jwtService.isTokenExpired(token)) {
+                logger.error("Invalid or expired JWT token");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID));
+            }
+
+            // Extract user ID from token
+            UUID chefUserId = jwtService.extractUserId(token);
+            logger.info("Updating plat {} for chef: {}", platId, chefUserId);
+
+            // Parse JSON plat data
+            ObjectMapper objectMapper = new ObjectMapper();
+            UpdatePlatRequest request = objectMapper.readValue(platData, UpdatePlatRequest.class);
+
+            logger.info("Updating plat {} with data: {}", platId, request);
+
+            // Update plat
+            CreatePlatResponse response = platService.updatePlat(platId, request, image, chefUserId);
+
+            logger.info("Plat {} updated successfully", platId);
+            return ResponseEntity.ok()
+                .body(ApiResponse.success("Plat mis à jour avec succès", response));
+
+        } catch (RuntimeException e) {
+            logger.error("Business error updating plat {}: {}", platId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.error(400, e.getMessage()));
+        } catch (Exception e) {
+            logger.error("Unexpected error updating plat {}: {}", platId, e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(ApiResponse.error(500, "Erreur interne du serveur"));
         }

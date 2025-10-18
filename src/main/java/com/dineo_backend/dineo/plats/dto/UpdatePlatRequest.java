@@ -1,53 +1,34 @@
 package com.dineo_backend.dineo.plats.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
 /**
- * DTO for creating a new plat
- * Used for receiving plat creation requests from chefs
+ * DTO for updating an existing plat
+ * All fields are optional - only provided fields will be updated
  */
-public class CreatePlatRequest {
+public class UpdatePlatRequest {
 
-    @NotBlank(message = "Le nom du plat est obligatoire")
     @Size(max = 200, message = "Le nom du plat ne peut pas dépasser 200 caractères")
     private String name;
 
-    @NotBlank(message = "La description du plat est obligatoire")
     @Size(max = 2000, message = "La description ne peut pas dépasser 2000 caractères")
     private String description;
 
-    @NotNull(message = "Le temps de cuisson estimé est obligatoire")
     @Positive(message = "Le temps de cuisson doit être positif")
     private Integer estimatedCookTime; // in minutes
 
-    @NotNull(message = "Le prix est obligatoire")
     @Positive(message = "Le prix doit être positif")
     private Double price; // Price in euros
 
-    @NotNull(message = "Les catégories sont obligatoires")
-    @Size(min = 1, message = "Au moins une catégorie est requise")
     private List<String> categories;
 
-    private Boolean available; // Whether the plat is available for order (default: true)
+    private Boolean available; // Whether the plat is available for order
 
     // Default constructor
-    public CreatePlatRequest() {
-        this.available = true; // Default to available
-    }
-
-    // Constructor with all fields
-    public CreatePlatRequest(String name, String description, Integer estimatedCookTime, Double price, List<String> categories) {
-        this.name = name;
-        this.description = description;
-        this.estimatedCookTime = estimatedCookTime;
-        this.price = price;
-        this.categories = categories;
-    }
+    public UpdatePlatRequest() {}
 
     // Getters and Setters
     public String getName() {
@@ -100,7 +81,7 @@ public class CreatePlatRequest {
 
     @Override
     public String toString() {
-        return "CreatePlatRequest{" +
+        return "UpdatePlatRequest{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", estimatedCookTime=" + estimatedCookTime +

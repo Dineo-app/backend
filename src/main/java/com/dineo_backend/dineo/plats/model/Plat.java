@@ -55,6 +55,10 @@ public class Plat {
     @Column(name = "image_url")
     private String imageUrl;
 
+    @NotNull
+    @Column(name = "available", nullable = false)
+    private Boolean available; // Whether the plat is available for order
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -65,6 +69,7 @@ public class Plat {
     public Plat() {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
+        this.available = true; // Default to available
     }
 
     // Constructor with required fields
@@ -143,6 +148,14 @@ public class Plat {
         this.imageUrl = imageUrl;
     }
 
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -175,6 +188,7 @@ public class Plat {
                 ", price=" + price +
                 ", categories=" + categories +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", available=" + available +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

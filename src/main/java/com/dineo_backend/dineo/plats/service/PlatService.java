@@ -2,6 +2,7 @@ package com.dineo_backend.dineo.plats.service;
 
 import com.dineo_backend.dineo.plats.dto.CreatePlatRequest;
 import com.dineo_backend.dineo.plats.dto.CreatePlatResponse;
+import com.dineo_backend.dineo.plats.dto.UpdatePlatRequest;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -55,6 +56,20 @@ public interface PlatService {
      * @throws RuntimeException if plat not found
      */
     CreatePlatResponse getPlatById(UUID platId);
+    
+    /**
+     * Update an existing plat
+     * Only the chef who created the plat can update it
+     * If no new image is provided, the existing image URL is kept
+     * 
+     * @param platId the plat ID to update
+     * @param request the update request with fields to change
+     * @param imageFile optional new image file
+     * @param chefUserId the chef user ID (from JWT token)
+     * @return the updated plat response
+     * @throws RuntimeException if user is not a chef or doesn't own the plat
+     */
+    CreatePlatResponse updatePlat(UUID platId, UpdatePlatRequest request, MultipartFile imageFile, UUID chefUserId);
     
     /**
      * Validate that user has PROVIDER role (is a chef)

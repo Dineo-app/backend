@@ -3,6 +3,7 @@ package com.dineo_backend.dineo.chefs.service.impl;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.repository.UserRepository;
 import com.dineo_backend.dineo.chefs.dto.DeleteCertificationResponse;
+import com.dineo_backend.dineo.chefs.dto.GetChefProfileResponse;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefCoverImageResponse;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefProfileRequest;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefProfileResponse;
@@ -38,6 +39,37 @@ public class ChefServiceImpl implements ChefService {
 
     @Autowired
     private BunnyCdnService bunnyCdnService;
+
+    @Override
+    @Transactional(readOnly = true)
+    public GetChefProfileResponse getChefProfile(UUID chefUserId) {
+        logger.info("Retrieving chef profile for user ID: {}", chefUserId);
+
+        // Find user
+        User user = userRepository.findById(chefUserId)
+                .orElseThrow(() -> new RuntimeException("Chef utilisateur non trouvé avec l'ID: " + chefUserId));
+
+        // Find chef description
+        ChefDescription chefDescription = chefDescriptionRepository.findByUserId(chefUserId)
+                .orElseThrow(() -> new RuntimeException("Description du chef non trouvée pour l'utilisateur ID: " + chefUserId));
+
+        // Create and return response
+        GetChefProfileResponse response = new GetChefProfileResponse(
+                user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                user.getPhone(),
+                user.getAddress(),
+                chefDescription.getDescription(),
+                chefDescription.getCategories() != null ? chefDescription.getCategories() : new ArrayList<>(),
+                chefDescription.getChefCoverImg(),
+                chefDescription.getChefCertificationImages() != null ? chefDescription.getChefCertificationImages() : new ArrayList<>()
+        );
+
+        logger.info("Chef profile retrieved successfully for user ID: {}", chefUserId);
+        return response;
+    }
 
     @Override
     @Transactional

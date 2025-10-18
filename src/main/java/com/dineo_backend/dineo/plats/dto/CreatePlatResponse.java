@@ -18,6 +18,7 @@ public class CreatePlatResponse {
     private Double price;
     private List<String> categories;
     private String imageUrl;
+    private Boolean available;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -105,6 +106,14 @@ public class CreatePlatResponse {
         this.imageUrl = imageUrl;
     }
 
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -132,6 +141,7 @@ public class CreatePlatResponse {
                 ", price=" + price +
                 ", categories=" + categories +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", available=" + available +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
