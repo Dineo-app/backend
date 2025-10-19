@@ -138,4 +138,19 @@ public interface PlatRepository extends JpaRepository<Plat, UUID> {
      */
     @Query("SELECT p FROM Plat p WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :searchText, '%')) OR LOWER(p.description) LIKE LOWER(CONCAT('%', :searchText, '%'))")
     List<Plat> searchByNameOrDescription(@Param("searchText") String searchText);
+
+    /**
+     * Find all available plats (for public access)
+     * 
+     * @return List of all available plats
+     */
+    List<Plat> findByAvailableTrue();
+
+    /**
+     * Find available plat by ID (for public access)
+     * 
+     * @param id The plat ID
+     * @return Optional containing the plat if found and available
+     */
+    Optional<Plat> findByIdAndAvailableTrue(UUID id);
 }
