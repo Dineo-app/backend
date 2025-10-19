@@ -59,6 +59,9 @@ public class ChefDescription {
     @Column(name = "chef_cover_img")
     private String chefCoverImg;
 
+    @Column(name = "is_open")
+    private Boolean isOpen = true; // Chef status: open or closed
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -148,6 +151,14 @@ public class ChefDescription {
 
     public void setChefCoverImg(String chefCoverImg) {
         this.chefCoverImg = chefCoverImg;
+    }
+
+    public Boolean getIsOpen() {
+        return isOpen;
+    }
+
+    public void setIsOpen(Boolean isOpen) {
+        this.isOpen = isOpen;
     }
 
     public LocalDateTime getCreatedAt() {

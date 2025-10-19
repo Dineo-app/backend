@@ -58,4 +58,12 @@ public interface ChefService {
      * @return Delete certification response with deleted image URL
      */
     DeleteCertificationResponse deleteCertificationImage(UUID chefUserId, String certificationImageUrl);
+
+    /**
+     * Toggle chef open/closed status
+     * 
+     * @param chefUserId The UUID of the chef user
+     * @return The new status (true = open, false = closed)
+     */
+    boolean toggleChefStatus(UUID chefUserId);
 }

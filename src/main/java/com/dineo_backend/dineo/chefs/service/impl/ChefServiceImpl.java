@@ -64,7 +64,8 @@ public class ChefServiceImpl implements ChefService {
                 chefDescription.getDescription(),
                 chefDescription.getCategories() != null ? chefDescription.getCategories() : new ArrayList<>(),
                 chefDescription.getChefCoverImg(),
-                chefDescription.getChefCertificationImages() != null ? chefDescription.getChefCertificationImages() : new ArrayList<>()
+                chefDescription.getChefCertificationImages() != null ? chefDescription.getChefCertificationImages() : new ArrayList<>(),
+                chefDescription.getIsOpen() != null ? chefDescription.getIsOpen() : true
         );
 
         logger.info("Chef profile retrieved successfully for user ID: {}", chefUserId);
@@ -265,6 +266,32 @@ public class ChefServiceImpl implements ChefService {
         } catch (Exception e) {
             logger.error("Error deleting certification image for chef user ID {}: {}", chefUserId, e.getMessage());
             throw new RuntimeException("Erreur lors de la suppression de l'image de certification: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public boolean toggleChefStatus(UUID chefUserId) {
+        try {
+            logger.info("Toggling chef status for user ID: {}", chefUserId);
+
+            // Get chef description
+            ChefDescription chefDescription = chefDescriptionRepository.findByUserId(chefUserId)
+                    .orElseThrow(() -> new RuntimeException("Chef description non trouvée"));
+
+            // Toggle status
+            Boolean currentStatus = chefDescription.getIsOpen();
+            boolean newStatus = currentStatus == null ? true : !currentStatus;
+            chefDescription.setIsOpen(newStatus);
+
+            // Save
+            chefDescriptionRepository.save(chefDescription);
+
+            logger.info("Chef status toggled successfully for user ID {}: {}", chefUserId, newStatus);
+            return newStatus;
+
+        } catch (Exception e) {
+            logger.error("Error toggling chef status for user ID {}: {}", chefUserId, e.getMessage());
+            throw new RuntimeException("Erreur lors du changement de statut: " + e.getMessage());
         }
     }
 }

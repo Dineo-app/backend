@@ -19,6 +19,7 @@ public class GetChefProfileResponse {
     private List<String> categories;
     private String coverImageUrl;
     private List<String> certificationImageUrls;
+    private Boolean isOpen; // Chef status: open or closed
 
     // Default constructor
     public GetChefProfileResponse() {}
@@ -27,7 +28,7 @@ public class GetChefProfileResponse {
     public GetChefProfileResponse(UUID userId, String firstName, String lastName, String email,
                                  String phone, String address, String description,
                                  List<String> categories, String coverImageUrl,
-                                 List<String> certificationImageUrls) {
+                                 List<String> certificationImageUrls, Boolean isOpen) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,6 +39,7 @@ public class GetChefProfileResponse {
         this.categories = categories;
         this.coverImageUrl = coverImageUrl;
         this.certificationImageUrls = certificationImageUrls;
+        this.isOpen = isOpen;
     }
 
     // Getters and Setters
@@ -121,6 +123,14 @@ public class GetChefProfileResponse {
         this.certificationImageUrls = certificationImageUrls;
     }
 
+    public Boolean getIsOpen() {
+        return isOpen;
+    }
+
+    public void setIsOpen(Boolean isOpen) {
+        this.isOpen = isOpen;
+    }
+
     @Override
     public String toString() {
         return "GetChefProfileResponse{" +
@@ -134,6 +144,7 @@ public class GetChefProfileResponse {
                 ", categories=" + categories +
                 ", coverImageUrl='" + coverImageUrl + '\'' +
                 ", certificationImageUrls=" + certificationImageUrls +
+                ", isOpen=" + isOpen +
                 '}';
     }
 }

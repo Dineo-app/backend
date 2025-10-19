@@ -19,6 +19,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -271,6 +273,43 @@ public class ChefController {
             logger.error("Unexpected error deleting certification image: {}", e.getMessage(), e);
             ApiResponse<DeleteCertificationResponse> errorResponse = ApiResponse.error(
                     "Une erreur inattendue s'est produite lors de la suppression"
+            );
+            return ResponseEntity.internalServerError().body(errorResponse);
+        }
+    }
+
+    /**
+     * Toggle chef open/closed status
+     * Restricted to PROVIDER role only
+     */
+    @PutMapping("/status")
+    @PreAuthorize("hasRole('PROVIDER')")
+    public ResponseEntity<ApiResponse<Map<String, Boolean>>> toggleChefStatus() {
+        try {
+            // Get authenticated user ID
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            String userIdStr = authentication.getName();
+            UUID userId = UUID.fromString(userIdStr);
+
+            logger.info("Toggling chef status for user ID: {}", userId);
+
+            // Call service to toggle status
+            boolean newStatus = chefService.toggleChefStatus(userId);
+
+            // Return success response
+            Map<String, Boolean> responseData = new HashMap<>();
+            responseData.put("isOpen", newStatus);
+            
+            ApiResponse<Map<String, Boolean>> apiResponse = ApiResponse.success(
+                    newStatus ? "Statut changé à ouvert" : "Statut changé à fermé",
+                    responseData
+            );
+            return ResponseEntity.ok(apiResponse);
+
+        } catch (Exception e) {
+            logger.error("Error toggling chef status: {}", e.getMessage(), e);
+            ApiResponse<Map<String, Boolean>> errorResponse = ApiResponse.error(
+                    "Erreur lors du changement de statut"
             );
             return ResponseEntity.internalServerError().body(errorResponse);
         }
