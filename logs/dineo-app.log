@@ -723,3 +723,699 @@ io.jsonwebtoken.ExpiredJwtException: JWT expired 92834 milliseconds ago at 2025-
 2025-10-19 15:41:41 [http-nio-8080-exec-7] INFO  c.d.d.c.controller.ChefController - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
 2025-10-19 15:41:41 [http-nio-8080-exec-7] INFO  c.d.d.c.service.impl.ChefServiceImpl - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
 2025-10-19 15:41:41 [http-nio-8080-exec-7] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef status toggled successfully for user ID 51438312-db03-469c-b476-e4511f8e8e67: true
+2025-10-19 15:43:03 [http-nio-8080-exec-10] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:03 [http-nio-8080-exec-10] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:03 [http-nio-8080-exec-10] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:03 [http-nio-8080-exec-10] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:11 [http-nio-8080-exec-1] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:11 [http-nio-8080-exec-1] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:11 [http-nio-8080-exec-1] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:11 [http-nio-8080-exec-1] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:24 [http-nio-8080-exec-2] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:24 [http-nio-8080-exec-2] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:24 [http-nio-8080-exec-2] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:24 [http-nio-8080-exec-2] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:45 [http-nio-8080-exec-3] INFO  c.d.d.c.controller.ChefController - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:45 [http-nio-8080-exec-3] INFO  c.d.d.c.service.impl.ChefServiceImpl - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:46 [http-nio-8080-exec-3] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef status toggled successfully for user ID 51438312-db03-469c-b476-e4511f8e8e67: false
+2025-10-19 15:43:48 [http-nio-8080-exec-4] INFO  c.d.d.c.controller.ChefController - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:48 [http-nio-8080-exec-4] INFO  c.d.d.c.service.impl.ChefServiceImpl - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:49 [http-nio-8080-exec-4] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef status toggled successfully for user ID 51438312-db03-469c-b476-e4511f8e8e67: true
+2025-10-19 15:43:53 [http-nio-8080-exec-5] INFO  c.d.d.c.controller.ChefController - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:53 [http-nio-8080-exec-5] INFO  c.d.d.c.service.impl.ChefServiceImpl - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:43:53 [http-nio-8080-exec-5] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef status toggled successfully for user ID 51438312-db03-469c-b476-e4511f8e8e67: false
+2025-10-19 15:47:49 [http-nio-8080-exec-7] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:47:49 [http-nio-8080-exec-7] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:47:49 [http-nio-8080-exec-7] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 15:47:49 [http-nio-8080-exec-7] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:02:10 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-19 16:02:10 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-19 16:02:10 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-19 16:02:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-19 16:02:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-19 16:04:10 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 32938 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-19 16:04:10 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-19 16:04:10 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-19 16:04:10 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-19 16:04:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-19 16:04:11 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 10 JPA repository interfaces.
+2025-10-19 16:04:11 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-19 16:04:11 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-19 16:04:11 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-19 16:04:11 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-19 16:04:11 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 475 ms
+2025-10-19 16:04:11 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-19 16:04:11 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-19 16:04:11 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-19 16:04:11 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-19 16:04:11 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-19 16:04:12 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@29c5fc9b
+2025-10-19 16:04:12 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-19 16:04:12 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-19 16:04:12 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-19 16:04:12 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-19 16:04:13 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-19 16:04:13 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-19 16:04:14 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-19 16:04:14 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-19 16:04:14 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-19 16:04:14 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-19 16:04:14 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-19 16:04:14 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 3.985 seconds (process running for 4.111)
+2025-10-19 16:04:36 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-19 16:04:36 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-19 16:04:36 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-10-19 16:04:36 [http-nio-8080-exec-2] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:37 [http-nio-8080-exec-2] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:37 [http-nio-8080-exec-2] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:37 [http-nio-8080-exec-2] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:41 [http-nio-8080-exec-3] INFO  c.d.d.c.controller.ChefController - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:41 [http-nio-8080-exec-3] INFO  c.d.d.c.service.impl.ChefServiceImpl - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:41 [http-nio-8080-exec-3] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef status toggled successfully for user ID 51438312-db03-469c-b476-e4511f8e8e67: true
+2025-10-19 16:04:44 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:04:44 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:44 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:44 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:44 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:44 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:57 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PromotionPlatController - Create promotion request received from chef user ID: 51438312-db03-469c-b476-e4511f8e8e67 for plat ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:04:57 [http-nio-8080-exec-5] INFO  c.d.d.p.s.i.PromotionPlatServiceImpl - Creating promotion for plat ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067 by chef user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:57 [http-nio-8080-exec-5] INFO  c.d.d.p.s.i.PromotionPlatServiceImpl - Promotion created successfully with ID: 3371a9b0-30b8-411a-baba-dae4ca9225f1
+2025-10-19 16:04:57 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PromotionPlatController - Promotion created successfully with ID: 3371a9b0-30b8-411a-baba-dae4ca9225f1
+2025-10-19 16:04:57 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:04:57 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:57 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:57 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:58 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:04:58 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:56 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Received plat creation request
+2025-10-19 16:05:56 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Creating plat for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:56 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Creating plat with name: Test
+2025-10-19 16:05:56 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Creating plat for chef: 51438312-db03-469c-b476-e4511f8e8e67. Plat name: Test
+2025-10-19 16:05:56 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Uploading image for plat: Test
+2025-10-19 16:05:56 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Starting image upload to Bunny CDN. File: CD1A33ED-9B5B-4F47-8C93-380F0655B3FD.jpg, Size: 298490 bytes
+2025-10-19 16:05:56 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Upload URL: https://storage.bunnycdn.com/dineo/plats/18c0b9b9-f716-42bd-aa61-efdc57695bb3_CD1A33ED-9B5B-4F47-8C93-380F0655B3FD.jpg
+2025-10-19 16:05:56 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - CDN URL: https://dineo.b-cdn.net/plats/18c0b9b9-f716-42bd-aa61-efdc57695bb3_CD1A33ED-9B5B-4F47-8C93-380F0655B3FD.jpg
+2025-10-19 16:05:57 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Upload response: 201 - Created
+2025-10-19 16:05:57 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Image uploaded successfully to: https://dineo.b-cdn.net/plats/18c0b9b9-f716-42bd-aa61-efdc57695bb3_CD1A33ED-9B5B-4F47-8C93-380F0655B3FD.jpg
+2025-10-19 16:05:57 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Image uploaded successfully: https://dineo.b-cdn.net/plats/18c0b9b9-f716-42bd-aa61-efdc57695bb3_CD1A33ED-9B5B-4F47-8C93-380F0655B3FD.jpg
+2025-10-19 16:05:57 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat created successfully with ID: 533658bd-d841-4d58-b503-e34babd1e6bc
+2025-10-19 16:05:57 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat creation completed successfully for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:57 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Plat created successfully with ID: 533658bd-d841-4d58-b503-e34babd1e6bc
+2025-10-19 16:05:57 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:05:57 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:57 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:57 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:58 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 2 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:58 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Retrieved 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:59 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:05:59 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:59 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:59 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:59 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 2 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:05:59 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Retrieved 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:02 [http-nio-8080-exec-2] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:02 [http-nio-8080-exec-2] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:02 [http-nio-8080-exec-2] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:02 [http-nio-8080-exec-2] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:05 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:13:05 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:05 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:05 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:05 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 2 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:06 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Retrieved 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:45 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Received request to delete plat: 533658bd-d841-4d58-b503-e34babd1e6bc
+2025-10-19 16:13:45 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Deleting plat 533658bd-d841-4d58-b503-e34babd1e6bc for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:46 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Deleting plat 533658bd-d841-4d58-b503-e34babd1e6bc for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:46 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Test' belonging to chef 51438312-db03-469c-b476-e4511f8e8e67, proceeding with deletion
+2025-10-19 16:13:46 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 533658bd-d841-4d58-b503-e34babd1e6bc ('Test') deleted successfully by chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:13:46 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Plat 533658bd-d841-4d58-b503-e34babd1e6bc deleted successfully by chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:14:14 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:14:14 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:14:15 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:14:15 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:14:15 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:14:15 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:16:50 [http-nio-8080-exec-1] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:16:50 [http-nio-8080-exec-1] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:16:50 [http-nio-8080-exec-1] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:16:50 [http-nio-8080-exec-1] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:16:52 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:16:52 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:16:52 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:16:52 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:16:52 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:16:52 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:17:10 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Received request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:17:10 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:17:10 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:17:11 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:17:11 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' with ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:17:11 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 ('Coq au Vin avec Image') retrieved successfully
+2025-10-19 16:17:11 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:17:11 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:17:11 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:17:11 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PlatReviewController - Retrieved 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:18:32 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:18:32 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:32 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:32 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:32 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:32 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:38 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Received request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:18:38 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:18:38 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:18:38 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:18:38 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' with ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:18:38 [http-nio-8080-exec-9] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:18:39 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 ('Coq au Vin avec Image') retrieved successfully
+2025-10-19 16:18:39 [http-nio-8080-exec-9] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:18:39 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:18:39 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PlatReviewController - Retrieved 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:18:42 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:18:42 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:42 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:42 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:42 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:43 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:45 [http-nio-8080-exec-1] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:45 [http-nio-8080-exec-1] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:45 [http-nio-8080-exec-1] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:45 [http-nio-8080-exec-1] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:50 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:18:50 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:50 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:50 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:51 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:18:51 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:19:02 [http-nio-8080-exec-3] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:19:02 [http-nio-8080-exec-3] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:19:02 [http-nio-8080-exec-3] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:19:03 [http-nio-8080-exec-3] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:19:29 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:19:29 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:19:29 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:19:29 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:19:29 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:19:29 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:22:50 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 102 class path changes (0 additions, 0 deletions, 102 modifications)
+2025-10-19 16:22:50 [Thread-5] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-19 16:22:50 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-19 16:22:50 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-19 16:22:50 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-19 16:22:50 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-19 16:22:50 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 32938 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-19 16:22:50 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-19 16:22:50 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-19 16:22:50 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 10 JPA repository interfaces.
+2025-10-19 16:22:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-19 16:22:50 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-19 16:22:50 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-19 16:22:50 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-19 16:22:50 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 123 ms
+2025-10-19 16:22:50 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-19 16:22:50 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-19 16:22:50 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-19 16:22:50 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-10-19 16:22:51 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f64d8f0
+2025-10-19 16:22:51 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-10-19 16:22:51 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-19 16:22:51 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-19 16:22:51 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-19 16:22:52 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-19 16:22:52 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-19 16:22:52 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-19 16:22:52 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-19 16:22:52 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-19 16:22:52 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-19 16:22:52 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 2.058 seconds (process running for 1121.976)
+2025-10-19 16:22:52 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-10-19 16:23:03 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-19 16:23:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-19 16:23:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-10-19 16:23:03 [http-nio-8080-exec-1] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:03 [http-nio-8080-exec-1] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:03 [http-nio-8080-exec-1] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:03 [http-nio-8080-exec-1] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:05 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:23:05 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:05 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:06 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:06 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:06 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:33 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:23:33 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:34 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:34 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:34 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:23:34 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:24:55 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:24:55 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:24:56 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:24:56 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:24:56 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:24:56 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:25:17 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-19 16:25:17 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-19 16:25:17 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-19 16:25:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-10-19 16:25:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-10-19 16:25:22 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 38006 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-19 16:25:22 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-19 16:25:22 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-19 16:25:22 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-19 16:25:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-19 16:25:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 10 JPA repository interfaces.
+2025-10-19 16:25:23 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-19 16:25:23 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-19 16:25:23 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-19 16:25:23 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-19 16:25:23 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 431 ms
+2025-10-19 16:25:23 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-19 16:25:23 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-19 16:25:23 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-19 16:25:23 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-19 16:25:23 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-19 16:25:24 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@132b3b81
+2025-10-19 16:25:24 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-19 16:25:24 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-19 16:25:24 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-19 16:25:24 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-19 16:25:25 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-19 16:25:25 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-19 16:25:26 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-19 16:25:26 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-19 16:25:26 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-19 16:25:26 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-19 16:25:26 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-19 16:25:26 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 3.928 seconds (process running for 4.102)
+2025-10-19 16:26:31 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-19 16:26:31 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-19 16:26:31 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-10-19 16:26:32 [http-nio-8080-exec-2] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:32 [http-nio-8080-exec-2] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:32 [http-nio-8080-exec-2] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:32 [http-nio-8080-exec-2] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:36 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:26:36 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:26:36 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:36 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:36 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:36 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:37 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:37 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:37 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:37 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:26:37 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:02 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:27:02 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:27:02 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:02 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:02 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:02 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:02 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:02 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:02 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:02 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:02 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:18 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:27:18 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:27:18 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:18 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:18 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:18 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:19 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:19 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:19 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:19 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:27:19 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:20 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:20 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Received request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:20 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:20 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:20 [http-nio-8080-exec-2] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:20 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' with ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:20 [http-nio-8080-exec-2] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:20 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 ('Coq au Vin avec Image') retrieved successfully
+2025-10-19 16:28:20 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:20 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PlatReviewController - Retrieved 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:27 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:28:27 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:28:27 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:27 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:27 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:27 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:27 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:27 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:27 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:27 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:27 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:30 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Received request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:30 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:30 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:30 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:30 [http-nio-8080-exec-6] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:30 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' with ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:30 [http-nio-8080-exec-6] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:30 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 ('Coq au Vin avec Image') retrieved successfully
+2025-10-19 16:28:30 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:30 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PlatReviewController - Retrieved 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:40 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:28:40 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:28:40 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:40 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:40 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:40 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:40 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:40 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:40 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:40 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:41 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:43 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:43 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Received request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:43 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:43 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:43 [http-nio-8080-exec-9] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:43 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' with ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:43 [http-nio-8080-exec-9] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:43 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 ('Coq au Vin avec Image') retrieved successfully
+2025-10-19 16:28:43 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:43 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PlatReviewController - Retrieved 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:28:54 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:28:54 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:28:54 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:54 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:54 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:54 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:54 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:55 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:55 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:55 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:28:55 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:29:01 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Received request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:29:01 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:29:01 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:29:01 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:29:01 [http-nio-8080-exec-3] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:29:01 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' with ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:29:01 [http-nio-8080-exec-3] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:29:01 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 ('Coq au Vin avec Image') retrieved successfully
+2025-10-19 16:29:01 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:29:01 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PlatReviewController - Retrieved 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:30:08 [http-nio-8080-exec-8] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:08 [http-nio-8080-exec-8] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:09 [http-nio-8080-exec-8] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:09 [http-nio-8080-exec-8] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:11 [http-nio-8080-exec-7] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:11 [http-nio-8080-exec-7] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:11 [http-nio-8080-exec-7] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:11 [http-nio-8080-exec-7] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:13 [http-nio-8080-exec-10] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:13 [http-nio-8080-exec-10] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:13 [http-nio-8080-exec-10] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:13 [http-nio-8080-exec-10] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:17 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:30:17 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:17 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:30:17 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:17 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:17 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:17 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:17 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:17 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:17 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:17 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:18 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:30:18 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:30:18 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:18 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:18 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:18 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:18 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:19 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:19 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:19 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:30:19 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:36 [http-nio-8080-exec-6] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:37 [http-nio-8080-exec-6] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:37 [http-nio-8080-exec-6] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:37 [http-nio-8080-exec-6] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:39 [http-nio-8080-exec-8] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:39 [http-nio-8080-exec-8] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:40 [http-nio-8080-exec-8] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:40 [http-nio-8080-exec-8] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:42 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:31:42 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:42 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:31:42 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:42 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:42 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:42 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:42 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:42 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:42 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:42 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:53 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:31:53 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Received request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:31:53 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:31:53 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:31:53 [http-nio-8080-exec-9] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:31:53 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' with ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:31:53 [http-nio-8080-exec-9] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:31:54 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 ('Coq au Vin avec Image') retrieved successfully
+2025-10-19 16:31:54 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:31:54 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PlatReviewController - Retrieved 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:31:55 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:31:55 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:31:55 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:55 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:55 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:55 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:56 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:56 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:56 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:56 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:31:56 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:32:30 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:32:30 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Received request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:32:30 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:32:30 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:32:30 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:32:30 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' with ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:32:30 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:32:30 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 ('Coq au Vin avec Image') retrieved successfully
+2025-10-19 16:32:30 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:32:30 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PlatReviewController - Retrieved 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:35:55 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:35:55 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:35:55 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:35:55 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:35:55 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:35:55 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:35:55 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:35:55 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:35:55 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:35:55 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:35:55 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:26 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PromotionPlatController - Delete promotion request for ID: 3371a9b0-30b8-411a-baba-dae4ca9225f1 from chef user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:26 [http-nio-8080-exec-5] INFO  c.d.d.p.s.i.PromotionPlatServiceImpl - Deleting promotion ID: 3371a9b0-30b8-411a-baba-dae4ca9225f1 by chef user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:26 [http-nio-8080-exec-5] INFO  c.d.d.p.s.i.PromotionPlatServiceImpl - Promotion deleted successfully with ID: 3371a9b0-30b8-411a-baba-dae4ca9225f1
+2025-10-19 16:36:27 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PromotionPlatController - Promotion deleted successfully with ID: 3371a9b0-30b8-411a-baba-dae4ca9225f1
+2025-10-19 16:36:27 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:36:27 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:27 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:36:27 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:27 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:27 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:27 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:27 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:27 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:27 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:27 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:44 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PromotionPlatController - Create promotion request received from chef user ID: 51438312-db03-469c-b476-e4511f8e8e67 for plat ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:36:44 [http-nio-8080-exec-8] INFO  c.d.d.p.s.i.PromotionPlatServiceImpl - Creating promotion for plat ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067 by chef user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:44 [http-nio-8080-exec-8] INFO  c.d.d.p.s.i.PromotionPlatServiceImpl - Promotion created successfully with ID: 7a5bbb65-75fe-46fd-a899-e2df5f10ff9a
+2025-10-19 16:36:44 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PromotionPlatController - Promotion created successfully with ID: 7a5bbb65-75fe-46fd-a899-e2df5f10ff9a
+2025-10-19 16:36:44 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:36:44 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:36:44 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:44 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:44 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:44 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:45 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:45 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:45 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 1 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:45 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Retrieved 1 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:36:45 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Retrieved 1 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:34 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Received plat creation request
+2025-10-19 16:37:34 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Creating plat for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:34 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Creating plat with name: test plat
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Creating plat for chef: 51438312-db03-469c-b476-e4511f8e8e67. Plat name: test plat
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Uploading image for plat: test plat
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Starting image upload to Bunny CDN. File: 3456D815-5CE6-46A8-9F75-84F9487B52FE.jpg, Size: 298490 bytes
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Upload URL: https://storage.bunnycdn.com/dineo/plats/09633592-859c-45c9-b560-c37037838851_3456D815-5CE6-46A8-9F75-84F9487B52FE.jpg
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - CDN URL: https://dineo.b-cdn.net/plats/09633592-859c-45c9-b560-c37037838851_3456D815-5CE6-46A8-9F75-84F9487B52FE.jpg
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Upload response: 201 - Created
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Image uploaded successfully to: https://dineo.b-cdn.net/plats/09633592-859c-45c9-b560-c37037838851_3456D815-5CE6-46A8-9F75-84F9487B52FE.jpg
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Image uploaded successfully: https://dineo.b-cdn.net/plats/09633592-859c-45c9-b560-c37037838851_3456D815-5CE6-46A8-9F75-84F9487B52FE.jpg
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat created successfully with ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat creation completed successfully for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:35 [http-nio-8080-exec-4] INFO  c.d.d.p.controller.PlatController - Plat created successfully with ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:37:35 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:37:35 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:36 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:36 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:36 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 2 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:36 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Retrieved 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:37 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:37:37 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:37 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:37:37 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:37 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:37 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:37 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:37 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 2 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:38 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 3 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:38 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Retrieved 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:38 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Retrieved 3 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:37:51 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:37:51 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Received request to get plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:37:51 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:37:51 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:37:51 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:37:51 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'test plat' with ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:37:51 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:37:51 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat e30d30c3-74bc-429d-89ce-2c555517c859 ('test plat') retrieved successfully
+2025-10-19 16:37:51 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:37:51 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PlatReviewController - Retrieved 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:00 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Received request to get plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:00 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:00 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:00 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:00 [http-nio-8080-exec-2] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:00 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'test plat' with ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:00 [http-nio-8080-exec-2] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:00 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat e30d30c3-74bc-429d-89ce-2c555517c859 ('test plat') retrieved successfully
+2025-10-19 16:45:00 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:00 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PlatReviewController - Retrieved 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:08 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:08 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Received request to get plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:08 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:08 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:08 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'test plat' with ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:08 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat e30d30c3-74bc-429d-89ce-2c555517c859 ('test plat') retrieved successfully
+2025-10-19 16:45:08 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:08 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:08 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:08 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PlatReviewController - Retrieved 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:19 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Received request to get plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:19 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:19 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:19 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:19 [http-nio-8080-exec-6] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:19 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'test plat' with ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:19 [http-nio-8080-exec-6] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:20 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat e30d30c3-74bc-429d-89ce-2c555517c859 ('test plat') retrieved successfully
+2025-10-19 16:45:20 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:20 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PlatReviewController - Retrieved 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:32 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:32 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Received request to get plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:32 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:33 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:33 [http-nio-8080-exec-3] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:33 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'test plat' with ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:33 [http-nio-8080-exec-3] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:33 [http-nio-8080-exec-8] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat e30d30c3-74bc-429d-89ce-2c555517c859 ('test plat') retrieved successfully
+2025-10-19 16:45:33 [http-nio-8080-exec-8] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:33 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PlatReviewController - Retrieved 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:42 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Received plat update request for platId: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:42 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Updating plat e30d30c3-74bc-429d-89ce-2c555517c859 for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:42 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Updating plat e30d30c3-74bc-429d-89ce-2c555517c859 with data: UpdatePlatRequest{name='null', description='null', estimatedCookTime=null, price=null, categories=null, available=false}
+2025-10-19 16:45:42 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Updating plat e30d30c3-74bc-429d-89ce-2c555517c859 for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:42 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'test plat' belonging to chef 51438312-db03-469c-b476-e4511f8e8e67, proceeding with update
+2025-10-19 16:45:42 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - No new image provided, keeping existing image for plat: test plat
+2025-10-19 16:45:42 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat e30d30c3-74bc-429d-89ce-2c555517c859 updated successfully by chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:43 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Plat e30d30c3-74bc-429d-89ce-2c555517c859 updated successfully
+2025-10-19 16:45:43 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Received request to get plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:43 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:43 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:43 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'test plat' with ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:43 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat e30d30c3-74bc-429d-89ce-2c555517c859 ('test plat') retrieved successfully
+2025-10-19 16:45:43 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:45 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:45:45 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:45:45 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:45 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:45 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:45 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:46 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:46 [http-nio-8080-exec-9] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 3 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:46 [http-nio-8080-exec-2] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 2 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:46 [http-nio-8080-exec-2] INFO  c.d.d.p.controller.PlatController - Retrieved 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:46 [http-nio-8080-exec-9] INFO  c.d.d.p.controller.PlatController - Retrieved 3 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:49 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:49 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Received request to get plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:49 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:49 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:49 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:49 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'test plat' with ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:49 [http-nio-8080-exec-4] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:50 [http-nio-8080-exec-1] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat e30d30c3-74bc-429d-89ce-2c555517c859 ('test plat') retrieved successfully
+2025-10-19 16:45:50 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PlatReviewController - Retrieved 0 reviews for plat e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:50 [http-nio-8080-exec-1] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-19 16:45:52 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-10-19 16:45:52 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-10-19 16:45:52 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:52 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:53 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:53 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:53 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:53 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 2 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:53 [http-nio-8080-exec-5] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 3 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:53 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Retrieved 2 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:53 [http-nio-8080-exec-5] INFO  c.d.d.p.controller.PlatController - Retrieved 3 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:55 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PlatReviewController - Get reviews request received for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:55 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Received request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:55 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:55 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:55 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Fetching all reviews for plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:55 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' with ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:56 [http-nio-8080-exec-8] INFO  c.d.d.p.s.impl.PlatReviewServiceImpl - Found 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:56 [http-nio-8080-exec-3] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 ('Coq au Vin avec Image') retrieved successfully
+2025-10-19 16:45:56 [http-nio-8080-exec-3] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:56 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PlatReviewController - Retrieved 1 reviews for plat 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:57 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Received plat update request for platId: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:57 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Updating plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:57 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Updating plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 with data: UpdatePlatRequest{name='null', description='null', estimatedCookTime=null, price=null, categories=null, available=false}
+2025-10-19 16:45:57 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Updating plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:57 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' belonging to chef 51438312-db03-469c-b476-e4511f8e8e67, proceeding with update
+2025-10-19 16:45:57 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - No new image provided, keeping existing image for plat: Coq au Vin avec Image
+2025-10-19 16:45:57 [http-nio-8080-exec-10] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 updated successfully by chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-10-19 16:45:58 [http-nio-8080-exec-10] INFO  c.d.d.p.controller.PlatController - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 updated successfully
+2025-10-19 16:45:58 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Received request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:58 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:58 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:58 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found plat 'Coq au Vin avec Image' with ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-10-19 16:45:58 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Plat 4be514e5-495a-4a7c-a5a5-a44e363e8067 ('Coq au Vin avec Image') retrieved successfully
+2025-10-19 16:45:58 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Retrieved plat details for ID: 4be514e5-495a-4a7c-a5a5-a44e363e8067

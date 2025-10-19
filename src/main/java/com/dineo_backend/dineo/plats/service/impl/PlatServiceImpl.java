@@ -4,9 +4,12 @@ import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.repository.RoleRepository;
 import com.dineo_backend.dineo.plats.dto.CreatePlatRequest;
 import com.dineo_backend.dineo.plats.dto.CreatePlatResponse;
+import com.dineo_backend.dineo.plats.dto.PromotionResponse;
 import com.dineo_backend.dineo.plats.dto.UpdatePlatRequest;
 import com.dineo_backend.dineo.plats.model.Plat;
+import com.dineo_backend.dineo.plats.model.PromotionPlat;
 import com.dineo_backend.dineo.plats.repository.PlatRepository;
+import com.dineo_backend.dineo.plats.repository.PromotionPlatRepository;
 import com.dineo_backend.dineo.plats.service.BunnyCdnService;
 import com.dineo_backend.dineo.plats.service.PlatService;
 import org.slf4j.Logger;
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -39,6 +43,9 @@ public class PlatServiceImpl implements PlatService {
 
     @Autowired
     private BunnyCdnService bunnyCdnService;
+
+    @Autowired
+    private PromotionPlatRepository promotionRepository;
 
     @Override
     public CreatePlatResponse createPlat(CreatePlatRequest request, MultipartFile imageFile, UUID chefUserId) {
@@ -131,6 +138,26 @@ public class PlatServiceImpl implements PlatService {
                         plat.getUpdatedAt()
                     );
                     response.setAvailable(plat.getAvailable());
+                    
+                    // Get active promotion for this plat
+                    Optional<PromotionPlat> promotion = promotionRepository.findActivePromotionByPlatId(
+                        plat.getId(), 
+                        LocalDateTime.now()
+                    );
+                    
+                    promotion.ifPresent(promo -> {
+                        PromotionResponse promoResponse = new PromotionResponse(
+                            promo.getId(),
+                            promo.getPlatId(),
+                            promo.getReductionValue(),
+                            promo.getReductionEnds(),
+                            promo.getIsActive(),
+                            promo.getCreatedAt(),
+                            promo.getUpdatedAt()
+                        );
+                        response.setPromotion(promoResponse);
+                    });
+                    
                     return response;
                 })
                 .collect(Collectors.toList());
@@ -141,6 +168,36 @@ public class PlatServiceImpl implements PlatService {
         } catch (Exception e) {
             logger.error("Error getting plats for chef {}: {}", chefUserId, e.getMessage());
             throw new RuntimeException("Erreur lors de la récupération des plats: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public List<String> getChefCategories(UUID chefUserId) {
+        try {
+            logger.info("Getting unique categories for chef: {}", chefUserId);
+
+            // Validate that user is a chef
+            if (!isUserAChef(chefUserId)) {
+                throw new RuntimeException("Utilisateur non autorisé. Seuls les chefs peuvent accéder à cette ressource.");
+            }
+
+            // Get all plats for the chef
+            List<Plat> plats = platRepository.findByChefIdOrderByCreatedAtDesc(chefUserId);
+            
+            // Extract all categories and flatten to unique list
+            List<String> uniqueCategories = plats.stream()
+                .filter(plat -> plat.getCategories() != null && !plat.getCategories().isEmpty())
+                .flatMap(plat -> plat.getCategories().stream())
+                .distinct()
+                .sorted()
+                .collect(Collectors.toList());
+
+            logger.info("Found {} unique categories for chef: {}", uniqueCategories.size(), chefUserId);
+            return uniqueCategories;
+
+        } catch (Exception e) {
+            logger.error("Error getting categories for chef {}: {}", chefUserId, e.getMessage());
+            throw new RuntimeException("Erreur lors de la récupération des catégories: " + e.getMessage());
         }
     }
 
@@ -218,6 +275,25 @@ public class PlatServiceImpl implements PlatService {
             response.setCreatedAt(plat.getCreatedAt());
             response.setUpdatedAt(plat.getUpdatedAt());
             response.setChefId(plat.getChefId());
+
+            // Get active promotion for this plat
+            Optional<PromotionPlat> promotion = promotionRepository.findActivePromotionByPlatId(
+                plat.getId(), 
+                LocalDateTime.now()
+            );
+            
+            promotion.ifPresent(promo -> {
+                PromotionResponse promoResponse = new PromotionResponse(
+                    promo.getId(),
+                    promo.getPlatId(),
+                    promo.getReductionValue(),
+                    promo.getReductionEnds(),
+                    promo.getIsActive(),
+                    promo.getCreatedAt(),
+                    promo.getUpdatedAt()
+                );
+                response.setPromotion(promoResponse);
+            });
 
             logger.info("Plat {} ('{}') retrieved successfully", platId, plat.getName());
             return response;

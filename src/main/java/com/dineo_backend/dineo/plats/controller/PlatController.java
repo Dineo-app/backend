@@ -170,6 +170,56 @@ public class PlatController {
     }
 
     /**
+     * Get all unique categories from chef's plats
+     * Requires PROVIDER role (chef)
+     * 
+     * @param authHeader the authorization header containing JWT token
+     * @return list of unique categories
+     */
+    @GetMapping("/my-categories")
+    public ResponseEntity<ApiResponse<List<String>>> getMyCategories(
+            @RequestHeader("Authorization") String authHeader) {
+        
+        try {
+            logger.info("Received request to get chef categories");
+
+            // Extract and validate JWT token
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                logger.error("Missing or invalid Authorization header");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(ApiResponse.error(401, AppConstants.JWT_TOKEN_MISSING));
+            }
+
+            String token = authHeader.substring(7);
+            
+            if (!jwtService.isAccessToken(token) || jwtService.isTokenExpired(token)) {
+                logger.error("Invalid or expired JWT token");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID));
+            }
+
+            // Extract user ID from token
+            UUID chefUserId = jwtService.extractUserId(token);
+            logger.info("Getting categories for chef: {}", chefUserId);
+
+            // Get chef's unique categories
+            List<String> categories = platService.getChefCategories(chefUserId);
+
+            logger.info("Retrieved {} unique categories for chef: {}", categories.size(), chefUserId);
+            return ResponseEntity.ok(ApiResponse.success("Catégories récupérées avec succès", categories));
+
+        } catch (RuntimeException e) {
+            logger.error("Business error getting chef categories: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.error(400, e.getMessage()));
+        } catch (Exception e) {
+            logger.error("Unexpected error getting chef categories: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error(500, "Erreur interne du serveur"));
+        }
+    }
+
+    /**
      * Delete a plat by ID
      * Only the chef who created the plat can delete it
      * Requires PROVIDER role (chef)

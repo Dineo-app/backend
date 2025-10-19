@@ -21,6 +21,7 @@ public class CreatePlatResponse {
     private Boolean available;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private PromotionResponse promotion; // Active promotion if exists
 
     // Default constructor
     public CreatePlatResponse() {}
@@ -130,6 +131,14 @@ public class CreatePlatResponse {
         this.updatedAt = updatedAt;
     }
 
+    public PromotionResponse getPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(PromotionResponse promotion) {
+        this.promotion = promotion;
+    }
+
     @Override
     public String toString() {
         return "CreatePlatResponse{" +
@@ -144,6 +153,7 @@ public class CreatePlatResponse {
                 ", available=" + available +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
+                ", promotion=" + promotion +
                 '}';
     }
 }

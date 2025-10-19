@@ -37,6 +37,16 @@ public interface PlatService {
     List<CreatePlatResponse> getChefPlats(UUID chefUserId);
     
     /**
+     * Get all unique categories from a chef's plats
+     * Returns a sorted list of distinct categories
+     * 
+     * @param chefUserId the chef user ID
+     * @return list of unique category names
+     * @throws RuntimeException if user is not a chef
+     */
+    List<String> getChefCategories(UUID chefUserId);
+    
+    /**
      * Delete a plat by ID
      * Only the chef who created the plat can delete it
      * Validates that the user has PROVIDER role and owns the plat
