@@ -28,6 +28,7 @@ public class PublicPlatResponse {
         private String firstName;
         private String lastName;
         private String chefCoverImg;
+        private Double averageRating;
 
         public ChefInfo() {}
 
@@ -36,6 +37,14 @@ public class PublicPlatResponse {
             this.firstName = firstName;
             this.lastName = lastName;
             this.chefCoverImg = chefCoverImg;
+        }
+
+        public ChefInfo(UUID id, String firstName, String lastName, String chefCoverImg, Double averageRating) {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.chefCoverImg = chefCoverImg;
+            this.averageRating = averageRating;
         }
 
         // Getters and Setters
@@ -69,6 +78,14 @@ public class PublicPlatResponse {
 
         public void setChefCoverImg(String chefCoverImg) {
             this.chefCoverImg = chefCoverImg;
+        }
+
+        public Double getAverageRating() {
+            return averageRating;
+        }
+
+        public void setAverageRating(Double averageRating) {
+            this.averageRating = averageRating;
         }
     }
 

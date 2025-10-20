@@ -3,7 +3,9 @@ package com.dineo_backend.dineo.plats.controller;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.repository.UserRepository;
 import com.dineo_backend.dineo.chefs.model.ChefDescription;
+import com.dineo_backend.dineo.chefs.model.ChefReview;
 import com.dineo_backend.dineo.chefs.repository.ChefDescriptionRepository;
+import com.dineo_backend.dineo.chefs.repository.ChefReviewRepository;
 import com.dineo_backend.dineo.plats.dto.PromotionResponse;
 import com.dineo_backend.dineo.plats.dto.PublicPlatResponse;
 import com.dineo_backend.dineo.plats.model.Plat;
@@ -51,6 +53,9 @@ public class PublicPlatController {
 
     @Autowired
     private PlatReviewRepository platReviewRepository;
+
+    @Autowired
+    private ChefReviewRepository chefReviewRepository;
 
     /**
      * Get all available plats with active promotions
@@ -265,6 +270,25 @@ public class PublicPlatController {
     }
 
     /**
+     * Helper method to calculate average rating for a chef
+     * @param chefId the chef ID
+     * @return average rating or 0.0 if no reviews exist
+     */
+    private Double calculateChefAverageRating(UUID chefId) {
+        List<ChefReview> reviews = chefReviewRepository.findByChefId(chefId);
+        
+        if (reviews == null || reviews.isEmpty()) {
+            return 0.0;
+        }
+
+        double sum = reviews.stream()
+            .mapToInt(ChefReview::getRate)
+            .sum();
+
+        return Math.round((sum / reviews.size()) * 10.0) / 10.0; // Round to 1 decimal place
+    }
+
+    /**
      * Helper method to get chef information
      */
     private PublicPlatResponse.ChefInfo getChefInfo(UUID chefId) {
@@ -275,16 +299,20 @@ public class PublicPlatController {
         if (userOpt.isPresent()) {
             User user = userOpt.get();
             String chefCoverImg = chefDescOpt.map(ChefDescription::getChefCoverImg).orElse(null);
+            
+            // Calculate chef average rating
+            Double chefAverageRating = calculateChefAverageRating(chefId);
 
             return new PublicPlatResponse.ChefInfo(
                 user.getId(),
                 user.getFirstName(),
                 user.getLastName(),
-                chefCoverImg
+                chefCoverImg,
+                chefAverageRating
             );
         }
 
         // Return default chef info if user not found
-        return new PublicPlatResponse.ChefInfo(chefId, "Chef", "Unknown", null);
+        return new PublicPlatResponse.ChefInfo(chefId, "Chef", "Unknown", null, 0.0);
     }
 }
