@@ -222,3 +222,740 @@ Consider defining a bean of type 'org.springframework.security.crypto.password.P
 2025-10-21 00:20:42 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Found 3 available plats
 2025-10-21 00:20:42 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Public request to get all categories
 2025-10-21 00:20:42 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Found 4 unique categories
+2025-10-25 17:47:19 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 51374 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 17:47:19 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 17:47:19 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-25 17:47:19 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-25 17:47:20 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 17:47:20 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 11 JPA repository interfaces.
+2025-10-25 17:47:20 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 17:47:20 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 17:47:20 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 17:47:20 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 17:47:20 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 461 ms
+2025-10-25 17:47:20 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 17:47:20 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-25 17:47:20 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 17:47:20 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 17:47:20 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-25 17:47:21 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@52e91968
+2025-10-25 17:47:21 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-25 17:47:21 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 17:47:21 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 17:47:21 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 17:47:23 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 17:47:23 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-25 17:47:24 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 17:47:24 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 17:47:24 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 17:47:24 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-25 17:47:24 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-25 17:47:24 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 4.542 seconds (process running for 4.685)
+2025-10-25 17:48:09 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-25 17:48:09 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-25 17:48:09 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-10-25 17:48:09 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 17:48:09 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 17:48:09 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 17:48:10 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 17:49:06 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 17:49:06 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 17:49:07 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 17:49:08 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 17:50:39 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 17:50:39 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 17:50:40 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 17:50:40 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 17:50:41 [http-nio-8080-exec-6] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:50:41 [http-nio-8080-exec-5] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:50:41 [http-nio-8080-exec-5] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:50:41 [http-nio-8080-exec-6] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:50:41 [http-nio-8080-exec-5] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:50:41 [http-nio-8080-exec-6] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:50:41 [http-nio-8080-exec-5] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:50:41 [http-nio-8080-exec-6] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:52:11 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 17:52:11 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 17:52:12 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 17:52:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 17:52:13 [http-nio-8080-exec-4] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:52:13 [http-nio-8080-exec-5] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:52:13 [http-nio-8080-exec-5] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:52:13 [http-nio-8080-exec-4] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:52:13 [http-nio-8080-exec-5] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:52:13 [http-nio-8080-exec-4] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:52:13 [http-nio-8080-exec-4] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:52:13 [http-nio-8080-exec-5] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 17:59:26 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 55314 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 17:59:26 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 17:59:26 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-25 17:59:26 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-25 17:59:26 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 17:59:26 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 11 JPA repository interfaces.
+2025-10-25 17:59:26 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 117 class path changes (0 additions, 0 deletions, 117 modifications)
+2025-10-25 17:59:26 [Thread-5] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-25 17:59:26 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-25 17:59:26 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 17:59:26 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-25 17:59:26 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 17:59:26 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 17:59:26 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 17:59:26 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 17:59:26 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 464 ms
+2025-10-25 17:59:26 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-25 17:59:26 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 17:59:26 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 51374 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 17:59:26 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 17:59:26 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-25 17:59:26 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 17:59:27 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 17:59:27 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 11 JPA repository interfaces.
+2025-10-25 17:59:27 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 17:59:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-25 17:59:27 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 17:59:27 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 17:59:27 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 17:59:27 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 17:59:27 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 142 ms
+2025-10-25 17:59:27 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 17:59:27 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 17:59:27 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 17:59:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-10-25 17:59:27 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2145fc6c
+2025-10-25 17:59:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-10-25 17:59:27 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 17:59:27 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 17:59:27 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a3e056c
+2025-10-25 17:59:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-25 17:59:27 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 17:59:27 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 17:59:27 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 17:59:28 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 17:59:28 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 17:59:29 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 17:59:29 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 17:59:29 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 17:59:29 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-25 17:59:29 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-25 17:59:29 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 2.227 seconds (process running for 729.654)
+2025-10-25 17:59:29 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-10-25 17:59:29 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 17:59:29 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-25 17:59:30 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 17:59:30 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 17:59:30 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 17:59:30 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2025-10-25 17:59:30 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-10-25 17:59:30 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 17:59:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-25 17:59:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-25 17:59:30 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-25 17:59:30 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-10-25 17:59:50 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 55660 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 17:59:50 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 17:59:50 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-25 17:59:50 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-25 17:59:50 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 17:59:50 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 11 JPA repository interfaces.
+2025-10-25 17:59:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 17:59:50 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 17:59:50 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 17:59:50 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 17:59:50 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 418 ms
+2025-10-25 17:59:50 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 17:59:50 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-25 17:59:50 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 17:59:51 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 17:59:51 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-25 17:59:51 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 117 class path changes (0 additions, 0 deletions, 117 modifications)
+2025-10-25 17:59:51 [Thread-7] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-25 17:59:51 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-25 17:59:51 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 17:59:51 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-10-25 17:59:51 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-10-25 17:59:51 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 51374 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 17:59:51 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 17:59:51 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 17:59:51 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 11 JPA repository interfaces.
+2025-10-25 17:59:51 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 17:59:51 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 17:59:51 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 17:59:51 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 17:59:51 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 84 ms
+2025-10-25 17:59:51 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 17:59:51 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 17:59:51 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 17:59:51 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-10-25 17:59:51 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e9435cf
+2025-10-25 17:59:51 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-25 17:59:51 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 17:59:51 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 17:59:51 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@52d1084e
+2025-10-25 17:59:51 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-10-25 17:59:52 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 17:59:52 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 17:59:52 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 17:59:52 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 17:59:53 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 17:59:53 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 17:59:53 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 17:59:53 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 17:59:53 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-25 17:59:53 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-25 17:59:53 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 2.062 seconds (process running for 753.881)
+2025-10-25 17:59:53 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-10-25 17:59:53 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 17:59:53 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-25 17:59:54 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 17:59:54 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 17:59:54 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 17:59:54 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2025-10-25 17:59:54 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-10-25 17:59:54 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 17:59:54 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-25 17:59:54 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-25 17:59:54 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-25 17:59:54 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-10-25 17:59:58 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-25 17:59:58 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-25 17:59:58 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 17:59:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-10-25 17:59:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-10-25 18:00:09 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 56128 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 18:00:09 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 18:00:09 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-25 18:00:09 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-25 18:00:09 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 18:00:09 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 11 JPA repository interfaces.
+2025-10-25 18:00:09 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 18:00:09 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 18:00:09 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 18:00:09 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 18:00:09 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 386 ms
+2025-10-25 18:00:10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 18:00:10 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-25 18:00:10 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 18:00:10 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 18:00:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-25 18:00:10 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@295bde09
+2025-10-25 18:00:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-25 18:00:10 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 18:00:10 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 18:00:11 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 18:00:12 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 18:00:12 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-25 18:00:13 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 18:00:13 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 18:00:13 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 18:00:13 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-25 18:00:13 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-25 18:00:13 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 3.907 seconds (process running for 4.019)
+2025-10-25 18:00:51 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-25 18:00:51 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-25 18:00:51 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2025-10-25 18:00:51 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 18:00:51 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 18:00:51 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 18:00:52 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 18:01:27 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 18:01:27 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 18:01:27 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 18:01:28 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 18:01:28 [http-nio-8080-exec-10] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 18:01:28 [http-nio-8080-exec-1] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 18:01:28 [http-nio-8080-exec-10] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 18:01:28 [http-nio-8080-exec-1] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 18:01:28 [http-nio-8080-exec-10] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 18:01:28 [http-nio-8080-exec-1] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 18:01:28 [http-nio-8080-exec-10] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 18:01:29 [http-nio-8080-exec-1] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 18:57:05 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-25 18:57:05 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-25 18:57:05 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 18:57:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-25 18:57:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-25 18:57:24 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 70026 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 18:57:24 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 18:57:24 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-25 18:57:24 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-25 18:57:25 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 18:57:25 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 11 JPA repository interfaces.
+2025-10-25 18:57:25 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 18:57:25 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 18:57:25 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 18:57:25 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 18:57:25 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 456 ms
+2025-10-25 18:57:25 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 18:57:25 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-25 18:57:25 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 18:57:25 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 18:57:25 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-25 18:57:26 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e5c9dd0
+2025-10-25 18:57:26 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-25 18:57:26 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 18:57:26 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 18:57:26 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 18:57:27 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 18:57:27 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-25 18:57:28 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 18:57:28 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 18:57:28 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 18:57:28 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-25 18:57:28 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-25 18:57:28 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 4.01 seconds (process running for 4.134)
+2025-10-25 18:57:55 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-25 18:57:55 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-25 18:57:55 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2025-10-25 18:57:55 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 18:57:55 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 18:57:56 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 18:57:57 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:03:50 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-25 19:03:50 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-25 19:03:50 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 19:03:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-25 19:03:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-25 19:04:00 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 72739 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 19:04:00 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 19:04:00 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-25 19:04:00 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-25 19:04:01 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 19:04:01 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 11 JPA repository interfaces.
+2025-10-25 19:04:01 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 19:04:01 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 19:04:01 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 19:04:01 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 19:04:01 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 469 ms
+2025-10-25 19:04:01 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 19:04:01 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-25 19:04:01 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 19:04:01 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 19:04:01 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-25 19:04:02 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6fda2969
+2025-10-25 19:04:02 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-25 19:04:02 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 19:04:02 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 19:04:02 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 19:04:03 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 19:04:04 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-25 19:04:04 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 19:04:04 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 19:04:04 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 19:04:04 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-25 19:04:04 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-25 19:04:05 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 4.201 seconds (process running for 4.341)
+2025-10-25 19:05:30 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-25 19:05:30 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-25 19:05:30 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 19:05:30 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-25 19:05:30 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-25 19:07:34 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 74275 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 19:07:34 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 19:07:34 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-25 19:07:34 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-25 19:07:35 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 19:07:35 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 11 JPA repository interfaces.
+2025-10-25 19:07:35 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 19:07:35 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 19:07:35 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 19:07:35 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 19:07:35 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 910 ms
+2025-10-25 19:07:35 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 19:07:35 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-25 19:07:35 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 19:07:35 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 19:07:35 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-25 19:07:36 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4b7756bb
+2025-10-25 19:07:36 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-25 19:07:36 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 19:07:36 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 19:07:36 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 19:07:37 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 19:07:37 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-25 19:07:38 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 19:07:38 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 19:07:38 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 19:07:38 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-25 19:07:38 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-25 19:07:38 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 4.716 seconds (process running for 4.954)
+2025-10-25 19:08:12 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-25 19:08:12 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-25 19:08:12 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2025-10-25 19:08:12 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:08:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:08:12 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:08:13 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:10:21 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:10:21 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:10:21 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:10:22 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:10:22 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:10:22 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:10:23 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:10:23 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:10:58 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-25 19:10:58 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-25 19:10:58 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 19:10:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-25 19:10:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-25 19:11:04 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 75999 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 19:11:04 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 19:11:04 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-25 19:11:04 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-25 19:11:04 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 19:11:04 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 11 JPA repository interfaces.
+2025-10-25 19:11:04 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 19:11:04 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 19:11:04 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 19:11:04 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 19:11:04 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 473 ms
+2025-10-25 19:11:04 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 19:11:04 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-25 19:11:04 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 19:11:05 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 19:11:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-25 19:11:05 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@31e40117
+2025-10-25 19:11:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-25 19:11:05 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 19:11:05 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 19:11:06 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 19:11:07 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 19:11:07 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-25 19:11:08 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 19:11:08 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 19:11:08 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 19:11:08 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-25 19:11:08 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-25 19:11:08 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 4.06 seconds (process running for 4.192)
+2025-10-25 19:11:34 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-25 19:11:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-25 19:11:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2025-10-25 19:11:34 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:11:34 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:11:34 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:11:35 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:12:18 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:12:18 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:12:18 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:12:19 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:13:14 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-25 19:13:14 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-25 19:13:14 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 19:13:14 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-25 19:13:14 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-25 19:13:20 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 77805 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 19:13:20 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 19:13:20 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-25 19:13:20 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-25 19:13:20 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 19:13:21 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 11 JPA repository interfaces.
+2025-10-25 19:13:21 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 19:13:21 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 19:13:21 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 19:13:21 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 19:13:21 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 445 ms
+2025-10-25 19:13:21 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 19:13:21 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-25 19:13:21 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 19:13:21 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 19:13:21 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-25 19:13:22 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5800496
+2025-10-25 19:13:22 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-25 19:13:22 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 19:13:22 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 19:13:22 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 19:13:23 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 19:13:23 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-25 19:13:24 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 19:13:24 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 19:13:24 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 19:13:24 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-25 19:13:24 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-25 19:13:24 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 3.949 seconds (process running for 4.072)
+2025-10-25 19:13:54 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-25 19:13:54 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-25 19:13:54 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-10-25 19:13:54 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:13:54 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:13:54 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:13:55 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:15:11 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:15:11 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:15:11 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:15:12 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:15:24 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:15:24 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:15:24 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:15:25 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:16:09 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:16:09 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:16:10 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:16:10 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:16:19 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:16:19 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:16:19 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:16:20 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:16:48 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-25 19:16:48 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-25 19:16:48 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 19:16:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-25 19:16:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-25 19:16:53 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 79765 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2025-10-25 19:16:53 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-25 19:16:53 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-25 19:16:53 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-25 19:16:53 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-25 19:16:53 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 11 JPA repository interfaces.
+2025-10-25 19:16:54 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-25 19:16:54 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-25 19:16:54 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-10-25 19:16:54 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-25 19:16:54 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 457 ms
+2025-10-25 19:16:54 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-25 19:16:54 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-10-25 19:16:54 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-25 19:16:54 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-25 19:16:54 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-25 19:16:55 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e5c9dd0
+2025-10-25 19:16:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-25 19:16:55 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-25 19:16:55 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-25 19:16:55 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-25 19:16:56 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-25 19:16:56 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-25 19:16:57 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25 19:16:57 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-25 19:16:57 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-25 19:16:57 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-10-25 19:16:57 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-25 19:16:57 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 4.119 seconds (process running for 4.243)
+2025-10-25 19:17:18 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-25 19:17:18 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-25 19:17:18 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-10-25 19:17:18 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:17:18 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:17:18 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:17:19 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:17:35 [http-nio-8080-exec-3] ERROR c.d.d.config.JwtAuthenticationFilter - Cannot set user authentication: {}
+io.jsonwebtoken.ExpiredJwtException: JWT expired 2768547 milliseconds ago at 2025-10-25T17:31:27.000Z. Current time: 2025-10-25T18:17:35.547Z. Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:682)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36)
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821)
+	at com.dineo_backend.dineo.authentication.service.JwtService.extractAllClaims(JwtService.java:124)
+	at com.dineo_backend.dineo.authentication.service.JwtService.extractUsername(JwtService.java:81)
+	at com.dineo_backend.dineo.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:48)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-10-25 19:17:35 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:17:35 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:17:36 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:17:37 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:17:37 [http-nio-8080-exec-7] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:17:37 [http-nio-8080-exec-8] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:17:37 [http-nio-8080-exec-8] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:17:37 [http-nio-8080-exec-7] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:17:37 [http-nio-8080-exec-8] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:17:37 [http-nio-8080-exec-7] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:17:37 [http-nio-8080-exec-7] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:17:37 [http-nio-8080-exec-8] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:02 [http-nio-8080-exec-1] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-10-25 19:19:02 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-10-25 19:19:02 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-10-25 19:19:02 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-10-25 19:19:03 [http-nio-8080-exec-4] INFO  c.d.d.p.c.PublicPlatController - Found 2 available plats
+2025-10-25 19:19:03 [http-nio-8080-exec-5] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:03 [http-nio-8080-exec-6] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:03 [http-nio-8080-exec-6] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:03 [http-nio-8080-exec-6] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:04 [http-nio-8080-exec-5] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:04 [http-nio-8080-exec-5] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:04 [http-nio-8080-exec-5] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:04 [http-nio-8080-exec-6] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:25 [http-nio-8080-exec-7] INFO  c.d.d.cart.controller.CartController - Adding item to cart: 0c19a1a9-b48f-4e5d-8ffa-4ebf2cb95e62
+2025-10-25 19:19:25 [http-nio-8080-exec-7] INFO  c.d.d.cart.service.CartServiceImpl - Adding plat 0c19a1a9-b48f-4e5d-8ffa-4ebf2cb95e62 to cart for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:25 [http-nio-8080-exec-7] INFO  c.d.d.cart.service.CartServiceImpl - Created new cart item
+2025-10-25 19:19:25 [http-nio-8080-exec-8] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-10-25 19:19:32 [http-nio-8080-exec-9] INFO  c.d.d.cart.controller.CartController - Adding item to cart: e30d30c3-74bc-429d-89ce-2c555517c859
+2025-10-25 19:19:32 [http-nio-8080-exec-9] INFO  c.d.d.cart.service.CartServiceImpl - Adding plat e30d30c3-74bc-429d-89ce-2c555517c859 to cart for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:32 [http-nio-8080-exec-9] INFO  c.d.d.cart.service.CartServiceImpl - Created new cart item
+2025-10-25 19:19:32 [http-nio-8080-exec-10] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-10-25 19:19:35 [http-nio-8080-exec-1] INFO  c.d.d.cart.controller.CartController - Getting user cart
+2025-10-25 19:19:35 [http-nio-8080-exec-1] INFO  c.d.d.cart.service.CartServiceImpl - Getting cart for user: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-10-25 19:19:36 [http-nio-8080-exec-3] INFO  c.d.d.cart.controller.CartController - Getting cart count
