@@ -1,7 +1,10 @@
 package com.dineo_backend.dineo.chefs.service.impl;
 
+import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
+import com.dineo_backend.dineo.authentication.model.UserRole;
 import com.dineo_backend.dineo.authentication.repository.UserRepository;
+import com.dineo_backend.dineo.chefs.dto.ChefLocationResponse;
 import com.dineo_backend.dineo.chefs.dto.DeleteCertificationResponse;
 import com.dineo_backend.dineo.chefs.dto.GetChefProfileResponse;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefCoverImageResponse;
@@ -10,8 +13,11 @@ import com.dineo_backend.dineo.chefs.dto.UpdateChefProfileResponse;
 import com.dineo_backend.dineo.chefs.dto.UploadCertificationResponse;
 import com.dineo_backend.dineo.chefs.model.ChefDescription;
 import com.dineo_backend.dineo.chefs.repository.ChefDescriptionRepository;
+import com.dineo_backend.dineo.chefs.repository.ChefReviewRepository;
 import com.dineo_backend.dineo.chefs.service.ChefService;
 import com.dineo_backend.dineo.plats.service.BunnyCdnService;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +25,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * Implementation of ChefService for chef-related operations
@@ -39,6 +48,12 @@ public class ChefServiceImpl implements ChefService {
 
     @Autowired
     private BunnyCdnService bunnyCdnService;
+
+    @Autowired
+    private ChefReviewRepository chefReviewRepository;
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
     @Transactional(readOnly = true)
@@ -292,6 +307,104 @@ public class ChefServiceImpl implements ChefService {
         } catch (Exception e) {
             logger.error("Error toggling chef status for user ID {}: {}", chefUserId, e.getMessage());
             throw new RuntimeException("Erreur lors du changement de statut: " + e.getMessage());
+        }
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ChefLocationResponse> getAllChefsWithLocations() {
+        try {
+            logger.info("Retrieving all chefs with location information");
+
+            // Query to get all users with PROVIDER role and their addresses
+            String query = """
+                SELECT DISTINCT u.id, u.first_name, u.last_name, u.address, 
+                       cd.chef_cover_img, cd.id as chef_desc_id
+                FROM users u
+                INNER JOIN user_roles ur ON u.id = ur.user_id
+                LEFT JOIN chef_descriptions cd ON u.id = cd.user_id
+                WHERE ur.role = 'PROVIDER' AND u.address IS NOT NULL AND u.address != ''
+                """;
+
+            @SuppressWarnings("unchecked")
+            List<Object[]> results = entityManager.createNativeQuery(query).getResultList();
+
+            List<ChefLocationResponse> chefLocations = new ArrayList<>();
+
+            for (Object[] row : results) {
+                ChefLocationResponse response = new ChefLocationResponse();
+                
+                // Convert UUID binary to string - use proper UUID conversion
+                Object userIdObj = row[0];
+                String userId;
+                if (userIdObj instanceof byte[]) {
+                    // Proper UUID conversion from MySQL binary(16)
+                    byte[] bytes = (byte[]) userIdObj;
+                    ByteBuffer bb = ByteBuffer.wrap(bytes);
+                    long high = bb.getLong();
+                    long low = bb.getLong();
+                    userId = new UUID(high, low).toString();
+                } else {
+                    userId = userIdObj.toString();
+                }
+                response.setChefId(userId);
+                
+                response.setFirstName((String) row[1]);
+                response.setLastName((String) row[2]);
+                response.setAddress((String) row[3]);
+                response.setCoverImageUrl(row[4] != null ? (String) row[4] : null);
+
+                // Fetch categories from chef_categories table if chef_description exists
+                if (row[5] != null) {
+                    // Convert chef_desc_id to UUID properly
+                    Object chefDescIdObj = row[5];
+                    UUID chefDescId;
+                    if (chefDescIdObj instanceof byte[]) {
+                        byte[] bytes = (byte[]) chefDescIdObj;
+                        ByteBuffer bb = ByteBuffer.wrap(bytes);
+                        long high = bb.getLong();
+                        long low = bb.getLong();
+                        chefDescId = new UUID(high, low);
+                    } else {
+                        chefDescId = UUID.fromString(chefDescIdObj.toString());
+                    }
+                    
+                    String categoryQuery = """
+                        SELECT category FROM chef_categories 
+                        WHERE chef_description_id = ?
+                        """;
+                    @SuppressWarnings("unchecked")
+                    List<String> categories = entityManager.createNativeQuery(categoryQuery)
+                        .setParameter(1, chefDescId)
+                        .getResultList();
+                    response.setCategories(categories.toArray(new String[0]));
+                } else {
+                    response.setCategories(new String[0]);
+                }
+
+                // Get rating statistics
+                UUID chefId = UUID.fromString(response.getChefId());
+                try {
+                    Double avgRating = chefReviewRepository.findAverageRatingByChefId(chefId);
+                    Long totalReviews = chefReviewRepository.countByChefId(chefId);
+                    
+                    response.setAverageRating(avgRating != null ? avgRating : 0.0);
+                    response.setTotalReviews(totalReviews != null ? totalReviews.intValue() : 0);
+                } catch (Exception e) {
+                    logger.warn("Could not fetch ratings for chef {}: {}", chefId, e.getMessage());
+                    response.setAverageRating(0.0);
+                    response.setTotalReviews(0);
+                }
+
+                chefLocations.add(response);
+            }
+
+            logger.info("Retrieved {} chefs with addresses", chefLocations.size());
+            return chefLocations;
+
+        } catch (Exception e) {
+            logger.error("Error retrieving chefs with locations: {}", e.getMessage(), e);
+            throw new RuntimeException("Erreur lors de la récupération des chefs: " + e.getMessage());
         }
     }
 }

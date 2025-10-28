@@ -1,5 +1,6 @@
 package com.dineo_backend.dineo.chefs.controller;
 
+import com.dineo_backend.dineo.chefs.dto.ChefLocationResponse;
 import com.dineo_backend.dineo.chefs.dto.DeleteCertificationResponse;
 import com.dineo_backend.dineo.chefs.dto.GetChefProfileResponse;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefCoverImageResponse;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -278,7 +280,7 @@ public class ChefController {
         }
     }
 
-    /**
+        /**
      * Toggle chef open/closed status
      * Restricted to PROVIDER role only
      */
@@ -310,6 +312,32 @@ public class ChefController {
             logger.error("Error toggling chef status: {}", e.getMessage(), e);
             ApiResponse<Map<String, Boolean>> errorResponse = ApiResponse.error(
                     "Erreur lors du changement de statut"
+            );
+            return ResponseEntity.internalServerError().body(errorResponse);
+        }
+    }
+
+    /**
+     * Get all chefs with their location information
+     * Public endpoint - no authentication required
+     */
+    @GetMapping("/locations")
+    public ResponseEntity<ApiResponse<List<ChefLocationResponse>>> getAllChefsWithLocations() {
+        try {
+            logger.info("Request received to get all chefs with locations");
+
+            List<ChefLocationResponse> chefs = chefService.getAllChefsWithLocations();
+
+            ApiResponse<List<ChefLocationResponse>> apiResponse = ApiResponse.success(
+                    "Chefs récupérés avec succès",
+                    chefs
+            );
+            return ResponseEntity.ok(apiResponse);
+
+        } catch (Exception e) {
+            logger.error("Error getting chefs with locations: {}", e.getMessage(), e);
+            ApiResponse<List<ChefLocationResponse>> errorResponse = ApiResponse.error(
+                    "Erreur lors de la récupération des chefs"
             );
             return ResponseEntity.internalServerError().body(errorResponse);
         }

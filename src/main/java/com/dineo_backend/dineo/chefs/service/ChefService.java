@@ -1,5 +1,6 @@
 package com.dineo_backend.dineo.chefs.service;
 
+import com.dineo_backend.dineo.chefs.dto.ChefLocationResponse;
 import com.dineo_backend.dineo.chefs.dto.DeleteCertificationResponse;
 import com.dineo_backend.dineo.chefs.dto.GetChefProfileResponse;
 import com.dineo_backend.dineo.chefs.dto.UpdateChefCoverImageResponse;
@@ -8,6 +9,7 @@ import com.dineo_backend.dineo.chefs.dto.UpdateChefProfileResponse;
 import com.dineo_backend.dineo.chefs.dto.UploadCertificationResponse;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -66,4 +68,11 @@ public interface ChefService {
      * @return The new status (true = open, false = closed)
      */
     boolean toggleChefStatus(UUID chefUserId);
+
+    /**
+     * Get all chefs with their location information
+     * 
+     * @return List of all chefs with addresses
+     */
+    List<ChefLocationResponse> getAllChefsWithLocations();
 }

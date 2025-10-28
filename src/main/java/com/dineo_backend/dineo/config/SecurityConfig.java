@@ -58,6 +58,7 @@ public class SecurityConfig {
                 .requestMatchers("/error").permitAll()
                 .requestMatchers("/api/v1/plats/*/reviews").permitAll() // Public access to get plat reviews
                 .requestMatchers("/api/v1/chefs/*/reviews").permitAll() // Public access to get chef reviews
+                .requestMatchers("/api/v1/chefs/locations").permitAll() // Public access to get chef locations for map
                 .anyRequest().authenticated())
             .authenticationProvider(authenticationProvider())
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
