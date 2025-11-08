@@ -211,3 +211,110 @@ io.jsonwebtoken.ExpiredJwtException: JWT expired 220598189 milliseconds ago at 2
 2025-11-08 15:41:33 [http-nio-8080-exec-4] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
 2025-11-08 15:41:33 [http-nio-8080-exec-4] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
 2025-11-08 15:41:33 [http-nio-8080-exec-5] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:43:33 [http-nio-8080-exec-8] INFO  c.d.d.c.controller.ChefController - Request received to get all chefs with locations
+2025-11-08 15:43:33 [http-nio-8080-exec-8] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving all chefs with location information
+2025-11-08 15:43:33 [http-nio-8080-exec-8] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieved 2 chefs with addresses
+2025-11-08 15:45:37 [http-nio-8080-exec-10] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-11-08 15:45:37 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-11-08 15:45:37 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-11-08 15:45:37 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-11-08 15:45:38 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 3 available plats
+2025-11-08 15:45:39 [http-nio-8080-exec-3] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:45:39 [http-nio-8080-exec-4] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:45:39 [http-nio-8080-exec-4] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:45:39 [http-nio-8080-exec-3] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:45:39 [http-nio-8080-exec-4] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:45:39 [http-nio-8080-exec-3] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:45:39 [http-nio-8080-exec-3] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:45:39 [http-nio-8080-exec-4] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:45:57 [http-nio-8080-exec-5] INFO  c.d.d.cart.controller.CartController - Getting user cart
+2025-11-08 15:45:57 [http-nio-8080-exec-5] INFO  c.d.d.cart.service.CartServiceImpl - Getting cart for user: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:45:58 [http-nio-8080-exec-6] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-11-08 15:46:19 [http-nio-8080-exec-8] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-11-08 15:46:19 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-11-08 15:46:19 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-11-08 15:46:19 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-11-08 15:46:20 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - Found 3 available plats
+2025-11-08 15:46:21 [http-nio-8080-exec-1] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:46:21 [http-nio-8080-exec-2] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:46:21 [http-nio-8080-exec-1] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:46:21 [http-nio-8080-exec-2] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:46:21 [http-nio-8080-exec-1] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:46:21 [http-nio-8080-exec-2] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:46:21 [http-nio-8080-exec-1] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:46:21 [http-nio-8080-exec-2] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:46:58 [http-nio-8080-exec-5] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-11-08 15:46:59 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-11-08 15:46:59 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-11-08 15:46:59 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-11-08 15:47:00 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Found 3 available plats
+2025-11-08 15:47:00 [http-nio-8080-exec-9] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:47:00 [http-nio-8080-exec-8] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:47:01 [http-nio-8080-exec-8] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:47:01 [http-nio-8080-exec-9] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:47:01 [http-nio-8080-exec-8] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:47:01 [http-nio-8080-exec-9] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:47:01 [http-nio-8080-exec-8] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 15:47:01 [http-nio-8080-exec-9] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:18 [http-nio-8080-exec-2] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:18 [http-nio-8080-exec-3] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:18 [http-nio-8080-exec-4] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-11-08 16:00:18 [http-nio-8080-exec-2] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:18 [http-nio-8080-exec-3] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:18 [http-nio-8080-exec-2] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:18 [http-nio-8080-exec-3] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:18 [http-nio-8080-exec-2] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:18 [http-nio-8080-exec-3] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:22 [http-nio-8080-exec-5] INFO  c.d.d.cart.controller.CartController - Getting user cart
+2025-11-08 16:00:22 [http-nio-8080-exec-5] INFO  c.d.d.cart.service.CartServiceImpl - Getting cart for user: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:23 [http-nio-8080-exec-6] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-11-08 16:00:26 [http-nio-8080-exec-7] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-11-08 16:00:26 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-11-08 16:00:26 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-11-08 16:00:27 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-11-08 16:00:28 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - Found 3 available plats
+2025-11-08 16:00:28 [http-nio-8080-exec-1] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:28 [http-nio-8080-exec-10] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:28 [http-nio-8080-exec-1] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:28 [http-nio-8080-exec-1] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:28 [http-nio-8080-exec-10] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:29 [http-nio-8080-exec-10] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:29 [http-nio-8080-exec-1] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:29 [http-nio-8080-exec-10] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:30 [http-nio-8080-exec-4] INFO  c.d.d.c.controller.ChefController - Request received to get all chefs with locations
+2025-11-08 16:00:30 [http-nio-8080-exec-4] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving all chefs with location information
+2025-11-08 16:00:30 [http-nio-8080-exec-4] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieved 2 chefs with addresses
+2025-11-08 16:00:41 [http-nio-8080-exec-2] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-11-08 16:00:41 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-11-08 16:00:41 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-11-08 16:00:42 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-11-08 16:00:43 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PublicPlatController - Found 3 available plats
+2025-11-08 16:00:43 [http-nio-8080-exec-7] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:43 [http-nio-8080-exec-6] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:43 [http-nio-8080-exec-6] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:43 [http-nio-8080-exec-7] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:43 [http-nio-8080-exec-6] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:43 [http-nio-8080-exec-7] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:43 [http-nio-8080-exec-6] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:00:44 [http-nio-8080-exec-7] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-08 16:01:47 [http-nio-8080-exec-2] INFO  c.d.d.c.controller.ChefController - Chef profile retrieval request received for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:48 [http-nio-8080-exec-2] INFO  c.d.d.c.service.impl.ChefServiceImpl - Retrieving chef profile for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:48 [http-nio-8080-exec-2] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:48 [http-nio-8080-exec-2] INFO  c.d.d.c.controller.ChefController - Chef profile retrieved successfully for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:53 [http-nio-8080-exec-3] INFO  c.d.d.c.controller.ChefController - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:53 [http-nio-8080-exec-3] INFO  c.d.d.c.service.impl.ChefServiceImpl - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:53 [http-nio-8080-exec-3] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef status toggled successfully for user ID 51438312-db03-469c-b476-e4511f8e8e67: false
+2025-11-08 16:01:55 [http-nio-8080-exec-5] INFO  c.d.d.c.controller.ChefController - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:55 [http-nio-8080-exec-5] INFO  c.d.d.c.service.impl.ChefServiceImpl - Toggling chef status for user ID: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:55 [http-nio-8080-exec-5] INFO  c.d.d.c.service.impl.ChefServiceImpl - Chef status toggled successfully for user ID 51438312-db03-469c-b476-e4511f8e8e67: true
+2025-11-08 16:01:57 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Received request to get chef plats
+2025-11-08 16:01:57 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:57 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Received request to get chef categories
+2025-11-08 16:01:57 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Getting categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:57 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:57 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Getting unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:57 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 3 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:57 [http-nio-8080-exec-7] INFO  c.d.d.p.service.impl.PlatServiceImpl - Found 4 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:57 [http-nio-8080-exec-6] INFO  c.d.d.p.service.impl.PlatServiceImpl - Successfully converted 3 plats to response DTOs for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:57 [http-nio-8080-exec-7] INFO  c.d.d.p.controller.PlatController - Retrieved 4 unique categories for chef: 51438312-db03-469c-b476-e4511f8e8e67
+2025-11-08 16:01:57 [http-nio-8080-exec-6] INFO  c.d.d.p.controller.PlatController - Retrieved 3 plats for chef: 51438312-db03-469c-b476-e4511f8e8e67
