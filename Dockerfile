@@ -20,4 +20,4 @@ RUN mvn package -DskipTests -B
 EXPOSE 8080
 
 # Run the application
-ENTRYPOINT ["java", "-jar", "target/backendapp-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "target/dineo-0.0.1-SNAPSHOT.jar"]
