@@ -147,6 +147,29 @@ public interface OrderService {
     OrderResponse convertToOrderResponse(Order order);
 
     /**
+     * Get all orders for a specific chef
+     * @param chefId the ID of the chef
+     * @return list of order responses
+     */
+    List<OrderResponse> getOrdersByChefId(UUID chefId);
+
+    /**
+     * Accept an order (by chef)
+     * @param orderId the ID of the order
+     * @param chefId the ID of the chef
+     * @return the updated order response
+     */
+    OrderResponse acceptOrder(UUID orderId, UUID chefId);
+
+    /**
+     * Reject an order (by chef)
+     * @param orderId the ID of the order
+     * @param chefId the ID of the chef
+     * @return the updated order response
+     */
+    OrderResponse rejectOrder(UUID orderId, UUID chefId);
+
+    /**
      * Inner class for order statistics
      */
     class OrderStatistics {

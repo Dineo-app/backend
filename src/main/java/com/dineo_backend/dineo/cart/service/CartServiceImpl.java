@@ -187,7 +187,8 @@ public class CartServiceImpl implements CartService {
             response.setPlatPrice(actualPrice);
             response.setTotalPrice(actualPrice * cartItem.getQuantity());
             
-            // Set chef name
+            // Set chef name and chef ID
+            response.setChefId(plat.getChefId()); // Add chef ID for order creation
             Optional<User> chefOpt = userRepository.findById(plat.getChefId());
             if (chefOpt.isPresent()) {
                 User chef = chefOpt.get();

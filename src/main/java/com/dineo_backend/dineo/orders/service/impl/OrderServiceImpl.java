@@ -7,6 +7,9 @@ import com.dineo_backend.dineo.orders.enums.OrderStatus;
 import com.dineo_backend.dineo.orders.model.Order;
 import com.dineo_backend.dineo.orders.repository.OrderRepository;
 import com.dineo_backend.dineo.orders.service.OrderService;
+import com.dineo_backend.dineo.websocket.OrderNotificationService;
+import com.dineo_backend.dineo.plats.repository.PlatRepository;
+import com.dineo_backend.dineo.plats.model.Plat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,22 +34,45 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private OrderNotificationService notificationService;
+
+    @Autowired
+    private PlatRepository platRepository;
+
     @Override
     public OrderResponse createOrder(CreateOrderRequest request, UUID userId) {
         logger.info("Creating new order for user: {} and plat: {} with quantity: {}", userId, request.getPlatId(), request.getQuantity());
 
+        // Fetch plat to get price
+        Plat plat = platRepository.findById(request.getPlatId())
+                .orElseThrow(() -> {
+                    logger.error("Plat not found with ID: {}", request.getPlatId());
+                    return new RuntimeException("Plat non trouvé avec l'ID: " + request.getPlatId());
+                });
+
+        // Calculate total price
+        Double totalPrice = plat.getPrice() * request.getQuantity();
+
         Order order = new Order();
         order.setPlatId(request.getPlatId());
         order.setUserId(userId);
+        order.setChefId(request.getChefId());
         order.setDescription(request.getDescription());
         order.setQuantity(request.getQuantity());
         order.setDeliveryAddress(request.getDeliveryAddress());
         order.setStatus(OrderStatus.PENDING);
+        order.setTotalPrice(totalPrice);
 
         Order savedOrder = orderRepository.save(order);
-        logger.info("Order created successfully with ID: {}", savedOrder.getId());
+        logger.info("Order created successfully with ID: {} and total price: {}", savedOrder.getId(), totalPrice);
 
-        return convertToOrderResponse(savedOrder);
+        OrderResponse orderResponse = convertToOrderResponse(savedOrder);
+        
+        // Send real-time notification to chef
+        notificationService.notifyChefNewOrder(request.getChefId(), orderResponse);
+
+        return orderResponse;
     }
 
     @Override
@@ -145,7 +171,12 @@ public class OrderServiceImpl implements OrderService {
         Order updatedOrder = orderRepository.save(order);
         logger.info("Order status updated successfully for order: {}", orderId);
 
-        return convertToOrderResponse(updatedOrder);
+        OrderResponse orderResponse = convertToOrderResponse(updatedOrder);
+        
+        // Send real-time notification to user about status change
+        notificationService.notifyUserOrderProgress(order.getUserId(), orderResponse);
+
+        return orderResponse;
     }
 
     @Override
@@ -203,7 +234,13 @@ public class OrderServiceImpl implements OrderService {
         Order updatedOrder = orderRepository.save(order);
         
         logger.info("Order cancelled successfully: {}", orderId);
-        return convertToOrderResponse(updatedOrder);
+        
+        OrderResponse orderResponse = convertToOrderResponse(updatedOrder);
+        
+        // Send real-time notification to chef about cancellation
+        notificationService.notifyChefOrderCancelled(order.getChefId(), orderResponse);
+        
+        return orderResponse;
     }
 
     @Override
@@ -283,6 +320,85 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<OrderResponse> getOrdersByChefId(UUID chefId) {
+        logger.info("Retrieving orders for chef: {}", chefId);
+
+        List<Order> orders = orderRepository.findByChefIdOrderByCreatedAtDesc(chefId);
+        return orders.stream()
+                .map(this::convertToOrderResponse)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public OrderResponse acceptOrder(UUID orderId, UUID chefId) {
+        logger.info("Chef {} accepting order: {}", chefId, orderId);
+
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> {
+                    logger.error("Order not found with ID: {}", orderId);
+                    return new RuntimeException("Commande non trouvée avec l'ID: " + orderId);
+                });
+
+        // Verify that the order belongs to this chef
+        if (!order.getChefId().equals(chefId)) {
+            logger.error("Chef {} is not authorized to accept order {}", chefId, orderId);
+            throw new RuntimeException("Vous n'êtes pas autorisé à accepter cette commande");
+        }
+
+        // Only PENDING orders can be accepted
+        if (order.getStatus() != OrderStatus.PENDING) {
+            logger.error("Cannot accept order {} with status {}", orderId, order.getStatus());
+            throw new RuntimeException("Seules les commandes en attente peuvent être acceptées");
+        }
+
+        order.setStatus(OrderStatus.CONFIRMED);
+        Order updatedOrder = orderRepository.save(order);
+        logger.info("Order {} accepted successfully by chef {}", orderId, chefId);
+
+        OrderResponse orderResponse = convertToOrderResponse(updatedOrder);
+        
+        // Send real-time notification to user
+        notificationService.notifyUserOrderAccepted(order.getUserId(), orderResponse);
+
+        return orderResponse;
+    }
+
+    @Override
+    public OrderResponse rejectOrder(UUID orderId, UUID chefId) {
+        logger.info("Chef {} rejecting order: {}", chefId, orderId);
+
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> {
+                    logger.error("Order not found with ID: {}", orderId);
+                    return new RuntimeException("Commande non trouvée avec l'ID: " + orderId);
+                });
+
+        // Verify that the order belongs to this chef
+        if (!order.getChefId().equals(chefId)) {
+            logger.error("Chef {} is not authorized to reject order {}", chefId, orderId);
+            throw new RuntimeException("Vous n'êtes pas autorisé à rejeter cette commande");
+        }
+
+        // Only PENDING orders can be rejected
+        if (order.getStatus() != OrderStatus.PENDING) {
+            logger.error("Cannot reject order {} with status {}", orderId, order.getStatus());
+            throw new RuntimeException("Seules les commandes en attente peuvent être rejetées");
+        }
+
+        order.setStatus(OrderStatus.REJECTED);
+        Order updatedOrder = orderRepository.save(order);
+        logger.info("Order {} rejected successfully by chef {}", orderId, chefId);
+
+        OrderResponse orderResponse = convertToOrderResponse(updatedOrder);
+        
+        // Send real-time notification to user
+        notificationService.notifyUserOrderRejected(order.getUserId(), orderResponse);
+
+        return orderResponse;
+    }
+
+    @Override
     public OrderResponse convertToOrderResponse(Order order) {
         if (order == null) {
             return null;
@@ -292,6 +408,7 @@ public class OrderServiceImpl implements OrderService {
                 order.getId(),
                 order.getPlatId(),
                 order.getUserId(),
+                order.getChefId(),
                 order.getDescription(),
                 order.getStatus(),
                 order.getQuantity(),

@@ -14,6 +14,7 @@ public class OrderResponse {
     private UUID id;
     private UUID platId;
     private UUID userId;
+    private UUID chefId;
     private String description;
     private OrderStatus status;
     private String statusLabel;
@@ -29,13 +30,14 @@ public class OrderResponse {
     public OrderResponse() {}
 
     // Constructor with all fields
-    public OrderResponse(UUID id, UUID platId, UUID userId, String description, 
+    public OrderResponse(UUID id, UUID platId, UUID userId, UUID chefId, String description, 
                         OrderStatus status, Integer quantity, String orderNotes, String deliveryAddress,
                         LocalDateTime estimatedDeliveryTime, Double totalPrice, 
                         LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.platId = platId;
         this.userId = userId;
+        this.chefId = chefId;
         this.description = description;
         this.status = status;
         this.statusLabel = status != null ? status.getLabel() : null;
@@ -71,6 +73,14 @@ public class OrderResponse {
 
     public void setUserId(UUID userId) {
         this.userId = userId;
+    }
+
+    public UUID getChefId() {
+        return chefId;
+    }
+
+    public void setChefId(UUID chefId) {
+        this.chefId = chefId;
     }
 
     public String getDescription() {
@@ -160,6 +170,7 @@ public class OrderResponse {
                 "id=" + id +
                 ", platId=" + platId +
                 ", userId=" + userId +
+                ", chefId=" + chefId +
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 ", statusLabel='" + statusLabel + '\'' +

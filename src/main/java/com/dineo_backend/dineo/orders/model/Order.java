@@ -28,6 +28,10 @@ public class Order {
     @Column(name = "user_id", nullable = false)
     private UUID userId;
 
+    @NotNull
+    @Column(name = "chef_id", nullable = false)
+    private UUID chefId;
+
     @Size(max = 1000)
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
@@ -107,6 +111,14 @@ public class Order {
 
     public void setUserId(UUID userId) {
         this.userId = userId;
+    }
+
+    public UUID getChefId() {
+        return chefId;
+    }
+
+    public void setChefId(UUID chefId) {
+        this.chefId = chefId;
     }
 
     public String getDescription() {
@@ -192,6 +204,7 @@ public class Order {
                 "id=" + id +
                 ", platId=" + platId +
                 ", userId=" + userId +
+                ", chefId=" + chefId +
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 ", quantity=" + quantity +

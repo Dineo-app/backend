@@ -166,4 +166,34 @@ public interface OrderRepository extends JpaRepository<Order, UUID> {
      * @return list of orders matching criteria
      */
     List<Order> findByPlatIdAndStatusInOrderByCreatedAtDesc(UUID platId, List<OrderStatus> statuses);
+
+    /**
+     * Find all orders for a specific chef
+     * @param chefId the ID of the chef
+     * @return list of orders for the chef
+     */
+    List<Order> findByChefIdOrderByCreatedAtDesc(UUID chefId);
+
+    /**
+     * Find orders for a specific chef filtered by status
+     * @param chefId the ID of the chef
+     * @param status the order status
+     * @return list of orders matching criteria
+     */
+    List<Order> findByChefIdAndStatusOrderByCreatedAtDesc(UUID chefId, OrderStatus status);
+
+    /**
+     * Count total orders for a chef
+     * @param chefId the ID of the chef
+     * @return number of orders
+     */
+    long countByChefId(UUID chefId);
+
+    /**
+     * Count orders by status for a chef
+     * @param chefId the ID of the chef
+     * @param status the order status
+     * @return number of orders with the status
+     */
+    long countByChefIdAndStatus(UUID chefId, OrderStatus status);
 }

@@ -20,6 +20,7 @@ public class CartItemResponse {
     private LocalDateTime addedAt;
     private LocalDateTime updatedAt;
     private String chefName;
+    private UUID chefId;
     private PromotionInfo promotion;
 
     // Nested class for promotion information
@@ -164,6 +165,14 @@ public class CartItemResponse {
 
     public void setChefName(String chefName) {
         this.chefName = chefName;
+    }
+
+    public UUID getChefId() {
+        return chefId;
+    }
+
+    public void setChefId(UUID chefId) {
+        this.chefId = chefId;
     }
 
     public PromotionInfo getPromotion() {

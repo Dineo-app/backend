@@ -24,7 +24,7 @@ import java.util.UUID;
  * Handles HTTP requests for order-related endpoints
  */
 @RestController
-@RequestMapping("/api/orders")
+@RequestMapping("/api/v1/orders")
 @CrossOrigin(origins = "*")
 public class OrderController {
 
@@ -358,6 +358,99 @@ public class OrderController {
 
         } catch (Exception e) {
             logger.error("Error checking pending orders for plat {}: {}", platId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(ApiResponse.internalError(AppConstants.INTERNAL_ERROR));
+        }
+    }
+
+    /**
+     * Get all orders for authenticated chef
+     * @param authHeader the authorization header containing JWT token
+     * @return list of chef's orders
+     */
+    @GetMapping("/chef/my-orders")
+    public ResponseEntity<ApiResponse<List<OrderResponse>>> getMyChefOrders(
+            @RequestHeader("Authorization") String authHeader) {
+        
+        try {
+            logger.info("Retrieving orders for authenticated chef");
+
+            // Extract chef ID from JWT token
+            String token = authHeader.substring(7); // Remove "Bearer " prefix
+            UUID chefId = jwtService.extractUserId(token);
+
+            List<OrderResponse> orders = orderService.getOrdersByChefId(chefId);
+
+            return ResponseEntity.ok(ApiResponse.success(AppConstants.ORDERS_RETRIEVED_SUCCESS, orders));
+
+        } catch (Exception e) {
+            logger.error("Error retrieving chef orders: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(ApiResponse.internalError(AppConstants.INTERNAL_ERROR));
+        }
+    }
+
+    /**
+     * Accept an order (chef endpoint)
+     * @param orderId the ID of the order to accept
+     * @param authHeader the authorization header containing JWT token
+     * @return the updated order response
+     */
+    @PutMapping("/{orderId}/accept")
+    public ResponseEntity<ApiResponse<OrderResponse>> acceptOrder(
+            @PathVariable UUID orderId,
+            @RequestHeader("Authorization") String authHeader) {
+        
+        try {
+            logger.info("Chef accepting order: {}", orderId);
+
+            // Extract chef ID from JWT token
+            String token = authHeader.substring(7); // Remove "Bearer " prefix
+            UUID chefId = jwtService.extractUserId(token);
+
+            OrderResponse orderResponse = orderService.acceptOrder(orderId, chefId);
+
+            return ResponseEntity.ok(ApiResponse.success("Commande acceptée avec succès", orderResponse));
+
+        } catch (RuntimeException e) {
+            logger.error("Error accepting order {}: {}", orderId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), e.getMessage()));
+        } catch (Exception e) {
+            logger.error("Unexpected error accepting order {}: {}", orderId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(ApiResponse.internalError(AppConstants.INTERNAL_ERROR));
+        }
+    }
+
+    /**
+     * Reject an order (chef endpoint)
+     * @param orderId the ID of the order to reject
+     * @param authHeader the authorization header containing JWT token
+     * @return the updated order response
+     */
+    @PutMapping("/{orderId}/reject")
+    public ResponseEntity<ApiResponse<OrderResponse>> rejectOrder(
+            @PathVariable UUID orderId,
+            @RequestHeader("Authorization") String authHeader) {
+        
+        try {
+            logger.info("Chef rejecting order: {}", orderId);
+
+            // Extract chef ID from JWT token
+            String token = authHeader.substring(7); // Remove "Bearer " prefix
+            UUID chefId = jwtService.extractUserId(token);
+
+            OrderResponse orderResponse = orderService.rejectOrder(orderId, chefId);
+
+            return ResponseEntity.ok(ApiResponse.success("Commande rejetée", orderResponse));
+
+        } catch (RuntimeException e) {
+            logger.error("Error rejecting order {}: {}", orderId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), e.getMessage()));
+        } catch (Exception e) {
+            logger.error("Unexpected error rejecting order {}: {}", orderId, e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(ApiResponse.internalError(AppConstants.INTERNAL_ERROR));
         }
