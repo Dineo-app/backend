@@ -3051,3 +3051,24 @@ Consider defining a bean of type 'com.dineo_backend.dineo.plats.service.BunnyCdn
 2025-11-23 15:43:49 [http-nio-8080-exec-6] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
 2025-11-23 15:43:49 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Public request to get plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
 2025-11-23 15:43:50 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Successfully retrieved plat: 4be514e5-495a-4a7c-a5a5-a44e363e8067
+2025-11-23 15:46:26 [http-nio-8080-exec-10] INFO  c.d.d.cart.controller.CartController - Getting cart count
+2025-11-23 15:46:26 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions
+2025-11-23 15:46:26 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats
+2025-11-23 15:46:26 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2025-11-23 15:46:27 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 3 available plats
+2025-11-23 15:46:28 [http-nio-8080-exec-4] INFO  c.d.d.c.c.FavoriteChefController - Get user favorite chefs request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-23 15:46:28 [http-nio-8080-exec-1] INFO  c.d.d.p.c.FavoritePlatController - Get user favorites request received for user ID: 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-23 15:46:28 [http-nio-8080-exec-4] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Getting favorite chefs with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-23 15:46:28 [http-nio-8080-exec-1] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Getting favorite plats with details for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-23 15:46:28 [http-nio-8080-exec-4] INFO  c.d.d.c.s.i.FavoriteChefServiceImpl - Found 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-23 15:46:28 [http-nio-8080-exec-1] INFO  c.d.d.p.s.i.FavoritePlatServiceImpl - Found 1 favorite plats for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-23 15:46:28 [http-nio-8080-exec-1] INFO  c.d.d.p.c.FavoritePlatController - Successfully retrieved 1 favorites for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-23 15:46:28 [http-nio-8080-exec-4] INFO  c.d.d.c.c.FavoriteChefController - Successfully retrieved 1 favorite chefs for user 9ddb721e-1cd7-4113-b95e-e19b44b7994a
+2025-11-23 15:53:49 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-23 15:53:49 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-23 15:53:49 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2025-11-23 15:53:49 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7438b3d2]]
+2025-11-23 15:53:49 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2025-11-23 15:53:49 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-23 15:53:49 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-11-23 15:53:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.

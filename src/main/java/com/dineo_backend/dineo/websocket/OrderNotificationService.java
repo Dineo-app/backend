@@ -34,7 +34,7 @@ public class OrderNotificationService {
             
             Map<String, Object> notification = new HashMap<>();
             notification.put("type", "NEW_ORDER");
-            notification.put("message", "Nouvelle commande reçue!");
+            notification.put("message", "Nouvelle commande");
             notification.put("order", order);
             
             // Send to specific chef's queue
@@ -76,7 +76,7 @@ public class OrderNotificationService {
      * @param order the accepted order details
      */
     public void notifyUserOrderAccepted(UUID userId, OrderResponse order) {
-        String message = "Votre commande a été acceptée par le chef!";
+        String message = "Votre commande a été acceptée par le chef";
         notifyUserOrderStatusChange(userId, order, message);
     }
 
@@ -86,7 +86,7 @@ public class OrderNotificationService {
      * @param order the rejected order details
      */
     public void notifyUserOrderRejected(UUID userId, OrderResponse order) {
-        String message = "Désolé, votre commande a été rejetée par le chef.";
+        String message = "Le chef ne peut pas accepter cette commande";
         notifyUserOrderStatusChange(userId, order, message);
     }
 
@@ -97,10 +97,10 @@ public class OrderNotificationService {
      */
     public void notifyUserOrderProgress(UUID userId, OrderResponse order) {
         String message = switch (order.getStatus()) {
-            case PREPARING -> "Le chef prépare votre commande!";
-            case READY -> "Votre commande est prête!";
-            case COMPLETED -> "Votre commande a été livrée. Bon appétit!";
-            default -> "Statut de votre commande mis à jour: " + order.getStatus().getLabel();
+            case PREPARING -> "Votre commande est en cours de préparation";
+            case READY -> "Votre commande est prête pour la livraison";
+            case COMPLETED -> "Votre commande a été livrée. Bon appétit !";
+            default -> "Statut de votre commande : " + order.getStatus().getLabel();
         };
         notifyUserOrderStatusChange(userId, order, message);
     }
@@ -116,7 +116,7 @@ public class OrderNotificationService {
             
             Map<String, Object> notification = new HashMap<>();
             notification.put("type", "ORDER_CANCELLED");
-            notification.put("message", "Une commande a été annulée");
+            notification.put("message", "Commande annulée par le client");
             notification.put("order", order);
             
             messagingTemplate.convertAndSend("/topic/chef/" + chefId + "/orders", notification);
@@ -137,7 +137,7 @@ public class OrderNotificationService {
             
             Map<String, Object> notification = new HashMap<>();
             notification.put("type", "NEW_ORDER_BROADCAST");
-            notification.put("message", "Nouvelle commande disponible!");
+            notification.put("message", "Nouvelle commande disponible");
             notification.put("order", order);
             
             // Broadcast to all chefs
