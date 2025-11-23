@@ -76,7 +76,7 @@ public class OrderNotificationService {
      * @param order the accepted order details
      */
     public void notifyUserOrderAccepted(UUID userId, OrderResponse order) {
-        String message = "Votre commande a été acceptée par le chef";
+        String message = "Votre commande a été acceptée";
         notifyUserOrderStatusChange(userId, order, message);
     }
 
