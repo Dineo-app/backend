@@ -2,6 +2,7 @@ package com.dineo_backend.dineo.authentication.controller;
 
 import com.dineo_backend.dineo.authentication.dto.AuthData;
 import com.dineo_backend.dineo.authentication.dto.LoginRequest;
+import com.dineo_backend.dineo.authentication.dto.PushTokenRequest;
 import com.dineo_backend.dineo.authentication.dto.RefreshTokenRequest;
 import com.dineo_backend.dineo.authentication.dto.UpdatePasswordRequest;
 import com.dineo_backend.dineo.authentication.model.User;
@@ -188,6 +189,135 @@ public class AuthController {
         } catch (Exception e) {
             logger.error("Unexpected error during token refresh", e);
             ApiResponse<AuthData> errorResponse = ApiResponse.internalError(AppConstants.INTERNAL_ERROR);
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+        }
+    }
+    
+    /**
+     * Saves the Expo push token for push notifications.
+     * Extracts user ID from JWT token for authentication.
+     * 
+     * @param pushTokenRequest Request containing the Expo push token
+     * @param request HTTP request to extract JWT token from Authorization header
+     * @return ResponseEntity with success or error message
+     */
+    @PutMapping("/push-token")
+    public ResponseEntity<ApiResponse<String>> savePushToken(
+            @Valid @RequestBody PushTokenRequest pushTokenRequest,
+            HttpServletRequest request) {
+        
+        logger.info("Push token save request received");
+        
+        try {
+            // Extract JWT token from Authorization header
+            String authHeader = request.getHeader("Authorization");
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                logger.warn("Missing or invalid Authorization header");
+                ApiResponse<String> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_MISSING);
+                return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+            }
+
+            String token = authHeader.substring(7);
+            
+            // Validate token and extract user ID
+            try {
+                if (!jwtService.isAccessToken(token)) {
+                    logger.warn("Invalid token type provided");
+                    ApiResponse<String> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID);
+                    return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+                }
+                
+                String userIdString = jwtService.extractUsername(token);
+                UUID userId = UUID.fromString(userIdString);
+                
+                // Validate token
+                if (!jwtService.validateToken(token, userIdString)) {
+                    logger.warn("Token validation failed");
+                    ApiResponse<String> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID);
+                    return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+                }
+                
+                // Call service to save push token
+                ApiResponse<String> result = authService.savePushToken(userId, pushTokenRequest.getPushToken());
+                return ResponseEntity.status(result.getStatus()).body(result);
+                
+            } catch (Exception e) {
+                logger.error("Error processing JWT token", e);
+                ApiResponse<String> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID);
+                return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+            }
+            
+        } catch (Exception e) {
+            logger.error("Unexpected error during push token save", e);
+            ApiResponse<String> errorResponse = ApiResponse.internalError(AppConstants.INTERNAL_ERROR);
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+        }
+    }
+    
+    /**
+     * Clears the Expo push token for a specific device on logout.
+     * Extracts user ID from JWT token for authentication.
+     * 
+     * @param pushToken The push token to clear (optional query param - if not provided, clears all)
+     * @param request HTTP request to extract JWT token from Authorization header
+     * @return ResponseEntity with success or error message
+     */
+    @DeleteMapping("/push-token")
+    public ResponseEntity<ApiResponse<String>> clearPushToken(
+            @RequestParam(required = false) String pushToken,
+            HttpServletRequest request) {
+        
+        logger.info("Push token clear request received");
+        
+        try {
+            // Extract JWT token from Authorization header
+            String authHeader = request.getHeader("Authorization");
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                logger.warn("Missing or invalid Authorization header");
+                ApiResponse<String> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_MISSING);
+                return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+            }
+
+            String token = authHeader.substring(7);
+            
+            // Validate token and extract user ID
+            try {
+                if (!jwtService.isAccessToken(token)) {
+                    logger.warn("Invalid token type provided");
+                    ApiResponse<String> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID);
+                    return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+                }
+                
+                String userIdString = jwtService.extractUsername(token);
+                UUID userId = UUID.fromString(userIdString);
+                
+                // Validate token
+                if (!jwtService.validateToken(token, userIdString)) {
+                    logger.warn("Token validation failed");
+                    ApiResponse<String> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID);
+                    return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+                }
+                
+                // Call service to clear push token
+                ApiResponse<String> result;
+                if (pushToken != null && !pushToken.isEmpty()) {
+                    // Clear specific token (this device only)
+                    result = authService.clearPushToken(userId, pushToken);
+                } else {
+                    // Clear all tokens (all devices)
+                    result = authService.clearPushToken(userId);
+                }
+                return ResponseEntity.status(result.getStatus()).body(result);
+                
+            } catch (Exception e) {
+                logger.error("Error processing JWT token", e);
+                ApiResponse<String> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID);
+                return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+            }
+            
+        } catch (Exception e) {
+            logger.error("Unexpected error during push token clear", e);
+            ApiResponse<String> errorResponse = ApiResponse.internalError(AppConstants.INTERNAL_ERROR);
             return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
         }
     }

@@ -1,5 +1,8 @@
 package com.dineo_backend.dineo.websocket;
 
+import com.dineo_backend.dineo.authentication.model.UserPushToken;
+import com.dineo_backend.dineo.authentication.repository.UserPushTokenRepository;
+import com.dineo_backend.dineo.notifications.service.ExpoPushService;
 import com.dineo_backend.dineo.orders.dto.OrderResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,11 +11,13 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 /**
  * Service for sending real-time order notifications via WebSocket
+ * and push notifications via Expo Push API (to ALL user devices)
  * Handles notifications to chefs and users about order status changes
  */
 @Service
@@ -22,6 +27,12 @@ public class OrderNotificationService {
 
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
+    
+    @Autowired
+    private ExpoPushService expoPushService;
+    
+    @Autowired
+    private UserPushTokenRepository pushTokenRepository;
 
     /**
      * Send notification to a specific chef about a new order
@@ -37,10 +48,15 @@ public class OrderNotificationService {
             notification.put("message", "Nouvelle commande");
             notification.put("order", order);
             
-            // Send to specific chef's queue
+            // Send to specific chef's queue via WebSocket
             messagingTemplate.convertAndSend("/topic/chef/" + chefId + "/orders", notification);
             
             logger.info("New order notification sent successfully to chef: {}", chefId);
+            
+            // Also send push notification
+            sendPushNotificationToUser(chefId, "Nouvelle commande 🍽️", 
+                "Vous avez reçu une nouvelle commande!", notification);
+            
         } catch (Exception e) {
             logger.error("Error sending new order notification to chef {}: {}", chefId, e.getMessage());
         }
@@ -61,10 +77,14 @@ public class OrderNotificationService {
             notification.put("message", message);
             notification.put("order", order);
             
-            // Send to specific user's queue
+            // Send to specific user's queue via WebSocket
             messagingTemplate.convertAndSend("/topic/user/" + userId + "/orders", notification);
             
             logger.info("Order status notification sent successfully to user: {}", userId);
+            
+            // Also send push notification
+            sendPushNotificationToUser(userId, "Mise à jour de commande 📦", message, notification);
+            
         } catch (Exception e) {
             logger.error("Error sending order status notification to user {}: {}", userId, e.getMessage());
         }
@@ -122,6 +142,11 @@ public class OrderNotificationService {
             messagingTemplate.convertAndSend("/topic/chef/" + chefId + "/orders", notification);
             
             logger.info("Order cancellation notification sent successfully to chef: {}", chefId);
+            
+            // Also send push notification
+            sendPushNotificationToUser(chefId, "Commande annulée ❌", 
+                "Une commande a été annulée par le client", notification);
+            
         } catch (Exception e) {
             logger.error("Error sending order cancellation notification to chef {}: {}", chefId, e.getMessage());
         }
@@ -146,6 +171,48 @@ public class OrderNotificationService {
             logger.info("New order broadcast sent successfully to all chefs");
         } catch (Exception e) {
             logger.error("Error broadcasting new order to all chefs: {}", e.getMessage());
+        }
+    }
+    
+    /**
+     * Helper method to send push notification to ALL devices of a user.
+     * Supports multi-device - sends to every registered device.
+     * 
+     * @param userId the ID of the user
+     * @param title the notification title
+     * @param body the notification body
+     * @param data additional data to include
+     */
+    private void sendPushNotificationToUser(UUID userId, String title, String body, Map<String, Object> data) {
+        try {
+            // Get all push tokens for this user (all devices)
+            List<UserPushToken> userTokens = pushTokenRepository.findByUserId(userId);
+            
+            if (userTokens.isEmpty()) {
+                logger.debug("User {} has no push tokens registered, skipping push notification", userId);
+                return;
+            }
+            
+            int successCount = 0;
+            int failCount = 0;
+            
+            // Send to all devices
+            for (UserPushToken tokenEntry : userTokens) {
+                String pushToken = tokenEntry.getPushToken();
+                boolean sent = expoPushService.sendPushNotification(pushToken, title, body, data);
+                
+                if (sent) {
+                    successCount++;
+                } else {
+                    failCount++;
+                }
+            }
+            
+            logger.info("Push notifications sent to user {}: {} success, {} failed (total {} devices)", 
+                userId, successCount, failCount, userTokens.size());
+                
+        } catch (Exception e) {
+            logger.error("Error sending push notifications to user {}: {}", userId, e.getMessage());
         }
     }
 }

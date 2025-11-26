@@ -84,4 +84,31 @@ public interface AuthService {
      * @throws RuntimeException if user not found or token generation fails
      */
     ApiResponse<AuthData> refreshAccessToken(String refreshToken);
+    
+    /**
+     * Saves the Expo push token for a user to enable push notifications.
+     * Supports multi-device - each device gets its own token entry.
+     * 
+     * @param userId The user's UUID
+     * @param pushToken The Expo push token from the device
+     * @return ApiResponse indicating success or failure
+     */
+    ApiResponse<String> savePushToken(UUID userId, String pushToken);
+    
+    /**
+     * Clears the Expo push token for a specific device (used on logout).
+     * 
+     * @param userId The user's UUID
+     * @param pushToken The specific push token to clear
+     * @return ApiResponse indicating success or failure
+     */
+    ApiResponse<String> clearPushToken(UUID userId, String pushToken);
+    
+    /**
+     * Clears all Expo push tokens for a user (used on logout from all devices).
+     * 
+     * @param userId The user's UUID
+     * @return ApiResponse indicating success or failure
+     */
+    ApiResponse<String> clearPushToken(UUID userId);
 }

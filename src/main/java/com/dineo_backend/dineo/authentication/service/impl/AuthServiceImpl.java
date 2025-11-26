@@ -5,8 +5,10 @@ import com.dineo_backend.dineo.authentication.dto.UpdatePasswordRequest;
 import com.dineo_backend.dineo.authentication.dto.UserInfo;
 import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
+import com.dineo_backend.dineo.authentication.model.UserPushToken;
 import com.dineo_backend.dineo.authentication.model.UserRole;
 import com.dineo_backend.dineo.authentication.repository.UserRepository;
+import com.dineo_backend.dineo.authentication.repository.UserPushTokenRepository;
 import com.dineo_backend.dineo.authentication.repository.RoleRepository;
 import com.dineo_backend.dineo.authentication.service.AuthService;
 import com.dineo_backend.dineo.authentication.service.JwtService;
@@ -18,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -39,6 +42,7 @@ public class AuthServiceImpl implements AuthService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final UserPushTokenRepository pushTokenRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     
@@ -50,16 +54,19 @@ public class AuthServiceImpl implements AuthService {
      * 
      * @param userRepository Repository for user data operations
      * @param roleRepository Repository for role data operations
+     * @param pushTokenRepository Repository for push token operations
      * @param passwordEncoder Encoder for password hashing
      * @param jwtService Service for JWT token operations
      */
     @Autowired
     public AuthServiceImpl(UserRepository userRepository, 
-                          RoleRepository roleRepository, 
+                          RoleRepository roleRepository,
+                          UserPushTokenRepository pushTokenRepository,
                           PasswordEncoder passwordEncoder,
                           JwtService jwtService) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.pushTokenRepository = pushTokenRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
     }
@@ -367,6 +374,106 @@ public class AuthServiceImpl implements AuthService {
             
         } catch (Exception e) {
             logger.error("Error refreshing access token", e);
+            return ApiResponse.error(500, AppConstants.INTERNAL_ERROR);
+        }
+    }
+    
+    /**
+     * {@inheritDoc}
+     * Saves push token to the user_push_tokens table for multi-device support.
+     * If the token already exists for this user, it updates the last_used_at timestamp.
+     */
+    @Override
+    @Transactional
+    public ApiResponse<String> savePushToken(UUID userId, String pushToken) {
+        logger.info("Saving push token for user ID: {}", userId);
+        
+        try {
+            if (pushToken == null || pushToken.trim().isEmpty()) {
+                logger.warn("Push token is missing");
+                return ApiResponse.error(400, "Le token de notification est obligatoire");
+            }
+            
+            // Check if user exists
+            if (!userRepository.existsById(userId)) {
+                logger.error("User not found with ID: {}", userId);
+                return ApiResponse.error(404, AppConstants.USER_NOT_FOUND);
+            }
+            
+            // Check if this token already exists for this user
+            Optional<UserPushToken> existingToken = pushTokenRepository.findByUserIdAndPushToken(userId, pushToken);
+            
+            if (existingToken.isPresent()) {
+                // Token already registered, just update last used time
+                existingToken.get().updateLastUsed();
+                pushTokenRepository.save(existingToken.get());
+                logger.info("Push token already exists, updated last_used_at for user ID: {}", userId);
+            } else {
+                // Check if this token is registered to another user (device switched accounts)
+                Optional<UserPushToken> tokenForOtherUser = pushTokenRepository.findByPushToken(pushToken);
+                if (tokenForOtherUser.isPresent()) {
+                    // Remove token from previous user
+                    pushTokenRepository.delete(tokenForOtherUser.get());
+                    logger.info("Removed push token from previous user");
+                }
+                
+                // Create new token entry
+                UserPushToken newToken = new UserPushToken(userId, pushToken);
+                pushTokenRepository.save(newToken);
+                logger.info("New push token saved for user ID: {}", userId);
+            }
+            
+            return ApiResponse.success("Token de notification enregistré avec succès", "OK");
+            
+        } catch (Exception e) {
+            logger.error("Error saving push token for user ID: {}", userId, e);
+            return ApiResponse.error(500, AppConstants.INTERNAL_ERROR);
+        }
+    }
+    
+    /**
+     * {@inheritDoc}
+     * Clears the push token for the current device (not all devices).
+     */
+    @Override
+    @Transactional
+    public ApiResponse<String> clearPushToken(UUID userId, String pushToken) {
+        logger.info("Clearing push token for user ID: {}", userId);
+        
+        try {
+            if (pushToken != null && !pushToken.trim().isEmpty()) {
+                // Clear specific token (logout from one device)
+                pushTokenRepository.deleteByUserIdAndPushToken(userId, pushToken);
+                logger.info("Push token cleared for user ID: {} on specific device", userId);
+            } else {
+                // If no token provided, log warning but don't fail
+                logger.warn("No push token provided for clearing, user ID: {}", userId);
+            }
+            
+            return ApiResponse.success("Token de notification supprimé avec succès", "OK");
+            
+        } catch (Exception e) {
+            logger.error("Error clearing push token for user ID: {}", userId, e);
+            return ApiResponse.error(500, AppConstants.INTERNAL_ERROR);
+        }
+    }
+    
+    /**
+     * {@inheritDoc}
+     * Clears all push tokens for a user (used when clearing all sessions).
+     */
+    @Override
+    @Transactional
+    public ApiResponse<String> clearPushToken(UUID userId) {
+        logger.info("Clearing all push tokens for user ID: {}", userId);
+        
+        try {
+            pushTokenRepository.deleteByUserId(userId);
+            logger.info("All push tokens cleared for user ID: {}", userId);
+            return ApiResponse.success("Tous les tokens de notification supprimés avec succès", "OK");
+            
+        } catch (Exception e) {
+            logger.error("Error clearing all push tokens for user ID: {}", userId, e);
             return ApiResponse.error(500, AppConstants.INTERNAL_ERROR);
         }
     }
