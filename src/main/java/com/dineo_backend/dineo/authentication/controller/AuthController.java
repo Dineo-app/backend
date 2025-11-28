@@ -5,6 +5,8 @@ import com.dineo_backend.dineo.authentication.dto.LoginRequest;
 import com.dineo_backend.dineo.authentication.dto.PushTokenRequest;
 import com.dineo_backend.dineo.authentication.dto.RefreshTokenRequest;
 import com.dineo_backend.dineo.authentication.dto.UpdatePasswordRequest;
+import com.dineo_backend.dineo.authentication.dto.UpdateProfileRequest;
+import com.dineo_backend.dineo.authentication.dto.UserInfo;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.service.AuthService;
 import com.dineo_backend.dineo.authentication.service.JwtService;
@@ -157,6 +159,67 @@ public class AuthController {
         } catch (Exception e) {
             logger.error("Unexpected error during password update", e);
             ApiResponse<String> errorResponse = ApiResponse.internalError(AppConstants.INTERNAL_ERROR);
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+        }
+    }
+    
+    /**
+     * Updates user profile information.
+     * Extracts user ID from JWT token for authentication.
+     * 
+     * @param updateProfileRequest Request containing profile fields to update
+     * @param request HTTP request to extract JWT token from Authorization header
+     * @return ResponseEntity with updated user info or error message
+     */
+    @PutMapping("/profile")
+    public ResponseEntity<ApiResponse<UserInfo>> updateProfile(
+            @Valid @RequestBody UpdateProfileRequest updateProfileRequest,
+            HttpServletRequest request) {
+        
+        logger.info("Profile update request received");
+        
+        try {
+            // Extract JWT token from Authorization header
+            String authHeader = request.getHeader("Authorization");
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                logger.warn("Missing or invalid Authorization header");
+                ApiResponse<UserInfo> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_MISSING);
+                return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+            }
+
+            String token = authHeader.substring(7);
+            
+            // Validate token and extract user ID
+            try {
+                if (!jwtService.isAccessToken(token)) {
+                    logger.warn("Invalid token type provided");
+                    ApiResponse<UserInfo> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID);
+                    return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+                }
+                
+                String userIdString = jwtService.extractUsername(token);
+                UUID userId = UUID.fromString(userIdString);
+                
+                // Validate token
+                if (!jwtService.validateToken(token, userIdString)) {
+                    logger.warn("Token validation failed");
+                    ApiResponse<UserInfo> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID);
+                    return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+                }
+                
+                // Call service to update profile
+                ApiResponse<UserInfo> result = authService.updateProfile(userId, updateProfileRequest);
+                return ResponseEntity.status(result.getStatus()).body(result);
+                
+            } catch (Exception e) {
+                logger.error("Error processing JWT token", e);
+                ApiResponse<UserInfo> errorResponse = ApiResponse.error(401, AppConstants.JWT_TOKEN_INVALID);
+                return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+            }
+            
+        } catch (Exception e) {
+            logger.error("Unexpected error during profile update", e);
+            ApiResponse<UserInfo> errorResponse = ApiResponse.internalError(AppConstants.INTERNAL_ERROR);
             return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
         }
     }

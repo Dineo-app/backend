@@ -2,6 +2,8 @@ package com.dineo_backend.dineo.authentication.service;
 
 import com.dineo_backend.dineo.authentication.dto.AuthData;
 import com.dineo_backend.dineo.authentication.dto.UpdatePasswordRequest;
+import com.dineo_backend.dineo.authentication.dto.UpdateProfileRequest;
+import com.dineo_backend.dineo.authentication.dto.UserInfo;
 import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.shared.dto.ApiResponse;
@@ -111,4 +113,15 @@ public interface AuthService {
      * @return ApiResponse indicating success or failure
      */
     ApiResponse<String> clearPushToken(UUID userId);
+    
+    /**
+     * Updates a user's profile information.
+     * 
+     * @param userId The authenticated user's UUID (extracted from JWT)
+     * @param updateProfileRequest The profile update request containing new values
+     * @return ApiResponse with updated user information
+     * @throws IllegalArgumentException if email or phone already exists for another user
+     * @throws RuntimeException if user not found or update fails
+     */
+    ApiResponse<UserInfo> updateProfile(UUID userId, UpdateProfileRequest updateProfileRequest);
 }

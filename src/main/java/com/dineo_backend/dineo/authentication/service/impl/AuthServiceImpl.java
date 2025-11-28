@@ -2,6 +2,7 @@ package com.dineo_backend.dineo.authentication.service.impl;
 
 import com.dineo_backend.dineo.authentication.dto.AuthData;
 import com.dineo_backend.dineo.authentication.dto.UpdatePasswordRequest;
+import com.dineo_backend.dineo.authentication.dto.UpdateProfileRequest;
 import com.dineo_backend.dineo.authentication.dto.UserInfo;
 import com.dineo_backend.dineo.authentication.enums.Role;
 import com.dineo_backend.dineo.authentication.model.User;
@@ -474,6 +475,94 @@ public class AuthServiceImpl implements AuthService {
             
         } catch (Exception e) {
             logger.error("Error clearing all push tokens for user ID: {}", userId, e);
+            return ApiResponse.error(500, AppConstants.INTERNAL_ERROR);
+        }
+    }
+    
+    /**
+     * {@inheritDoc}
+     * Updates user profile information.
+     */
+    @Override
+    @Transactional
+    public ApiResponse<UserInfo> updateProfile(UUID userId, UpdateProfileRequest request) {
+        logger.info("Profile update request received for user ID: {}", userId);
+        
+        try {
+            // Find user by ID
+            Optional<User> optionalUser = userRepository.findById(userId);
+            if (optionalUser.isEmpty()) {
+                logger.error("User not found with ID: {}", userId);
+                return ApiResponse.error(404, AppConstants.USER_NOT_FOUND);
+            }
+            
+            User user = optionalUser.get();
+            
+            // Update firstName if provided
+            if (request.getFirstName() != null && !request.getFirstName().trim().isEmpty()) {
+                user.setFirstName(request.getFirstName().trim());
+            }
+            
+            // Update lastName if provided
+            if (request.getLastName() != null && !request.getLastName().trim().isEmpty()) {
+                user.setLastName(request.getLastName().trim());
+            }
+            
+            // Update email if provided and different
+            if (request.getEmail() != null && !request.getEmail().trim().isEmpty()) {
+                String newEmail = request.getEmail().trim().toLowerCase();
+                if (!newEmail.equals(user.getEmail())) {
+                    // Check if email is already taken by another user
+                    Optional<User> existingUser = userRepository.findByEmail(newEmail);
+                    if (existingUser.isPresent() && !existingUser.get().getId().equals(userId)) {
+                        logger.warn("Email already taken: {}", newEmail);
+                        return ApiResponse.error(400, "Cet email est déjà utilisé par un autre compte");
+                    }
+                    user.setEmail(newEmail);
+                }
+            }
+            
+            // Update phone if provided and different
+            if (request.getPhone() != null && !request.getPhone().trim().isEmpty()) {
+                String newPhone = request.getPhone().trim();
+                if (!newPhone.equals(user.getPhone())) {
+                    // Check if phone is already taken by another user
+                    Optional<User> existingUser = userRepository.findByPhone(newPhone);
+                    if (existingUser.isPresent() && !existingUser.get().getId().equals(userId)) {
+                        logger.warn("Phone already taken: {}", newPhone);
+                        return ApiResponse.error(400, "Ce numéro de téléphone est déjà utilisé par un autre compte");
+                    }
+                    user.setPhone(newPhone);
+                }
+            }
+            
+            // Update address if provided
+            if (request.getAddress() != null) {
+                user.setAddress(request.getAddress().trim());
+            }
+            
+            // Save updated user
+            User savedUser = userRepository.save(user);
+            
+            // Get user role
+            List<UserRole> userRoles = roleRepository.findByUserId(savedUser.getId());
+            Role userRole = userRoles.isEmpty() ? Role.CUSTOMER : userRoles.get(0).getRole();
+            
+            // Create user info response
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId(savedUser.getId().toString());
+            userInfo.setFirstName(savedUser.getFirstName());
+            userInfo.setLastName(savedUser.getLastName());
+            userInfo.setEmail(savedUser.getEmail());
+            userInfo.setPhone(savedUser.getPhone());
+            userInfo.setAddress(savedUser.getAddress());
+            userInfo.setRole(userRole.name());
+            
+            logger.info("Profile updated successfully for user ID: {}", userId);
+            return ApiResponse.success("Profil mis à jour avec succès", userInfo);
+            
+        } catch (Exception e) {
+            logger.error("Error updating profile for user ID: {}", userId, e);
             return ApiResponse.error(500, AppConstants.INTERNAL_ERROR);
         }
     }
