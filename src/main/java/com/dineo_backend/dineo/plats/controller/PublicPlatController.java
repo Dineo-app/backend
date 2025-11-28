@@ -170,6 +170,145 @@ public class PublicPlatController {
     }
 
     /**
+     * Search plats by query string
+     * Searches in name, description, categories, and chef name
+     * Public endpoint - no authentication required
+     * 
+     * @param query the search query
+     * @param category optional category filter
+     * @param maxCookTime optional maximum cooking time filter
+     * @param minRating optional minimum rating filter
+     * @param sortBy optional sort field (rating, price, cookTime, newest)
+     * @param sortOrder optional sort order (asc, desc)
+     * @return list of matching plats
+     */
+    @GetMapping("/search")
+    public ResponseEntity<ApiResponse<List<PublicPlatResponse>>> searchPlats(
+            @RequestParam(required = false) String query,
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) Integer maxCookTime,
+            @RequestParam(required = false) Double minRating,
+            @RequestParam(required = false, defaultValue = "newest") String sortBy,
+            @RequestParam(required = false, defaultValue = "desc") String sortOrder) {
+        try {
+            logger.info("Public search request - query: {}, category: {}, maxCookTime: {}, minRating: {}, sortBy: {}, sortOrder: {}", 
+                query, category, maxCookTime, minRating, sortBy, sortOrder);
+
+            // Get all available plats
+            List<Plat> availablePlats = platRepository.findByAvailableTrue();
+
+            // Apply filters
+            List<PublicPlatResponse> filteredPlats = availablePlats.stream()
+                .map(plat -> {
+                    // Get active promotion if exists
+                    Optional<PromotionPlat> promotion = promotionRepository.findActivePromotionByPlatId(
+                        plat.getId(),
+                        LocalDateTime.now()
+                    );
+                    return mapToPublicResponse(plat, promotion.orElse(null));
+                })
+                // Filter by search query (name, description, chef name)
+                .filter(response -> {
+                    if (query == null || query.trim().isEmpty()) {
+                        return true;
+                    }
+                    String searchLower = query.toLowerCase().trim();
+                    
+                    // Search in name
+                    boolean matchesName = response.getName() != null && 
+                        response.getName().toLowerCase().contains(searchLower);
+                    
+                    // Search in description
+                    boolean matchesDesc = response.getDescription() != null && 
+                        response.getDescription().toLowerCase().contains(searchLower);
+                    
+                    // Search in chef name
+                    boolean matchesChef = response.getChef() != null && (
+                        (response.getChef().getFirstName() != null && 
+                            response.getChef().getFirstName().toLowerCase().contains(searchLower)) ||
+                        (response.getChef().getLastName() != null && 
+                            response.getChef().getLastName().toLowerCase().contains(searchLower))
+                    );
+                    
+                    // Search in categories
+                    boolean matchesCategory = response.getCategories() != null && 
+                        response.getCategories().stream()
+                            .anyMatch(cat -> cat.toLowerCase().contains(searchLower));
+                    
+                    return matchesName || matchesDesc || matchesChef || matchesCategory;
+                })
+                // Filter by category
+                .filter(response -> {
+                    if (category == null || category.trim().isEmpty()) {
+                        return true;
+                    }
+                    return response.getCategories() != null && 
+                        response.getCategories().stream()
+                            .anyMatch(cat -> cat.equalsIgnoreCase(category.trim()));
+                })
+                // Filter by max cooking time
+                .filter(response -> {
+                    if (maxCookTime == null) {
+                        return true;
+                    }
+                    return response.getEstimatedCookTime() != null && 
+                        response.getEstimatedCookTime() <= maxCookTime;
+                })
+                // Filter by minimum rating
+                .filter(response -> {
+                    if (minRating == null) {
+                        return true;
+                    }
+                    return response.getAverageRating() != null && 
+                        response.getAverageRating() >= minRating;
+                })
+                .collect(Collectors.toList());
+
+            // Sort results
+            boolean ascending = "asc".equalsIgnoreCase(sortOrder);
+            switch (sortBy.toLowerCase()) {
+                case "rating":
+                    filteredPlats.sort((a, b) -> {
+                        Double ratingA = a.getAverageRating() != null ? a.getAverageRating() : 0.0;
+                        Double ratingB = b.getAverageRating() != null ? b.getAverageRating() : 0.0;
+                        return ascending ? ratingA.compareTo(ratingB) : ratingB.compareTo(ratingA);
+                    });
+                    break;
+                case "price":
+                    filteredPlats.sort((a, b) -> {
+                        Double priceA = a.getPrice() != null ? a.getPrice() : 0.0;
+                        Double priceB = b.getPrice() != null ? b.getPrice() : 0.0;
+                        return ascending ? priceA.compareTo(priceB) : priceB.compareTo(priceA);
+                    });
+                    break;
+                case "cooktime":
+                    filteredPlats.sort((a, b) -> {
+                        Integer timeA = a.getEstimatedCookTime() != null ? a.getEstimatedCookTime() : 0;
+                        Integer timeB = b.getEstimatedCookTime() != null ? b.getEstimatedCookTime() : 0;
+                        return ascending ? timeA.compareTo(timeB) : timeB.compareTo(timeA);
+                    });
+                    break;
+                case "newest":
+                default:
+                    filteredPlats.sort((a, b) -> {
+                        LocalDateTime dateA = a.getCreatedAt() != null ? a.getCreatedAt() : LocalDateTime.MIN;
+                        LocalDateTime dateB = b.getCreatedAt() != null ? b.getCreatedAt() : LocalDateTime.MIN;
+                        return ascending ? dateA.compareTo(dateB) : dateB.compareTo(dateA);
+                    });
+                    break;
+            }
+
+            logger.info("Search returned {} results", filteredPlats.size());
+            return ResponseEntity.ok(ApiResponse.success("Recherche effectuée avec succès", filteredPlats));
+
+        } catch (Exception e) {
+            logger.error("Error searching plats: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error(500, "Erreur lors de la recherche des plats"));
+        }
+    }
+
+    /**
      * Get a single plat by ID (if available)
      * Public endpoint - no authentication required
      * 
