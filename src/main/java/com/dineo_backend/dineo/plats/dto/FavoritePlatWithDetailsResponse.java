@@ -25,6 +25,13 @@ public class FavoritePlatWithDetailsResponse {
     private LocalDateTime platCreatedAt;
     private LocalDateTime platUpdatedAt;
 
+    // Additional fields for UI display (matching home page cards)
+    private Double price;
+    private Double averageRating;
+    private String chefFirstName;
+    private String chefLastName;
+    private PromotionResponse promotion;
+
     // Default constructor
     public FavoritePlatWithDetailsResponse() {}
 
@@ -33,7 +40,9 @@ public class FavoritePlatWithDetailsResponse {
                                          UUID platId, UUID chefId, String name, String description,
                                          Integer estimatedCookTime, List<String> categories,
                                          String imageUrl, LocalDateTime platCreatedAt,
-                                         LocalDateTime platUpdatedAt) {
+                                         LocalDateTime platUpdatedAt, Double price,
+                                         Double averageRating, String chefFirstName,
+                                         String chefLastName, PromotionResponse promotion) {
         this.favoriteId = favoriteId;
         this.favoritedAt = favoritedAt;
         this.platId = platId;
@@ -45,6 +54,11 @@ public class FavoritePlatWithDetailsResponse {
         this.imageUrl = imageUrl;
         this.platCreatedAt = platCreatedAt;
         this.platUpdatedAt = platUpdatedAt;
+        this.price = price;
+        this.averageRating = averageRating;
+        this.chefFirstName = chefFirstName;
+        this.chefLastName = chefLastName;
+        this.promotion = promotion;
     }
 
     // Getters and Setters
@@ -136,6 +150,46 @@ public class FavoritePlatWithDetailsResponse {
         this.platUpdatedAt = platUpdatedAt;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(Double averageRating) {
+        this.averageRating = averageRating;
+    }
+
+    public String getChefFirstName() {
+        return chefFirstName;
+    }
+
+    public void setChefFirstName(String chefFirstName) {
+        this.chefFirstName = chefFirstName;
+    }
+
+    public String getChefLastName() {
+        return chefLastName;
+    }
+
+    public void setChefLastName(String chefLastName) {
+        this.chefLastName = chefLastName;
+    }
+
+    public PromotionResponse getPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(PromotionResponse promotion) {
+        this.promotion = promotion;
+    }
+
     @Override
     public String toString() {
         return "FavoritePlatWithDetailsResponse{" +
@@ -150,6 +204,11 @@ public class FavoritePlatWithDetailsResponse {
                 ", imageUrl='" + imageUrl + '\'' +
                 ", platCreatedAt=" + platCreatedAt +
                 ", platUpdatedAt=" + platUpdatedAt +
+                ", price=" + price +
+                ", averageRating=" + averageRating +
+                ", chefFirstName='" + chefFirstName + '\'' +
+                ", chefLastName='" + chefLastName + '\'' +
+                ", promotion=" + promotion +
                 '}';
     }
 }
