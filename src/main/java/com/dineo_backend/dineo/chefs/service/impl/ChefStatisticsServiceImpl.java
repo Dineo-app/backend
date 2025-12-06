@@ -361,8 +361,9 @@ public class ChefStatisticsServiceImpl implements ChefStatisticsService {
             platStats.setCategories(plat.getCategories());
             platStats.setEstimatedCookTime(plat.getEstimatedCookTime());
 
-            // Orders count (completed)
-            long orders = orderRepository.countByPlatIdAndStatus(plat.getId(), OrderStatus.COMPLETED);
+            // Orders count (all except cancelled and rejected)
+            List<OrderStatus> excludedStatuses = Arrays.asList(OrderStatus.CANCELLED, OrderStatus.REJECTED);
+            long orders = orderRepository.countByPlatIdAndStatusNotIn(plat.getId(), excludedStatuses);
             platStats.setOrders((int) orders);
             totalOrders += orders;
 

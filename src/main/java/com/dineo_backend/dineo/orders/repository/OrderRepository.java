@@ -105,6 +105,14 @@ public interface OrderRepository extends JpaRepository<Order, UUID> {
     long countByPlatId(UUID platId);
 
     /**
+     * Count orders for a plat excluding certain statuses (cancelled, rejected)
+     * @param platId the ID of the plat
+     * @param excludedStatuses statuses to exclude from count
+     * @return number of valid orders
+     */
+    long countByPlatIdAndStatusNotIn(UUID platId, List<OrderStatus> excludedStatuses);
+
+    /**
      * Count orders by status for a plat
      * @param platId the ID of the plat
      * @param status the order status
