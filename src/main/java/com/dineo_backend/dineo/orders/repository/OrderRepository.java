@@ -196,4 +196,98 @@ public interface OrderRepository extends JpaRepository<Order, UUID> {
      * @return number of orders with the status
      */
     long countByChefIdAndStatus(UUID chefId, OrderStatus status);
+
+    /**
+     * Find orders for a chef within a date range
+     * @param chefId the ID of the chef
+     * @param startDate the start date
+     * @param endDate the end date
+     * @return list of orders matching criteria
+     */
+    List<Order> findByChefIdAndCreatedAtBetweenOrderByCreatedAtDesc(UUID chefId, LocalDateTime startDate, LocalDateTime endDate);
+
+    /**
+     * Count orders for a chef within a date range
+     * @param chefId the ID of the chef
+     * @param startDate the start date
+     * @param endDate the end date
+     * @return number of orders in the range
+     */
+    long countByChefIdAndCreatedAtBetween(UUID chefId, LocalDateTime startDate, LocalDateTime endDate);
+
+    /**
+     * Sum total price for a chef within a date range (completed orders only)
+     * @param chefId the ID of the chef
+     * @param startDate the start date
+     * @param endDate the end date
+     * @param status the order status (should be COMPLETED)
+     * @return sum of total prices
+     */
+    @Query("SELECT COALESCE(SUM(o.totalPrice), 0) FROM Order o WHERE o.chefId = :chefId " +
+           "AND o.createdAt BETWEEN :startDate AND :endDate AND o.status = :status")
+    Double sumTotalPriceByChefIdAndDateRangeAndStatus(@Param("chefId") UUID chefId, 
+                                                       @Param("startDate") LocalDateTime startDate,
+                                                       @Param("endDate") LocalDateTime endDate,
+                                                       @Param("status") OrderStatus status);
+
+    /**
+     * Sum total price for a chef (all completed orders)
+     * @param chefId the ID of the chef
+     * @param status the order status (should be COMPLETED)
+     * @return sum of total prices
+     */
+    @Query("SELECT COALESCE(SUM(o.totalPrice), 0) FROM Order o WHERE o.chefId = :chefId AND o.status = :status")
+    Double sumTotalPriceByChefIdAndStatus(@Param("chefId") UUID chefId, @Param("status") OrderStatus status);
+
+    /**
+     * Count orders for a plat within a date range
+     * @param platId the ID of the plat
+     * @param startDate the start date
+     * @param endDate the end date
+     * @return number of orders in the range
+     */
+    long countByPlatIdAndCreatedAtBetween(UUID platId, LocalDateTime startDate, LocalDateTime endDate);
+
+    /**
+     * Sum total price for a plat within a date range (completed orders only)
+     * @param platId the ID of the plat
+     * @param startDate the start date
+     * @param endDate the end date
+     * @param status the order status
+     * @return sum of total prices
+     */
+    @Query("SELECT COALESCE(SUM(o.totalPrice), 0) FROM Order o WHERE o.platId = :platId " +
+           "AND o.createdAt BETWEEN :startDate AND :endDate AND o.status = :status")
+    Double sumTotalPriceByPlatIdAndDateRangeAndStatus(@Param("platId") UUID platId, 
+                                                       @Param("startDate") LocalDateTime startDate,
+                                                       @Param("endDate") LocalDateTime endDate,
+                                                       @Param("status") OrderStatus status);
+
+    /**
+     * Sum total price for a plat (all completed orders)
+     * @param platId the ID of the plat
+     * @param status the order status
+     * @return sum of total prices
+     */
+    @Query("SELECT COALESCE(SUM(o.totalPrice), 0) FROM Order o WHERE o.platId = :platId AND o.status = :status")
+    Double sumTotalPriceByPlatIdAndStatus(@Param("platId") UUID platId, @Param("status") OrderStatus status);
+
+    /**
+     * Find recent orders for a chef limited by count
+     * @param chefId the ID of the chef
+     * @param limit the maximum number of orders to return
+     * @return list of recent orders
+     */
+    @Query("SELECT o FROM Order o WHERE o.chefId = :chefId ORDER BY o.createdAt DESC LIMIT :limit")
+    List<Order> findRecentOrdersByChefId(@Param("chefId") UUID chefId, @Param("limit") int limit);
+
+    /**
+     * Count completed orders for a chef within a date range
+     * @param chefId the ID of the chef
+     * @param startDate the start date
+     * @param endDate the end date
+     * @param status the order status
+     * @return number of completed orders
+     */
+    long countByChefIdAndCreatedAtBetweenAndStatus(UUID chefId, LocalDateTime startDate, LocalDateTime endDate, OrderStatus status);
 }
