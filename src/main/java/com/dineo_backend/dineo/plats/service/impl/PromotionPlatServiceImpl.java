@@ -1,5 +1,6 @@
 package com.dineo_backend.dineo.plats.service.impl;
 
+import com.dineo_backend.dineo.notifications.service.PromotionEmailService;
 import com.dineo_backend.dineo.plats.dto.CreatePromotionRequest;
 import com.dineo_backend.dineo.plats.dto.PromotionResponse;
 import com.dineo_backend.dineo.plats.model.Plat;
@@ -32,6 +33,9 @@ public class PromotionPlatServiceImpl implements PromotionPlatService {
 
     @Autowired
     private PlatRepository platRepository;
+
+    @Autowired
+    private PromotionEmailService promotionEmailService;
 
     @Override
     @Transactional
@@ -66,6 +70,15 @@ public class PromotionPlatServiceImpl implements PromotionPlatService {
 
         PromotionPlat savedPromotion = promotionRepository.save(promotion);
         logger.info("Promotion created successfully with ID: {}", savedPromotion.getId());
+
+        // Send promotional emails to all users asynchronously
+        try {
+            promotionEmailService.sendPromotionEmailToAllUsers(savedPromotion);
+            logger.info("Triggered promotional email sending for promotion ID: {}", savedPromotion.getId());
+        } catch (Exception e) {
+            logger.error("Failed to trigger promotional emails: {}", e.getMessage(), e);
+            // Don't fail the promotion creation if email fails
+        }
 
         return mapToResponse(savedPromotion);
     }
