@@ -59,6 +59,12 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		
+		<!-- Spring Batch for processing emails in chunks with parallel execution -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-batch</artifactId>
+		</dependency>
+		
 		<!-- WebSocket dependency for real-time notifications -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

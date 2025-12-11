@@ -71,15 +71,26 @@ public class PromotionPlatServiceImpl implements PromotionPlatService {
         PromotionPlat savedPromotion = promotionRepository.save(promotion);
         logger.info("Promotion created successfully with ID: {}", savedPromotion.getId());
 
+        // ============ MULTI-THREADING HAPPENS HERE ============
         // Send promotional emails to all users asynchronously
         try {
+            // ↓ THIS LINE IS WHERE MULTI-THREADING STARTS!
+            // When this method is called, Spring sees the @Async annotation on it
+            // and IMMEDIATELY hands it off to a WORKER THREAD from the thread pool.
+            // The current thread (HTTP request thread) does NOT wait for emails to finish.
             promotionEmailService.sendPromotionEmailToAllUsers(savedPromotion);
+            
+            // ↓ This log appears INSTANTLY (before emails are even sent!)
+            // because the email method runs in a DIFFERENT THREAD
             logger.info("Triggered promotional email sending for promotion ID: {}", savedPromotion.getId());
         } catch (Exception e) {
             logger.error("Failed to trigger promotional emails: {}", e.getMessage(), e);
             // Don't fail the promotion creation if email fails
         }
+        // ============ END OF MULTI-THREADING TRIGGER ============
 
+        // ↓ This returns to the chef's phone in ~100ms
+        // WHILE the worker thread is still sending emails in the background
         return mapToResponse(savedPromotion);
     }
 

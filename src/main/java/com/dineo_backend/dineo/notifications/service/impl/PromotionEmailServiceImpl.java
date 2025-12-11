@@ -29,6 +29,40 @@ import java.util.UUID;
 /**
  * Implementation of PromotionEmailService
  * Sends promotional emails to users when chefs create promotions
+ * 
+ * ═══════════════════════════════════════════════════════════════════════════
+ * MULTI-THREADING FLOW EXPLANATION:
+ * ═══════════════════════════════════════════════════════════════════════════
+ * 
+ * THREAD 1 (HTTP Request Thread - "http-nio-8080-exec-1"):
+ * ┌─────────────────────────────────────────────────────────────┐
+ * │ 1. Chef clicks "Create Promotion" in app                    │
+ * │ 2. POST request arrives at PromotionPlatController          │
+ * │ 3. PromotionPlatServiceImpl.createPromotion() is called     │
+ * │ 4. Promotion saved to database                              │
+ * │ 5. promotionEmailService.sendPromotionEmailToAllUsers()     │
+ * │    ↓ Spring sees @Async and hands off to THREAD 2          │
+ * │ 6. HTTP thread continues immediately (doesn't wait!)        │
+ * │ 7. Returns "Success!" to chef's phone in ~100ms ✓          │
+ * └─────────────────────────────────────────────────────────────┘
+ * 
+ * THREAD 2 (Worker Thread - "task-1" from thread pool):
+ * ┌─────────────────────────────────────────────────────────────┐
+ * │ 1. Receives task from HTTP thread                           │
+ * │ 2. Fetches all users from database                          │
+ * │ 3. Loop through users (one by one)                          │
+ * │    - Send email to user 1 (300ms)                           │
+ * │    - Send email to user 2 (300ms)                           │
+ * │    - Send email to user 3 (300ms)                           │
+ * │    ... continues for all users ...                          │
+ * │ 4. Finishes after 30 seconds (100 users × 300ms)           │
+ * │ 5. Thread returns to pool, ready for next task             │
+ * └─────────────────────────────────────────────────────────────┘
+ * 
+ * KEY POINT: Chef gets "Success!" after 100ms, while emails are still 
+ * being sent in the background. Chef doesn't wait!
+ * 
+ * ═══════════════════════════════════════════════════════════════════════════
  */
 @Service
 public class PromotionEmailServiceImpl implements PromotionEmailService {
@@ -57,24 +91,37 @@ public class PromotionEmailServiceImpl implements PromotionEmailService {
     private String appUrl;
 
     @Override
-    @Async
+    @Async  // ← THIS IS THE MAGIC! This tells Spring: "Run this method in a SEPARATE THREAD"
     public void sendPromotionEmailToAllUsers(PromotionPlat promotionPlat) {
+        // ============ YOU ARE NOW IN A WORKER THREAD (NOT THE HTTP REQUEST THREAD) ============
+        // Thread name: "task-1", "task-2", etc. (from Spring's thread pool)
+        // The HTTP thread that called this method already returned to the chef!
+        
         logger.info("Sending promotion emails to all users for promotion: {}", promotionPlat.getId());
+        // ↑ This log appears AFTER the API already responded to chef
 
         // Get all users (no role filter)
         List<User> users = userRepository.findAll();
+        // ↑ This database query happens in the WORKER THREAD, not HTTP thread
 
         logger.info("Found {} users to send promotion email", users.size());
 
+        // ↓ This loop runs in the WORKER THREAD
+        // It sends emails one-by-one (sequential), but chef doesn't wait for it
         for (User user : users) {
             try {
                 sendPromotionEmailToUser(user.getId(), promotionPlat);
+                // ↑ Each email takes ~300ms, but chef already got "Success!" response
             } catch (Exception e) {
                 logger.error("Failed to send promotion email to user {}: {}", user.getId(), e.getMessage());
             }
         }
 
         logger.info("Finished sending promotion emails");
+        // ↑ This appears 30 seconds later (after all emails sent)
+        // Chef's phone showed "Success!" 30 seconds ago and they moved on
+        
+        // ============ WORKER THREAD FINISHES AND RETURNS TO THREAD POOL ============
     }
 
     @Override
