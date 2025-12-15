@@ -384,4 +384,35 @@ public class AuthController {
             return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
         }
     }
+
+    /**
+     * PUBLIC ENDPOINT: Saves push token for anonymous (unauthenticated) users.
+     * This allows us to send promotion notifications to ALL app users, even if not logged in.
+     * 
+     * @param pushTokenRequest Request containing the Expo push token
+     * @return ResponseEntity with success or error message
+     */
+    @PostMapping("/public/push-token")
+    public ResponseEntity<ApiResponse<String>> saveAnonymousPushToken(
+            @Valid @RequestBody PushTokenRequest pushTokenRequest) {
+        
+        logger.info("📱 Anonymous push token registration request received: {}", 
+            pushTokenRequest.getPushToken().substring(0, 20) + "...");
+        
+        try {
+            // Use a special "anonymous" user ID (UUID of all zeros)
+            UUID anonymousUserId = new UUID(0L, 0L);
+            
+            // Save push token without authentication
+            ApiResponse<String> result = authService.savePushToken(anonymousUserId, pushTokenRequest.getPushToken());
+            
+            logger.info("✅ Anonymous push token registered successfully");
+            return ResponseEntity.status(result.getStatus()).body(result);
+            
+        } catch (Exception e) {
+            logger.error("❌ Error saving anonymous push token", e);
+            ApiResponse<String> errorResponse = ApiResponse.internalError(AppConstants.INTERNAL_ERROR);
+            return ResponseEntity.status(errorResponse.getStatus()).body(errorResponse);
+        }
+    }
 }

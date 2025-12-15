@@ -54,7 +54,7 @@ public class PromotionPushServiceImpl implements PromotionPushService {
      * @param promotionPlat the promotion that was created
      */
     @Override
-    @Async("taskExecutor") // Uses thread pool for async execution
+    @Async // Uses default Spring async thread pool
     public void sendPromotionPushToAllUsers(PromotionPlat promotionPlat) {
         long startTime = System.currentTimeMillis();
         

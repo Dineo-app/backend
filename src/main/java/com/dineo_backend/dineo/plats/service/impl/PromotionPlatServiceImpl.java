@@ -73,7 +73,7 @@ public class PromotionPlatServiceImpl implements PromotionPlatService {
         );
 
         PromotionPlat savedPromotion = promotionRepository.save(promotion);
-        logger.info("Promotion created successfully with ID: {}", savedPromotion.getId());
+        logger.info("✅ Promotion created successfully with ID: {}", savedPromotion.getId());
 
         // ============ MULTI-THREADING HAPPENS HERE ============
         // Send promotional emails to all users asynchronously
@@ -86,21 +86,23 @@ public class PromotionPlatServiceImpl implements PromotionPlatService {
             
             // ↓ This log appears INSTANTLY (before emails are even sent!)
             // because the email method runs in a DIFFERENT THREAD
-            logger.info("Triggered promotional email sending for promotion ID: {}", savedPromotion.getId());
+            logger.info("📧 Triggered promotional email sending for promotion ID: {}", savedPromotion.getId());
         } catch (Exception e) {
-            logger.error("Failed to trigger promotional emails: {}", e.getMessage(), e);
+            logger.error("❌ Failed to trigger promotional emails: {}", e.getMessage(), e);
             // Don't fail the promotion creation if email fails
         }
         
         // Send push notifications to all users asynchronously
         try {
+            logger.info("🔔 About to call promotionPushService.sendPromotionPushToAllUsers()...");
+            
             // ↓ ALSO runs in SEPARATE THREAD - sends to ALL push tokens in database
             // This will notify EVERY user with the app installed (authenticated or not)
             promotionPushService.sendPromotionPushToAllUsers(savedPromotion);
             
-            logger.info("Triggered promotional push notifications for promotion ID: {}", savedPromotion.getId());
+            logger.info("🔔 Triggered promotional push notifications for promotion ID: {}", savedPromotion.getId());
         } catch (Exception e) {
-            logger.error("Failed to trigger promotional push notifications: {}", e.getMessage(), e);
+            logger.error("❌ Failed to trigger promotional push notifications: {}", e.getMessage(), e);
             // Don't fail the promotion creation if push notifications fail
         }
         // ============ END OF MULTI-THREADING TRIGGER ============
