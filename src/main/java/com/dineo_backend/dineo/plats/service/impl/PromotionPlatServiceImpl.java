@@ -1,6 +1,7 @@
 package com.dineo_backend.dineo.plats.service.impl;
 
 import com.dineo_backend.dineo.notifications.service.PromotionEmailService;
+import com.dineo_backend.dineo.notifications.service.PromotionPushService;
 import com.dineo_backend.dineo.plats.dto.CreatePromotionRequest;
 import com.dineo_backend.dineo.plats.dto.PromotionResponse;
 import com.dineo_backend.dineo.plats.model.Plat;
@@ -36,6 +37,9 @@ public class PromotionPlatServiceImpl implements PromotionPlatService {
 
     @Autowired
     private PromotionEmailService promotionEmailService;
+
+    @Autowired
+    private PromotionPushService promotionPushService;
 
     @Override
     @Transactional
@@ -87,10 +91,22 @@ public class PromotionPlatServiceImpl implements PromotionPlatService {
             logger.error("Failed to trigger promotional emails: {}", e.getMessage(), e);
             // Don't fail the promotion creation if email fails
         }
+        
+        // Send push notifications to all users asynchronously
+        try {
+            // ↓ ALSO runs in SEPARATE THREAD - sends to ALL push tokens in database
+            // This will notify EVERY user with the app installed (authenticated or not)
+            promotionPushService.sendPromotionPushToAllUsers(savedPromotion);
+            
+            logger.info("Triggered promotional push notifications for promotion ID: {}", savedPromotion.getId());
+        } catch (Exception e) {
+            logger.error("Failed to trigger promotional push notifications: {}", e.getMessage(), e);
+            // Don't fail the promotion creation if push notifications fail
+        }
         // ============ END OF MULTI-THREADING TRIGGER ============
 
         // ↓ This returns to the chef's phone in ~100ms
-        // WHILE the worker thread is still sending emails in the background
+        // WHILE the worker threads are still sending emails AND push notifications in the background
         return mapToResponse(savedPromotion);
     }
 

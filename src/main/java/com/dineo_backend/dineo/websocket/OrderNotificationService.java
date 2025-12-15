@@ -83,7 +83,7 @@ public class OrderNotificationService {
             logger.info("Order status notification sent successfully to user: {}", userId);
             
             // Also send push notification
-            sendPushNotificationToUser(userId, "Mise à jour de commande 📦", message, notification);
+            sendPushNotificationToUser(userId, "Mise à jour de commande 🍜", message, notification);
             
         } catch (Exception e) {
             logger.error("Error sending order status notification to user {}: {}", userId, e.getMessage());
