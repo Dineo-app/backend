@@ -66,16 +66,19 @@ public class PromotionPushServiceImpl implements PromotionPushService {
             Plat plat = platRepository.findById(promotionPlat.getPlatId())
                     .orElseThrow(() -> new RuntimeException("Plat not found"));
 
-            // Calculate percentage discount
+            // reductionValue is ALREADY a percentage (e.g., 20 for 20% off)
+            int percentageDiscount = promotionPlat.getReductionValue().intValue();
+            
+            // Calculate actual euro savings
             BigDecimal priceDecimal = BigDecimal.valueOf(plat.getPrice());
-            BigDecimal percentageDiscount = promotionPlat.getReductionValue()
-                    .multiply(BigDecimal.valueOf(100))
-                    .divide(priceDecimal, 0, BigDecimal.ROUND_HALF_UP);
+            BigDecimal euroSavings = priceDecimal
+                    .multiply(promotionPlat.getReductionValue())
+                    .divide(BigDecimal.valueOf(100), 2, BigDecimal.ROUND_HALF_UP);
 
             // Create French notification message
-            String title = String.format("🔥 Promo %d%% - %s", percentageDiscount.intValue(), plat.getName());
+            String title = String.format("🔥 Promo %d%% - %s", percentageDiscount, plat.getName());
             String body = String.format("Économisez %.2f€ sur ce plat ! Offre limitée.", 
-                promotionPlat.getReductionValue());
+                euroSavings);
 
             // Prepare notification data for deep linking
             Map<String, Object> notificationData = new HashMap<>();
@@ -83,18 +86,22 @@ public class PromotionPushServiceImpl implements PromotionPushService {
             notificationData.put("platId", plat.getId().toString());
             notificationData.put("promotionId", promotionPlat.getId().toString());
             notificationData.put("reductionValue", promotionPlat.getReductionValue().toString());
-            notificationData.put("percentageDiscount", percentageDiscount.intValue());
+            notificationData.put("percentageDiscount", percentageDiscount);
             notificationData.put("platName", plat.getName());
 
             // Get ALL push tokens (both authenticated and unauthenticated users)
             List<UserPushToken> allPushTokens = pushTokenRepository.findAll();
             
+            logger.info("📱 Querying database for push tokens...");
+            
             if (allPushTokens.isEmpty()) {
                 logger.warn("⚠️ No push tokens found in database. No notifications sent.");
+                logger.warn("⚠️ Make sure users have opened the app at least once to register their device.");
                 return;
             }
 
-            logger.info("📱 Found {} push tokens. Sending notifications...", allPushTokens.size());
+            logger.info("📱 Found {} push tokens. Sending notifications with title: '{}'", 
+                allPushTokens.size(), title);
 
             int successCount = 0;
             int failureCount = 0;
