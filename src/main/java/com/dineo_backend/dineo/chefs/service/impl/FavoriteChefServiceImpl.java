@@ -9,6 +9,7 @@ import com.dineo_backend.dineo.chefs.model.ChefDescription;
 import com.dineo_backend.dineo.chefs.model.ChefFavorite;
 import com.dineo_backend.dineo.chefs.repository.ChefDescriptionRepository;
 import com.dineo_backend.dineo.chefs.repository.ChefFavoriteRepository;
+import com.dineo_backend.dineo.chefs.repository.ChefReviewRepository;
 import com.dineo_backend.dineo.chefs.service.FavoriteChefService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +37,9 @@ public class FavoriteChefServiceImpl implements FavoriteChefService {
 
     @Autowired
     private ChefDescriptionRepository chefDescriptionRepository;
+
+    @Autowired
+    private ChefReviewRepository chefReviewRepository;
 
     @Override
     @Transactional
@@ -136,21 +140,29 @@ public class FavoriteChefServiceImpl implements FavoriteChefService {
         ChefDescription chefDescription = chefDescriptionRepository.findByUserId(chefFavorite.getChefId())
                 .orElse(null); // Chef description might not exist
 
-        return new FavoriteChefWithDetailsResponse(
-                chefFavorite.getId(),
-                chefFavorite.getCreatedAt(),
-                chef.getId(),
-                chef.getFirstName(),
-                chef.getLastName(),
-                chef.getPhone(),
-                chef.getAddress(),
-                chefDescription != null ? chefDescription.getId() : null,
-                chefDescription != null ? chefDescription.getDescription() : null,
-                chefDescription != null ? chefDescription.getCategories() : null,
-                chefDescription != null ? chefDescription.getChefCertifications() : null,
-                chefDescription != null ? chefDescription.getChefCoverImg() : null,
-                chef.getCreatedAt(),
-                chef.getUpdatedAt()
-        );
+        // Calculate average rating and total reviews
+        Double averageRating = chefReviewRepository.findAverageRatingByChefId(chefFavorite.getChefId());
+        long totalReviewsCount = chefReviewRepository.countByChefId(chefFavorite.getChefId());
+        Integer totalReviews = (int) totalReviewsCount;
+
+        FavoriteChefWithDetailsResponse response = new FavoriteChefWithDetailsResponse();
+        response.setFavoriteId(chefFavorite.getId());
+        response.setFavoritedAt(chefFavorite.getCreatedAt());
+        response.setChefId(chef.getId());
+        response.setFirstName(chef.getFirstName());
+        response.setLastName(chef.getLastName());
+        response.setPhone(chef.getPhone());
+        response.setAddress(chef.getAddress());
+        response.setChefDescriptionId(chefDescription != null ? chefDescription.getId() : null);
+        response.setDescription(chefDescription != null ? chefDescription.getDescription() : null);
+        response.setCategories(chefDescription != null ? chefDescription.getCategories() : null);
+        response.setChefCertifications(chefDescription != null ? chefDescription.getChefCertifications() : null);
+        response.setChefCoverImg(chefDescription != null ? chefDescription.getChefCoverImg() : null);
+        response.setChefCreatedAt(chef.getCreatedAt());
+        response.setChefUpdatedAt(chef.getUpdatedAt());
+        response.setAverageRating(averageRating != null ? averageRating : 0.0);
+        response.setTotalReviews(totalReviews != null ? totalReviews : 0);
+
+        return response;
     }
 }

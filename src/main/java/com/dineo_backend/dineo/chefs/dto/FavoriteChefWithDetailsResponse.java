@@ -30,6 +30,10 @@ public class FavoriteChefWithDetailsResponse {
     private LocalDateTime chefCreatedAt;
     private LocalDateTime chefUpdatedAt;
 
+    // Chef rating information
+    private Double averageRating;
+    private Integer totalReviews;
+
     // Default constructor
     public FavoriteChefWithDetailsResponse() {}
 
@@ -167,6 +171,22 @@ public class FavoriteChefWithDetailsResponse {
 
     public void setChefUpdatedAt(LocalDateTime chefUpdatedAt) {
         this.chefUpdatedAt = chefUpdatedAt;
+    }
+
+    public Double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(Double averageRating) {
+        this.averageRating = averageRating;
+    }
+
+    public Integer getTotalReviews() {
+        return totalReviews;
+    }
+
+    public void setTotalReviews(Integer totalReviews) {
+        this.totalReviews = totalReviews;
     }
 
     @Override

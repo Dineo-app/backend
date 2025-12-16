@@ -152,7 +152,7 @@ public class FavoriteChefController {
      */
     @GetMapping("/chefs/{chefId}/check")
     @PreAuthorize("hasRole('CUSTOMER') or hasRole('PROVIDER')")
-    public ResponseEntity<ApiResponse<Boolean>> checkChefInFavorites(@PathVariable UUID chefId) {
+    public ResponseEntity<ApiResponse<java.util.Map<String, Boolean>>> checkChefInFavorites(@PathVariable UUID chefId) {
         
         try {
             // Get authenticated user ID
@@ -164,9 +164,9 @@ public class FavoriteChefController {
 
             boolean isInFavorites = favoriteChefService.isChefInFavorites(userId, chefId);
 
-            ApiResponse<Boolean> apiResponse = ApiResponse.success(
+            ApiResponse<java.util.Map<String, Boolean>> apiResponse = ApiResponse.success(
                     "Vérification effectuée avec succès", 
-                    isInFavorites
+                    java.util.Map.of("isFavorite", isInFavorites)
             );
 
             logger.info("Chef {} is {} in favorites for user {}", 
@@ -175,7 +175,7 @@ public class FavoriteChefController {
 
         } catch (Exception e) {
             logger.error("Unexpected error checking chef in favorites: {}", e.getMessage(), e);
-            ApiResponse<Boolean> errorResponse = ApiResponse.error(
+            ApiResponse<java.util.Map<String, Boolean>> errorResponse = ApiResponse.error(
                     "Une erreur inattendue s'est produite lors de la vérification"
             );
             return ResponseEntity.internalServerError().body(errorResponse);
