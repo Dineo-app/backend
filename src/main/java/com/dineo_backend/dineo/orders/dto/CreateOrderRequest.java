@@ -26,6 +26,9 @@ public class CreateOrderRequest {
 
     private String deliveryAddress;
 
+    @NotNull(message = "L'ID de paiement est obligatoire")
+    private String paymentIntentId;
+
     // Default constructor
     public CreateOrderRequest() {}
 
@@ -44,6 +47,16 @@ public class CreateOrderRequest {
         this.quantity = quantity;
         this.description = description;
         this.deliveryAddress = deliveryAddress;
+    }
+
+    // Constructor with payment
+    public CreateOrderRequest(UUID platId, UUID chefId, Integer quantity, String description, String deliveryAddress, String paymentIntentId) {
+        this.platId = platId;
+        this.chefId = chefId;
+        this.quantity = quantity;
+        this.description = description;
+        this.deliveryAddress = deliveryAddress;
+        this.paymentIntentId = paymentIntentId;
     }
 
     // Getters and Setters
@@ -87,6 +100,14 @@ public class CreateOrderRequest {
         this.deliveryAddress = deliveryAddress;
     }
 
+    public String getPaymentIntentId() {
+        return paymentIntentId;
+    }
+
+    public void setPaymentIntentId(String paymentIntentId) {
+        this.paymentIntentId = paymentIntentId;
+    }
+
     @Override
     public String toString() {
         return "CreateOrderRequest{" +
@@ -95,6 +116,7 @@ public class CreateOrderRequest {
                 ", quantity=" + quantity +
                 ", description='" + description + '\'' +
                 ", deliveryAddress='" + deliveryAddress + '\'' +
+                ", paymentIntentId='" + paymentIntentId + '\'' +
                 '}';
     }
 }

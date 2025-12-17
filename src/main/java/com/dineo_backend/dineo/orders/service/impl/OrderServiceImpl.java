@@ -10,12 +10,17 @@ import com.dineo_backend.dineo.orders.service.OrderService;
 import com.dineo_backend.dineo.websocket.OrderNotificationService;
 import com.dineo_backend.dineo.plats.repository.PlatRepository;
 import com.dineo_backend.dineo.plats.model.Plat;
+import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
+import com.stripe.model.PaymentIntent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import jakarta.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -31,6 +36,9 @@ public class OrderServiceImpl implements OrderService {
 
     private static final Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);
 
+    @Value("${stripe.secret.key}")
+    private String stripeSecretKey;
+
     @Autowired
     private OrderRepository orderRepository;
 
@@ -40,9 +48,34 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private PlatRepository platRepository;
 
+    @PostConstruct
+    public void init() {
+        Stripe.apiKey = stripeSecretKey;
+    }
+
     @Override
     public OrderResponse createOrder(CreateOrderRequest request, UUID userId) {
         logger.info("Creating new order for user: {} and plat: {} with quantity: {}", userId, request.getPlatId(), request.getQuantity());
+
+        // SECURITY: Verify payment before creating order
+        if (request.getPaymentIntentId() == null || request.getPaymentIntentId().trim().isEmpty()) {
+            logger.error("Payment intent ID is missing for order creation");
+            throw new RuntimeException("Le paiement est requis pour créer une commande");
+        }
+
+        try {
+            PaymentIntent paymentIntent = PaymentIntent.retrieve(request.getPaymentIntentId());
+            
+            if (!"succeeded".equals(paymentIntent.getStatus())) {
+                logger.error("Payment not succeeded. Status: {}", paymentIntent.getStatus());
+                throw new RuntimeException("Le paiement n'a pas été confirmé. Statut: " + paymentIntent.getStatus());
+            }
+            
+            logger.info("Payment verified successfully: {}", request.getPaymentIntentId());
+        } catch (StripeException e) {
+            logger.error("Failed to verify payment: {}", e.getMessage());
+            throw new RuntimeException("Impossible de vérifier le paiement: " + e.getMessage());
+        }
 
         // Fetch plat to get price
         Plat plat = platRepository.findById(request.getPlatId())
