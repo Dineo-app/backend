@@ -74,6 +74,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/plats/*/reviews").permitAll() // Public access to get plat reviews
                 .requestMatchers("/api/v1/chefs/*/reviews").permitAll() // Public access to get chef reviews
                 .requestMatchers("/api/v1/chefs/locations").permitAll() // Public access to get chef locations for map
+                .requestMatchers("/api/v1/payment/config").permitAll() // Public access to Stripe config
                 .anyRequest().authenticated())
             .authenticationProvider(authenticationProvider())
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
