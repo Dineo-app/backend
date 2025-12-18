@@ -59,8 +59,8 @@ public class OrderServiceImpl implements OrderService {
 
         // SECURITY: Verify payment before creating order
         if (request.getPaymentIntentId() == null || request.getPaymentIntentId().trim().isEmpty()) {
-            logger.error("Payment intent ID is missing for order creation");
-            throw new RuntimeException("Le paiement est requis pour créer une commande");
+            logger.warn("Payment intent ID is missing for order creation - OLD APP VERSION DETECTED");
+            throw new RuntimeException("⚠️ Veuillez mettre à jour l'application depuis TestFlight pour passer commande avec le nouveau système de paiement sécurisé.");
         }
 
         try {

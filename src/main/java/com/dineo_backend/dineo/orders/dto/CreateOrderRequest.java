@@ -26,7 +26,8 @@ public class CreateOrderRequest {
 
     private String deliveryAddress;
 
-    @NotNull(message = "L'ID de paiement est obligatoire")
+    // Payment Intent ID for payment verification
+    // TODO: Make @NotNull once all clients are updated to payment flow
     private String paymentIntentId;
 
     // Default constructor
