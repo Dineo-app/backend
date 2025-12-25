@@ -2,11 +2,15 @@ package com.dineo_backend.dineo.cart.service;
 
 import com.dineo_backend.dineo.cart.dto.*;
 import com.dineo_backend.dineo.cart.model.CartItem;
+import com.dineo_backend.dineo.cart.model.CartItemIngredient;
 import com.dineo_backend.dineo.cart.repository.CartItemRepository;
+import com.dineo_backend.dineo.cart.repository.CartItemIngredientRepository;
 import com.dineo_backend.dineo.plats.model.Plat;
 import com.dineo_backend.dineo.plats.model.PromotionPlat;
+import com.dineo_backend.dineo.plats.model.Ingredient;
 import com.dineo_backend.dineo.plats.repository.PlatRepository;
 import com.dineo_backend.dineo.plats.repository.PromotionPlatRepository;
+import com.dineo_backend.dineo.plats.repository.IngredientRepository;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.repository.UserRepository;
 import org.slf4j.Logger;
@@ -36,10 +40,16 @@ public class CartServiceImpl implements CartService {
     private CartItemRepository cartItemRepository;
 
     @Autowired
+    private CartItemIngredientRepository cartItemIngredientRepository;
+
+    @Autowired
     private PlatRepository platRepository;
 
     @Autowired
     private PromotionPlatRepository promotionPlatRepository;
+
+    @Autowired
+    private IngredientRepository ingredientRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -78,6 +88,11 @@ public class CartServiceImpl implements CartService {
             // Update quantity if item exists
             cartItem.setQuantity(cartItem.getQuantity() + request.getQuantity());
             logger.info("Updated existing cart item quantity to: {}", cartItem.getQuantity());
+            
+            // Delete old ingredients and add new ones
+            if (request.getSelectedIngredientIds() != null) {
+                cartItemIngredientRepository.deleteByCartItemId(cartItem.getId());
+            }
         } else {
             // Create new cart item
             cartItem = new CartItem(userId, request.getPlatId(), request.getQuantity());
@@ -85,6 +100,26 @@ public class CartServiceImpl implements CartService {
         }
 
         cartItem = cartItemRepository.save(cartItem);
+        
+        // Save selected ingredients
+        if (request.getSelectedIngredientIds() != null && !request.getSelectedIngredientIds().isEmpty()) {
+            for (UUID ingredientId : request.getSelectedIngredientIds()) {
+                Optional<Ingredient> ingredientOpt = ingredientRepository.findById(ingredientId);
+                if (ingredientOpt.isPresent()) {
+                    Ingredient ingredient = ingredientOpt.get();
+                    CartItemIngredient cartItemIngredient = new CartItemIngredient(
+                        cartItem.getId(),
+                        ingredient.getId(),
+                        ingredient.getName(),
+                        ingredient.getPrice(),
+                        ingredient.getIsFree()
+                    );
+                    cartItemIngredientRepository.save(cartItemIngredient);
+                    logger.info("Added ingredient {} to cart item {}", ingredient.getName(), cartItem.getId());
+                }
+            }
+        }
+        
         return convertToCartItemResponse(cartItem);
     }
 
@@ -120,6 +155,9 @@ public class CartServiceImpl implements CartService {
             throw new RuntimeException("Non autorisé à supprimer cet article");
         }
 
+        // Delete associated ingredients first
+        cartItemIngredientRepository.deleteByCartItemId(cartItemId);
+        
         cartItemRepository.delete(cartItem);
     }
 
@@ -185,6 +223,28 @@ public class CartServiceImpl implements CartService {
             }
             
             response.setPlatPrice(actualPrice);
+            
+            // Get selected ingredients for this cart item
+            List<CartItemIngredient> cartItemIngredients = cartItemIngredientRepository.findByCartItemId(cartItem.getId());
+            if (!cartItemIngredients.isEmpty()) {
+                List<CartItemResponse.IngredientInfo> ingredientInfos = cartItemIngredients.stream()
+                    .map(cii -> new CartItemResponse.IngredientInfo(
+                        cii.getIngredientId(),
+                        cii.getIngredientName(),
+                        cii.getIngredientPrice(),
+                        cii.getIsFree()
+                    ))
+                    .collect(Collectors.toList());
+                response.setSelectedIngredients(ingredientInfos);
+                
+                // Add paid ingredients price to total
+                double ingredientsPrice = cartItemIngredients.stream()
+                    .filter(cii -> !cii.getIsFree())
+                    .mapToDouble(CartItemIngredient::getIngredientPrice)
+                    .sum();
+                actualPrice += ingredientsPrice;
+            }
+            
             response.setTotalPrice(actualPrice * cartItem.getQuantity());
             
             // Set chef name and chef ID

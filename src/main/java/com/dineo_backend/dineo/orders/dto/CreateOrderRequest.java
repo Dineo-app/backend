@@ -3,6 +3,7 @@ package com.dineo_backend.dineo.orders.dto;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -29,6 +30,9 @@ public class CreateOrderRequest {
     // Payment Intent ID for payment verification
     // TODO: Make @NotNull once all clients are updated to payment flow
     private String paymentIntentId;
+
+    // Selected ingredient IDs (both free ingredients to keep and paid ingredients to add)
+    private List<UUID> selectedIngredientIds;
 
     // Default constructor
     public CreateOrderRequest() {}
@@ -109,6 +113,14 @@ public class CreateOrderRequest {
         this.paymentIntentId = paymentIntentId;
     }
 
+    public List<UUID> getSelectedIngredientIds() {
+        return selectedIngredientIds;
+    }
+
+    public void setSelectedIngredientIds(List<UUID> selectedIngredientIds) {
+        this.selectedIngredientIds = selectedIngredientIds;
+    }
+
     @Override
     public String toString() {
         return "CreateOrderRequest{" +
@@ -118,6 +130,7 @@ public class CreateOrderRequest {
                 ", description='" + description + '\'' +
                 ", deliveryAddress='" + deliveryAddress + '\'' +
                 ", paymentIntentId='" + paymentIntentId + '\'' +
+                ", selectedIngredientIds=" + selectedIngredientIds +
                 '}';
     }
 }

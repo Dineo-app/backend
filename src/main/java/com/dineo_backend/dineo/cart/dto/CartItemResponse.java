@@ -1,6 +1,7 @@
 package com.dineo_backend.dineo.cart.dto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -22,6 +23,58 @@ public class CartItemResponse {
     private String chefName;
     private UUID chefId;
     private PromotionInfo promotion;
+    private List<IngredientInfo> selectedIngredients;
+
+    // Nested class for ingredient information
+    public static class IngredientInfo {
+        private UUID ingredientId;
+        private String name;
+        private Double price;
+        private Boolean isFree;
+
+        public IngredientInfo() {
+        }
+
+        public IngredientInfo(UUID ingredientId, String name, Double price, Boolean isFree) {
+            this.ingredientId = ingredientId;
+            this.name = name;
+            this.price = price;
+            this.isFree = isFree;
+        }
+
+        // Getters and Setters
+        public UUID getIngredientId() {
+            return ingredientId;
+        }
+
+        public void setIngredientId(UUID ingredientId) {
+            this.ingredientId = ingredientId;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Double getPrice() {
+            return price;
+        }
+
+        public void setPrice(Double price) {
+            this.price = price;
+        }
+
+        public Boolean getIsFree() {
+            return isFree;
+        }
+
+        public void setIsFree(Boolean isFree) {
+            this.isFree = isFree;
+        }
+    }
 
     // Nested class for promotion information
     public static class PromotionInfo {
@@ -181,5 +234,13 @@ public class CartItemResponse {
 
     public void setPromotion(PromotionInfo promotion) {
         this.promotion = promotion;
+    }
+
+    public List<IngredientInfo> getSelectedIngredients() {
+        return selectedIngredients;
+    }
+
+    public void setSelectedIngredients(List<IngredientInfo> selectedIngredients) {
+        this.selectedIngredients = selectedIngredients;
     }
 }

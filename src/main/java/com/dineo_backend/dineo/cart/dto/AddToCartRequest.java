@@ -3,6 +3,7 @@ package com.dineo_backend.dineo.cart.dto;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -17,6 +18,8 @@ public class AddToCartRequest {
     @Min(value = 1, message = "La quantité doit être au moins 1")
     private Integer quantity = 1;
 
+    private List<UUID> selectedIngredientIds;
+
     // Constructors
     public AddToCartRequest() {
     }
@@ -24,6 +27,12 @@ public class AddToCartRequest {
     public AddToCartRequest(UUID platId, Integer quantity) {
         this.platId = platId;
         this.quantity = quantity;
+    }
+
+    public AddToCartRequest(UUID platId, Integer quantity, List<UUID> selectedIngredientIds) {
+        this.platId = platId;
+        this.quantity = quantity;
+        this.selectedIngredientIds = selectedIngredientIds;
     }
 
     // Getters and Setters
@@ -41,5 +50,13 @@ public class AddToCartRequest {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public List<UUID> getSelectedIngredientIds() {
+        return selectedIngredientIds;
+    }
+
+    public void setSelectedIngredientIds(List<UUID> selectedIngredientIds) {
+        this.selectedIngredientIds = selectedIngredientIds;
     }
 }

@@ -3,6 +3,7 @@ package com.dineo_backend.dineo.orders.dto;
 import com.dineo_backend.dineo.orders.enums.OrderStatus;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -25,6 +26,56 @@ public class OrderResponse {
     private Double totalPrice;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private List<OrderIngredientDTO> selectedIngredients;
+
+    // Nested DTO for order ingredients
+    public static class OrderIngredientDTO {
+        private UUID ingredientId;
+        private String name;
+        private Double price;
+        private Boolean isFree;
+
+        public OrderIngredientDTO() {}
+
+        public OrderIngredientDTO(UUID ingredientId, String name, Double price, Boolean isFree) {
+            this.ingredientId = ingredientId;
+            this.name = name;
+            this.price = price;
+            this.isFree = isFree;
+        }
+
+        public UUID getIngredientId() {
+            return ingredientId;
+        }
+
+        public void setIngredientId(UUID ingredientId) {
+            this.ingredientId = ingredientId;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Double getPrice() {
+            return price;
+        }
+
+        public void setPrice(Double price) {
+            this.price = price;
+        }
+
+        public Boolean getIsFree() {
+            return isFree;
+        }
+
+        public void setIsFree(Boolean isFree) {
+            this.isFree = isFree;
+        }
+    }
 
     // Default constructor
     public OrderResponse() {}
@@ -164,6 +215,14 @@ public class OrderResponse {
         this.updatedAt = updatedAt;
     }
 
+    public List<OrderIngredientDTO> getSelectedIngredients() {
+        return selectedIngredients;
+    }
+
+    public void setSelectedIngredients(List<OrderIngredientDTO> selectedIngredients) {
+        this.selectedIngredients = selectedIngredients;
+    }
+
     @Override
     public String toString() {
         return "OrderResponse{" +
@@ -181,6 +240,7 @@ public class OrderResponse {
                 ", totalPrice=" + totalPrice +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
+                ", selectedIngredients=" + selectedIngredients +
                 '}';
     }
 }

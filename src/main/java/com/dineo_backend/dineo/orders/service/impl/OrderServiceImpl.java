@@ -5,11 +5,15 @@ import com.dineo_backend.dineo.orders.dto.OrderResponse;
 import com.dineo_backend.dineo.orders.dto.UpdateOrderStatusRequest;
 import com.dineo_backend.dineo.orders.enums.OrderStatus;
 import com.dineo_backend.dineo.orders.model.Order;
+import com.dineo_backend.dineo.orders.model.OrderIngredient;
 import com.dineo_backend.dineo.orders.repository.OrderRepository;
+import com.dineo_backend.dineo.orders.repository.OrderIngredientRepository;
 import com.dineo_backend.dineo.orders.service.OrderService;
 import com.dineo_backend.dineo.websocket.OrderNotificationService;
 import com.dineo_backend.dineo.plats.repository.PlatRepository;
+import com.dineo_backend.dineo.plats.repository.IngredientRepository;
 import com.dineo_backend.dineo.plats.model.Plat;
+import com.dineo_backend.dineo.plats.model.Ingredient;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
@@ -43,10 +47,16 @@ public class OrderServiceImpl implements OrderService {
     private OrderRepository orderRepository;
 
     @Autowired
+    private OrderIngredientRepository orderIngredientRepository;
+
+    @Autowired
     private OrderNotificationService notificationService;
 
     @Autowired
     private PlatRepository platRepository;
+
+    @Autowired
+    private IngredientRepository ingredientRepository;
 
     @PostConstruct
     public void init() {
@@ -84,8 +94,19 @@ public class OrderServiceImpl implements OrderService {
                     return new RuntimeException("Plat non trouvé avec l'ID: " + request.getPlatId());
                 });
 
-        // Calculate total price
+        // Calculate total price (base price + paid ingredients)
         Double totalPrice = plat.getPrice() * request.getQuantity();
+        
+        // Add paid ingredients price
+        if (request.getSelectedIngredientIds() != null && !request.getSelectedIngredientIds().isEmpty()) {
+            List<Ingredient> selectedIngredients = ingredientRepository.findAllById(request.getSelectedIngredientIds());
+            Double ingredientsPrice = selectedIngredients.stream()
+                    .filter(ing -> !ing.getIsFree())
+                    .mapToDouble(Ingredient::getPrice)
+                    .sum();
+            totalPrice += ingredientsPrice * request.getQuantity();
+            logger.info("Added ingredients price: {} for {} items", ingredientsPrice * request.getQuantity(), request.getQuantity());
+        }
 
         Order order = new Order();
         order.setPlatId(request.getPlatId());
@@ -98,6 +119,23 @@ public class OrderServiceImpl implements OrderService {
         order.setTotalPrice(totalPrice);
 
         Order savedOrder = orderRepository.save(order);
+        
+        // Save selected ingredients
+        if (request.getSelectedIngredientIds() != null && !request.getSelectedIngredientIds().isEmpty()) {
+            List<Ingredient> selectedIngredients = ingredientRepository.findAllById(request.getSelectedIngredientIds());
+            for (Ingredient ingredient : selectedIngredients) {
+                OrderIngredient orderIngredient = new OrderIngredient(
+                        savedOrder.getId(),
+                        ingredient.getId(),
+                        ingredient.getName(),
+                        ingredient.getPrice(),
+                        ingredient.getIsFree()
+                );
+                orderIngredientRepository.save(orderIngredient);
+            }
+            logger.info("Saved {} ingredients for order {}", selectedIngredients.size(), savedOrder.getId());
+        }
+        
         logger.info("Order created successfully with ID: {} and total price: {}", savedOrder.getId(), totalPrice);
 
         OrderResponse orderResponse = convertToOrderResponse(savedOrder);
@@ -437,7 +475,18 @@ public class OrderServiceImpl implements OrderService {
             return null;
         }
 
-        return new OrderResponse(
+        // Fetch order ingredients
+        List<OrderIngredient> orderIngredients = orderIngredientRepository.findByOrderId(order.getId());
+        List<OrderResponse.OrderIngredientDTO> ingredientDTOs = orderIngredients.stream()
+                .map(oi -> new OrderResponse.OrderIngredientDTO(
+                        oi.getIngredientId(),
+                        oi.getIngredientName(),
+                        oi.getIngredientPrice(),
+                        oi.getIsFree()
+                ))
+                .collect(Collectors.toList());
+
+        OrderResponse response = new OrderResponse(
                 order.getId(),
                 order.getPlatId(),
                 order.getUserId(),
@@ -452,5 +501,7 @@ public class OrderServiceImpl implements OrderService {
                 order.getCreatedAt(),
                 order.getUpdatedAt()
         );
+        response.setSelectedIngredients(ingredientDTOs);
+        return response;
     }
 }
