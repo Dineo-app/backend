@@ -16,6 +16,13 @@ public class OrderResponse {
     private UUID platId;
     private UUID userId;
     private UUID chefId;
+    
+    // Customer information
+    private String customerFirstName;
+    private String customerLastName;
+    private String customerPhone;
+    private String customerEmail;
+    
     private String description;
     private OrderStatus status;
     private String statusLabel;
@@ -132,6 +139,38 @@ public class OrderResponse {
 
     public void setChefId(UUID chefId) {
         this.chefId = chefId;
+    }
+
+    public String getCustomerFirstName() {
+        return customerFirstName;
+    }
+
+    public void setCustomerFirstName(String customerFirstName) {
+        this.customerFirstName = customerFirstName;
+    }
+
+    public String getCustomerLastName() {
+        return customerLastName;
+    }
+
+    public void setCustomerLastName(String customerLastName) {
+        this.customerLastName = customerLastName;
+    }
+
+    public String getCustomerPhone() {
+        return customerPhone;
+    }
+
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
+    }
+
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
     }
 
     public String getDescription() {

@@ -14,6 +14,8 @@ import com.dineo_backend.dineo.plats.repository.PlatRepository;
 import com.dineo_backend.dineo.plats.repository.IngredientRepository;
 import com.dineo_backend.dineo.plats.model.Plat;
 import com.dineo_backend.dineo.plats.model.Ingredient;
+import com.dineo_backend.dineo.authentication.model.User;
+import com.dineo_backend.dineo.authentication.repository.UserRepository;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
@@ -57,6 +59,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private IngredientRepository ingredientRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @PostConstruct
     public void init() {
@@ -475,6 +480,9 @@ public class OrderServiceImpl implements OrderService {
             return null;
         }
 
+        // Fetch customer information
+        User customer = userRepository.findById(order.getUserId()).orElse(null);
+
         // Fetch order ingredients
         List<OrderIngredient> orderIngredients = orderIngredientRepository.findByOrderId(order.getId());
         List<OrderResponse.OrderIngredientDTO> ingredientDTOs = orderIngredients.stream()
@@ -501,6 +509,15 @@ public class OrderServiceImpl implements OrderService {
                 order.getCreatedAt(),
                 order.getUpdatedAt()
         );
+        
+        // Set customer information
+        if (customer != null) {
+            response.setCustomerFirstName(customer.getFirstName());
+            response.setCustomerLastName(customer.getLastName());
+            response.setCustomerPhone(customer.getPhone());
+            response.setCustomerEmail(customer.getEmail());
+        }
+        
         response.setSelectedIngredients(ingredientDTOs);
         return response;
     }
