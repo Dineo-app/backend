@@ -490,7 +490,7 @@ public class OrderServiceImpl implements OrderService {
                 .map(oi -> new OrderResponse.OrderIngredientDTO(
                         oi.getIngredientId(),
                         oi.getIngredientName(),
-                        oi.getIngredientPrice(),
+                        oi.getQuantity(),
                         oi.getIsFree()
                 ))
                 .collect(Collectors.toList());

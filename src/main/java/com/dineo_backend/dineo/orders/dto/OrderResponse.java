@@ -38,16 +38,16 @@ public class OrderResponse {
     // Nested DTO for order ingredients
     public static class OrderIngredientDTO {
         private UUID ingredientId;
-        private String name;
-        private Double price;
+        private String ingredientName;
+        private Integer quantity;
         private Boolean isFree;
 
         public OrderIngredientDTO() {}
 
-        public OrderIngredientDTO(UUID ingredientId, String name, Double price, Boolean isFree) {
+        public OrderIngredientDTO(UUID ingredientId, String ingredientName, Integer quantity, Boolean isFree) {
             this.ingredientId = ingredientId;
-            this.name = name;
-            this.price = price;
+            this.ingredientName = ingredientName;
+            this.quantity = quantity;
             this.isFree = isFree;
         }
 
@@ -59,20 +59,20 @@ public class OrderResponse {
             this.ingredientId = ingredientId;
         }
 
-        public String getName() {
-            return name;
+        public String getIngredientName() {
+            return ingredientName;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setIngredientName(String ingredientName) {
+            this.ingredientName = ingredientName;
         }
 
-        public Double getPrice() {
-            return price;
+        public Integer getQuantity() {
+            return quantity;
         }
 
-        public void setPrice(Double price) {
-            this.price = price;
+        public void setQuantity(Integer quantity) {
+            this.quantity = quantity;
         }
 
         public Boolean getIsFree() {
