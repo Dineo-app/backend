@@ -49,6 +49,7 @@ public class OrderController {
         
         try {
             logger.info("Creating new order for plat: {}", request.getPlatId());
+            logger.info("Selected ingredient IDs received in controller: {}", request.getSelectedIngredientIds());
 
             // Extract user ID from JWT token
             String token = authHeader.substring(7); // Remove "Bearer " prefix

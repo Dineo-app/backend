@@ -126,6 +126,7 @@ public class OrderServiceImpl implements OrderService {
         Order savedOrder = orderRepository.save(order);
         
         // Save selected ingredients
+        logger.info("Received selectedIngredientIds: {}", request.getSelectedIngredientIds());
         if (request.getSelectedIngredientIds() != null && !request.getSelectedIngredientIds().isEmpty()) {
             List<Ingredient> selectedIngredients = ingredientRepository.findAllById(request.getSelectedIngredientIds());
             for (Ingredient ingredient : selectedIngredients) {
@@ -486,6 +487,7 @@ public class OrderServiceImpl implements OrderService {
 
         // Fetch order ingredients
         List<OrderIngredient> orderIngredients = orderIngredientRepository.findByOrderId(order.getId());
+        logger.info("Found {} ingredients for order {}", orderIngredients.size(), order.getId());
         List<OrderResponse.OrderIngredientDTO> ingredientDTOs = orderIngredients.stream()
                 .map(oi -> new OrderResponse.OrderIngredientDTO(
                         oi.getIngredientId(),
