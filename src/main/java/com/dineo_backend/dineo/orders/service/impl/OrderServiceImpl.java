@@ -134,7 +134,8 @@ public class OrderServiceImpl implements OrderService {
                         ingredient.getId(),
                         ingredient.getName(),
                         ingredient.getPrice(),
-                        ingredient.getIsFree()
+                        ingredient.getIsFree(),
+                        1
                 );
                 orderIngredientRepository.save(orderIngredient);
             }

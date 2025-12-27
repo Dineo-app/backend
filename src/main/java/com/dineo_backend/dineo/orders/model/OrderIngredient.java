@@ -37,17 +37,22 @@ public class OrderIngredient {
     @Column(name = "is_free", nullable = false)
     private Boolean isFree;
 
+    @NotNull
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+
     // Default constructor
     public OrderIngredient() {
     }
 
     // Constructor with all fields
-    public OrderIngredient(UUID orderId, UUID ingredientId, String ingredientName, Double ingredientPrice, Boolean isFree) {
+    public OrderIngredient(UUID orderId, UUID ingredientId, String ingredientName, Double ingredientPrice, Boolean isFree, Integer quantity) {
         this.orderId = orderId;
         this.ingredientId = ingredientId;
         this.ingredientName = ingredientName;
         this.ingredientPrice = ingredientPrice;
         this.isFree = isFree;
+        this.quantity = quantity;
     }
 
     // Getters and Setters
@@ -99,6 +104,14 @@ public class OrderIngredient {
         this.isFree = isFree;
     }
 
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "OrderIngredient{" +
@@ -108,6 +121,7 @@ public class OrderIngredient {
                 ", ingredientName='" + ingredientName + '\'' +
                 ", ingredientPrice=" + ingredientPrice +
                 ", isFree=" + isFree +
+                ", quantity=" + quantity +
                 '}';
     }
 }
