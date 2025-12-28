@@ -21,6 +21,7 @@ public class PublicPlatResponse {
     private PromotionResponse promotion;
     private ChefInfo chef;
     private Double averageRating; // Average rating from reviews
+    private Double distanceKm; // Distance from user location in kilometers (optional)
 
     // Nested class for chef information
     public static class ChefInfo {
@@ -204,6 +205,14 @@ public class PublicPlatResponse {
 
     public void setAverageRating(Double averageRating) {
         this.averageRating = averageRating;
+    }
+
+    public Double getDistanceKm() {
+        return distanceKm;
+    }
+
+    public void setDistanceKm(Double distanceKm) {
+        this.distanceKm = distanceKm;
     }
 
     @Override

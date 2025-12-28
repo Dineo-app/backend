@@ -27,6 +27,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
 
 /**
  * Public REST Controller for Plat operations
@@ -38,6 +40,9 @@ import java.util.stream.Collectors;
 public class PublicPlatController {
 
     private static final Logger logger = LoggerFactory.getLogger(PublicPlatController.class);
+    
+    // Simple in-memory cache for geocoded addresses
+    private static final Map<String, Double[]> geocodeCache = new ConcurrentHashMap<>();
 
     @Autowired
     private PlatRepository platRepository;
@@ -90,17 +95,24 @@ public class PublicPlatController {
 
                     // Only include plats with active promotions
                     if (promotion.isPresent()) {
-                        return mapToPublicResponse(plat, promotion.get());
+                        PublicPlatResponse response = mapToPublicResponse(plat, promotion.get());
+                        
+                        // Add distance if location provided
+                        if (latitude != null && longitude != null) {
+                            addDistanceToResponse(response, latitude, longitude);
+                        }
+                        
+                        return response;
                     }
                     return null;
                 })
                 .filter(response -> response != null) // Remove nulls (plats without promotions)
                 .filter(response -> {
-                    // Apply location filter if coordinates provided
-                    if (latitude != null && longitude != null) {
-                        return isWithinRadius(response, latitude, longitude, radiusKm);
+                    // Apply location filter if coordinates provided and distance calculated
+                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
+                        return response.getDistanceKm() <= radiusKm;
                     }
-                    return true; // No location filter
+                    return true; // No location filter or no distance calculated
                 })
                 .collect(Collectors.toList());
 
@@ -145,14 +157,21 @@ public class PublicPlatController {
                         LocalDateTime.now()
                     );
 
-                    return mapToPublicResponse(plat, promotion.orElse(null));
+                    PublicPlatResponse response = mapToPublicResponse(plat, promotion.orElse(null));
+                    
+                    // Add distance if location provided
+                    if (latitude != null && longitude != null) {
+                        addDistanceToResponse(response, latitude, longitude);
+                    }
+                    
+                    return response;
                 })
                 .filter(response -> {
-                    // Apply location filter if coordinates provided
-                    if (latitude != null && longitude != null) {
-                        return isWithinRadius(response, latitude, longitude, radiusKm);
+                    // Apply location filter if coordinates provided and distance calculated
+                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
+                        return response.getDistanceKm() <= radiusKm;
                     }
-                    return true; // No location filter
+                    return true; // No location filter or no distance calculated
                 })
                 .collect(Collectors.toList());
 
@@ -242,7 +261,14 @@ public class PublicPlatController {
                         plat.getId(),
                         LocalDateTime.now()
                     );
-                    return mapToPublicResponse(plat, promotion.orElse(null));
+                    PublicPlatResponse response = mapToPublicResponse(plat, promotion.orElse(null));
+                    
+                    // Add distance if location provided
+                    if (latitude != null && longitude != null) {
+                        addDistanceToResponse(response, latitude, longitude);
+                    }
+                    
+                    return response;
                 })
                 // Filter by search query (name, description, chef name)
                 .filter(response -> {
@@ -301,10 +327,10 @@ public class PublicPlatController {
                 })
                 // Filter by location (30km radius)
                 .filter(response -> {
-                    if (latitude != null && longitude != null) {
-                        return isWithinRadius(response, latitude, longitude, radiusKm);
+                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
+                        return response.getDistanceKm() <= radiusKm;
                     }
-                    return true; // No location filter
+                    return true; // No location filter or no distance calculated
                 })
                 .collect(Collectors.toList());
 
@@ -500,6 +526,42 @@ public class PublicPlatController {
     }
 
     /**
+     * Add distance from user location to plate response
+     * Calculates distance to chef's location and sets it in the response
+     */
+    private void addDistanceToResponse(PublicPlatResponse plat, Double userLat, Double userLon) {
+        try {
+            logger.info("🔍 addDistanceToResponse called for plat: {}", plat.getName());
+            
+            // Get chef's coordinates from their address
+            Optional<User> chefOpt = userRepository.findById(plat.getChef().getId());
+            if (chefOpt.isEmpty() || chefOpt.get().getAddress() == null) {
+                logger.warn("⚠️ No address for chef {} - cannot calculate distance", plat.getChef().getId());
+                return; // No address, distance remains null
+            }
+
+            String chefAddress = chefOpt.get().getAddress();
+            logger.info("📍 Geocoding address for chef {}: {}", plat.getChef().getId(), chefAddress);
+            Double[] chefCoords = geocodeAddress(chefAddress);
+            
+            if (chefCoords == null) {
+                logger.error("❌ Could not geocode address: {}", chefAddress);
+                return; // Could not geocode address
+            }
+
+            logger.info("✅ Geocoded to: [{}, {}]", chefCoords[0], chefCoords[1]);
+            
+            // Calculate distance and set it in the response
+            double distance = calculateDistance(userLat, userLon, chefCoords[0], chefCoords[1]);
+            plat.setDistanceKm(Math.round(distance * 10.0) / 10.0); // Round to 1 decimal place
+            logger.info("✅ Distance calculated for plat {}: {} km", plat.getName(), plat.getDistanceKm());
+            
+        } catch (Exception e) {
+            logger.error("❌ Error calculating distance for plat {}: {}", plat.getName(), e.getMessage(), e);
+        }
+    }
+
+    /**
      * Check if a plat's chef is within the specified radius from user's location
      * Uses Haversine formula to calculate distance
      */
@@ -529,61 +591,89 @@ public class PublicPlatController {
     }
 
     /**
-     * Geocode address to coordinates
-     * Simplified Paris-focused geocoding based on postal code
+     * Geocode address to coordinates using Nominatim API (OpenStreetMap)
+     * Works dynamically for any address worldwide
      */
     private Double[] geocodeAddress(String address) {
         if (address == null || address.trim().isEmpty()) {
+            logger.warn("⚠️ Empty address provided");
             return null;
         }
 
-        // Extract postal code (5 digits for France)
-        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("(\\d{5})");
-        java.util.regex.Matcher matcher = pattern.matcher(address);
-        
-        if (matcher.find()) {
-            String postalCode = matcher.group(1);
+        // Check cache first
+        if (geocodeCache.containsKey(address)) {
+            Double[] cached = geocodeCache.get(address);
+            logger.info("💾 Cache hit for address: {}", address);
+            return cached;
+        }
+
+        try {
+            logger.info("🌍 Attempting to geocode: {}", address);
             
-            // Paris arrondissements (750XX)
-            if (postalCode.startsWith("750")) {
-                int arrondissement = Integer.parseInt(postalCode.substring(3));
-                return getParisArrondissementCoords(arrondissement);
+            // Use Nominatim API (OpenStreetMap) - free and works worldwide
+            String encodedAddress = java.net.URLEncoder.encode(address, "UTF-8");
+            String url = "https://nominatim.openstreetmap.org/search?q=" + encodedAddress 
+                       + "&format=json&limit=1";
+            
+            logger.info("📡 Calling Nominatim API: {}", url);
+            
+            // Create HTTP client with timeout
+            java.net.http.HttpClient client = java.net.http.HttpClient.newBuilder()
+                .connectTimeout(java.time.Duration.ofSeconds(5))
+                .build();
+            
+            java.net.http.HttpRequest request = java.net.http.HttpRequest.newBuilder()
+                .uri(java.net.URI.create(url))
+                .header("User-Agent", "DineoApp/1.0") // Required by Nominatim
+                .timeout(java.time.Duration.ofSeconds(5))
+                .GET()
+                .build();
+            
+            // Send request with timeout
+            java.net.http.HttpResponse<String> response = client.send(request, 
+                java.net.http.HttpResponse.BodyHandlers.ofString());
+            
+            logger.info("📥 Nominatim response status: {}", response.statusCode());
+            
+            if (response.statusCode() == 200) {
+                String responseBody = response.body();
+                logger.info("📄 Response body: {}", responseBody.substring(0, Math.min(200, responseBody.length())));
+                
+                // Parse JSON response (simple parsing without external library)
+                if (responseBody.startsWith("[") && responseBody.contains("\"lat\"") && responseBody.contains("\"lon\"")) {
+                    // Extract lat and lon using regex
+                    java.util.regex.Pattern latPattern = java.util.regex.Pattern.compile("\"lat\":\"([^\"]+)\"");
+                    java.util.regex.Pattern lonPattern = java.util.regex.Pattern.compile("\"lon\":\"([^\"]+)\"");
+                    
+                    java.util.regex.Matcher latMatcher = latPattern.matcher(responseBody);
+                    java.util.regex.Matcher lonMatcher = lonPattern.matcher(responseBody);
+                    
+                    if (latMatcher.find() && lonMatcher.find()) {
+                        double lat = Double.parseDouble(latMatcher.group(1));
+                        double lon = Double.parseDouble(lonMatcher.group(1));
+                        
+                        Double[] coords = new Double[]{lat, lon};
+                        // Cache the result
+                        geocodeCache.put(address, coords);
+                        
+                        logger.info("✅ Geocoded '{}' to: [{}, {}]", address, lat, lon);
+                        return coords;
+                    } else {
+                        logger.error("❌ Could not parse lat/lon from response");
+                    }
+                } else {
+                    logger.error("❌ Invalid response format or empty results");
+                }
+            } else {
+                logger.error("❌ Nominatim API returned status: {}", response.statusCode());
             }
             
-            // Other major French cities - you can expand this
-            // For now, return approximate coordinates for common postal codes
+        } catch (Exception e) {
+            logger.error("❌ Error geocoding address '{}': {}", address, e.getMessage(), e);
         }
         
+        logger.error("❌ Could not geocode address: {}", address);
         return null;
-    }
-
-    /**
-     * Get approximate coordinates for Paris arrondissements
-     */
-    private Double[] getParisArrondissementCoords(int arrondissement) {
-        switch (arrondissement) {
-            case 1: return new Double[]{48.8606, 2.3376};
-            case 2: return new Double[]{48.8679, 2.3410};
-            case 3: return new Double[]{48.8630, 2.3633};
-            case 4: return new Double[]{48.8543, 2.3527};
-            case 5: return new Double[]{48.8445, 2.3477};
-            case 6: return new Double[]{48.8496, 2.3320};
-            case 7: return new Double[]{48.8565, 2.3105};
-            case 8: return new Double[]{48.8738, 2.3115};
-            case 9: return new Double[]{48.8768, 2.3386};
-            case 10: return new Double[]{48.8760, 2.3627};
-            case 11: return new Double[]{48.8594, 2.3808};
-            case 12: return new Double[]{48.8412, 2.3882};
-            case 13: return new Double[]{48.8322, 2.3561};
-            case 14: return new Double[]{48.8339, 2.3270};
-            case 15: return new Double[]{48.8420, 2.2945};
-            case 16: return new Double[]{48.8637, 2.2686};
-            case 17: return new Double[]{48.8873, 2.3147};
-            case 18: return new Double[]{48.8922, 2.3445};
-            case 19: return new Double[]{48.8838, 2.3821};
-            case 20: return new Double[]{48.8637, 2.3997};
-            default: return null;
-        }
     }
 
     /**
