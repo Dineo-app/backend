@@ -6,6 +6,7 @@ import com.dineo_backend.dineo.chefs.model.ChefDescription;
 import com.dineo_backend.dineo.chefs.model.ChefReview;
 import com.dineo_backend.dineo.chefs.repository.ChefDescriptionRepository;
 import com.dineo_backend.dineo.chefs.repository.ChefReviewRepository;
+import com.dineo_backend.dineo.common.PaginatedResponse;
 import com.dineo_backend.dineo.plats.dto.PromotionResponse;
 import com.dineo_backend.dineo.plats.dto.PublicPlatResponse;
 import com.dineo_backend.dineo.plats.model.Plat;
@@ -130,20 +131,25 @@ public class PublicPlatController {
      * Get all available plats (with or without promotions)
      * Public endpoint - no authentication required
      * Optional location filtering within 30km radius
+     * Supports pagination with 10 items per page
      * 
      * @param latitude user's current latitude (optional)
      * @param longitude user's current longitude (optional)
      * @param radiusKm maximum distance in kilometers (default: 30)
-     * @return list of all available plats
+     * @param page page number (1-based, default: 1)
+     * @param pageSize items per page (default: 10)
+     * @return paginated list of all available plats
      */
     @GetMapping
-    public ResponseEntity<ApiResponse<List<PublicPlatResponse>>> getAllAvailablePlats(
+    public ResponseEntity<ApiResponse<PaginatedResponse<PublicPlatResponse>>> getAllAvailablePlats(
             @RequestParam(required = false) Double latitude,
             @RequestParam(required = false) Double longitude,
-            @RequestParam(required = false, defaultValue = "30") Double radiusKm) {
+            @RequestParam(required = false, defaultValue = "30") Double radiusKm,
+            @RequestParam(required = false, defaultValue = "1") int page,
+            @RequestParam(required = false, defaultValue = "10") int pageSize) {
         try {
-            logger.info("Public request to get all available plats (location: {}, {}, radius: {}km)", 
-                latitude, longitude, radiusKm);
+            logger.info("Public request to get all available plats (location: {}, {}, radius: {}km, page: {}, pageSize: {})", 
+                latitude, longitude, radiusKm, page, pageSize);
 
             // Get all available plats
             List<Plat> availablePlats = platRepository.findByAvailableTrue();
@@ -175,8 +181,14 @@ public class PublicPlatController {
                 })
                 .collect(Collectors.toList());
 
-            logger.info("Found {} available plats", publicPlats.size());
-            return ResponseEntity.ok(ApiResponse.success("Plats disponibles récupérés avec succès", publicPlats));
+            // Apply pagination
+            PaginatedResponse<PublicPlatResponse> paginatedResponse = PaginatedResponse.of(publicPlats, page, pageSize);
+
+            logger.info("Found {} available plats, page {}/{}", 
+                paginatedResponse.getPagination().getTotalItems(),
+                paginatedResponse.getPagination().getCurrentPage(),
+                paginatedResponse.getPagination().getTotalPages());
+            return ResponseEntity.ok(ApiResponse.success("Plats disponibles récupérés avec succès", paginatedResponse));
 
         } catch (Exception e) {
             logger.error("Error getting available plats: {}", e.getMessage());
@@ -223,6 +235,7 @@ public class PublicPlatController {
      * Searches in name, description, categories, and chef name
      * Public endpoint - no authentication required
      * Optional location filtering within 30km radius
+     * Supports pagination with 10 items per page
      * 
      * @param query the search query
      * @param category optional category filter
@@ -233,10 +246,12 @@ public class PublicPlatController {
      * @param latitude user's current latitude (optional)
      * @param longitude user's current longitude (optional)
      * @param radiusKm maximum distance in kilometers (default: 30)
-     * @return list of matching plats
+     * @param page page number (1-based, default: 1)
+     * @param pageSize items per page (default: 10)
+     * @return paginated list of matching plats
      */
     @GetMapping("/search")
-    public ResponseEntity<ApiResponse<List<PublicPlatResponse>>> searchPlats(
+    public ResponseEntity<ApiResponse<PaginatedResponse<PublicPlatResponse>>> searchPlats(
             @RequestParam(required = false) String query,
             @RequestParam(required = false) String category,
             @RequestParam(required = false) Integer maxCookTime,
@@ -245,10 +260,12 @@ public class PublicPlatController {
             @RequestParam(required = false, defaultValue = "desc") String sortOrder,
             @RequestParam(required = false) Double latitude,
             @RequestParam(required = false) Double longitude,
-            @RequestParam(required = false, defaultValue = "30") Double radiusKm) {
+            @RequestParam(required = false, defaultValue = "30") Double radiusKm,
+            @RequestParam(required = false, defaultValue = "1") int page,
+            @RequestParam(required = false, defaultValue = "10") int pageSize) {
         try {
-            logger.info("Public search request - query: {}, category: {}, maxCookTime: {}, minRating: {}, sortBy: {}, sortOrder: {}, location: {}, {}, radius: {}km", 
-                query, category, maxCookTime, minRating, sortBy, sortOrder, latitude, longitude, radiusKm);
+            logger.info("Public search request - query: {}, category: {}, maxCookTime: {}, minRating: {}, sortBy: {}, sortOrder: {}, location: {}, {}, radius: {}km, page: {}, pageSize: {}", 
+                query, category, maxCookTime, minRating, sortBy, sortOrder, latitude, longitude, radiusKm, page, pageSize);
 
             // Get all available plats
             List<Plat> availablePlats = platRepository.findByAvailableTrue();
@@ -368,8 +385,14 @@ public class PublicPlatController {
                     break;
             }
 
-            logger.info("Search returned {} results", filteredPlats.size());
-            return ResponseEntity.ok(ApiResponse.success("Recherche effectuée avec succès", filteredPlats));
+            // Apply pagination
+            PaginatedResponse<PublicPlatResponse> paginatedResponse = PaginatedResponse.of(filteredPlats, page, pageSize);
+
+            logger.info("Search returned {} total results, page {}/{}", 
+                paginatedResponse.getPagination().getTotalItems(),
+                paginatedResponse.getPagination().getCurrentPage(),
+                paginatedResponse.getPagination().getTotalPages());
+            return ResponseEntity.ok(ApiResponse.success("Recherche effectuée avec succès", paginatedResponse));
 
         } catch (Exception e) {
             logger.error("Error searching plats: {}", e.getMessage());
