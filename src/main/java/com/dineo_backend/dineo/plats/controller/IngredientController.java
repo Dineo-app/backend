@@ -43,12 +43,18 @@ public class IngredientController {
 
     /**
      * Get all ingredients for a plate
-     * Accessible by all authenticated users
+     * Public endpoint - no authentication required
+     * Returns empty list if no ingredients found
      */
     @GetMapping
     public ResponseEntity<List<IngredientResponse>> getIngredientsByPlatId(@PathVariable UUID platId) {
-        List<IngredientResponse> ingredients = ingredientService.getIngredientsByPlatId(platId);
-        return ResponseEntity.ok(ingredients);
+        try {
+            List<IngredientResponse> ingredients = ingredientService.getIngredientsByPlatId(platId);
+            return ResponseEntity.ok(ingredients);
+        } catch (Exception e) {
+            // Return empty list if plate not found or has no ingredients
+            return ResponseEntity.ok(List.of());
+        }
     }
 
     /**

@@ -13,6 +13,8 @@ import com.dineo_backend.dineo.plats.repository.PromotionPlatRepository;
 import com.dineo_backend.dineo.plats.repository.IngredientRepository;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.repository.UserRepository;
+import com.dineo_backend.dineo.chefs.model.ChefDescription;
+import com.dineo_backend.dineo.chefs.repository.ChefDescriptionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,9 @@ public class CartServiceImpl implements CartService {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private ChefDescriptionRepository chefDescriptionRepository;
 
     @Override
     public CartSummaryResponse getUserCart(UUID userId) {
@@ -79,6 +84,19 @@ public class CartServiceImpl implements CartService {
     @Transactional
     public CartItemResponse addToCart(AddToCartRequest request, UUID userId) {
         logger.info("Adding plat {} to cart for user {}", request.getPlatId(), userId);
+        
+        // Check if the plat exists and get chef info
+        Plat plat = platRepository.findById(request.getPlatId())
+                .orElseThrow(() -> new RuntimeException("Plat non trouvé"));
+        
+        // Check if chef is open
+        Optional<ChefDescription> chefDescOpt = chefDescriptionRepository.findByUserId(plat.getChefId());
+        if (chefDescOpt.isPresent() && Boolean.FALSE.equals(chefDescOpt.get().getIsOpen())) {
+            // Get chef name for error message
+            Optional<User> chefOpt = userRepository.findById(plat.getChefId());
+            String chefName = chefOpt.map(u -> u.getFirstName() + " " + u.getLastName()).orElse("Ce chef");
+            throw new RuntimeException("La cuisine de " + chefName + " est fermée. Impossible d'ajouter ce plat au panier.");
+        }
 
         // Check if item already exists in cart
         CartItem cartItem = cartItemRepository.findByUserIdAndPlatId(userId, request.getPlatId())

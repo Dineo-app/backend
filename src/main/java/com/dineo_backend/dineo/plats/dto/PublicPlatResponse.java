@@ -22,6 +22,7 @@ public class PublicPlatResponse {
     private ChefInfo chef;
     private Double averageRating; // Average rating from reviews
     private Double distanceKm; // Distance from user location in kilometers (optional)
+    private Boolean isChefOpen; // Whether the chef is currently open for orders
 
     // Nested class for chef information
     public static class ChefInfo {
@@ -213,6 +214,14 @@ public class PublicPlatResponse {
 
     public void setDistanceKm(Double distanceKm) {
         this.distanceKm = distanceKm;
+    }
+
+    public Boolean getIsChefOpen() {
+        return isChefOpen;
+    }
+
+    public void setIsChefOpen(Boolean isChefOpen) {
+        this.isChefOpen = isChefOpen;
     }
 
     @Override

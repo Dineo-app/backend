@@ -82,8 +82,13 @@ public class CartController {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(ApiResponse.created("Article ajouté au panier avec succès", cartItem));
 
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
+            // Pass through the specific error message (e.g., chef closed message)
             logger.error("Error adding to cart: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(ApiResponse.error(HttpStatus.BAD_REQUEST.value(), e.getMessage()));
+        } catch (Exception e) {
+            logger.error("Unexpected error adding to cart: {}", e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(ApiResponse.error(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Erreur lors de l'ajout au panier"));
         }

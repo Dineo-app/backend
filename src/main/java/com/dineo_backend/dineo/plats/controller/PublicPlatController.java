@@ -128,6 +128,97 @@ public class PublicPlatController {
     }
 
     /**
+     * Get paginated plats with active promotions
+     * Public endpoint - no authentication required
+     * Optional location filtering within specified radius
+     * Supports pagination with 10 items per page
+     * 
+     * @param latitude user's current latitude (optional)
+     * @param longitude user's current longitude (optional)
+     * @param radiusKm maximum distance in kilometers (default: 30)
+     * @param page page number (default: 1)
+     * @param pageSize items per page (default: 10)
+     * @return paginated list of plats with active promotions
+     */
+    @GetMapping("/promotions/paginated")
+    public ResponseEntity<ApiResponse<PaginatedResponse<PublicPlatResponse>>> getPlatsWithPromotionsPaginated(
+            @RequestParam(required = false) Double latitude,
+            @RequestParam(required = false) Double longitude,
+            @RequestParam(required = false, defaultValue = "30") Double radiusKm,
+            @RequestParam(required = false, defaultValue = "1") int page,
+            @RequestParam(required = false, defaultValue = "10") int pageSize) {
+        try {
+            logger.info("Public request to get paginated plats with promotions (location: {}, {}, radius: {}km, page: {}, pageSize: {})", 
+                latitude, longitude, radiusKm, page, pageSize);
+
+            // Get all available plats
+            List<Plat> availablePlats = platRepository.findByAvailableTrue();
+            logger.info("Found {} available plats in database", availablePlats.size());
+
+            // Filter plats that have active promotions and map to response
+            List<PublicPlatResponse> platsWithPromotions = availablePlats.stream()
+                .map(plat -> {
+                    // Get active promotion
+                    Optional<PromotionPlat> promotion = promotionRepository.findActivePromotionByPlatId(
+                        plat.getId(),
+                        LocalDateTime.now()
+                    );
+
+                    // Only include plats with active promotions
+                    if (promotion.isPresent()) {
+                        PublicPlatResponse response = mapToPublicResponse(plat, promotion.get());
+                        
+                        // Add distance if location provided
+                        if (latitude != null && longitude != null) {
+                            addDistanceToResponse(response, latitude, longitude);
+                        }
+                        
+                        return response;
+                    }
+                    return null;
+                })
+                .filter(response -> response != null) // Remove nulls (plats without promotions)
+                .filter(response -> {
+                    // Apply location filter if coordinates provided and distance calculated
+                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
+                        boolean withinRadius = response.getDistanceKm() <= radiusKm;
+                        if (!withinRadius) {
+                            logger.debug("Filtering out promotional plat '{}' - distance {}km exceeds radius {}km", 
+                                response.getName(), response.getDistanceKm(), radiusKm);
+                        }
+                        return withinRadius;
+                    }
+                    return true; // No location filter or no distance calculated
+                })
+                .collect(Collectors.toList());
+
+            logger.info("After filtering: {} plats with active promotions", platsWithPromotions.size());
+
+            // Sort by newest promotions first
+            platsWithPromotions.sort((a, b) -> {
+                LocalDateTime dateA = a.getCreatedAt() != null ? a.getCreatedAt() : LocalDateTime.MIN;
+                LocalDateTime dateB = b.getCreatedAt() != null ? b.getCreatedAt() : LocalDateTime.MIN;
+                return dateB.compareTo(dateA); // Descending order (newest first)
+            });
+
+            // Apply pagination
+            PaginatedResponse<PublicPlatResponse> paginatedResponse = PaginatedResponse.of(platsWithPromotions, page, pageSize);
+
+            logger.info("Paginated promotions returned {} total results, page {}/{}", 
+                paginatedResponse.getPagination().getTotalItems(),
+                paginatedResponse.getPagination().getCurrentPage(),
+                paginatedResponse.getPagination().getTotalPages());
+            
+            return ResponseEntity.ok(ApiResponse.success("Plats avec promotions récupérés avec succès", paginatedResponse));
+
+        } catch (Exception e) {
+            logger.error("Error getting paginated plats with promotions: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error(500, "Erreur lors de la récupération des plats avec promotions"));
+        }
+    }
+
+    /**
      * Get all available plats (with or without promotions)
      * Public endpoint - no authentication required
      * Optional location filtering within 30km radius
@@ -198,21 +289,58 @@ public class PublicPlatController {
     }
 
     /**
-     * Get all unique categories from all plats in the system
+     * Get all unique categories from plats within specified radius
      * Public endpoint - no authentication required
+     * Filters by location to show only categories from nearby chefs
      * 
-     * @return list of unique categories
+     * @param latitude user's current latitude (optional)
+     * @param longitude user's current longitude (optional)
+     * @param radiusKm maximum distance in kilometers (default: 30)
+     * @return list of unique categories from nearby plats
      */
     @GetMapping("/categories")
-    public ResponseEntity<ApiResponse<List<String>>> getAllCategories() {
+    public ResponseEntity<ApiResponse<List<String>>> getAllCategories(
+            @RequestParam(required = false) Double latitude,
+            @RequestParam(required = false) Double longitude,
+            @RequestParam(required = false, defaultValue = "30") Double radiusKm) {
         try {
-            logger.info("Public request to get all categories");
+            logger.info("Public request to get categories (location: {}, {}, radius: {}km)", 
+                latitude, longitude, radiusKm);
 
-            // Get all plats (not just available ones, to show all categories)
-            List<Plat> allPlats = platRepository.findAll();
+            // Get all available plats
+            List<Plat> availablePlats = platRepository.findByAvailableTrue();
+            logger.info("Found {} available plats before filtering", availablePlats.size());
+
+            // Filter by location if provided
+            List<Plat> filteredPlats = availablePlats;
+            if (latitude != null && longitude != null) {
+                filteredPlats = availablePlats.stream()
+                    .filter(plat -> {
+                        // Get chef user
+                        Optional<User> chefOpt = userRepository.findById(plat.getChefId());
+                        if (chefOpt.isEmpty() || chefOpt.get().getAddress() == null) {
+                            return false;
+                        }
+                        
+                        User chef = chefOpt.get();
+                        Double[] chefCoords = geocodeAddress(chef.getAddress());
+                        if (chefCoords == null) {
+                            return false;
+                        }
+                        
+                        double distance = calculateDistance(
+                            latitude, longitude,
+                            chefCoords[0], chefCoords[1]
+                        );
+                        
+                        return distance <= radiusKm;
+                    })
+                    .collect(Collectors.toList());
+                logger.info("After location filtering: {} plats within {}km", filteredPlats.size(), radiusKm);
+            }
 
             // Extract all categories and remove duplicates
-            List<String> uniqueCategories = allPlats.stream()
+            List<String> uniqueCategories = filteredPlats.stream()
                 .map(Plat::getCategories)
                 .filter(categories -> categories != null && !categories.isEmpty())
                 .flatMap(categories -> categories.stream())
@@ -220,7 +348,7 @@ public class PublicPlatController {
                 .sorted()
                 .collect(Collectors.toList());
 
-            logger.info("Found {} unique categories", uniqueCategories.size());
+            logger.info("Found {} unique categories from filtered plats", uniqueCategories.size());
             return ResponseEntity.ok(ApiResponse.success("Catégories récupérées avec succès", uniqueCategories));
 
         } catch (Exception e) {
@@ -269,6 +397,7 @@ public class PublicPlatController {
 
             // Get all available plats
             List<Plat> availablePlats = platRepository.findByAvailableTrue();
+            logger.info("Found {} available plats in database", availablePlats.size());
 
             // Apply filters
             List<PublicPlatResponse> filteredPlats = availablePlats.stream()
@@ -342,14 +471,21 @@ public class PublicPlatController {
                     return response.getAverageRating() != null && 
                         response.getAverageRating() >= minRating;
                 })
-                // Filter by location (30km radius)
+                // Filter by location (radius)
                 .filter(response -> {
                     if (latitude != null && longitude != null && response.getDistanceKm() != null) {
-                        return response.getDistanceKm() <= radiusKm;
+                        boolean withinRadius = response.getDistanceKm() <= radiusKm;
+                        if (!withinRadius) {
+                            logger.debug("Filtering out plat '{}' - distance {}km exceeds radius {}km", 
+                                response.getName(), response.getDistanceKm(), radiusKm);
+                        }
+                        return withinRadius;
                     }
                     return true; // No location filter or no distance calculated
                 })
                 .collect(Collectors.toList());
+            
+            logger.info("After all filters: {} plats remaining", filteredPlats.size());
 
             // Sort results
             boolean ascending = "asc".equalsIgnoreCase(sortOrder);
@@ -478,6 +614,10 @@ public class PublicPlatController {
         // Add chef information
         PublicPlatResponse.ChefInfo chefInfo = getChefInfo(plat.getChefId());
         response.setChef(chefInfo);
+        
+        // Add chef isOpen status
+        Boolean isChefOpen = getChefOpenStatus(plat.getChefId());
+        response.setIsChefOpen(isChefOpen);
 
         return response;
     }
@@ -546,6 +686,14 @@ public class PublicPlatController {
 
         // Return default chef info if user not found
         return new PublicPlatResponse.ChefInfo(chefId, "Chef", "Unknown", null, 0.0);
+    }
+    
+    /**
+     * Helper method to get chef open/closed status
+     */
+    private Boolean getChefOpenStatus(UUID chefId) {
+        Optional<ChefDescription> chefDescOpt = chefDescriptionRepository.findByUserId(chefId);
+        return chefDescOpt.map(ChefDescription::getIsOpen).orElse(true); // Default to true if no description
     }
 
     /**
