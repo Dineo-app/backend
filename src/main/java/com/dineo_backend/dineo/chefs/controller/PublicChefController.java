@@ -452,17 +452,23 @@ public class PublicChefController {
      * Geocode an address to latitude/longitude using Nominatim
      */
     private Double[] geocodeAddress(String address) {
+        // Trim address to remove whitespace and newlines
+        address = address.trim();
+        
         // Check cache first
         if (geocodeCache.containsKey(address)) {
+            logger.info("💾 Cache hit for address: {}", address);
             return geocodeCache.get(address);
         }
         
         try {
+            logger.info("🌍 Attempting to geocode: {}", address);
             RestTemplate restTemplate = new RestTemplate();
             String url = String.format(
                 "https://nominatim.openstreetmap.org/search?format=json&q=%s&limit=1",
                 java.net.URLEncoder.encode(address, "UTF-8")
             );
+            logger.info("📡 Calling Nominatim API: {}", url);
             
             // Add User-Agent header (required by Nominatim)
             org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
@@ -476,22 +482,28 @@ public class PublicChefController {
                 List.class
             );
             
+            logger.info("📥 Nominatim response status: {}", response.getStatusCode());
+            
             List<Map<String, Object>> results = response.getBody();
             
             if (results != null && !results.isEmpty()) {
+                logger.info("📄 Response has {} results", results.size());
                 Map<String, Object> firstResult = results.get(0);
                 double lat = Double.parseDouble(firstResult.get("lat").toString());
                 double lon = Double.parseDouble(firstResult.get("lon").toString());
                 
                 Double[] coords = new Double[]{lat, lon};
+                logger.info("✅ Geocoded '{}' to: [{}, {}]", address, lat, lon);
                 
                 // Cache the result
                 geocodeCache.put(address, coords);
                 
                 return coords;
+            } else {
+                logger.warn("⚠️ No geocoding results for address: {}", address);
             }
         } catch (Exception e) {
-            logger.error("Error geocoding address '{}': {}", address, e.getMessage());
+            logger.error("❌ Error geocoding address '{}': {}", address, e.getMessage(), e);
         }
         
         return null;
@@ -528,8 +540,11 @@ public class PublicChefController {
                 return;
             }
 
+            // Trim address before geocoding
+            String cleanAddress = chef.getAddress().trim();
+            
             // Geocode chef's address
-            Double[] chefCoords = geocodeAddress(chef.getAddress());
+            Double[] chefCoords = geocodeAddress(cleanAddress);
             
             if (chefCoords == null) {
                 logger.warn("Could not geocode address for chef {}: {}", chef.getId(), chef.getAddress());
