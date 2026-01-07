@@ -368,7 +368,9 @@ public class PublicChefController {
                         
                         // Add distance to response if location provided
                         if (latitude != null && longitude != null) {
+                            logger.info("📍 Adding distance for chef {} at address: {}", chef.getId(), chef.getAddress());
                             addDistanceToChefResponse(response, latitude, longitude);
+                            logger.info("📏 Distance calculated: {} km", response.getDistanceKm());
                         }
                         
                         return response;
