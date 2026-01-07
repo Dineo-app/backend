@@ -45,7 +45,7 @@ public class PublicChefController {
     private static final Logger logger = LoggerFactory.getLogger(PublicChefController.class);
     
     // Cache for geocoded addresses to reduce API calls
-    private static final Map<String, double[]> geocodeCache = new ConcurrentHashMap<>();
+    private static final Map<String, Double[]> geocodeCache = new ConcurrentHashMap<>();
 
     @Autowired
     private UserRepository userRepository;
@@ -447,7 +447,7 @@ public class PublicChefController {
     /**
      * Geocode an address to latitude/longitude using Nominatim
      */
-    private double[] geocodeAddress(String address) {
+    private Double[] geocodeAddress(String address) {
         // Check cache first
         if (geocodeCache.containsKey(address)) {
             return geocodeCache.get(address);
@@ -479,7 +479,7 @@ public class PublicChefController {
                 double lat = Double.parseDouble(firstResult.get("lat").toString());
                 double lon = Double.parseDouble(firstResult.get("lon").toString());
                 
-                double[] coords = new double[]{lat, lon};
+                Double[] coords = new Double[]{lat, lon};
                 
                 // Cache the result
                 geocodeCache.put(address, coords);
@@ -525,7 +525,7 @@ public class PublicChefController {
             }
 
             // Geocode chef's address
-            double[] chefCoords = geocodeAddress(chef.getAddress());
+            Double[] chefCoords = geocodeAddress(chef.getAddress());
             
             if (chefCoords == null) {
                 logger.warn("Could not geocode address for chef {}: {}", chef.getId(), chef.getAddress());
