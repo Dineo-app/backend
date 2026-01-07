@@ -8691,3 +8691,1388 @@ Caused by: java.net.ConnectException: HTTP connect timed out
 2026-01-07 20:40:57 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
 2026-01-07 20:40:57 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 5.989 seconds (process running for 6.118)
 2026-01-07 20:41:57 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 1, completed tasks = 0]
+2026-01-07 21:11:57 [MessageBroker-2] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 1, completed tasks = 1]
+2026-01-07 21:41:57 [MessageBroker-3] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 1, completed tasks = 2]
+2026-01-07 22:09:45 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-07 22:09:45 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-01-07 22:09:45 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2026-01-07 22:09:45 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@54d17cb]]
+2026-01-07 22:09:45 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2026-01-07 22:09:45 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-07 22:09:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-07 22:09:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-07 22:09:51 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 72061 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2026-01-07 22:09:51 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-01-07 22:09:51 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-07 22:09:51 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-07 22:09:51 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-07 22:09:51 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 15 JPA repository interfaces.
+2026-01-07 22:09:51 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-07 22:09:51 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-07 22:09:51 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2026-01-07 22:09:51 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-07 22:09:51 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 492 ms
+2026-01-07 22:09:51 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-07 22:09:52 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@791fc06
+2026-01-07 22:09:52 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-07 22:09:53 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-07 22:09:53 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2026-01-07 22:09:53 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-07 22:09:54 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-07 22:09:54 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-07 22:09:54 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-07 22:09:54 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-07 22:09:55 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-07 22:09:55 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-07 22:09:56 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Initialized email batch thread pool with 4 threads
+2026-01-07 22:09:56 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Performance: 4x faster than single-threaded
+2026-01-07 22:09:56 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Estimated time for 1000 emails: 75 seconds
+2026-01-07 22:09:56 [restartedMain] INFO  c.d.d.p.s.i.StripePaymentServiceImpl - Stripe API initialized successfully
+2026-01-07 22:09:56 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-07 22:09:56 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-01-07 22:09:56 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-01-07 22:09:56 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-07 22:09:56 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-01-07 22:09:56 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@22ec1a9]]
+2026-01-07 22:09:56 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-01-07 22:09:56 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-07 22:09:56 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 6.018 seconds (process running for 6.145)
+2026-01-07 22:10:27 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-07 22:10:27 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-07 22:10:27 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-01-07 22:10:27 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions (location: 37.785834, -122.406417, radius: 30.0km)
+2026-01-07 22:10:27 [http-nio-8080-exec-1] INFO  c.d.d.c.c.PublicChefController - Get nearby chefs request received for location (37.785834, -122.406417) within 30.0 km
+2026-01-07 22:10:27 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats (location: 37.785834, -122.406417, radius: 30.0km, page: 1, pageSize: 10)
+2026-01-07 22:10:28 [http-nio-8080-exec-1] INFO  c.d.d.c.c.PublicChefController - Found 2 PROVIDER users
+2026-01-07 22:10:28 [http-nio-8080-exec-1] INFO  c.d.d.c.c.PublicChefController - Retrieved 2 chef users from database
+2026-01-07 22:10:28 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:10:28 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:10:28 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:10:28 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🌍 Attempting to geocode: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:10:28 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📡 Calling Nominatim API: https://nominatim.openstreetmap.org/search?q=5+Rue+Soufflot%2C+75005+Paris%2C+France&format=json&limit=1
+2026-01-07 22:10:29 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:10:29 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🌍 Attempting to geocode: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:10:29 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📡 Calling Nominatim API: https://nominatim.openstreetmap.org/search?q=5+Rue+Soufflot%2C+75005+Paris%2C+France&format=json&limit=1
+2026-01-07 22:10:56 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 1, completed tasks = 0]
+2026-01-07 22:10:58 [http-nio-8080-exec-2] ERROR c.d.d.p.c.PublicPlatController - ❌ Error geocoding address '5 Rue Soufflot, 75005 Paris, France': HTTP connect timed out
+java.net.http.HttpConnectTimeoutException: HTTP connect timed out
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:917)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at com.dineo_backend.dineo.plats.controller.PublicPlatController.geocodeAddress(PublicPlatController.java:804)
+	at com.dineo_backend.dineo.plats.controller.PublicPlatController.addDistanceToResponse(PublicPlatController.java:716)
+	at com.dineo_backend.dineo.plats.controller.PublicPlatController.lambda$getPlatsWithPromotions$0(PublicPlatController.java:103)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:215)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:727)
+	at com.dineo_backend.dineo.plats.controller.PublicPlatController.getPlatsWithPromotions(PublicPlatController.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.dineo_backend.dineo.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.http.HttpConnectTimeoutException: HTTP connect timed out
+	at java.net.http/jdk.internal.net.http.MultiExchange.toTimeoutException(MultiExchange.java:615)
+	at java.net.http/jdk.internal.net.http.MultiExchange.getExceptionalCF(MultiExchange.java:558)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$2(MultiExchange.java:477)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:980)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:996)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2424)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:469)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$0(MultiExchange.java:357)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1196)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:556)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1819)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:168)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2789)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:310)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:1015)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:901)
+	... 121 common frames omitted
+Caused by: java.net.ConnectException: HTTP connect timed out
+	at java.net.http/jdk.internal.net.http.MultiExchange.toTimeoutException(MultiExchange.java:616)
+	... 136 common frames omitted
+2026-01-07 22:10:58 [http-nio-8080-exec-2] ERROR c.d.d.p.c.PublicPlatController - ❌ Could not geocode address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:10:58 [http-nio-8080-exec-2] ERROR c.d.d.p.c.PublicPlatController - ❌ Could not geocode address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:10:58 [http-nio-8080-exec-3] ERROR c.d.d.p.c.PublicPlatController - ❌ Error geocoding address '5 Rue Soufflot, 75005 Paris, France': HTTP connect timed out
+java.net.http.HttpConnectTimeoutException: HTTP connect timed out
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:917)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at com.dineo_backend.dineo.plats.controller.PublicPlatController.geocodeAddress(PublicPlatController.java:804)
+	at com.dineo_backend.dineo.plats.controller.PublicPlatController.addDistanceToResponse(PublicPlatController.java:716)
+	at com.dineo_backend.dineo.plats.controller.PublicPlatController.lambda$getAllAvailablePlats$0(PublicPlatController.java:261)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:215)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:727)
+	at com.dineo_backend.dineo.plats.controller.PublicPlatController.getAllAvailablePlats(PublicPlatController.java:273)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.dineo_backend.dineo.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.http.HttpConnectTimeoutException: HTTP connect timed out
+	at java.net.http/jdk.internal.net.http.MultiExchange.toTimeoutException(MultiExchange.java:615)
+	at java.net.http/jdk.internal.net.http.MultiExchange.getExceptionalCF(MultiExchange.java:558)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$2(MultiExchange.java:477)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:980)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:996)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2424)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:469)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$0(MultiExchange.java:357)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1196)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:556)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1819)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:168)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2789)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:310)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:1015)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:901)
+	... 121 common frames omitted
+Caused by: java.net.ConnectException: HTTP connect timed out
+	at java.net.http/jdk.internal.net.http.MultiExchange.toTimeoutException(MultiExchange.java:616)
+	... 136 common frames omitted
+2026-01-07 22:10:58 [http-nio-8080-exec-3] ERROR c.d.d.p.c.PublicPlatController - ❌ Could not geocode address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:10:58 [http-nio-8080-exec-3] ERROR c.d.d.p.c.PublicPlatController - ❌ Could not geocode address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:10:59 [http-nio-8080-exec-1] WARN  c.d.d.c.c.PublicChefController - Could not geocode address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:10:59 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:10:59 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:10:59 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:10:59 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🌍 Attempting to geocode: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:10:59 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📡 Calling Nominatim API: https://nominatim.openstreetmap.org/search?q=5+Rue+Soufflot%2C+75005+Paris%2C+France&format=json&limit=1
+2026-01-07 22:10:59 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:10:59 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🌍 Attempting to geocode: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:10:59 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📡 Calling Nominatim API: https://nominatim.openstreetmap.org/search?q=12+Avenue+Habib+Bourguiba%2C+1004+Tunis%2C+Tunisia%0A&format=json&limit=1
+2026-01-07 22:11:00 [http-nio-8080-exec-1] WARN  c.d.d.c.c.PublicChefController - Could not geocode address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:00 [http-nio-8080-exec-1] INFO  c.d.d.c.c.PublicChefController - Found 2 chefs within 30.0 km radius
+2026-01-07 22:11:00 [http-nio-8080-exec-1] INFO  c.d.d.c.c.PublicChefController - Successfully retrieved 2 nearby chefs (page 1/1)
+2026-01-07 22:11:00 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📥 Nominatim response status: 200
+2026-01-07 22:11:00 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📄 Response body: [{"place_id":89169313,"licence":"Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright","osm_type":"node","osm_id":1930542206,"lat":"48.8464932","lon":"2.3439185","class":"amenity","ty
+2026-01-07 22:11:00 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded '5 Rue Soufflot, 75005 Paris, France' to: [48.8464932, 2.3439185]
+2026-01-07 22:11:00 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:11:00 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:11:01 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:11:01 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:01 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:01 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:11:01 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:11:02 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📥 Nominatim response status: 200
+2026-01-07 22:11:02 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📄 Response body: [{"place_id":48354252,"licence":"Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright","osm_type":"way","osm_id":1198612437,"lat":"36.7793686","lon":"10.1123738","class":"building","t
+2026-01-07 22:11:02 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded '12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+' to: [36.7793686, 10.1123738]
+2026-01-07 22:11:02 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:02 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:02 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:11:02 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:02 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:02 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:11:02 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:11:02 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:02 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:02 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:02 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:02 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:03 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:03 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:03 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:03 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:03 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:03 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:03 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:03 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:03 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:03 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:04 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:04 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:04 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:04 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:04 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:04 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:04 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:04 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:04 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:04 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:05 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:05 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:05 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:05 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:05 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:05 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:05 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:05 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:05 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:05 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:06 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:06 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:06 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:06 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:06 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:06 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:06 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:06 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:06 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:06 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:06 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:07 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:07 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:07 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:07 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:07 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:07 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:07 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:07 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:07 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:07 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:08 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:08 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:08 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:08 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:08 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:08 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:08 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:08 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:08 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:08 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:08 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:08 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:08 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:08 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:09 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:09 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:09 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:09 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:09 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:09 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:09 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:09 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:09 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:09 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:09 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:10 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:10 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:10 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:10 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:10 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:10 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:10 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:10 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:10 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:10 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:11 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:11 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:11 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:11 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:11 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 1 plats with active promotions
+2026-01-07 22:11:11 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:11 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:11 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:11 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:11 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:11 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:12 [http-nio-8080-exec-3] INFO  c.d.d.p.c.PublicPlatController - Found 1 available plats, page 1/1
+2026-01-07 22:11:46 [http-nio-8080-exec-9] INFO  c.d.d.c.c.PublicChefController - Get nearby chefs request received for location (37.785834, -122.406417) within 30.0 km
+2026-01-07 22:11:46 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats (location: 37.785834, -122.406417, radius: 30.0km, page: 1, pageSize: 10)
+2026-01-07 22:11:46 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions (location: 37.785834, -122.406417, radius: 30.0km)
+2026-01-07 22:11:46 [http-nio-8080-exec-9] INFO  c.d.d.c.c.PublicChefController - Found 2 PROVIDER users
+2026-01-07 22:11:46 [http-nio-8080-exec-9] INFO  c.d.d.c.c.PublicChefController - Retrieved 2 chef users from database
+2026-01-07 22:11:46 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:11:47 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:11:47 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:47 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:47 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:11:47 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:11:47 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:47 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:47 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:11:47 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:11:47 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:11:48 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:48 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:48 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:11:48 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:11:48 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:48 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:48 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:48 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:48 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:48 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:11:48 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:48 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:48 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:48 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:11:48 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:11:49 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:49 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:49 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:49 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:49 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:11:49 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:49 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:11:49 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:11:49 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:11:49 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:49 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:49 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:49 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:49 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:50 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:50 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:50 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:50 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:50 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:50 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:50 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:50 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:50 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:50 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:50 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:51 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:51 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:51 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:51 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:51 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:51 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:51 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:51 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:51 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:51 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:52 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:52 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:52 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:52 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:52 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:52 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:52 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:52 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:52 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:52 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:11:52 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:52 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:52 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:52 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:11:52 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:53 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:53 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:53 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:53 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:53 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:53 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:53 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:53 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:53 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:53 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:54 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:54 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:54 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:54 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:54 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:54 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:54 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:54 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:54 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:54 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:54 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:54 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:54 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:54 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:55 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:55 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:55 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:55 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:55 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:55 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:55 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:55 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:55 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:55 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:55 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:11:56 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:56 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:56 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:56 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:11:56 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:56 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:56 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:56 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:56 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:56 [http-nio-8080-exec-7] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2026-01-07 22:11:56 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:57 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:57 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:57 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:57 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:57 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:57 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:57 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:57 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:57 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:58 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:58 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:58 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:58 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:58 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:59 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:11:59 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:59 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:11:59 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:11:59 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:11:59 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Found 0 available plats, page 1/0
+2026-01-07 22:12:17 [http-nio-8080-exec-9] WARN  c.d.d.c.c.PublicChefController - Could not geocode address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:18 [http-nio-8080-exec-9] WARN  c.d.d.c.c.PublicChefController - Could not geocode address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:18 [http-nio-8080-exec-9] INFO  c.d.d.c.c.PublicChefController - Found 2 chefs within 30.0 km radius
+2026-01-07 22:12:18 [http-nio-8080-exec-9] INFO  c.d.d.c.c.PublicChefController - Successfully retrieved 2 nearby chefs (page 1/1)
+2026-01-07 22:12:18 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions (location: 37.785834, -122.406417, radius: 99999.0km)
+2026-01-07 22:12:18 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats (location: 37.785834, -122.406417, radius: 99999.0km, page: 1, pageSize: 10)
+2026-01-07 22:12:19 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:12:19 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:12:19 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:19 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:19 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:12:19 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:12:19 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:19 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:19 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:12:19 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:12:20 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:12:20 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:12:20 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:20 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:20 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:12:20 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:12:20 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:20 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:20 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:20 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:12:20 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:12:21 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:12:21 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:21 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:21 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:12:21 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:12:21 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:21 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:21 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:21 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:12:21 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:12:21 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:12:22 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:22 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:12:22 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:12:22 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:12:22 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:22 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:22 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:22 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:12:22 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:12:22 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:12:22 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:22 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:22 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:22 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:12:23 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:23 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:23 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:23 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:12:23 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:12:23 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:12:23 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:23 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:23 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:23 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:12:23 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:23 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:23 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:23 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:12:24 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:12:24 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:12:24 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:24 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:24 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:24 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:12:24 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:24 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:24 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:24 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:12:25 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:12:25 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:12:25 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:25 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:25 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:25 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:12:25 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:25 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:25 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:25 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:12:25 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:12:26 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:12:26 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:26 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:26 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:26 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:12:26 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:26 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:26 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:26 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:12:26 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:12:26 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:12:27 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:27 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:27 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:27 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:12:27 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:27 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:27 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:27 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:12:27 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:12:27 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:12:27 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:27 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:27 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:27 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:12:27 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:27 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:27 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:27 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:12:28 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:12:28 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:12:28 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:28 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:28 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:28 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:12:28 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:28 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:28 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:28 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:12:28 [http-nio-8080-exec-10] INFO  c.d.d.p.c.PublicPlatController - Found 12 plats with active promotions
+2026-01-07 22:12:29 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:12:29 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:29 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:29 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:29 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:12:29 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:12:30 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:30 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:30 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:30 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:12:30 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:12:30 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:30 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:30 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:30 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:12:31 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:12:31 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:31 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:12:31 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:12:31 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:12:31 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - Found 16 available plats, page 1/2
+2026-01-07 22:17:25 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats (location: null, null, radius: 30.0km, page: 1, pageSize: 10)
+2026-01-07 22:17:25 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions (location: null, null, radius: 30.0km)
+2026-01-07 22:17:32 [http-nio-8080-exec-5] INFO  c.d.d.p.c.PublicPlatController - Found 12 plats with active promotions
+2026-01-07 22:17:34 [http-nio-8080-exec-6] INFO  c.d.d.p.c.PublicPlatController - Found 16 available plats, page 1/2
+2026-01-07 22:18:04 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions (location: 37.785834, -122.406417, radius: 30.0km)
+2026-01-07 22:18:04 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats (location: 37.785834, -122.406417, radius: 30.0km, page: 1, pageSize: 10)
+2026-01-07 22:18:04 [http-nio-8080-exec-10] INFO  c.d.d.c.c.PublicChefController - Get nearby chefs request received for location (37.785834, -122.406417) within 30.0 km
+2026-01-07 22:18:04 [http-nio-8080-exec-10] INFO  c.d.d.c.c.PublicChefController - Found 2 PROVIDER users
+2026-01-07 22:18:05 [http-nio-8080-exec-10] INFO  c.d.d.c.c.PublicChefController - Retrieved 2 chef users from database
+2026-01-07 22:18:05 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:18:05 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:18:05 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:05 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:05 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:18:05 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:18:05 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:05 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:05 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:18:05 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:18:06 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:18:06 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:06 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:06 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:06 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:18:06 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:18:06 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:06 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:06 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:06 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:07 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:18:07 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:07 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:07 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:07 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:18:07 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:18:07 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:07 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:07 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:07 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:07 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:18:08 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:08 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:08 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:18:08 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:08 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:18:08 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:08 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:08 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:08 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:08 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:09 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:09 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:09 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:09 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:09 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:09 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:09 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:09 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:09 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:09 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:10 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:10 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:10 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:10 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:10 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:10 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:10 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:10 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:10 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:10 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:10 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:10 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:10 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:10 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:10 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:11 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:11 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:11 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:11 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:11 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:11 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:11 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:11 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:11 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:11 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:11 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:11 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:11 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:11 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:12 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:12 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:12 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:12 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:12 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:12 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:12 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:12 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:12 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:12 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:12 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:13 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:13 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:13 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:13 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:13 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:13 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:13 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:13 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:13 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:13 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:14 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:14 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:14 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:14 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:14 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:14 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:14 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:14 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:14 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:14 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:14 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:14 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:14 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:14 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:14 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:15 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:15 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:15 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:15 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:15 [http-nio-8080-exec-8] INFO  c.d.d.p.c.PublicPlatController - Found 0 plats with active promotions
+2026-01-07 22:18:15 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:15 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:15 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:15 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:15 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:16 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:16 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:16 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:16 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:16 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:16 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:17 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:17 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:17 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:17 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:17 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:17 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:17 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:17 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:17 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:17 [http-nio-8080-exec-9] INFO  c.d.d.p.c.PublicPlatController - Found 0 available plats, page 1/0
+2026-01-07 22:18:35 [http-nio-8080-exec-10] WARN  c.d.d.c.c.PublicChefController - Could not geocode address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:36 [http-nio-8080-exec-10] WARN  c.d.d.c.c.PublicChefController - Could not geocode address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:36 [http-nio-8080-exec-10] INFO  c.d.d.c.c.PublicChefController - Found 2 chefs within 30.0 km radius
+2026-01-07 22:18:36 [http-nio-8080-exec-10] INFO  c.d.d.c.c.PublicChefController - Successfully retrieved 2 nearby chefs (page 1/1)
+2026-01-07 22:18:36 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - Public request to get plats with promotions (location: 37.785834, -122.406417, radius: 99999.0km)
+2026-01-07 22:18:36 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Public request to get all available plats (location: 37.785834, -122.406417, radius: 99999.0km, page: 1, pageSize: 10)
+2026-01-07 22:18:37 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:18:37 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:18:37 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:37 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:37 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:18:37 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:18:38 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:38 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:38 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:18:38 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:18:38 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:18:38 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:38 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:38 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:38 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:18:38 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:18:38 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:38 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:38 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:38 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:39 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:18:39 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:39 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:39 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:39 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:18:39 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:18:39 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:39 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:39 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:39 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:40 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: pasta
+2026-01-07 22:18:40 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:40 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 8b1c9d91-8d1d-43e8-ab9f-904a95c1b8d4: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:40 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 5 Rue Soufflot, 75005 Paris, France
+2026-01-07 22:18:40 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [48.8464932, 2.3439185]
+2026-01-07 22:18:40 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat pasta: 8952.2 km
+2026-01-07 22:18:40 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:40 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:40 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:40 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:41 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:41 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:41 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:41 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:41 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:41 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:41 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:41 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:41 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:41 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:41 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:42 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:42 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:42 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:42 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:42 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:42 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:42 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:42 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:42 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:42 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:42 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:42 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:42 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:42 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:42 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:43 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:43 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:43 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:43 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:43 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: loubia
+2026-01-07 22:18:43 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:43 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:43 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:43 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:43 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat loubia: 10396.1 km
+2026-01-07 22:18:44 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:44 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:44 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:44 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:44 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:44 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:44 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:44 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:44 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:44 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:44 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:44 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:44 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:44 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:45 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:45 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:45 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:45 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:45 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:45 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:45 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:45 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:45 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:45 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:46 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:46 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:46 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:46 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:46 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:46 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:46 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:46 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:46 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:46 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:47 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: plat tunisien
+2026-01-07 22:18:47 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:47 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:47 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:47 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:47 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat plat tunisien: 10396.1 km
+2026-01-07 22:18:47 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:47 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:47 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:47 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:47 [http-nio-8080-exec-1] INFO  c.d.d.p.c.PublicPlatController - Found 12 plats with active promotions
+2026-01-07 22:18:47 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:48 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:48 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:48 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:48 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:48 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:48 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:48 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:48 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:48 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:49 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:49 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:49 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:49 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:49 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:50 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 🔍 addDistanceToResponse called for plat: Plat 3
+2026-01-07 22:18:50 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 📍 Geocoding address for chef 51438312-db03-469c-b476-e4511f8e8e67: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:50 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - 💾 Cache hit for address: 12 Avenue Habib Bourguiba, 1004 Tunis, Tunisia
+
+2026-01-07 22:18:50 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Geocoded to: [36.7793686, 10.1123738]
+2026-01-07 22:18:50 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - ✅ Distance calculated for plat Plat 3: 10396.1 km
+2026-01-07 22:18:50 [http-nio-8080-exec-2] INFO  c.d.d.p.c.PublicPlatController - Found 16 available plats, page 1/2
+2026-01-07 22:37:07 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 175 class path changes (1 addition, 0 deletions, 174 modifications)
+2026-01-07 22:37:07 [Thread-5] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-07 22:37:07 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-01-07 22:37:07 [Thread-5] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2026-01-07 22:37:07 [Thread-5] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@22ec1a9]]
+2026-01-07 22:37:07 [Thread-5] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2026-01-07 22:37:07 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-07 22:37:07 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-07 22:37:07 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-07 22:37:07 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 72061 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2026-01-07 22:37:07 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-01-07 22:37:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-07 22:37:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 15 JPA repository interfaces.
+2026-01-07 22:37:07 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-07 22:37:07 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-07 22:37:07 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2026-01-07 22:37:07 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-07 22:37:07 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 167 ms
+2026-01-07 22:37:07 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-01-07 22:37:08 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@580dc169
+2026-01-07 22:37:08 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-01-07 22:37:09 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-07 22:37:09 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-07 22:37:09 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-07 22:37:09 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-07 22:37:09 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 9.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-07 22:37:09 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-07 22:37:10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-07 22:37:11 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Initialized email batch thread pool with 4 threads
+2026-01-07 22:37:11 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Performance: 4x faster than single-threaded
+2026-01-07 22:37:11 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Estimated time for 1000 emails: 75 seconds
+2026-01-07 22:37:11 [restartedMain] INFO  c.d.d.p.s.i.StripePaymentServiceImpl - Stripe API initialized successfully
+2026-01-07 22:37:11 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-07 22:37:11 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-01-07 22:37:11 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-01-07 22:37:11 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-07 22:37:11 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-01-07 22:37:11 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@343443e]]
+2026-01-07 22:37:11 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-01-07 22:37:11 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-07 22:37:11 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 3.786 seconds (process running for 1640.298)
+2026-01-07 22:37:11 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
