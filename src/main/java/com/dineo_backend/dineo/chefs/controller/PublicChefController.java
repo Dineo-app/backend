@@ -329,32 +329,17 @@ public class PublicChefController {
                 .map(UserRole::getUserId)
                 .collect(Collectors.toList());
             
+            logger.info("Found {} PROVIDER users", chefIds.size());
+            
             // Get all chef users
             List<User> allChefs = userRepository.findAllById(chefIds);
-
-            // Calculate distances and filter by radius
-            List<PublicChefResponse> nearbyChefs = new ArrayList<>();
             
-            for (User chef : allChefs) {
-                try {
-                    // Skip chefs without address
-                    if (chef.getAddress() == null || chef.getAddress().trim().isEmpty()) {
-                        continue;
-                    }
-                    
-                    // Geocode chef's address
-                    double[] chefCoords = geocodeAddress(chef.getAddress());
-                    
-                    if (chefCoords == null) {
-                        logger.warn("Could not geocode address for chef {}: {}", chef.getId(), chef.getAddress());
-                        continue;
-                    }
-                    
-                    // Calculate distance
-                    double distance = calculateDistance(latitude, longitude, chefCoords[0], chefCoords[1]);
-                    
-                    // Filter by radius
-                    if (distance <= radiusKm) {
+            logger.info("Retrieved {} chef users from database", allChefs.size());
+
+            // Map chefs to responses and add distances
+            List<PublicChefResponse> allChefResponses = allChefs.stream()
+                .map(chef -> {
+                    try {
                         // Get chef description
                         Optional<ChefDescription> chefDescOpt = chefDescriptionRepository.findByUserId(chef.getId());
                         
@@ -372,7 +357,6 @@ public class PublicChefController {
                         response.setCreatedAt(chef.getCreatedAt());
                         response.setAverageRating(averageRating);
                         response.setTotalReviews(totalReviews);
-                        response.setDistanceKm(Math.round(distance * 10.0) / 10.0); // Round to 1 decimal
 
                         if (chefDescOpt.isPresent()) {
                             ChefDescription chefDesc = chefDescOpt.get();
@@ -382,18 +366,30 @@ public class PublicChefController {
                             response.setChefCertifications(chefDesc.getChefCertifications());
                         }
                         
-                        nearbyChefs.add(response);
+                        // Add distance to response
+                        addDistanceToChefResponse(response, latitude, longitude);
+                        
+                        return response;
+                    } catch (Exception e) {
+                        logger.error("Error processing chef {}: {}", chef.getId(), e.getMessage());
+                        return null;
                     }
-                } catch (Exception e) {
-                    logger.error("Error processing chef {}: {}", chef.getId(), e.getMessage());
-                }
-            }
-
-            // Sort by distance (closest first)
-            nearbyChefs.sort(Comparator.comparing(PublicChefResponse::getDistanceKm));
+                })
+                .filter(response -> response != null) // Remove nulls (chefs with errors)
+                .filter(response -> {
+                    // Apply location filter - only include chefs within radius
+                    if (response.getDistanceKm() != null) {
+                        return response.getDistanceKm() <= radiusKm;
+                    }
+                    return false; // No distance calculated, exclude
+                })
+                .sorted(Comparator.comparing(PublicChefResponse::getDistanceKm)) // Sort by distance (closest first)
+                .collect(Collectors.toList());
+            
+            logger.info("Found {} chefs within {} km radius", allChefResponses.size(), radiusKm);
             
             // Calculate pagination
-            int totalElements = nearbyChefs.size();
+            int totalElements = allChefResponses.size();
             int totalPages = (int) Math.ceil((double) totalElements / pageSize);
             int startIndex = page * pageSize;
             int endIndex = Math.min(startIndex + pageSize, totalElements);
@@ -401,7 +397,7 @@ public class PublicChefController {
             // Get page content
             List<PublicChefResponse> pageContent = new ArrayList<>();
             if (startIndex < totalElements) {
-                pageContent = nearbyChefs.subList(startIndex, endIndex);
+                pageContent = allChefResponses.subList(startIndex, endIndex);
             }
             
             // Create paginated response
@@ -500,5 +496,36 @@ public class PublicChefController {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         
         return EARTH_RADIUS_KM * c;
+    }
+    
+    /**
+     * Add distance from user location to chef response
+     * Calculates distance to chef's location and sets it in the response
+     */
+    private void addDistanceToChefResponse(PublicChefResponse chef, Double userLat, Double userLon) {
+        try {
+            // Skip if no address
+            if (chef.getAddress() == null || chef.getAddress().trim().isEmpty()) {
+                logger.warn("Chef {} has no address - cannot calculate distance", chef.getId());
+                return;
+            }
+
+            // Geocode chef's address
+            double[] chefCoords = geocodeAddress(chef.getAddress());
+            
+            if (chefCoords == null) {
+                logger.warn("Could not geocode address for chef {}: {}", chef.getId(), chef.getAddress());
+                return;
+            }
+            
+            // Calculate distance and set it in the response
+            double distance = calculateDistance(userLat, userLon, chefCoords[0], chefCoords[1]);
+            chef.setDistanceKm(Math.round(distance * 10.0) / 10.0); // Round to 1 decimal place
+            logger.info("Distance calculated for chef {} ({}): {} km", 
+                chef.getId(), chef.getFirstName() + " " + chef.getLastName(), chef.getDistanceKm());
+            
+        } catch (Exception e) {
+            logger.error("Error calculating distance for chef {}: {}", chef.getId(), e.getMessage(), e);
+        }
     }
 }
