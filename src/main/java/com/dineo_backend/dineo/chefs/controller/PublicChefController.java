@@ -379,17 +379,20 @@ public class PublicChefController {
                 })
                 .filter(response -> response != null) // Remove nulls (chefs with errors)
                 .filter(response -> {
-                    // Apply location filter if coordinates provided and distance calculated
-                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
-                        boolean withinRadius = response.getDistanceKm() <= radiusKm;
-                        if (!withinRadius) {
-                            logger.debug("Filtering out chef '{}' - distance {}km exceeds radius {}km", 
-                                response.getFirstName() + " " + response.getLastName(), 
-                                response.getDistanceKm(), radiusKm);
+                    // Apply location filter if coordinates provided
+                    if (latitude != null && longitude != null) {
+                        // ONLY show chefs with valid distance within radius
+                        if (response.getDistanceKm() != null && response.getDistanceKm() <= radiusKm) {
+                            return true;
                         }
-                        return withinRadius;
+                        // Filter out: chefs beyond radius, no address, or geocoding failed
+                        logger.debug("Filtering out chef '{}' - distance: {}, radius: {}", 
+                            response.getFirstName() + " " + response.getLastName(), 
+                            response.getDistanceKm(), radiusKm);
+                        return false;
                     }
-                    return true; // No location filter or no distance calculated
+                    // No location filter - include all
+                    return true;
                 })
                 .sorted((a, b) -> {
                     // Sort by distance if available, otherwise by creation date
