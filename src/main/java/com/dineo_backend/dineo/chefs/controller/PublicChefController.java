@@ -304,6 +304,8 @@ public class PublicChefController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int pageSize) {
         try {
+            logger.info("🚨🚨🚨 CHEF ENDPOINT CALLED - lat: {}, lon: {}, radius: {} km, page: {}, pageSize: {}", 
+                       latitude, longitude, radiusKm, page, pageSize);
             logger.info("Get nearby chefs request received for location ({}, {}) within {} km", 
                        latitude, longitude, radiusKm);
 
