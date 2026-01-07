@@ -298,8 +298,8 @@ public class PublicChefController {
      */
     @GetMapping("/nearby")
     public ResponseEntity<ApiResponse<PaginatedResponse<PublicChefResponse>>> getNearbyChefs(
-            @RequestParam Double latitude,
-            @RequestParam Double longitude,
+            @RequestParam(required = false) Double latitude,
+            @RequestParam(required = false) Double longitude,
             @RequestParam(defaultValue = "30") Double radiusKm,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int pageSize) {
@@ -366,8 +366,10 @@ public class PublicChefController {
                             response.setChefCertifications(chefDesc.getChefCertifications());
                         }
                         
-                        // Add distance to response
-                        addDistanceToChefResponse(response, latitude, longitude);
+                        // Add distance to response if location provided
+                        if (latitude != null && longitude != null) {
+                            addDistanceToChefResponse(response, latitude, longitude);
+                        }
                         
                         return response;
                     } catch (Exception e) {
@@ -377,13 +379,25 @@ public class PublicChefController {
                 })
                 .filter(response -> response != null) // Remove nulls (chefs with errors)
                 .filter(response -> {
-                    // Apply location filter - only include chefs within radius
-                    if (response.getDistanceKm() != null) {
+                    // Apply location filter if coordinates provided and distance calculated
+                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
                         return response.getDistanceKm() <= radiusKm;
                     }
-                    return false; // No distance calculated, exclude
+                    return true; // No location filter or no distance calculated
                 })
-                .sorted(Comparator.comparing(PublicChefResponse::getDistanceKm)) // Sort by distance (closest first)
+                .sorted((a, b) -> {
+                    // Sort by distance if available, otherwise by creation date
+                    if (a.getDistanceKm() != null && b.getDistanceKm() != null) {
+                        return Double.compare(a.getDistanceKm(), b.getDistanceKm());
+                    } else if (a.getDistanceKm() != null) {
+                        return -1; // a has distance, prioritize it
+                    } else if (b.getDistanceKm() != null) {
+                        return 1; // b has distance, prioritize it
+                    } else {
+                        // Both have no distance, sort by creation date (newest first)
+                        return b.getCreatedAt().compareTo(a.getCreatedAt());
+                    }
+                })
                 .collect(Collectors.toList());
             
             logger.info("Found {} chefs within {} km radius", allChefResponses.size(), radiusKm);
