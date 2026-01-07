@@ -44,6 +44,9 @@ public class PublicChefResponse {
     @JsonProperty("createdAt")
     private LocalDateTime createdAt;
     
+    @JsonProperty("distanceKm")
+    private Double distanceKm;
+    
     // Default constructor
     public PublicChefResponse() {
     }
@@ -153,5 +156,13 @@ public class PublicChefResponse {
     
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+    
+    public Double getDistanceKm() {
+        return distanceKm;
+    }
+    
+    public void setDistanceKm(Double distanceKm) {
+        this.distanceKm = distanceKm;
     }
 }
