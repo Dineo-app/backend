@@ -16,6 +16,7 @@ import com.dineo_backend.dineo.plats.repository.PlatRepository;
 import com.dineo_backend.dineo.plats.repository.PlatReviewRepository;
 import com.dineo_backend.dineo.plats.repository.PromotionPlatRepository;
 import com.dineo_backend.dineo.shared.dto.ApiResponse;
+import com.dineo_backend.dineo.common.util.GeocodingUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +42,6 @@ import java.util.Map;
 public class PublicPlatController {
 
     private static final Logger logger = LoggerFactory.getLogger(PublicPlatController.class);
-    
-    // Simple in-memory cache for geocoded addresses
-    private static final Map<String, Double[]> geocodeCache = new ConcurrentHashMap<>();
 
     @Autowired
     private PlatRepository platRepository;
@@ -109,11 +107,15 @@ public class PublicPlatController {
                 })
                 .filter(response -> response != null) // Remove nulls (plats without promotions)
                 .filter(response -> {
-                    // Apply location filter if coordinates provided and distance calculated
-                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
+                    // Apply location filter if coordinates provided
+                    if (latitude != null && longitude != null) {
+                        if (response.getDistanceKm() == null) {
+                            logger.warn("⚠️ Skipping plat {} - geocoding failed", response.getId());
+                            return false; // Exclude if we couldn't calculate distance
+                        }
                         return response.getDistanceKm() <= radiusKm;
                     }
-                    return true; // No location filter or no distance calculated
+                    return true; // No location filter requested
                 })
                 .collect(Collectors.toList());
 
@@ -179,8 +181,12 @@ public class PublicPlatController {
                 })
                 .filter(response -> response != null) // Remove nulls (plats without promotions)
                 .filter(response -> {
-                    // Apply location filter if coordinates provided and distance calculated
-                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
+                    // Apply location filter if coordinates provided
+                    if (latitude != null && longitude != null) {
+                        if (response.getDistanceKm() == null) {
+                            logger.warn("⚠️ Skipping promotional plat {} - geocoding failed", response.getId());
+                            return false; // Exclude if we couldn't calculate distance
+                        }
                         boolean withinRadius = response.getDistanceKm() <= radiusKm;
                         if (!withinRadius) {
                             logger.debug("Filtering out promotional plat '{}' - distance {}km exceeds radius {}km", 
@@ -188,7 +194,7 @@ public class PublicPlatController {
                         }
                         return withinRadius;
                     }
-                    return true; // No location filter or no distance calculated
+                    return true; // No location filter requested
                 })
                 .collect(Collectors.toList());
 
@@ -264,11 +270,15 @@ public class PublicPlatController {
                     return response;
                 })
                 .filter(response -> {
-                    // Apply location filter if coordinates provided and distance calculated
-                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
+                    // Apply location filter if coordinates provided
+                    if (latitude != null && longitude != null) {
+                        if (response.getDistanceKm() == null) {
+                            logger.warn("⚠️ Skipping plat {} - geocoding failed", response.getId());
+                            return false; // Exclude if we couldn't calculate distance
+                        }
                         return response.getDistanceKm() <= radiusKm;
                     }
-                    return true; // No location filter or no distance calculated
+                    return true; // No location filter requested
                 })
                 .collect(Collectors.toList());
 
@@ -323,12 +333,12 @@ public class PublicPlatController {
                         }
                         
                         User chef = chefOpt.get();
-                        Double[] chefCoords = geocodeAddress(chef.getAddress());
+                        Double[] chefCoords = GeocodingUtil.geocodeAddress(chef.getAddress());
                         if (chefCoords == null) {
                             return false;
                         }
                         
-                        double distance = calculateDistance(
+                        double distance = GeocodingUtil.calculateDistance(
                             latitude, longitude,
                             chefCoords[0], chefCoords[1]
                         );
@@ -473,7 +483,11 @@ public class PublicPlatController {
                 })
                 // Filter by location (radius)
                 .filter(response -> {
-                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
+                    if (latitude != null && longitude != null) {
+                        if (response.getDistanceKm() == null) {
+                            logger.warn("⚠️ Skipping plat {} - geocoding failed", response.getId());
+                            return false; // Exclude if we couldn't calculate distance
+                        }
                         boolean withinRadius = response.getDistanceKm() <= radiusKm;
                         if (!withinRadius) {
                             logger.debug("Filtering out plat '{}' - distance {}km exceeds radius {}km", 
@@ -481,7 +495,7 @@ public class PublicPlatController {
                         }
                         return withinRadius;
                     }
-                    return true; // No location filter or no distance calculated
+                    return true; // No location filter requested
                 })
                 .collect(Collectors.toList());
             
@@ -713,7 +727,7 @@ public class PublicPlatController {
 
             String chefAddress = chefOpt.get().getAddress();
             logger.info("📍 Geocoding address for chef {}: {}", plat.getChef().getId(), chefAddress);
-            Double[] chefCoords = geocodeAddress(chefAddress);
+            Double[] chefCoords = GeocodingUtil.geocodeAddress(chefAddress);
             
             if (chefCoords == null) {
                 logger.error("❌ Could not geocode address: {}", chefAddress);
@@ -723,7 +737,7 @@ public class PublicPlatController {
             logger.info("✅ Geocoded to: [{}, {}]", chefCoords[0], chefCoords[1]);
             
             // Calculate distance and set it in the response
-            double distance = calculateDistance(userLat, userLon, chefCoords[0], chefCoords[1]);
+            double distance = GeocodingUtil.calculateDistance(userLat, userLon, chefCoords[0], chefCoords[1]);
             plat.setDistanceKm(Math.round(distance * 10.0) / 10.0); // Round to 1 decimal place
             logger.info("✅ Distance calculated for plat {}: {} km", plat.getName(), plat.getDistanceKm());
             
@@ -745,14 +759,14 @@ public class PublicPlatController {
             }
 
             String chefAddress = chefOpt.get().getAddress();
-            Double[] chefCoords = geocodeAddress(chefAddress);
+            Double[] chefCoords = GeocodingUtil.geocodeAddress(chefAddress);
             
             if (chefCoords == null) {
                 return false; // Could not geocode address
             }
 
             // Calculate distance
-            double distance = calculateDistance(userLat, userLon, chefCoords[0], chefCoords[1]);
+            double distance = GeocodingUtil.calculateDistance(userLat, userLon, chefCoords[0], chefCoords[1]);
             
             return distance <= radiusKm;
         } catch (Exception e) {
@@ -761,108 +775,4 @@ public class PublicPlatController {
         }
     }
 
-    /**
-     * Geocode address to coordinates using Nominatim API (OpenStreetMap)
-     * Works dynamically for any address worldwide
-     */
-    private Double[] geocodeAddress(String address) {
-        if (address == null || address.trim().isEmpty()) {
-            logger.warn("⚠️ Empty address provided");
-            return null;
-        }
-
-        // Check cache first
-        if (geocodeCache.containsKey(address)) {
-            Double[] cached = geocodeCache.get(address);
-            logger.info("💾 Cache hit for address: {}", address);
-            return cached;
-        }
-
-        try {
-            logger.info("🌍 Attempting to geocode: {}", address);
-            
-            // Use Nominatim API (OpenStreetMap) - free and works worldwide
-            String encodedAddress = java.net.URLEncoder.encode(address, "UTF-8");
-            String url = "https://nominatim.openstreetmap.org/search?q=" + encodedAddress 
-                       + "&format=json&limit=1";
-            
-            logger.info("📡 Calling Nominatim API: {}", url);
-            
-            // Create HTTP client with timeout
-            java.net.http.HttpClient client = java.net.http.HttpClient.newBuilder()
-                .connectTimeout(java.time.Duration.ofSeconds(5))
-                .build();
-            
-            java.net.http.HttpRequest request = java.net.http.HttpRequest.newBuilder()
-                .uri(java.net.URI.create(url))
-                .header("User-Agent", "DineoApp/1.0") // Required by Nominatim
-                .timeout(java.time.Duration.ofSeconds(5))
-                .GET()
-                .build();
-            
-            // Send request with timeout
-            java.net.http.HttpResponse<String> response = client.send(request, 
-                java.net.http.HttpResponse.BodyHandlers.ofString());
-            
-            logger.info("📥 Nominatim response status: {}", response.statusCode());
-            
-            if (response.statusCode() == 200) {
-                String responseBody = response.body();
-                logger.info("📄 Response body: {}", responseBody.substring(0, Math.min(200, responseBody.length())));
-                
-                // Parse JSON response (simple parsing without external library)
-                if (responseBody.startsWith("[") && responseBody.contains("\"lat\"") && responseBody.contains("\"lon\"")) {
-                    // Extract lat and lon using regex
-                    java.util.regex.Pattern latPattern = java.util.regex.Pattern.compile("\"lat\":\"([^\"]+)\"");
-                    java.util.regex.Pattern lonPattern = java.util.regex.Pattern.compile("\"lon\":\"([^\"]+)\"");
-                    
-                    java.util.regex.Matcher latMatcher = latPattern.matcher(responseBody);
-                    java.util.regex.Matcher lonMatcher = lonPattern.matcher(responseBody);
-                    
-                    if (latMatcher.find() && lonMatcher.find()) {
-                        double lat = Double.parseDouble(latMatcher.group(1));
-                        double lon = Double.parseDouble(lonMatcher.group(1));
-                        
-                        Double[] coords = new Double[]{lat, lon};
-                        // Cache the result
-                        geocodeCache.put(address, coords);
-                        
-                        logger.info("✅ Geocoded '{}' to: [{}, {}]", address, lat, lon);
-                        return coords;
-                    } else {
-                        logger.error("❌ Could not parse lat/lon from response");
-                    }
-                } else {
-                    logger.error("❌ Invalid response format or empty results");
-                }
-            } else {
-                logger.error("❌ Nominatim API returned status: {}", response.statusCode());
-            }
-            
-        } catch (Exception e) {
-            logger.error("❌ Error geocoding address '{}': {}", address, e.getMessage(), e);
-        }
-        
-        logger.error("❌ Could not geocode address: {}", address);
-        return null;
-    }
-
-    /**
-     * Calculate distance between two coordinates using Haversine formula
-     * Returns distance in kilometers
-     */
-    private double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
-        final int R = 6371; // Earth's radius in kilometers
-
-        double latDistance = Math.toRadians(lat2 - lat1);
-        double lonDistance = Math.toRadians(lon2 - lon1);
-        
-        double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
-                + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
-                * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
-        
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        
-        return R * c;
-    }
 }

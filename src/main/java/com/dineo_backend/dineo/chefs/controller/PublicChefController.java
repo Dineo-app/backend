@@ -20,6 +20,7 @@ import com.dineo_backend.dineo.plats.repository.PlatReviewRepository;
 import com.dineo_backend.dineo.plats.repository.PromotionPlatRepository;
 import com.dineo_backend.dineo.shared.dto.ApiResponse;
 import com.dineo_backend.dineo.common.PaginatedResponse;
+import com.dineo_backend.dineo.common.util.GeocodingUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +44,6 @@ import java.util.concurrent.ConcurrentHashMap;
 public class PublicChefController {
 
     private static final Logger logger = LoggerFactory.getLogger(PublicChefController.class);
-    
-    // Cache for geocoded addresses to reduce API calls
-    private static final Map<String, Double[]> geocodeCache = new ConcurrentHashMap<>();
 
     @Autowired
     private UserRepository userRepository;
@@ -383,11 +381,16 @@ public class PublicChefController {
                 })
                 .filter(response -> response != null) // Remove nulls (chefs with errors)
                 .filter(response -> {
-                    // Apply location filter if coordinates provided and distance calculated
-                    if (latitude != null && longitude != null && response.getDistanceKm() != null) {
+                    // Apply location filter if coordinates provided
+                    if (latitude != null && longitude != null) {
+                        // If user provided coordinates, ONLY include chefs with valid distance
+                        if (response.getDistanceKm() == null) {
+                            logger.warn("⚠️ Skipping chef {} - geocoding failed", response.getId());
+                            return false; // Exclude chef if we couldn't calculate distance
+                        }
                         return response.getDistanceKm() <= radiusKm;
                     }
-                    return true; // No location filter or no distance calculated
+                    return true; // No location filter requested
                 })
                 .sorted((a, b) -> {
                     // Sort by distance if available, otherwise by creation date
@@ -449,86 +452,6 @@ public class PublicChefController {
     }
     
     /**
-     * Geocode an address to latitude/longitude using Nominatim
-     */
-    private Double[] geocodeAddress(String address) {
-        // Trim address to remove whitespace and newlines
-        address = address.trim();
-        
-        // Check cache first
-        if (geocodeCache.containsKey(address)) {
-            logger.info("💾 Cache hit for address: {}", address);
-            return geocodeCache.get(address);
-        }
-        
-        try {
-            logger.info("🌍 Attempting to geocode: {}", address);
-            RestTemplate restTemplate = new RestTemplate();
-            String url = String.format(
-                "https://nominatim.openstreetmap.org/search?format=json&q=%s&limit=1",
-                java.net.URLEncoder.encode(address, "UTF-8")
-            );
-            logger.info("📡 Calling Nominatim API: {}", url);
-            
-            // Add User-Agent header (required by Nominatim)
-            org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
-            headers.set("User-Agent", "DineoApp/1.0");
-            org.springframework.http.HttpEntity<?> entity = new org.springframework.http.HttpEntity<>(headers);
-            
-            ResponseEntity<List> response = restTemplate.exchange(
-                url,
-                org.springframework.http.HttpMethod.GET,
-                entity,
-                List.class
-            );
-            
-            logger.info("📥 Nominatim response status: {}", response.getStatusCode());
-            
-            List<Map<String, Object>> results = response.getBody();
-            
-            if (results != null && !results.isEmpty()) {
-                logger.info("📄 Response has {} results", results.size());
-                Map<String, Object> firstResult = results.get(0);
-                double lat = Double.parseDouble(firstResult.get("lat").toString());
-                double lon = Double.parseDouble(firstResult.get("lon").toString());
-                
-                Double[] coords = new Double[]{lat, lon};
-                logger.info("✅ Geocoded '{}' to: [{}, {}]", address, lat, lon);
-                
-                // Cache the result
-                geocodeCache.put(address, coords);
-                
-                return coords;
-            } else {
-                logger.warn("⚠️ No geocoding results for address: {}", address);
-            }
-        } catch (Exception e) {
-            logger.error("❌ Error geocoding address '{}': {}", address, e.getMessage(), e);
-        }
-        
-        return null;
-    }
-    
-    /**
-     * Calculate distance between two coordinates using Haversine formula
-     * @return Distance in kilometers
-     */
-    private double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
-        final int EARTH_RADIUS_KM = 6371;
-        
-        double dLat = Math.toRadians(lat2 - lat1);
-        double dLon = Math.toRadians(lon2 - lon1);
-        
-        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                   Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
-                   Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        
-        return EARTH_RADIUS_KM * c;
-    }
-    
-    /**
      * Add distance from user location to chef response
      * Calculates distance to chef's location and sets it in the response
      */
@@ -543,19 +466,20 @@ public class PublicChefController {
             // Trim address before geocoding
             String cleanAddress = chef.getAddress().trim();
             
-            // Geocode chef's address
-            Double[] chefCoords = geocodeAddress(cleanAddress);
+            logger.info("📍 Adding distance for chef {} at address: {}", chef.getId(), cleanAddress);
+            
+            // Geocode chef's address using shared utility
+            Double[] chefCoords = GeocodingUtil.geocodeAddress(cleanAddress);
             
             if (chefCoords == null) {
                 logger.warn("Could not geocode address for chef {}: {}", chef.getId(), chef.getAddress());
                 return;
             }
             
-            // Calculate distance and set it in the response
-            double distance = calculateDistance(userLat, userLon, chefCoords[0], chefCoords[1]);
+            // Calculate distance using shared utility
+            double distance = GeocodingUtil.calculateDistance(userLat, userLon, chefCoords[0], chefCoords[1]);
             chef.setDistanceKm(Math.round(distance * 10.0) / 10.0); // Round to 1 decimal place
-            logger.info("Distance calculated for chef {} ({}): {} km", 
-                chef.getId(), chef.getFirstName() + " " + chef.getLastName(), chef.getDistanceKm());
+            logger.info("📏 Distance calculated: {} km", chef.getDistanceKm());
             
         } catch (Exception e) {
             logger.error("Error calculating distance for chef {}: {}", chef.getId(), e.getMessage(), e);
