@@ -68,6 +68,7 @@ public class SecurityConfig {
                 .requestMatchers("/ws/**").permitAll() // WebSocket endpoints for real-time notifications
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 .requestMatchers("/api/v1/public/**").permitAll() // Public access to plats without authentication
+                .requestMatchers("/api/v1/test/**").permitAll() // Test endpoints (SMS, etc.) - Remove in production
                 .requestMatchers("/api/temp/**").permitAll() // TEMPORARY: Remove in production
                 .requestMatchers("/actuator/**").permitAll()
                 .requestMatchers("/error").permitAll()
