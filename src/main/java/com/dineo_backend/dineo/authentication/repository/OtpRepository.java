@@ -62,9 +62,10 @@ public interface OtpRepository extends JpaRepository<Otp, UUID> {
     
     /**
      * Count OTPs created in the last N minutes for rate limiting
+     * Only counts unverified OTPs to allow retries after successful verification
      */
     @Query("SELECT COUNT(o) FROM Otp o WHERE (o.phone = :phone OR o.email = :email) " +
-           "AND o.createdAt > :since")
+           "AND o.createdAt > :since AND o.isVerified = false")
     long countRecentOtps(@Param("phone") String phone, 
                          @Param("email") String email, 
                          @Param("since") LocalDateTime since);
