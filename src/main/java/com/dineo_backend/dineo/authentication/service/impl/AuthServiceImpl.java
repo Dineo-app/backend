@@ -93,8 +93,8 @@ public class AuthServiceImpl implements AuthService {
                 throw new RuntimeException("Le numéro de téléphone est déjà enregistré.");
             }
 
-            // Encode password
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            // Note: No password - using OTP authentication
+            user.setVerified(false); // Will be verified via OTP
 
             // Save user first
             User savedUser = userRepository.save(user);
@@ -146,40 +146,8 @@ public class AuthServiceImpl implements AuthService {
 
             User user = userOpt.get();
 
-            // Verify password
-            if (!passwordEncoder.matches(password, user.getPassword())) {
-                throw new RuntimeException(AppConstants.INVALID_CREDENTIALS);
-            }
-
-            // Get user role
-            List<UserRole> userRoles = roleRepository.findByUserId(user.getId());
-            Role userRole = userRoles.isEmpty() ? Role.CUSTOMER : userRoles.get(0).getRole();
-
-            // Generate JWT tokens
-            String accessToken = jwtService.generateAccessToken(user.getId(), user.getEmail(), userRole);
-            String refreshToken = jwtService.generateRefreshToken(user.getId(), user.getEmail());
-
-            // Create user info
-            UserInfo userInfo = new UserInfo();
-            userInfo.setId(user.getId().toString());
-            userInfo.setFirstName(user.getFirstName());
-            userInfo.setLastName(user.getLastName());
-            userInfo.setEmail(user.getEmail());
-            userInfo.setPhone(user.getPhone());
-            userInfo.setAddress(user.getAddress());
-            userInfo.setRole(userRole.name());
-
-            // Create auth data with user information
-            AuthData authData = new AuthData(
-                accessToken,
-                refreshToken,
-                accessTokenExpiration / 1000, // Convert to seconds
-                user.getId().toString(),
-                userInfo
-            );
-
-            // Return success response with tokens
-            return ApiResponse.success(AppConstants.USER_LOGIN_SUCCESS, authData);
+            // Note: Password-based login deprecated - use OTP login instead
+            throw new RuntimeException("Password authentication is no longer supported. Please use OTP login.");
             
         } catch (RuntimeException e) {
             throw e;
@@ -213,7 +181,6 @@ public class AuthServiceImpl implements AuthService {
         }
         
         return StringUtils.hasText(user.getEmail()) &&
-               StringUtils.hasText(user.getPassword()) &&
                StringUtils.hasText(user.getFirstName()) &&
                StringUtils.hasText(user.getLastName());
     }
@@ -268,31 +235,9 @@ public class AuthServiceImpl implements AuthService {
             
             User user = optionalUser.get();
             
-            // Verify current password
-            logger.info("Verifying old password for user: {} (email: {})", userId, user.getEmail());
-            boolean passwordMatches = passwordEncoder.matches(updatePasswordRequest.getOldPassword(), user.getPassword());
-            logger.info("Password match result: {}", passwordMatches);
-            
-            if (!passwordMatches) {
-                logger.warn("Current password verification failed for user ID: {} (email: {})", userId, user.getEmail());
-                return ApiResponse.error(400, AppConstants.CURRENT_PASSWORD_INCORRECT);
-            }
-            
-            logger.info("Old password verified successfully for user ID: {}", userId);
-            
-            // Validate new password strength (minimum 8 characters)
-            if (updatePasswordRequest.getNewPassword().length() < 8) {
-                logger.warn("New password too weak for user ID: {}", userId);
-                return ApiResponse.error(400, AppConstants.PASSWORD_TOO_WEAK);
-            }
-            
-            // Update password
-            String encodedNewPassword = passwordEncoder.encode(updatePasswordRequest.getNewPassword());
-            user.setPassword(encodedNewPassword);
-            userRepository.save(user);
-            
-            logger.info("Password updated successfully for user ID: {}", userId);
-            return ApiResponse.success(AppConstants.PASSWORD_UPDATED_SUCCESS, AppConstants.SUCCESS);
+            // Password update not supported in passwordless authentication
+            logger.warn("Password update attempted but not supported in passwordless auth for user ID: {}", userId);
+            return ApiResponse.error(400, "Password authentication is no longer supported. Authentication is now via OTP only.");
             
         } catch (Exception e) {
             logger.error("Error updating password for user ID: {}", userId, e);
@@ -522,19 +467,7 @@ public class AuthServiceImpl implements AuthService {
                 }
             }
             
-            // Update phone if provided and different
-            if (request.getPhone() != null && !request.getPhone().trim().isEmpty()) {
-                String newPhone = request.getPhone().trim();
-                if (!newPhone.equals(user.getPhone())) {
-                    // Check if phone is already taken by another user
-                    Optional<User> existingUser = userRepository.findByPhone(newPhone);
-                    if (existingUser.isPresent() && !existingUser.get().getId().equals(userId)) {
-                        logger.warn("Phone already taken: {}", newPhone);
-                        return ApiResponse.error(400, "Ce numéro de téléphone est déjà utilisé par un autre compte");
-                    }
-                    user.setPhone(newPhone);
-                }
-            }
+            // Note: Phone is immutable after registration and removed from UpdateProfileRequest
             
             // Update address if provided
             if (request.getAddress() != null) {

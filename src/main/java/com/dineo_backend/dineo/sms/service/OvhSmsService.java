@@ -150,11 +150,11 @@ public class OvhSmsService {
         
         if (responseCode == 200) {
             logger.info("✅ SMS sent successfully: {}", responseBody);
+            return responseBody;
         } else {
-            logger.error("❌ SMS sending failed: {}", responseBody);
+            logger.error("❌ SMS sending failed with code {}: {}", responseCode, responseBody);
+            throw new Exception("OVH SMS API error (HTTP " + responseCode + "): " + responseBody);
         }
-        
-        return responseBody;
     }
 
     /**

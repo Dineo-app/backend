@@ -32,14 +32,13 @@ public class User {
     @Column(unique = true)
     private String email;
     
-    @NotBlank
-    @Size(max = 120)
-    private String password; 
-    
     @NotBlank(message = "Phone number is required")
     @Size(max = 15)
-    @Column(unique = true)
+    @Column(unique = true, updatable = false) // Phone cannot be changed after registration
     private String phone;
+    
+    @Column(name = "is_verified", nullable = false)
+    private boolean isVerified = false; // Account verified via OTP
     
     @Size(max = 255)
     private String address;
@@ -56,13 +55,14 @@ public class User {
         this.updatedAt = LocalDateTime.now();
     }
     
-    // Constructor with basic fields
-    public User(String firstName, String lastName, String email, String password) {
+    // Constructor with basic fields (passwordless)
+    public User(String firstName, String lastName, String email, String phone) {
         this();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
+        this.phone = phone;
+        this.isVerified = false;
     }
     
     // Getters and Setters
@@ -98,20 +98,25 @@ public class User {
         this.email = email;
     }
     
-    public String getPassword() {
-        return password;
-    }
-    
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
     public String getPhone() {
         return phone;
     }
     
+    // Phone number is immutable - can only be set during registration
     public void setPhone(String phone) {
-        this.phone = phone;
+        if (this.phone == null) {
+            this.phone = phone;
+        } else {
+            throw new UnsupportedOperationException("Phone number cannot be changed after registration");
+        }
+    }
+    
+    public boolean isVerified() {
+        return isVerified;
+    }
+    
+    public void setVerified(boolean verified) {
+        isVerified = verified;
     }
     
     public String getAddress() {

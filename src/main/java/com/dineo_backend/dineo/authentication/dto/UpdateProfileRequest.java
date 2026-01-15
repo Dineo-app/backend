@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 
 /**
  * DTO for updating user profile information.
+ * Note: Phone number cannot be changed after registration for security reasons.
  */
 public class UpdateProfileRequest {
     
@@ -21,8 +22,7 @@ public class UpdateProfileRequest {
     @Size(max = 100, message = "L'email ne doit pas dépasser 100 caractères")
     private String email;
     
-    @Size(max = 15, message = "Le numéro de téléphone ne doit pas dépasser 15 caractères")
-    private String phone;
+    // Phone number removed - cannot be changed after registration
     
     @Size(max = 255, message = "L'adresse ne doit pas dépasser 255 caractères")
     private String address;
@@ -56,13 +56,7 @@ public class UpdateProfileRequest {
         this.email = email;
     }
     
-    public String getPhone() {
-        return phone;
-    }
-    
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    // Phone getter/setter removed - phone cannot be changed after registration
     
     public String getAddress() {
         return address;

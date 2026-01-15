@@ -60,18 +60,17 @@ public class AdministrationServiceImpl implements AdministrationService {
             throw new RuntimeException("Un utilisateur avec cet email existe déjà");
         }
 
-        // Generate random password
-        String generatedPassword = generateRandomPassword();
-        logger.info("Generated password for chef: {}", request.getEmail());
+        // Note: Passwordless authentication - users will verify via OTP
+        logger.info("Creating chef account for: {}", request.getEmail());
 
         // Create User entity
         User user = new User();
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
         user.setEmail(request.getEmail());
-        user.setPassword(passwordEncoder.encode(generatedPassword));
         user.setPhone(request.getPhone());
         user.setAddress(request.getAddress());
+        user.setVerified(true); // Admin-created accounts are pre-verified
 
         // Save user
         User savedUser = userRepository.save(user);
@@ -92,10 +91,10 @@ public class AdministrationServiceImpl implements AdministrationService {
         ChefDescription savedChefDescription = chefDescriptionRepository.save(chefDescription);
         logger.info("Chef description created successfully with ID: {}", savedChefDescription.getId());
 
-        // Send welcome email
+        // Send welcome email (passwordless - chef will use OTP)
         boolean emailSent = sendWelcomeEmail(
             savedUser.getEmail(), 
-            generatedPassword, 
+            "N/A", // No password in passwordless auth
             savedUser.getFirstName(), 
             savedUser.getLastName()
         );
@@ -112,7 +111,7 @@ public class AdministrationServiceImpl implements AdministrationService {
             savedChefDescription.getId(),
             savedChefDescription.getDescription(),
             savedChefDescription.getCategories(),
-            generatedPassword, // Include for admin notification (won't be logged)
+            "N/A", // Passwordless authentication
             emailSent
         );
 

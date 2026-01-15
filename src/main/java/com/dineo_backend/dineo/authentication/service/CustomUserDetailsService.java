@@ -62,7 +62,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                     user.getFirstName(),
                     user.getLastName(),
                     user.getEmail(),
-                    user.getPassword(),
+                    "N/A", // No password in passwordless authentication
                     authorities
             );
         }
