@@ -351,8 +351,28 @@ public class ChefServiceImpl implements ChefService {
                 
                 response.setFirstName((String) row[1]);
                 response.setLastName((String) row[2]);
-                response.setAddress((String) row[3]);
+                String address = (String) row[3];
+                response.setAddress(address);
                 response.setCoverImageUrl(row[4] != null ? (String) row[4] : null);
+                
+                // Parse coordinates from address field if it contains "lat, lon" format
+                if (address != null) {
+                    String[] parts = address.split("\\s*,\\s*");
+                    if (parts.length == 2) {
+                        try {
+                            double lat = Double.parseDouble(parts[0]);
+                            double lon = Double.parseDouble(parts[1]);
+                            // Validate coordinate ranges
+                            if (lat >= -90 && lat <= 90 && lon >= -180 && lon <= 180) {
+                                response.setLatitude(lat);
+                                response.setLongitude(lon);
+                                logger.debug("✅ Parsed coordinates for chef {}: [{}, {}]", userId, lat, lon);
+                            }
+                        } catch (NumberFormatException e) {
+                            logger.debug("Address is not in coordinate format: {}", address);
+                        }
+                    }
+                }
 
                 // Fetch categories from chef_categories table if chef_description exists
                 if (row[5] != null) {

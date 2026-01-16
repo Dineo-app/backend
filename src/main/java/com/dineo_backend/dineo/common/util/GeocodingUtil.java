@@ -25,8 +25,46 @@ public class GeocodingUtil {
     private static final long MIN_REQUEST_INTERVAL_MS = 1100; // 1.1 seconds between requests
     
     /**
+     * Parse coordinates from a string in format "latitude, longitude"
+     * @param address The string that may contain coordinates
+     * @return Array of [latitude, longitude] or null if not valid coordinates
+     */
+    public static Double[] parseCoordinates(String address) {
+        if (address == null || address.trim().isEmpty()) {
+            return null;
+        }
+        
+        address = address.trim();
+        
+        // Check if address matches coordinate format: "number, number"
+        // Pattern: optional minus, digits, decimal point, digits, comma, space, same pattern
+        String coordPattern = "^-?\\d+\\.\\d+\\s*,\\s*-?\\d+\\.\\d+$";
+        if (address.matches(coordPattern)) {
+            try {
+                String[] parts = address.split("\\s*,\\s*");
+                if (parts.length == 2) {
+                    double lat = Double.parseDouble(parts[0]);
+                    double lon = Double.parseDouble(parts[1]);
+                    
+                    // Validate reasonable coordinate ranges
+                    // Latitude: -90 to 90, Longitude: -180 to 180
+                    if (lat >= -90 && lat <= 90 && lon >= -180 && lon <= 180) {
+                        logger.info("📍 Parsed coordinates from address: [{}, {}]", lat, lon);
+                        return new Double[]{lat, lon};
+                    }
+                }
+            } catch (NumberFormatException e) {
+                logger.debug("Not valid coordinates: {}", address);
+            }
+        }
+        
+        return null;
+    }
+    
+    /**
      * Geocode an address to coordinates with rate limiting and caching
-     * @param address The address to geocode
+     * Supports both text addresses and coordinate strings ("lat, lon")
+     * @param address The address to geocode or coordinates string
      * @return Array of [latitude, longitude] or null if geocoding fails
      */
     public static Double[] geocodeAddress(String address) {
@@ -37,6 +75,13 @@ public class GeocodingUtil {
         
         // Trim address to remove whitespace/newlines
         address = address.trim();
+        
+        // FIRST: Check if address is already in coordinate format "lat, lon"
+        Double[] parsedCoords = parseCoordinates(address);
+        if (parsedCoords != null) {
+            logger.info("✅ Address is already coordinates: [{}, {}]", parsedCoords[0], parsedCoords[1]);
+            return parsedCoords;
+        }
         
         // Check cache first
         if (GEOCODE_CACHE.containsKey(address)) {
