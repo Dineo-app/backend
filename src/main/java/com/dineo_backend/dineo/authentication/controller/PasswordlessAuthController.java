@@ -100,12 +100,6 @@ public class PasswordlessAuthController {
                 ApiResponse.success("OTP sent successfully", response)
             );
             
-        } catch (IllegalStateException e) {
-            // Rate limit exceeded
-            logger.warn("🚫 Rate limit exceeded: {}", e.getMessage());
-            return ResponseEntity.status(429)
-                .body(ApiResponse.error(429, e.getMessage()));
-                
         } catch (Exception e) {
             logger.error("❌ Error sending registration OTP", e);
             return ResponseEntity.status(500)
@@ -146,7 +140,7 @@ public class PasswordlessAuthController {
                 request.getPhone()
             );
             user.setVerified(true); // Mark as verified since OTP was successful
-            user.setAddress(request.getAddress()); // Set address from registration
+            user.setAddress(null); // Address not needed for customers - orders use GPS coordinates
             
             user = userRepository.save(user);
             
@@ -234,12 +228,6 @@ public class PasswordlessAuthController {
                 ApiResponse.success("OTP sent successfully", response)
             );
             
-        } catch (IllegalStateException e) {
-            // Rate limit exceeded
-            logger.warn("🚫 Rate limit exceeded: {}", e.getMessage());
-            return ResponseEntity.status(429)
-                .body(ApiResponse.error(429, e.getMessage()));
-                
         } catch (Exception e) {
             logger.error("❌ Error sending login OTP", e);
             return ResponseEntity.status(500)
@@ -368,11 +356,6 @@ public class PasswordlessAuthController {
                 ApiResponse.success("OTP resent successfully", response)
             );
             
-        } catch (IllegalStateException e) {
-            logger.warn("🚫 Rate limit exceeded: {}", e.getMessage());
-            return ResponseEntity.status(429)
-                .body(ApiResponse.error(429, e.getMessage()));
-                
         } catch (Exception e) {
             logger.error("❌ Error resending OTP", e);
             return ResponseEntity.status(500)

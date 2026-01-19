@@ -19,20 +19,15 @@ import java.util.Optional;
  * Production-ready OTP Service for passwordless authentication
  * - Generates 6-digit OTP codes
  * - Sends OTP via SMS
- * - Validates OTP with rate limiting (max 5 attempts)
+ * - Validates OTP (max 5 attempts)
  * - OTP valid for 15 minutes
  * - Automatic cleanup of expired OTPs
- * - Rate limiting: max 3 OTP requests per 5 minutes
  */
 @Service
 public class OtpService {
     
     private static final Logger logger = LoggerFactory.getLogger(OtpService.class);
     private static final SecureRandom random = new SecureRandom();
-    
-    // Rate limiting: max 10 OTP requests per 1 minute
-    private static final int MAX_OTP_REQUESTS_PER_WINDOW = 10;
-    private static final int RATE_LIMIT_WINDOW_MINUTES = 1;
     
     @Autowired
     private OtpRepository otpRepository;
@@ -59,7 +54,7 @@ public class OtpService {
      * @param phone user's phone number
      * @param email user's email
      * @return generated OTP entity
-     * @throws Exception if rate limit exceeded or SMS sending fails
+     * @throws Exception if SMS sending fails
      */
     @Transactional
     public Otp generateAndSendLoginOtp(String phone, String email) throws Exception {
@@ -70,18 +65,6 @@ public class OtpService {
      * Generate and send OTP (internal method)
      */
     private Otp generateAndSendOtp(String phone, String email, OtpType type) throws Exception {
-        // Check rate limiting
-        long recentOtpCount = otpRepository.countRecentOtps(
-            phone, email, LocalDateTime.now().minusMinutes(RATE_LIMIT_WINDOW_MINUTES)
-        );
-        
-        if (recentOtpCount >= MAX_OTP_REQUESTS_PER_WINDOW) {
-            logger.warn("🚫 Rate limit exceeded for phone: {}, email: {}", phone, email);
-            throw new IllegalStateException(
-                "Too many OTP requests. Please wait " + RATE_LIMIT_WINDOW_MINUTES + " minutes before trying again."
-            );
-        }
-        
         // Generate 6-digit OTP code
         String code = generateOtpCode();
         
