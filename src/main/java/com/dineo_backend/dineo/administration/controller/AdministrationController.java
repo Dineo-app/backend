@@ -25,7 +25,7 @@ import java.util.UUID;
  * Only accessible by users with Administrator role
  */
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/v1/admin")
 @CrossOrigin(origins = "*")
 public class AdministrationController {
 
