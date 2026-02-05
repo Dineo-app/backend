@@ -218,7 +218,7 @@ public class OvhSmsService {
      */
     private String hashSHA1(String text) throws Exception {
         MessageDigest md = MessageDigest.getInstance("SHA-1");
-        byte[] hash = md.digest(text.getBytes(StandardCharsets.ISO_8859_1));
+        byte[] hash = md.digest(text.getBytes(StandardCharsets.UTF_8));
         return convertToHex(hash);
     }
 
