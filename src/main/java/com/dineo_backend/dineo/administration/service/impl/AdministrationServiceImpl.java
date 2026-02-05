@@ -10,29 +10,24 @@ import com.dineo_backend.dineo.authentication.repository.UserRepository;
 import com.dineo_backend.dineo.authentication.repository.RoleRepository;
 import com.dineo_backend.dineo.chefs.model.ChefDescription;
 import com.dineo_backend.dineo.chefs.repository.ChefDescriptionRepository;
+import com.dineo_backend.dineo.sms.service.OvhSmsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.security.SecureRandom;
 import java.util.Optional;
 
 /**
  * Implementation of AdministrationService
- * Handles chef account creation with email notification
+ * Handles chef account creation with SMS notification
  */
 @Service
 @Transactional
 public class AdministrationServiceImpl implements AdministrationService {
 
     private static final Logger logger = LoggerFactory.getLogger(AdministrationServiceImpl.class);
-    private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-    private static final int PASSWORD_LENGTH = 12;
 
     @Autowired
     private UserRepository userRepository;
@@ -44,24 +39,25 @@ public class AdministrationServiceImpl implements AdministrationService {
     private ChefDescriptionRepository chefDescriptionRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private JavaMailSender mailSender;
+    private OvhSmsService smsService;
 
     @Override
     public CreateChefResponse createChefAccount(CreateChefRequest request, String adminUserId) {
-        logger.info("Creating chef account for email: {} by admin: {}", request.getEmail(), adminUserId);
+        logger.info("Creating chef account for phone: {} by admin: {}", request.getPhone(), adminUserId);
 
         // Check if user with email already exists
-        Optional<User> existingUser = userRepository.findByEmail(request.getEmail());
-        if (existingUser.isPresent()) {
+        Optional<User> existingUserByEmail = userRepository.findByEmail(request.getEmail());
+        if (existingUserByEmail.isPresent()) {
             logger.error("User with email {} already exists", request.getEmail());
             throw new RuntimeException("Un utilisateur avec cet email existe déjà");
         }
 
-        // Note: Passwordless authentication - users will verify via OTP
-        logger.info("Creating chef account for: {}", request.getEmail());
+        // Check if user with phone already exists
+        Optional<User> existingUserByPhone = userRepository.findByPhone(request.getPhone());
+        if (existingUserByPhone.isPresent()) {
+            logger.error("User with phone {} already exists", request.getPhone());
+            throw new RuntimeException("Un utilisateur avec ce numéro de téléphone existe déjà");
+        }
 
         // Create User entity
         User user = new User();
@@ -86,15 +82,13 @@ public class AdministrationServiceImpl implements AdministrationService {
         chefDescription.setUserId(savedUser.getId());
         chefDescription.setDescription(request.getDescription());
         chefDescription.setCategories(request.getCategories());
-        // chefCertifications will be empty list by default - chef can add them later
 
         ChefDescription savedChefDescription = chefDescriptionRepository.save(chefDescription);
         logger.info("Chef description created successfully with ID: {}", savedChefDescription.getId());
 
-        // Send welcome email (passwordless - chef will use OTP)
-        boolean emailSent = sendWelcomeEmail(
-            savedUser.getEmail(), 
-            "N/A", // No password in passwordless auth
+        // Send welcome SMS notification in French
+        boolean smsSent = sendWelcomeSms(
+            savedUser.getPhone(), 
             savedUser.getFirstName(), 
             savedUser.getLastName()
         );
@@ -112,58 +106,51 @@ public class AdministrationServiceImpl implements AdministrationService {
             savedChefDescription.getDescription(),
             savedChefDescription.getCategories(),
             "N/A", // Passwordless authentication
-            emailSent
+            smsSent
         );
 
-        logger.info("Chef account created successfully for: {}", request.getEmail());
+        logger.info("Chef account created successfully for: {} ({})", savedUser.getPhone(), savedUser.getEmail());
         return response;
+    }
+
+    /**
+     * Send welcome SMS to newly created chef
+     * Message in French for better user experience
+     */
+    private boolean sendWelcomeSms(String phone, String firstName, String lastName) {
+        try {
+            logger.info("Sending welcome SMS to chef: {}", phone);
+
+            String message = String.format(
+                "Bonjour %s %s ! 🎉\n\n" +
+                "Félicitations ! Votre compte chef Miamlo a été créé avec succès.\n\n" +
+                "Vous pouvez maintenant vous connecter à l'application avec votre numéro de téléphone et commencer à partager vos délicieuses créations culinaires.\n\n" +
+                "Bienvenue dans la famille Miamlo ! 👨‍🍳\n\n" +
+                "L'équipe Miamlo",
+                firstName, lastName
+            );
+
+            smsService.sendSms(phone, message);
+            logger.info("Welcome SMS sent successfully to: {}", phone);
+            return true;
+
+        } catch (Exception e) {
+            logger.error("Failed to send welcome SMS to: {}. Error: {}", phone, e.getMessage());
+            return false;
+        }
     }
 
     @Override
     public String generateRandomPassword() {
-        SecureRandom random = new SecureRandom();
-        StringBuilder password = new StringBuilder();
-
-        for (int i = 0; i < PASSWORD_LENGTH; i++) {
-            password.append(CHARACTERS.charAt(random.nextInt(CHARACTERS.length())));
-        }
-
-        logger.debug("Random password generated successfully");
-        return password.toString();
+        // This method is deprecated - passwordless authentication is used
+        logger.warn("generateRandomPassword() called but passwordless authentication is active");
+        return "N/A";
     }
 
     @Override
     public boolean sendWelcomeEmail(String email, String password, String firstName, String lastName) {
-        try {
-            logger.info("Sending welcome email to: {}", email);
-
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(email);
-            message.setSubject("Bienvenue chez Dineo - Vos identifiants de connexion");
-            
-            String emailBody = String.format(
-                "Bonjour %s %s,\n\n" +
-                "Bienvenue chez Dineo ! Votre compte chef a été créé avec succès.\n\n" +
-                "Voici vos identifiants de connexion :\n" +
-                "Email : %s\n" +
-                "Mot de passe temporaire : %s\n\n" +
-                "Pour des raisons de sécurité, nous vous recommandons fortement de changer votre mot de passe lors de votre première connexion.\n\n" +
-                "Vous pouvez maintenant vous connecter à l'application Dineo et commencer à gérer vos plats et commandes.\n\n" +
-                "Si vous avez des questions, n'hésitez pas à nous contacter.\n\n" +
-                "Cordialement,\n" +
-                "L'équipe Dineo",
-                firstName, lastName, email, password
-            );
-            
-            message.setText(emailBody);
-            mailSender.send(message);
-
-            logger.info("Welcome email sent successfully to: {}", email);
-            return true;
-
-        } catch (Exception e) {
-            logger.error("Failed to send welcome email to: {}. Error: {}", email, e.getMessage());
-            return false;
-        }
+        // This method is deprecated - SMS notification is used instead
+        logger.warn("sendWelcomeEmail() called but SMS notification is used instead");
+        return false;
     }
 }
