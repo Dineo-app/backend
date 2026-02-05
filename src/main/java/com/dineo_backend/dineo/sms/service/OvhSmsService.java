@@ -115,16 +115,17 @@ public class OvhSmsService {
         // Prepare HTTP request
         HttpURLConnection connection = (HttpURLConnection) queryUrl.openConnection();
         connection.setRequestMethod(method);
-        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
         connection.setRequestProperty("X-Ovh-Application", applicationKey);
         connection.setRequestProperty("X-Ovh-Consumer", consumerKey);
         connection.setRequestProperty("X-Ovh-Signature", signature);
         connection.setRequestProperty("X-Ovh-Timestamp", String.valueOf(timestamp));
         connection.setDoOutput(true);
         
-        // Send request body
+        // Send request body with UTF-8 encoding
+        byte[] bodyBytes = body.getBytes(StandardCharsets.UTF_8);
         try (DataOutputStream wr = new DataOutputStream(connection.getOutputStream())) {
-            wr.writeBytes(body);
+            wr.write(bodyBytes);
             wr.flush();
         }
         
