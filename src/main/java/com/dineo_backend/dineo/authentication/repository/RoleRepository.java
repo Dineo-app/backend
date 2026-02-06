@@ -33,6 +33,11 @@ public interface RoleRepository extends JpaRepository<UserRole, UUID> {
     List<UserRole> findByRole(Role role);
     
     /**
+     * Count users by role
+     */
+    long countByRole(Role role);
+    
+    /**
      * Delete UserRole by userId and role
      */
     void deleteByUserIdAndRole(UUID userId, Role role);
