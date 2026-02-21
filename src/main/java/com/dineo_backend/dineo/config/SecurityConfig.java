@@ -77,6 +77,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/chefs/*/reviews").permitAll() // Public access to get chef reviews
                 .requestMatchers("/api/v1/chefs/locations").permitAll() // Public access to get chef locations for map
                 .requestMatchers("/api/v1/payment/config").permitAll() // Public access to Stripe config
+                .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/v1/candidatures").permitAll() // Public: chef application form
                 .anyRequest().authenticated())
             .authenticationProvider(authenticationProvider())
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

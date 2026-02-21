@@ -352,3 +352,431 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2026-02-07 00:42:30 [http-nio-8080-exec-6] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Fetching chef detail for ID: 2b9ae655-331b-44dd-a316-505318613279
 2026-02-07 00:42:31 [http-nio-8080-exec-6] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Successfully fetched chef detail with 1 plates
 2026-02-07 00:42:31 [http-nio-8080-exec-6] INFO  c.d.d.a.c.AdministrationController - Chef detail retrieved successfully by admin: b51a8609-05d1-4bf0-9127-724ba5826894, chef: 2b9ae655-331b-44dd-a316-505318613279
+2026-02-21 01:08:19 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 27729 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2026-02-21 01:08:19 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-21 01:08:19 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-21 01:08:19 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-21 01:08:19 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-21 01:08:19 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 17 JPA repository interfaces.
+2026-02-21 01:08:19 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-21 01:08:19 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-21 01:08:19 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2026-02-21 01:08:19 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-21 01:08:19 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 460 ms
+2026-02-21 01:08:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-21 01:08:20 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@18258729
+2026-02-21 01:08:20 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-21 01:08:21 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-21 01:08:21 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2026-02-21 01:08:21 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-21 01:08:21 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-21 01:08:21 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-21 01:08:21 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-21 01:08:22 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-21 01:08:23 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:08:23 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-21 01:08:24 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Initialized email batch thread pool with 4 threads
+2026-02-21 01:08:24 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Performance: 4x faster than single-threaded
+2026-02-21 01:08:24 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Estimated time for 1000 emails: 75 seconds
+2026-02-21 01:08:24 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderController': Unsatisfied dependency expressed through field 'orderService': Error creating bean with name 'orderServiceImpl': Injection of autowired dependencies failed
+2026-02-21 01:08:24 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:08:24 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-21 01:08:24 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-21 01:08:24 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-02-21 01:08:24 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-02-21 01:08:24 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderController': Unsatisfied dependency expressed through field 'orderService': Error creating bean with name 'orderServiceImpl': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.dineo_backend.dineo.DineoApplication.main(DineoApplication.java:20)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderServiceImpl': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1745)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'STRIPE_SECRET_KEY' in value "${STRIPE_SECRET_KEY}" <-- "${stripe.secret.key}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81)
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:423)
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:128)
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:118)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:114)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:293)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:264)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:186)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:971)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1650)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	... 36 common frames omitted
+2026-02-21 01:16:12 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 31451 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2026-02-21 01:16:12 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-21 01:16:12 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-21 01:16:12 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-21 01:16:12 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-21 01:16:12 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 18 JPA repository interfaces.
+2026-02-21 01:16:13 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-21 01:16:13 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-21 01:16:13 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2026-02-21 01:16:13 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-21 01:16:13 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 546 ms
+2026-02-21 01:16:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-21 01:16:13 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@30d78ea7
+2026-02-21 01:16:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-21 01:16:15 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-21 01:16:15 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2026-02-21 01:16:15 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-21 01:16:15 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-21 01:16:15 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-21 01:16:15 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-21 01:16:16 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-21 01:16:17 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:16:17 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-21 01:16:18 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Initialized email batch thread pool with 4 threads
+2026-02-21 01:16:18 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Performance: 4x faster than single-threaded
+2026-02-21 01:16:18 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Estimated time for 1000 emails: 75 seconds
+2026-02-21 01:16:18 [restartedMain] INFO  c.d.d.p.s.i.StripePaymentServiceImpl - Stripe API initialized successfully
+2026-02-21 01:16:18 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-21 01:16:19 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-21 01:16:19 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-21 01:16:19 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-02-21 01:16:19 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-02-21 01:16:19 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74caace1]]
+2026-02-21 01:16:19 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-02-21 01:16:19 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-21 01:16:19 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 6.816 seconds (process running for 6.945)
+2026-02-21 01:17:19 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 2, completed tasks = 0]
+2026-02-21 01:24:06 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-21 01:24:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-21 01:24:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-02-21 01:25:40 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-21 01:25:40 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-02-21 01:25:40 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2026-02-21 01:25:40 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74caace1]]
+2026-02-21 01:25:40 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2026-02-21 01:25:40 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:25:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-21 01:25:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-21 01:26:39 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 35489 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2026-02-21 01:26:39 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-21 01:26:39 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-21 01:26:39 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-21 01:26:40 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-21 01:26:40 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 18 JPA repository interfaces.
+2026-02-21 01:26:40 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-21 01:26:40 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-21 01:26:40 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2026-02-21 01:26:40 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-21 01:26:40 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 644 ms
+2026-02-21 01:26:40 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-21 01:26:41 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15d59d34
+2026-02-21 01:26:41 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-21 01:26:42 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-21 01:26:42 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2026-02-21 01:26:42 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-21 01:26:42 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-21 01:26:42 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-21 01:26:42 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-21 01:26:43 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-21 01:26:44 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:26:44 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-21 01:26:45 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Initialized email batch thread pool with 4 threads
+2026-02-21 01:26:45 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Performance: 4x faster than single-threaded
+2026-02-21 01:26:45 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Estimated time for 1000 emails: 75 seconds
+2026-02-21 01:26:45 [restartedMain] INFO  c.d.d.p.s.i.StripePaymentServiceImpl - Stripe API initialized successfully
+2026-02-21 01:26:45 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-21 01:26:45 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-21 01:26:45 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-21 01:26:45 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-02-21 01:26:45 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-02-21 01:26:45 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@23b86d98]]
+2026-02-21 01:26:45 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-02-21 01:26:45 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-21 01:26:45 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 6.356 seconds (process running for 6.507)
+2026-02-21 01:27:45 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 2, completed tasks = 0]
+2026-02-21 01:27:54 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 200 class path changes (0 additions, 0 deletions, 200 modifications)
+2026-02-21 01:27:54 [Thread-5] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-21 01:27:54 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-02-21 01:27:54 [Thread-5] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2026-02-21 01:27:54 [Thread-5] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@23b86d98]]
+2026-02-21 01:27:54 [Thread-5] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2026-02-21 01:27:54 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:27:54 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-21 01:27:54 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-21 01:27:54 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 35489 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2026-02-21 01:27:54 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-21 01:27:54 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-21 01:27:54 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 18 JPA repository interfaces.
+2026-02-21 01:27:54 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-21 01:27:54 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-21 01:27:54 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2026-02-21 01:27:54 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-21 01:27:54 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 132 ms
+2026-02-21 01:27:54 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-02-21 01:27:55 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a58fdd0
+2026-02-21 01:27:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-02-21 01:27:56 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-21 01:27:56 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-21 01:27:56 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-21 01:27:56 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-21 01:27:56 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 9.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-21 01:27:56 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-21 01:27:58 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:27:58 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Initialized email batch thread pool with 4 threads
+2026-02-21 01:27:58 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Performance: 4x faster than single-threaded
+2026-02-21 01:27:58 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Estimated time for 1000 emails: 75 seconds
+2026-02-21 01:27:58 [restartedMain] INFO  c.d.d.p.s.i.StripePaymentServiceImpl - Stripe API initialized successfully
+2026-02-21 01:27:58 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-21 01:27:58 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-21 01:27:58 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-21 01:27:58 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-02-21 01:27:58 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-02-21 01:27:58 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4d2f7203]]
+2026-02-21 01:27:58 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-02-21 01:27:58 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-21 01:27:58 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 4.031 seconds (process running for 79.087)
+2026-02-21 01:27:58 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-02-21 01:28:58 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 2, completed tasks = 0]
+2026-02-21 01:32:28 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-21 01:32:28 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-02-21 01:32:28 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2026-02-21 01:32:28 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4d2f7203]]
+2026-02-21 01:32:28 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2026-02-21 01:32:28 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:32:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-02-21 01:32:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-02-21 01:32:36 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 37873 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2026-02-21 01:32:36 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-21 01:32:36 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-21 01:32:36 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-21 01:32:36 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-21 01:32:36 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 18 JPA repository interfaces.
+2026-02-21 01:32:37 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-21 01:32:37 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-21 01:32:37 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2026-02-21 01:32:37 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-21 01:32:37 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 469 ms
+2026-02-21 01:32:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-21 01:32:37 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4573e63e
+2026-02-21 01:32:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-21 01:32:39 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-21 01:32:39 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2026-02-21 01:32:39 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-21 01:32:39 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-21 01:32:39 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-21 01:32:39 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-21 01:32:40 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-21 01:32:41 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:32:41 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-21 01:32:42 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Initialized email batch thread pool with 4 threads
+2026-02-21 01:32:42 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Performance: 4x faster than single-threaded
+2026-02-21 01:32:42 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Estimated time for 1000 emails: 75 seconds
+2026-02-21 01:32:42 [restartedMain] INFO  c.d.d.p.s.i.StripePaymentServiceImpl - Stripe API initialized successfully
+2026-02-21 01:32:42 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-21 01:32:42 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-21 01:32:42 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-21 01:32:42 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-02-21 01:32:42 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-02-21 01:32:42 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@11ef0e7c]]
+2026-02-21 01:32:42 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-02-21 01:32:42 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-21 01:32:42 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 6.219 seconds (process running for 6.334)
+2026-02-21 01:33:42 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 2, completed tasks = 0]
+2026-02-21 01:33:52 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-21 01:33:52 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-21 01:33:52 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-02-21 01:33:52 [http-nio-8080-exec-1] INFO  c.d.d.c.c.CandidatureController - Received public candidature submission
+2026-02-21 01:33:52 [http-nio-8080-exec-1] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Creating new candidature for: tedt test tedt
+2026-02-21 01:33:52 [http-nio-8080-exec-1] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Starting PDF upload to Bunny CDN. File: Atouani_Nael_resume.pdf, Size: 493677 bytes
+2026-02-21 01:33:52 [http-nio-8080-exec-1] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Upload URL: https://storage.bunnycdn.com/dineo/candidatures/e69b2240-efc6-493c-baa9-262868d1c86e_Atouani_Nael_resume.pdf
+2026-02-21 01:33:52 [http-nio-8080-exec-1] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - CDN URL: https://dineo.b-cdn.net/candidatures/e69b2240-efc6-493c-baa9-262868d1c86e_Atouani_Nael_resume.pdf
+2026-02-21 01:33:54 [http-nio-8080-exec-1] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - Upload response: 201 - Created
+2026-02-21 01:33:54 [http-nio-8080-exec-1] INFO  c.d.d.p.s.impl.BunnyCdnServiceImpl - PDF uploaded successfully to: https://dineo.b-cdn.net/candidatures/e69b2240-efc6-493c-baa9-262868d1c86e_Atouani_Nael_resume.pdf
+2026-02-21 01:33:54 [http-nio-8080-exec-1] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Resume uploaded successfully: https://dineo.b-cdn.net/candidatures/e69b2240-efc6-493c-baa9-262868d1c86e_Atouani_Nael_resume.pdf
+2026-02-21 01:33:54 [http-nio-8080-exec-1] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Candidature created successfully with ID: 9a5b4ebf-a812-457f-a7ab-07252af6169d
+2026-02-21 01:33:54 [http-nio-8080-exec-1] INFO  c.d.d.c.c.CandidatureController - Candidature created successfully: 9a5b4ebf-a812-457f-a7ab-07252af6169d
+2026-02-21 01:34:05 [http-nio-8080-exec-3] INFO  c.d.d.a.c.PasswordlessAuthController - 🔑 Login request for phone: +21653700027
+2026-02-21 01:34:06 [http-nio-8080-exec-3] INFO  c.d.d.a.service.OtpService - ✅ OTP generated for phone: +21653700027, type: LOGIN, expires at: 2026-02-21T01:49:06.144155
+2026-02-21 01:34:06 [http-nio-8080-exec-3] INFO  c.d.dineo.sms.service.OvhSmsService - 📱 Attempting to send SMS to 1 recipient(s) from sender: MIAMLOCOM
+2026-02-21 01:34:07 [http-nio-8080-exec-3] INFO  c.d.dineo.sms.service.OvhSmsService - 📥 OVH API response code: 200
+2026-02-21 01:34:07 [http-nio-8080-exec-3] INFO  c.d.dineo.sms.service.OvhSmsService - ✅ SMS sent successfully: {"validReceivers":["+21653700027"],"tag":"1747jhw4jg8apjjm","invalidReceivers":[],"totalCreditsRemoved":4.8,"ids":[752164844]}
+2026-02-21 01:34:07 [http-nio-8080-exec-3] INFO  c.d.d.a.service.OtpService - 📱 OTP SMS sent successfully to: +21653700027
+2026-02-21 01:34:07 [http-nio-8080-exec-3] INFO  c.d.d.a.c.PasswordlessAuthController - ✅ Login OTP sent successfully to: +21653700027
+2026-02-21 01:34:18 [http-nio-8080-exec-5] INFO  c.d.d.a.c.PasswordlessAuthController - 🔐 Verifying login OTP for phone: +21653700027
+2026-02-21 01:34:18 [http-nio-8080-exec-5] INFO  c.d.d.a.service.OtpService - ✅ OTP verified successfully for phone: +21653700027, type: LOGIN
+2026-02-21 01:34:19 [http-nio-8080-exec-5] INFO  c.d.d.a.c.PasswordlessAuthController - ✅ User role found: ADMIN for user: admin@admin.com
+2026-02-21 01:34:19 [http-nio-8080-exec-5] INFO  c.d.d.a.c.PasswordlessAuthController - ✅ Login successful for user: admin@admin.com
+2026-02-21 01:34:19 [http-nio-8080-exec-9] INFO  c.d.d.a.c.AdministrationController - Received request to get admin stats
+2026-02-21 01:34:19 [http-nio-8080-exec-8] INFO  c.d.d.a.c.AdministrationController - Received request to get admin stats
+2026-02-21 01:34:19 [http-nio-8080-exec-8] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Fetching admin statistics
+2026-02-21 01:34:19 [http-nio-8080-exec-9] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Fetching admin statistics
+2026-02-21 01:34:19 [http-nio-8080-exec-9] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Admin statistics retrieved successfully
+2026-02-21 01:34:19 [http-nio-8080-exec-8] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Admin statistics retrieved successfully
+2026-02-21 01:34:19 [http-nio-8080-exec-9] INFO  c.d.d.a.c.AdministrationController - Admin stats retrieved successfully by admin: b51a8609-05d1-4bf0-9127-724ba5826894
+2026-02-21 01:34:19 [http-nio-8080-exec-8] INFO  c.d.d.a.c.AdministrationController - Admin stats retrieved successfully by admin: b51a8609-05d1-4bf0-9127-724ba5826894
+2026-02-21 01:34:35 [http-nio-8080-exec-3] INFO  c.d.d.a.c.AdministrationController - Received request to get all chefs
+2026-02-21 01:34:35 [http-nio-8080-exec-2] INFO  c.d.d.a.c.AdministrationController - Received request to get all chefs
+2026-02-21 01:34:35 [http-nio-8080-exec-2] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Fetching all chefs for admin view
+2026-02-21 01:34:35 [http-nio-8080-exec-3] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Fetching all chefs for admin view
+2026-02-21 01:34:35 [http-nio-8080-exec-2] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Successfully fetched 3 chefs
+2026-02-21 01:34:35 [http-nio-8080-exec-3] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Successfully fetched 3 chefs
+2026-02-21 01:34:36 [http-nio-8080-exec-2] INFO  c.d.d.a.c.AdministrationController - All chefs retrieved successfully by admin: b51a8609-05d1-4bf0-9127-724ba5826894, count: 3
+2026-02-21 01:34:36 [http-nio-8080-exec-3] INFO  c.d.d.a.c.AdministrationController - All chefs retrieved successfully by admin: b51a8609-05d1-4bf0-9127-724ba5826894, count: 3
+2026-02-21 01:34:37 [http-nio-8080-exec-6] INFO  c.d.d.a.c.AdministrationController - Received request to get admin stats
+2026-02-21 01:34:37 [http-nio-8080-exec-7] INFO  c.d.d.a.c.AdministrationController - Received request to get admin stats
+2026-02-21 01:34:37 [http-nio-8080-exec-6] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Fetching admin statistics
+2026-02-21 01:34:37 [http-nio-8080-exec-7] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Fetching admin statistics
+2026-02-21 01:34:38 [http-nio-8080-exec-6] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Admin statistics retrieved successfully
+2026-02-21 01:34:38 [http-nio-8080-exec-7] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Admin statistics retrieved successfully
+2026-02-21 01:34:38 [http-nio-8080-exec-6] INFO  c.d.d.a.c.AdministrationController - Admin stats retrieved successfully by admin: b51a8609-05d1-4bf0-9127-724ba5826894
+2026-02-21 01:34:38 [http-nio-8080-exec-7] INFO  c.d.d.a.c.AdministrationController - Admin stats retrieved successfully by admin: b51a8609-05d1-4bf0-9127-724ba5826894
+2026-02-21 01:35:32 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-21 01:35:32 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-02-21 01:35:32 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2026-02-21 01:35:32 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@11ef0e7c]]
+2026-02-21 01:35:32 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2026-02-21 01:35:32 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:35:32 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-21 01:35:32 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-21 01:35:58 [restartedMain] INFO  c.d.dineo.DineoApplication - Starting DineoApplication using Java 24.0.2 with PID 42009 (/Users/atouaninael/Desktop/personal/dineo project/backend/target/classes started by atouaninael in /Users/atouaninael/Desktop/personal/dineo project/backend)
+2026-02-21 01:35:58 [restartedMain] INFO  c.d.dineo.DineoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-21 01:35:58 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-21 01:35:58 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-21 01:35:59 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-21 01:35:59 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 18 JPA repository interfaces.
+2026-02-21 01:35:59 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-21 01:35:59 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-21 01:35:59 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2026-02-21 01:35:59 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-21 01:35:59 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 470 ms
+2026-02-21 01:35:59 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-21 01:36:00 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4d367eef
+2026-02-21 01:36:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-21 01:36:01 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-21 01:36:01 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2026-02-21 01:36:01 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-21 01:36:01 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-21 01:36:01 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-21 01:36:01 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-21 01:36:02 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-21 01:36:03 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21 01:36:03 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-21 01:36:04 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Initialized email batch thread pool with 4 threads
+2026-02-21 01:36:04 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Performance: 4x faster than single-threaded
+2026-02-21 01:36:04 [restartedMain] INFO  c.d.d.n.b.PromotionEmailBatchConfig - Estimated time for 1000 emails: 75 seconds
+2026-02-21 01:36:04 [restartedMain] INFO  c.d.d.p.s.i.StripePaymentServiceImpl - Stripe API initialized successfully
+2026-02-21 01:36:04 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-21 01:36:04 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-21 01:36:04 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-21 01:36:04 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-02-21 01:36:04 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-02-21 01:36:04 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@30fec24e]]
+2026-02-21 01:36:04 [restartedMain] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-02-21 01:36:04 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-21 01:36:04 [restartedMain] INFO  c.d.dineo.DineoApplication - Started DineoApplication in 6.193 seconds (process running for 6.31)
+2026-02-21 01:36:09 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-21 01:36:09 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-21 01:36:09 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-02-21 01:36:09 [http-nio-8080-exec-4] INFO  c.d.d.a.c.AdministrationController - Received request to get admin stats
+2026-02-21 01:36:09 [http-nio-8080-exec-3] INFO  c.d.d.a.c.AdministrationController - Received request to get admin stats
+2026-02-21 01:36:09 [http-nio-8080-exec-3] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Fetching admin statistics
+2026-02-21 01:36:09 [http-nio-8080-exec-4] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Fetching admin statistics
+2026-02-21 01:36:09 [http-nio-8080-exec-3] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Admin statistics retrieved successfully
+2026-02-21 01:36:09 [http-nio-8080-exec-4] INFO  c.d.d.a.s.i.AdministrationServiceImpl - Admin statistics retrieved successfully
+2026-02-21 01:36:09 [http-nio-8080-exec-3] INFO  c.d.d.a.c.AdministrationController - Admin stats retrieved successfully by admin: b51a8609-05d1-4bf0-9127-724ba5826894
+2026-02-21 01:36:09 [http-nio-8080-exec-4] INFO  c.d.d.a.c.AdministrationController - Admin stats retrieved successfully by admin: b51a8609-05d1-4bf0-9127-724ba5826894
+2026-02-21 01:36:49 [http-nio-8080-exec-7] INFO  c.d.d.c.c.CandidatureController - Received request to get all candidatures
+2026-02-21 01:36:49 [http-nio-8080-exec-8] INFO  c.d.d.c.c.CandidatureController - Received request to get all candidatures
+2026-02-21 01:36:49 [http-nio-8080-exec-7] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Fetching candidatures with filters - isViewed: null, startDate: null, endDate: null, country: null
+2026-02-21 01:36:49 [http-nio-8080-exec-8] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Fetching candidatures with filters - isViewed: null, startDate: null, endDate: null, country: null
+2026-02-21 01:36:50 [http-nio-8080-exec-7] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Found 1 candidatures
+2026-02-21 01:36:50 [http-nio-8080-exec-8] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Found 1 candidatures
+2026-02-21 01:36:50 [http-nio-8080-exec-8] INFO  c.d.d.c.c.CandidatureController - Retrieved 1 candidatures for admin: b51a8609-05d1-4bf0-9127-724ba5826894
+2026-02-21 01:36:50 [http-nio-8080-exec-7] INFO  c.d.d.c.c.CandidatureController - Retrieved 1 candidatures for admin: b51a8609-05d1-4bf0-9127-724ba5826894
+2026-02-21 01:37:04 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 2, completed tasks = 0]
+2026-02-21 01:37:06 [http-nio-8080-exec-1] INFO  c.d.d.c.c.CandidatureController - Received request to get candidature: 9a5b4ebf-a812-457f-a7ab-07252af6169d
+2026-02-21 01:37:06 [http-nio-8080-exec-2] INFO  c.d.d.c.c.CandidatureController - Received request to get candidature: 9a5b4ebf-a812-457f-a7ab-07252af6169d
+2026-02-21 01:37:07 [http-nio-8080-exec-2] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Fetching candidature with ID: 9a5b4ebf-a812-457f-a7ab-07252af6169d
+2026-02-21 01:37:07 [http-nio-8080-exec-1] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Fetching candidature with ID: 9a5b4ebf-a812-457f-a7ab-07252af6169d
+2026-02-21 01:37:07 [http-nio-8080-exec-2] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Candidature 9a5b4ebf-a812-457f-a7ab-07252af6169d marked as viewed
+2026-02-21 01:37:07 [http-nio-8080-exec-1] INFO  c.d.d.c.s.i.CandidatureServiceImpl - Candidature 9a5b4ebf-a812-457f-a7ab-07252af6169d marked as viewed
+2026-02-21 01:37:07 [http-nio-8080-exec-2] INFO  c.d.d.c.c.CandidatureController - Retrieved candidature 9a5b4ebf-a812-457f-a7ab-07252af6169d for admin: b51a8609-05d1-4bf0-9127-724ba5826894
+2026-02-21 01:37:07 [http-nio-8080-exec-1] INFO  c.d.d.c.c.CandidatureController - Retrieved candidature 9a5b4ebf-a812-457f-a7ab-07252af6169d for admin: b51a8609-05d1-4bf0-9127-724ba5826894

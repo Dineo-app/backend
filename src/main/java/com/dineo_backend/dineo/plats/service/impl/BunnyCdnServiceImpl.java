@@ -137,6 +137,73 @@ public class BunnyCdnServiceImpl implements BunnyCdnService {
         return "jpg"; // Default fallback
     }
 
+    @Override
+    public String uploadPdf(MultipartFile file, String folder) {
+        try {
+            logger.info("Starting PDF upload to Bunny CDN. File: {}, Size: {} bytes", 
+                       file.getOriginalFilename(), file.getSize());
+
+            // Validate file
+            if (file.isEmpty()) {
+                throw new RuntimeException("Le fichier est vide");
+            }
+
+            // Validate file type
+            if (!isPdfFile(file)) {
+                throw new RuntimeException("Le fichier doit être un PDF");
+            }
+
+            // Generate unique filename
+            String uniqueFilename = generateUniqueFilename(file.getOriginalFilename());
+            String finalFilename = uniqueFilename + ".pdf";
+
+            // Construct URLs
+            String uploadUrl = bunnyApiUrl + "/" + folder + "/" + finalFilename;
+            String cdnUrl = bunnyCdnUrl + "/" + folder + "/" + finalFilename;
+
+            logger.info("Upload URL: {}", uploadUrl);
+            logger.info("CDN URL: {}", cdnUrl);
+
+            // Create connection
+            URL url = new URL(uploadUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            
+            // Set request properties
+            connection.setRequestMethod("PUT");
+            connection.setRequestProperty("AccessKey", bunnyApiKey);
+            connection.setRequestProperty("Content-Type", "application/pdf");
+            connection.setRequestProperty("Content-Disposition", "filename=" + finalFilename);
+            connection.setDoOutput(true);
+
+            // Upload file
+            try (BufferedOutputStream outputStream = new BufferedOutputStream(connection.getOutputStream())) {
+                outputStream.write(file.getBytes());
+                outputStream.flush();
+            }
+
+            // Check response
+            int responseCode = connection.getResponseCode();
+            String responseMessage = connection.getResponseMessage();
+
+            logger.info("Upload response: {} - {}", responseCode, responseMessage);
+
+            if (responseCode >= 200 && responseCode < 300) {
+                logger.info("PDF uploaded successfully to: {}", cdnUrl);
+                return cdnUrl;
+            } else {
+                logger.error("Upload failed with response code: {} - {}", responseCode, responseMessage);
+                throw new RuntimeException("Échec du téléchargement du PDF: " + responseMessage);
+            }
+
+        } catch (IOException e) {
+            logger.error("IO error during file upload: {}", e.getMessage());
+            throw new RuntimeException("Erreur lors du téléchargement: " + e.getMessage());
+        } catch (Exception e) {
+            logger.error("Unexpected error during file upload: {}", e.getMessage());
+            throw new RuntimeException("Erreur inattendue lors du téléchargement: " + e.getMessage());
+        }
+    }
+
     /**
      * Check if uploaded file is a valid image
      * 
@@ -155,5 +222,20 @@ public class BunnyCdnServiceImpl implements BunnyCdnService {
                 contentType.equals("image/png") ||
                 contentType.equals("image/gif") ||
                 contentType.equals("image/webp"));
+    }
+    
+    /**
+     * Check if uploaded file is a valid PDF
+     * 
+     * @param file the multipart file to check
+     * @return true if file is a PDF, false otherwise
+     */
+    private boolean isPdfFile(MultipartFile file) {
+        String contentType = file.getContentType();
+        if (contentType == null) {
+            return false;
+        }
+        
+        return contentType.equals("application/pdf");
     }
 }
