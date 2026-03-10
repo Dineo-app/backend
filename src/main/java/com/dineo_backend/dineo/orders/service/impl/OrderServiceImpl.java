@@ -14,6 +14,8 @@ import com.dineo_backend.dineo.plats.repository.PlatRepository;
 import com.dineo_backend.dineo.plats.repository.IngredientRepository;
 import com.dineo_backend.dineo.plats.model.Plat;
 import com.dineo_backend.dineo.plats.model.Ingredient;
+import com.dineo_backend.dineo.plats.model.PromotionPlat;
+import com.dineo_backend.dineo.plats.repository.PromotionPlatRepository;
 import com.dineo_backend.dineo.authentication.model.User;
 import com.dineo_backend.dineo.authentication.repository.UserRepository;
 import com.stripe.Stripe;
@@ -29,6 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
 import jakarta.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -59,6 +62,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private IngredientRepository ingredientRepository;
+
+    @Autowired
+    private PromotionPlatRepository promotionPlatRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -99,8 +105,19 @@ public class OrderServiceImpl implements OrderService {
                     return new RuntimeException("Plat non trouvé avec l'ID: " + request.getPlatId());
                 });
 
-        // Calculate total price (base price + paid ingredients)
-        Double totalPrice = plat.getPrice() * request.getQuantity();
+        // Check for active promotion (same logic as CartServiceImpl)
+        double actualPrice = plat.getPrice();
+        Optional<PromotionPlat> promotionOpt = promotionPlatRepository.findActivePromotionByPlatId(
+                plat.getId(), LocalDateTime.now());
+        if (promotionOpt.isPresent()) {
+            PromotionPlat promotion = promotionOpt.get();
+            double discountPercentage = promotion.getReductionValue().doubleValue();
+            actualPrice = plat.getPrice() * (1 - discountPercentage / 100.0);
+            logger.info("Applied promotion {}% for plat {}: {} -> {}", discountPercentage, plat.getId(), plat.getPrice(), actualPrice);
+        }
+
+        // Calculate total price (promotional price + paid ingredients)
+        Double totalPrice = actualPrice * request.getQuantity();
         
         // Add paid ingredients price
         if (request.getSelectedIngredientIds() != null && !request.getSelectedIngredientIds().isEmpty()) {
